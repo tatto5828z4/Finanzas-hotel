@@ -9,6 +9,7 @@ import Finanzas_Clases.Experiencia_Laboral;
 import Finanzas_Clases.Experiencia_Laboral_Detallada;
 import Finanzas_Clases.Nivel_Academico;
 import Finanzas_Clases.Puesto;
+import Finanzas_Clases.Referencias_Laborales;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -1936,6 +1937,11 @@ public class RRHH extends javax.swing.JFrame {
         jPanel_ReferenciasL.add(jScrollPane28, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 600, 190));
 
         jLabel_BuscarRL.setText("Buscar");
+        jLabel_BuscarRL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_BuscarRLMouseClicked(evt);
+            }
+        });
         jPanel_ReferenciasL.add(jLabel_BuscarRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 50, 20));
 
         txt_BuscarRL.setBackground(new java.awt.Color(231, 231, 231));
@@ -2749,6 +2755,7 @@ public class RRHH extends javax.swing.JFrame {
 
     private void Panel_SEIMECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_SEIMECMouseExited
         // TODO add your handling code here:
+        Panel_SEIMEC.setVisible(false);
     }//GEN-LAST:event_Panel_SEIMECMouseExited
 
     private void Panel_SEIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_SEIMECMouseReleased
@@ -2903,14 +2910,21 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jLabel_IngresarRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarRLMouseClicked
         // TODO add your handling code here:
+        Referencias_Laborales referencias_Lab = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_Lab.Insertar_ReferenciasL();
+        
     }//GEN-LAST:event_jLabel_IngresarRLMouseClicked
 
     private void jLabel_ModificarRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarRLMouseClicked
         // TODO add your handling code here:
+        Referencias_Laborales referencias_Lab = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_Lab.Modificar_RefLab();
     }//GEN-LAST:event_jLabel_ModificarRLMouseClicked
 
     private void jLabel_EliminarRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarRLMouseClicked
         // TODO add your handling code here:
+        Referencias_Laborales referencias_Lab = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_Lab.Eliminar_ReferenciasL();
     }//GEN-LAST:event_jLabel_EliminarRLMouseClicked
 
     private void txt_BuscarRLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscarRLActionPerformed
@@ -2919,6 +2933,8 @@ public class RRHH extends javax.swing.JFrame {
 
     private void txt_BuscarRLKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarRLKeyReleased
         // TODO add your handling code here:
+        Referencias_Laborales referencias_lab = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_lab.Buscar_ReferenciasLF(txt_BuscarRL.getText());
     }//GEN-LAST:event_txt_BuscarRLKeyReleased
 
     private void jLabel_RLMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_RLMouseMoved
@@ -2983,6 +2999,9 @@ public class RRHH extends javax.swing.JFrame {
         
         jPanel_ReferenciasL.setVisible(true);
         
+        Referencias_Laborales referencias_laborales = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_laborales.Actualizar_Tabla();
+        
     }//GEN-LAST:event_jLabel_Mantenimiento_RLMouseClicked
 
     private void jLabel_Mantenimiento_RLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Mantenimiento_RLMouseExited
@@ -3010,6 +3029,11 @@ public class RRHH extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_SEIMECMouseClicked
 
+    private void jLabel_BuscarRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_BuscarRLMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel_BuscarRLMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -3035,6 +3059,22 @@ public class RRHH extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(RRHH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
