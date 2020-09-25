@@ -9,6 +9,7 @@ import Finanzas_Clases.Experiencia_Laboral;
 import Finanzas_Clases.Experiencia_Laboral_Detallada;
 import Finanzas_Clases.Nivel_Academico;
 import Finanzas_Clases.Puesto;
+import Finanzas_Clases.Referencias_Laborales;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,6 +34,9 @@ public class RRHH extends javax.swing.JFrame {
         jPanel_MantenimientoNA.setVisible(false);
         jPanel_MantenimientoExpLD.setVisible(false);
         jPanel_MantenimientoExpL.setVisible(false);
+        jPanel_MantenimientoSE.setVisible(false);
+        jPanel_Mantenimiento_Medio.setVisible(false);
+        jPanel_ReferenciasL.setVisible(false);
         
         //Labels de Puesto (Ingresar - Modificar - Eliminar - Consultar)
         Panel_PIMEC.setVisible(false);
@@ -45,6 +49,15 @@ public class RRHH extends javax.swing.JFrame {
         
         //Labels de Experiencia Laboral (Ingresar - Modificar - Eliminar - Consultar)
         Panel_ExpLIMEC.setVisible(false);
+        
+        //Labels de Solicitud Empresarial (Ingresar - Modificar - Eliminar - Consultar)
+        Panel_SEIMEC.setVisible(false);
+        
+        //Labels de Medio (Ingresar - Modificar - Eliminar - Consultar)
+        Panel_MIMEC.setVisible(false);
+        
+        //Labels de Referencia Laboral (Ingresar - Modificar - Eliminar - Consultar)
+        Panel_RLIMEC.setVisible(false);
     }
 
     /**
@@ -89,21 +102,23 @@ public class RRHH extends javax.swing.JFrame {
         jLabel_EliminarExpL = new javax.swing.JLabel();
         jLabel_ConsultarExpL = new javax.swing.JLabel();
         jLabel_MantenimientoExpL = new javax.swing.JLabel();
-        jPanel_MatenimientosD = new javax.swing.JPanel();
-        jLabel_ID_Departamento = new javax.swing.JLabel();
-        txt_id_Departamento = new javax.swing.JTextField();
-        jLabel_NombreD = new javax.swing.JLabel();
-        txt_Nombre_Departamento = new javax.swing.JTextField();
-        jLabel_Estatus_Departamento = new javax.swing.JLabel();
-        txt_Estatus_Departamento = new javax.swing.JTextField();
-        jLabel_Ingresar = new javax.swing.JLabel();
-        jScrollPane21 = new javax.swing.JScrollPane();
-        tbl_Departamento = new javax.swing.JTable();
-        jLabel_Status = new javax.swing.JLabel();
-        jLabel_Buscar = new javax.swing.JLabel();
-        txt_Buscar = new javax.swing.JTextField();
-        jLabel_Modificar = new javax.swing.JLabel();
-        jLabel_Eliminar = new javax.swing.JLabel();
+        Panel_SEIMEC = new javax.swing.JPanel();
+        jLabel_ModificarSE = new javax.swing.JLabel();
+        jLabel_EliminarSE = new javax.swing.JLabel();
+        jLabel_ConsultarSE = new javax.swing.JLabel();
+        jLabel_MantenimientoSE = new javax.swing.JLabel();
+        jLabel_Medio = new javax.swing.JLabel();
+        Panel_MIMEC = new javax.swing.JPanel();
+        jLabel_Modificar_M = new javax.swing.JLabel();
+        jLabel_Eliminar_M = new javax.swing.JLabel();
+        jLabel_ConsultarM = new javax.swing.JLabel();
+        jLabel_MantenimientoM = new javax.swing.JLabel();
+        jLabel_RL = new javax.swing.JLabel();
+        Panel_RLIMEC = new javax.swing.JPanel();
+        jLabel_Modificar_RL = new javax.swing.JLabel();
+        jLabel_Eliminar_RL = new javax.swing.JLabel();
+        jLabel_Consultar_RL = new javax.swing.JLabel();
+        jLabel_Mantenimiento_RL = new javax.swing.JLabel();
         jPanel_MantenimientosP = new javax.swing.JPanel();
         jLabel_ID_Puesto = new javax.swing.JLabel();
         txt_id_Puesto = new javax.swing.JTextField();
@@ -120,6 +135,37 @@ public class RRHH extends javax.swing.JFrame {
         jLabel_Insertar_Puesto = new javax.swing.JLabel();
         jLabel_Modificar_Puesto = new javax.swing.JLabel();
         jLabel_Eliminar_Puesto = new javax.swing.JLabel();
+        jPanel_MantenimientoSE = new javax.swing.JPanel();
+        jLabel_DescripcionSE = new javax.swing.JLabel();
+        txt_id_SolicitudE = new javax.swing.JTextField();
+        jLabel_RangoEdadM = new javax.swing.JLabel();
+        txt_RangoEdadM = new javax.swing.JTextField();
+        jLabel_RangoEdadMa = new javax.swing.JLabel();
+        txt_RangoEdadMa = new javax.swing.JTextField();
+        jLabel_RangoEdadMa1 = new javax.swing.JLabel();
+        txt_Genero = new javax.swing.JTextField();
+        jLabel_PuestoSE = new javax.swing.JLabel();
+        jLabel_Puesto_SE = new javax.swing.JLabel();
+        jComboBox_PuestoSE = new javax.swing.JComboBox<>();
+        jLabel_DepartamentoSE = new javax.swing.JLabel();
+        jLabel_Departamento_SE = new javax.swing.JLabel();
+        jComboBox_DepartamentoSE = new javax.swing.JComboBox<>();
+        jLabel_NivelASE = new javax.swing.JLabel();
+        jLabel_NivelA_SE = new javax.swing.JLabel();
+        jComboBox_NivelASE = new javax.swing.JComboBox<>();
+        jLabel_ExperieciaLSE = new javax.swing.JLabel();
+        jLabel_ExperienciaL_SE = new javax.swing.JLabel();
+        jComboBox_ExperienciaL_SE = new javax.swing.JComboBox<>();
+        jLabel_ID_SolicitudE1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea_DescripcionSE = new javax.swing.JTextArea();
+        jScrollPane26 = new javax.swing.JScrollPane();
+        tbl_SE = new javax.swing.JTable();
+        txt_Buscar_SE = new javax.swing.JTextField();
+        jLabel_Buscar_SE = new javax.swing.JLabel();
+        jLabel_IngresarSE = new javax.swing.JLabel();
+        jLabel_Modificar_SE = new javax.swing.JLabel();
+        jLabel_Eliminar_SE = new javax.swing.JLabel();
         jPanel_MantenimientoNA = new javax.swing.JPanel();
         jScrollPane23 = new javax.swing.JScrollPane();
         tbl_NivelA = new javax.swing.JTable();
@@ -165,6 +211,52 @@ public class RRHH extends javax.swing.JFrame {
         jScrollPane25 = new javax.swing.JScrollPane();
         tbl_ExpL = new javax.swing.JTable();
         jComboBox_Nombre_EpLLD = new javax.swing.JComboBox<>();
+        jPanel_MatenimientosD = new javax.swing.JPanel();
+        jLabel_ID_Departamento = new javax.swing.JLabel();
+        txt_id_Departamento = new javax.swing.JTextField();
+        jLabel_NombreD = new javax.swing.JLabel();
+        txt_Nombre_Departamento = new javax.swing.JTextField();
+        jLabel_Estatus_Departamento = new javax.swing.JLabel();
+        txt_Estatus_Departamento = new javax.swing.JTextField();
+        jLabel_Ingresar = new javax.swing.JLabel();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        tbl_Departamento = new javax.swing.JTable();
+        jLabel_Buscar = new javax.swing.JLabel();
+        txt_Buscar = new javax.swing.JTextField();
+        jLabel_Modificar = new javax.swing.JLabel();
+        jLabel_Eliminar = new javax.swing.JLabel();
+        jPanel_Mantenimiento_Medio = new javax.swing.JPanel();
+        txt_id_Medio = new javax.swing.JTextField();
+        jLabel_ID_Medio = new javax.swing.JLabel();
+        jLabel_NombreSEM = new javax.swing.JLabel();
+        jLabel_ID_SEM = new javax.swing.JLabel();
+        jComboBox_IDSEM = new javax.swing.JComboBox<>();
+        txt_NombreM = new javax.swing.JTextField();
+        jLabel_NombreM = new javax.swing.JLabel();
+        jLabel_DescripcionM = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea_DescripcionM = new javax.swing.JTextArea();
+        jScrollPane27 = new javax.swing.JScrollPane();
+        tbl_Medio = new javax.swing.JTable();
+        jLabel_BuscarM = new javax.swing.JLabel();
+        txt_BuscarM = new javax.swing.JTextField();
+        jLabel_IngresarM = new javax.swing.JLabel();
+        jLabel_ModificarM = new javax.swing.JLabel();
+        jLabel_EliminarM = new javax.swing.JLabel();
+        jPanel_ReferenciasL = new javax.swing.JPanel();
+        txt_id_ReferenciaL = new javax.swing.JTextField();
+        jLabel_ID_ReferenciaL = new javax.swing.JLabel();
+        txt_NombreRL = new javax.swing.JTextField();
+        jLabel_NombreRL = new javax.swing.JLabel();
+        txt_TelefonoRL = new javax.swing.JTextField();
+        jLabel_TelefonoRL = new javax.swing.JLabel();
+        jLabel_IngresarRL = new javax.swing.JLabel();
+        jLabel_ModificarRL = new javax.swing.JLabel();
+        jLabel_EliminarRL = new javax.swing.JLabel();
+        jScrollPane28 = new javax.swing.JScrollPane();
+        tbl_RL = new javax.swing.JTable();
+        jLabel_BuscarRL = new javax.swing.JLabel();
+        txt_BuscarRL = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -177,7 +269,12 @@ public class RRHH extends javax.swing.JFrame {
         jPanel_RRHH.add(jLabel_RRHH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel_SolicitudE.setText("Solicitud Empresarial");
-        jPanel_RRHH.add(jLabel_SolicitudE, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, 20));
+        jLabel_SolicitudE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_SolicitudEMouseMoved(evt);
+            }
+        });
+        jPanel_RRHH.add(jLabel_SolicitudE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, 20));
 
         jLabel_Departamento.setText("Departamento");
         jLabel_Departamento.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -663,115 +760,271 @@ public class RRHH extends javax.swing.JFrame {
                 jLabel_MantenimientoExpLMouseExited(evt);
             }
         });
-        Panel_ExpLIMEC.add(jLabel_MantenimientoExpL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 270, -1));
+        Panel_ExpLIMEC.add(jLabel_MantenimientoExpL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 220, -1));
 
         jPanel_RRHH.add(Panel_ExpLIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 220, 100));
 
-        jPanel_MatenimientosD.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_MatenimientosD.setPreferredSize(new java.awt.Dimension(1080, 700));
-        jPanel_MatenimientosD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel_ID_Departamento.setText("ID Departamento");
-        jPanel_MatenimientosD.add(jLabel_ID_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
-
-        txt_id_Departamento.setBackground(new java.awt.Color(231, 231, 231));
-        txt_id_Departamento.setForeground(new java.awt.Color(153, 153, 153));
-        txt_id_Departamento.setBorder(null);
-        txt_id_Departamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_id_DepartamentoActionPerformed(evt);
+        Panel_SEIMEC.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_SEIMEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_SEIMEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                Panel_SEIMECMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                Panel_SEIMECMouseMoved(evt);
             }
         });
-        jPanel_MatenimientosD.add(txt_id_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 140, 20));
-
-        jLabel_NombreD.setText("Nombre Departamento");
-        jPanel_MatenimientosD.add(jLabel_NombreD, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
-
-        txt_Nombre_Departamento.setBackground(new java.awt.Color(231, 231, 231));
-        txt_Nombre_Departamento.setForeground(new java.awt.Color(153, 153, 153));
-        txt_Nombre_Departamento.setBorder(null);
-        txt_Nombre_Departamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Nombre_DepartamentoActionPerformed(evt);
-            }
-        });
-        jPanel_MatenimientosD.add(txt_Nombre_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 150, 20));
-
-        jLabel_Estatus_Departamento.setText("Estatus Departamento");
-        jPanel_MatenimientosD.add(jLabel_Estatus_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
-
-        txt_Estatus_Departamento.setBackground(new java.awt.Color(231, 231, 231));
-        txt_Estatus_Departamento.setForeground(new java.awt.Color(153, 153, 153));
-        txt_Estatus_Departamento.setBorder(null);
-        txt_Estatus_Departamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Estatus_DepartamentoActionPerformed(evt);
-            }
-        });
-        jPanel_MatenimientosD.add(txt_Estatus_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 140, 20));
-
-        jLabel_Ingresar.setText("Ingresar");
-        jLabel_Ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_Ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+        Panel_SEIMEC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_IngresarMouseClicked(evt);
+                Panel_SEIMECMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Panel_SEIMECMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Panel_SEIMECMouseReleased(evt);
             }
         });
-        jPanel_MatenimientosD.add(jLabel_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 50, 40));
+        Panel_SEIMEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tbl_Departamento.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tbl_Departamento.setGridColor(new java.awt.Color(255, 255, 255));
-        tbl_Departamento.setSelectionBackground(new java.awt.Color(0, 204, 255));
-        jScrollPane21.setViewportView(tbl_Departamento);
-
-        jPanel_MatenimientosD.add(jScrollPane21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 600, 190));
-        jPanel_MatenimientosD.add(jLabel_Status, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 240, 70));
-
-        jLabel_Buscar.setText("Buscar");
-        jPanel_MatenimientosD.add(jLabel_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 50, 20));
-
-        txt_Buscar.setBackground(new java.awt.Color(231, 231, 231));
-        txt_Buscar.setForeground(new java.awt.Color(153, 153, 153));
-        txt_Buscar.setBorder(null);
-        txt_Buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_BuscarActionPerformed(evt);
+        jLabel_ModificarSE.setText("Modificar Experiencia Laboral");
+        jLabel_ModificarSE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_ModificarSE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarSEMouseMoved(evt);
             }
         });
-        txt_Buscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_BuscarKeyReleased(evt);
+        jLabel_ModificarSE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarSEMouseExited(evt);
             }
         });
-        jPanel_MatenimientosD.add(txt_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 240, 20));
+        Panel_SEIMEC.add(jLabel_ModificarSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
-        jLabel_Modificar.setText("Modificar");
-        jLabel_Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel_EliminarSE.setText("Eliminar Experiencia Laboral");
+        jLabel_EliminarSE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_EliminarSE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarSEMouseMoved(evt);
+            }
+        });
+        jLabel_EliminarSE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarSEMouseExited(evt);
+            }
+        });
+        Panel_SEIMEC.add(jLabel_EliminarSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+
+        jLabel_ConsultarSE.setText("Consultar Experiencia Laboral");
+        jLabel_ConsultarSE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_ConsultarSE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarSEMouseMoved(evt);
+            }
+        });
+        jLabel_ConsultarSE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarSEMouseExited(evt);
+            }
+        });
+        Panel_SEIMEC.add(jLabel_ConsultarSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+
+        jLabel_MantenimientoSE.setText("Mantenimientos Solicitud Empresarial");
+        jLabel_MantenimientoSE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_MantenimientoSE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoSEMouseMoved(evt);
+            }
+        });
+        jLabel_MantenimientoSE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarMouseClicked(evt);
+                jLabel_MantenimientoSEMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoSEMouseExited(evt);
             }
         });
-        jPanel_MatenimientosD.add(jLabel_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 60, 20));
+        Panel_SEIMEC.add(jLabel_MantenimientoSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 220, -1));
 
-        jLabel_Eliminar.setText("Eliminar");
-        jLabel_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel_RRHH.add(Panel_SEIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 220, 90));
+
+        jLabel_Medio.setText("Medio");
+        jLabel_Medio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_MedioMouseMoved(evt);
+            }
+        });
+        jPanel_RRHH.add(jLabel_Medio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, 20));
+
+        Panel_MIMEC.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_MIMEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_MIMEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                Panel_MIMECMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                Panel_MIMECMouseMoved(evt);
+            }
+        });
+        Panel_MIMEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Panel_MIMECMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Panel_MIMECMouseReleased(evt);
+            }
+        });
+        Panel_MIMEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_Modificar_M.setText("Modificar Medio");
+        jLabel_Modificar_M.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Modificar_M.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_MMouseMoved(evt);
+            }
+        });
+        jLabel_Modificar_M.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_MMouseExited(evt);
+            }
+        });
+        Panel_MIMEC.add(jLabel_Modificar_M, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        jLabel_Eliminar_M.setText("Eliminar Medio");
+        jLabel_Eliminar_M.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Eliminar_M.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_MMouseMoved(evt);
+            }
+        });
+        jLabel_Eliminar_M.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_MMouseExited(evt);
+            }
+        });
+        Panel_MIMEC.add(jLabel_Eliminar_M, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+
+        jLabel_ConsultarM.setText("Consultar Medio");
+        jLabel_ConsultarM.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_ConsultarM.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarMMouseMoved(evt);
+            }
+        });
+        jLabel_ConsultarM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarMMouseExited(evt);
+            }
+        });
+        Panel_MIMEC.add(jLabel_ConsultarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+
+        jLabel_MantenimientoM.setText("Mantenimientos Medio");
+        jLabel_MantenimientoM.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_MantenimientoM.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoMMouseMoved(evt);
+            }
+        });
+        jLabel_MantenimientoM.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarMouseClicked(evt);
+                jLabel_MantenimientoMMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoMMouseExited(evt);
             }
         });
-        jPanel_MatenimientosD.add(jLabel_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 50, 20));
+        Panel_MIMEC.add(jLabel_MantenimientoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 140, -1));
 
-        jPanel_RRHH.add(jPanel_MatenimientosD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 800));
+        jPanel_RRHH.add(Panel_MIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 130, 90));
+
+        jLabel_RL.setText("Referencias Laborales");
+        jLabel_RL.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_RLMouseMoved(evt);
+            }
+        });
+        jPanel_RRHH.add(jLabel_RL, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, -1, 20));
+
+        Panel_RLIMEC.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_RLIMEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_RLIMEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                Panel_RLIMECMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                Panel_RLIMECMouseMoved(evt);
+            }
+        });
+        Panel_RLIMEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Panel_RLIMECMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Panel_RLIMECMouseReleased(evt);
+            }
+        });
+        Panel_RLIMEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_Modificar_RL.setText("Modificar Referencias Laborales");
+        jLabel_Modificar_RL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Modificar_RL.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_RLMouseMoved(evt);
+            }
+        });
+        jLabel_Modificar_RL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_RLMouseExited(evt);
+            }
+        });
+        Panel_RLIMEC.add(jLabel_Modificar_RL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        jLabel_Eliminar_RL.setText("Eliminar Referencias Laborales");
+        jLabel_Eliminar_RL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Eliminar_RL.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_RLMouseMoved(evt);
+            }
+        });
+        jLabel_Eliminar_RL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_RLMouseExited(evt);
+            }
+        });
+        Panel_RLIMEC.add(jLabel_Eliminar_RL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+
+        jLabel_Consultar_RL.setText("Consultar Referencias Laborales");
+        jLabel_Consultar_RL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Consultar_RL.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_Consultar_RLMouseMoved(evt);
+            }
+        });
+        jLabel_Consultar_RL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_Consultar_RLMouseExited(evt);
+            }
+        });
+        Panel_RLIMEC.add(jLabel_Consultar_RL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+
+        jLabel_Mantenimiento_RL.setText("Mantenimientos Referencias Laborales");
+        jLabel_Mantenimiento_RL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Mantenimiento_RL.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_Mantenimiento_RLMouseMoved(evt);
+            }
+        });
+        jLabel_Mantenimiento_RL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Mantenimiento_RLMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_Mantenimiento_RLMouseExited(evt);
+            }
+        });
+        Panel_RLIMEC.add(jLabel_Mantenimiento_RL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 230, -1));
+
+        jPanel_RRHH.add(Panel_RLIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 310, 230, 90));
 
         jPanel_MantenimientosP.setBackground(new java.awt.Color(255, 255, 255));
         jPanel_MantenimientosP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -888,6 +1141,178 @@ public class RRHH extends javax.swing.JFrame {
         jPanel_MantenimientosP.add(jLabel_Eliminar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
 
         jPanel_RRHH.add(jPanel_MantenimientosP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 800));
+
+        jPanel_MantenimientoSE.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoSE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_DescripcionSE.setText("Descripcion Solicitud Empresarial");
+        jPanel_MantenimientoSE.add(jLabel_DescripcionSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
+
+        txt_id_SolicitudE.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_SolicitudE.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_SolicitudE.setBorder(null);
+        txt_id_SolicitudE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_SolicitudEActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(txt_id_SolicitudE, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 140, 20));
+
+        jLabel_RangoEdadM.setText("Rango de Edad Menor");
+        jPanel_MantenimientoSE.add(jLabel_RangoEdadM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+
+        txt_RangoEdadM.setBackground(new java.awt.Color(231, 231, 231));
+        txt_RangoEdadM.setForeground(new java.awt.Color(153, 153, 153));
+        txt_RangoEdadM.setBorder(null);
+        txt_RangoEdadM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_RangoEdadMActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(txt_RangoEdadM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 140, 20));
+
+        jLabel_RangoEdadMa.setText("Rango de Edad Mayor");
+        jPanel_MantenimientoSE.add(jLabel_RangoEdadMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+
+        txt_RangoEdadMa.setBackground(new java.awt.Color(231, 231, 231));
+        txt_RangoEdadMa.setForeground(new java.awt.Color(153, 153, 153));
+        txt_RangoEdadMa.setBorder(null);
+        txt_RangoEdadMa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_RangoEdadMaActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(txt_RangoEdadMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 140, 20));
+
+        jLabel_RangoEdadMa1.setText("Genero");
+        jPanel_MantenimientoSE.add(jLabel_RangoEdadMa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
+
+        txt_Genero.setBackground(new java.awt.Color(231, 231, 231));
+        txt_Genero.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Genero.setBorder(null);
+        txt_Genero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_GeneroActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(txt_Genero, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 140, 20));
+
+        jLabel_PuestoSE.setText("Puesto");
+        jPanel_MantenimientoSE.add(jLabel_PuestoSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
+        jPanel_MantenimientoSE.add(jLabel_Puesto_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 50, 30, 20));
+
+        jComboBox_PuestoSE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_PuestoSEActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(jComboBox_PuestoSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 140, -1));
+
+        jLabel_DepartamentoSE.setText("Departamento");
+        jPanel_MantenimientoSE.add(jLabel_DepartamentoSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        jPanel_MantenimientoSE.add(jLabel_Departamento_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 30, 20));
+
+        jComboBox_DepartamentoSE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_DepartamentoSEActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(jComboBox_DepartamentoSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+
+        jLabel_NivelASE.setText("Nivel Academico");
+        jPanel_MantenimientoSE.add(jLabel_NivelASE, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 100, -1));
+        jPanel_MantenimientoSE.add(jLabel_NivelA_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 30, 20));
+
+        jComboBox_NivelASE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_NivelASEActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(jComboBox_NivelASE, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 140, -1));
+
+        jLabel_ExperieciaLSE.setText("Experiencia Laboral");
+        jPanel_MantenimientoSE.add(jLabel_ExperieciaLSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, 130, -1));
+        jPanel_MantenimientoSE.add(jLabel_ExperienciaL_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 30, 20));
+
+        jComboBox_ExperienciaL_SE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_ExperienciaL_SEActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(jComboBox_ExperienciaL_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 140, -1));
+
+        jLabel_ID_SolicitudE1.setText("ID Solicitud Empresarial");
+        jPanel_MantenimientoSE.add(jLabel_ID_SolicitudE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jTextArea_DescripcionSE.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea_DescripcionSE.setColumns(20);
+        jTextArea_DescripcionSE.setRows(5);
+        jTextArea_DescripcionSE.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
+        jScrollPane1.setViewportView(jTextArea_DescripcionSE);
+
+        jPanel_MantenimientoSE.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, -1, -1));
+
+        tbl_SE.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_SE.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_SE.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        jScrollPane26.setViewportView(tbl_SE);
+
+        jPanel_MantenimientoSE.add(jScrollPane26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 600, 190));
+
+        txt_Buscar_SE.setBackground(new java.awt.Color(231, 231, 231));
+        txt_Buscar_SE.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Buscar_SE.setBorder(null);
+        txt_Buscar_SE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Buscar_SEActionPerformed(evt);
+            }
+        });
+        txt_Buscar_SE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_Buscar_SEKeyReleased(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(txt_Buscar_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 290, 20));
+
+        jLabel_Buscar_SE.setText("Buscar");
+        jPanel_MantenimientoSE.add(jLabel_Buscar_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, -1));
+
+        jLabel_IngresarSE.setText("Ingresar");
+        jLabel_IngresarSE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_IngresarSE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarSEMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(jLabel_IngresarSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 50, 40));
+
+        jLabel_Modificar_SE.setText("Modificar");
+        jLabel_Modificar_SE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_SEMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(jLabel_Modificar_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 260, 60, 20));
+
+        jLabel_Eliminar_SE.setText("Eliminar");
+        jLabel_Eliminar_SE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_SEMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoSE.add(jLabel_Eliminar_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 50, 20));
+
+        jPanel_RRHH.add(jPanel_MantenimientoSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 700));
 
         jPanel_MantenimientoNA.setBackground(new java.awt.Color(255, 255, 255));
         jPanel_MantenimientoNA.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1209,6 +1634,333 @@ public class RRHH extends javax.swing.JFrame {
 
         jPanel_RRHH.add(jPanel_MantenimientoExpL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 700));
 
+        jPanel_MatenimientosD.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_MatenimientosD.setPreferredSize(new java.awt.Dimension(1080, 700));
+        jPanel_MatenimientosD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_ID_Departamento.setText("ID Departamento");
+        jPanel_MatenimientosD.add(jLabel_ID_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        txt_id_Departamento.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_Departamento.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_Departamento.setBorder(null);
+        txt_id_Departamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_DepartamentoActionPerformed(evt);
+            }
+        });
+        jPanel_MatenimientosD.add(txt_id_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 140, 20));
+
+        jLabel_NombreD.setText("Nombre Departamento");
+        jPanel_MatenimientosD.add(jLabel_NombreD, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+
+        txt_Nombre_Departamento.setBackground(new java.awt.Color(231, 231, 231));
+        txt_Nombre_Departamento.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Nombre_Departamento.setBorder(null);
+        txt_Nombre_Departamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Nombre_DepartamentoActionPerformed(evt);
+            }
+        });
+        jPanel_MatenimientosD.add(txt_Nombre_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 150, 20));
+
+        jLabel_Estatus_Departamento.setText("Estatus Departamento");
+        jPanel_MatenimientosD.add(jLabel_Estatus_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+
+        txt_Estatus_Departamento.setBackground(new java.awt.Color(231, 231, 231));
+        txt_Estatus_Departamento.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Estatus_Departamento.setBorder(null);
+        txt_Estatus_Departamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Estatus_DepartamentoActionPerformed(evt);
+            }
+        });
+        jPanel_MatenimientosD.add(txt_Estatus_Departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 140, 20));
+
+        jLabel_Ingresar.setText("Ingresar");
+        jLabel_Ingresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarMouseClicked(evt);
+            }
+        });
+        jPanel_MatenimientosD.add(jLabel_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 50, 40));
+
+        tbl_Departamento.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_Departamento.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_Departamento.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        jScrollPane21.setViewportView(tbl_Departamento);
+
+        jPanel_MatenimientosD.add(jScrollPane21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 600, 190));
+
+        jLabel_Buscar.setText("Buscar");
+        jPanel_MatenimientosD.add(jLabel_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 50, 20));
+
+        txt_Buscar.setBackground(new java.awt.Color(231, 231, 231));
+        txt_Buscar.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Buscar.setBorder(null);
+        txt_Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_BuscarActionPerformed(evt);
+            }
+        });
+        txt_Buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_BuscarKeyReleased(evt);
+            }
+        });
+        jPanel_MatenimientosD.add(txt_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 240, 20));
+
+        jLabel_Modificar.setText("Modificar");
+        jLabel_Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarMouseClicked(evt);
+            }
+        });
+        jPanel_MatenimientosD.add(jLabel_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 60, 20));
+
+        jLabel_Eliminar.setText("Eliminar");
+        jLabel_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarMouseClicked(evt);
+            }
+        });
+        jPanel_MatenimientosD.add(jLabel_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 50, 20));
+
+        jPanel_RRHH.add(jPanel_MatenimientosD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 800));
+
+        jPanel_Mantenimiento_Medio.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_Mantenimiento_Medio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_id_Medio.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_Medio.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_Medio.setBorder(null);
+        txt_id_Medio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_MedioActionPerformed(evt);
+            }
+        });
+        jPanel_Mantenimiento_Medio.add(txt_id_Medio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 140, 20));
+
+        jLabel_ID_Medio.setText("ID Medio ");
+        jPanel_Mantenimiento_Medio.add(jLabel_ID_Medio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 60, -1));
+
+        jLabel_NombreSEM.setText("ID de Solicitud Empresarial");
+        jPanel_Mantenimiento_Medio.add(jLabel_NombreSEM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+        jPanel_Mantenimiento_Medio.add(jLabel_ID_SEM, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 30, 20));
+
+        jComboBox_IDSEM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_IDSEMActionPerformed(evt);
+            }
+        });
+        jPanel_Mantenimiento_Medio.add(jComboBox_IDSEM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 140, 20));
+
+        txt_NombreM.setBackground(new java.awt.Color(231, 231, 231));
+        txt_NombreM.setForeground(new java.awt.Color(153, 153, 153));
+        txt_NombreM.setBorder(null);
+        txt_NombreM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_NombreMActionPerformed(evt);
+            }
+        });
+        jPanel_Mantenimiento_Medio.add(txt_NombreM, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 140, 20));
+
+        jLabel_NombreM.setText("Nombre Medio");
+        jPanel_Mantenimiento_Medio.add(jLabel_NombreM, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 100, -1));
+
+        jLabel_DescripcionM.setText("Descripcion Medio");
+        jPanel_Mantenimiento_Medio.add(jLabel_DescripcionM, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, -1, -1));
+
+        jTextArea_DescripcionM.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea_DescripcionM.setColumns(20);
+        jTextArea_DescripcionM.setRows(5);
+        jTextArea_DescripcionM.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
+        jScrollPane2.setViewportView(jTextArea_DescripcionM);
+
+        jPanel_Mantenimiento_Medio.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, -1, -1));
+
+        tbl_Medio.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_Medio.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_Medio.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        jScrollPane27.setViewportView(tbl_Medio);
+
+        jPanel_Mantenimiento_Medio.add(jScrollPane27, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 600, 190));
+
+        jLabel_BuscarM.setText("Buscar");
+        jPanel_Mantenimiento_Medio.add(jLabel_BuscarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 50, 20));
+
+        txt_BuscarM.setBackground(new java.awt.Color(231, 231, 231));
+        txt_BuscarM.setForeground(new java.awt.Color(153, 153, 153));
+        txt_BuscarM.setBorder(null);
+        txt_BuscarM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_BuscarMActionPerformed(evt);
+            }
+        });
+        txt_BuscarM.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_BuscarMKeyReleased(evt);
+            }
+        });
+        jPanel_Mantenimiento_Medio.add(txt_BuscarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 240, 20));
+
+        jLabel_IngresarM.setText("Ingresar");
+        jLabel_IngresarM.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_IngresarM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarMMouseClicked(evt);
+            }
+        });
+        jPanel_Mantenimiento_Medio.add(jLabel_IngresarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 50, 40));
+
+        jLabel_ModificarM.setText("Modificar");
+        jLabel_ModificarM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarMMouseClicked(evt);
+            }
+        });
+        jPanel_Mantenimiento_Medio.add(jLabel_ModificarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 60, 20));
+
+        jLabel_EliminarM.setText("Eliminar");
+        jLabel_EliminarM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarMMouseClicked(evt);
+            }
+        });
+        jPanel_Mantenimiento_Medio.add(jLabel_EliminarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 210, 50, 20));
+
+        jPanel_RRHH.add(jPanel_Mantenimiento_Medio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 700));
+
+        jPanel_ReferenciasL.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_ReferenciasL.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_id_ReferenciaL.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_ReferenciaL.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_ReferenciaL.setBorder(null);
+        txt_id_ReferenciaL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_ReferenciaLActionPerformed(evt);
+            }
+        });
+        jPanel_ReferenciasL.add(txt_id_ReferenciaL, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 140, 20));
+
+        jLabel_ID_ReferenciaL.setText("ID Referencia Laboral");
+        jPanel_ReferenciasL.add(jLabel_ID_ReferenciaL, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        txt_NombreRL.setBackground(new java.awt.Color(231, 231, 231));
+        txt_NombreRL.setForeground(new java.awt.Color(153, 153, 153));
+        txt_NombreRL.setBorder(null);
+        txt_NombreRL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_NombreRLActionPerformed(evt);
+            }
+        });
+        jPanel_ReferenciasL.add(txt_NombreRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 210, 20));
+
+        jLabel_NombreRL.setText("Nombre Persona Referencia Laboral");
+        jPanel_ReferenciasL.add(jLabel_NombreRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+
+        txt_TelefonoRL.setBackground(new java.awt.Color(231, 231, 231));
+        txt_TelefonoRL.setForeground(new java.awt.Color(153, 153, 153));
+        txt_TelefonoRL.setBorder(null);
+        txt_TelefonoRL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_TelefonoRLActionPerformed(evt);
+            }
+        });
+        jPanel_ReferenciasL.add(txt_TelefonoRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 210, 20));
+
+        jLabel_TelefonoRL.setText("Telefono Persona Referencia Laboral");
+        jPanel_ReferenciasL.add(jLabel_TelefonoRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
+
+        jLabel_IngresarRL.setText("Ingresar");
+        jLabel_IngresarRL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_IngresarRL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarRLMouseClicked(evt);
+            }
+        });
+        jPanel_ReferenciasL.add(jLabel_IngresarRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, 50, 40));
+
+        jLabel_ModificarRL.setText("Modificar");
+        jLabel_ModificarRL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarRLMouseClicked(evt);
+            }
+        });
+        jPanel_ReferenciasL.add(jLabel_ModificarRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, 60, 20));
+
+        jLabel_EliminarRL.setText("Eliminar");
+        jLabel_EliminarRL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarRLMouseClicked(evt);
+            }
+        });
+        jPanel_ReferenciasL.add(jLabel_EliminarRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, 50, 20));
+
+        tbl_RL.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_RL.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_RL.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        jScrollPane28.setViewportView(tbl_RL);
+
+        jPanel_ReferenciasL.add(jScrollPane28, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 600, 190));
+
+        jLabel_BuscarRL.setText("Buscar");
+        jLabel_BuscarRL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_BuscarRLMouseClicked(evt);
+            }
+        });
+        jPanel_ReferenciasL.add(jLabel_BuscarRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 50, 20));
+
+        txt_BuscarRL.setBackground(new java.awt.Color(231, 231, 231));
+        txt_BuscarRL.setForeground(new java.awt.Color(153, 153, 153));
+        txt_BuscarRL.setBorder(null);
+        txt_BuscarRL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_BuscarRLActionPerformed(evt);
+            }
+        });
+        txt_BuscarRL.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_BuscarRLKeyReleased(evt);
+            }
+        });
+        jPanel_ReferenciasL.add(txt_BuscarRL, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 240, 20));
+
+        jPanel_RRHH.add(jPanel_ReferenciasL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 700));
+
         getContentPane().add(jPanel_RRHH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 700));
 
         pack();
@@ -1253,6 +2005,10 @@ public class RRHH extends javax.swing.JFrame {
         Panel_ExpLDIMEC.setVisible(false);
         Panel_ExpLIMEC.setVisible(false);
         jPanel_MantenimientosP.setVisible(true);
+        Panel_MIMEC.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
         
         Puesto puesto = new Puesto(txt_id_Puesto,txt_Nombre_Puesto,txt_Descripcion_Puesto,txt_Estatus_Puesto,txt_Buscar_Puesto,tbl_Puesto);
         puesto.Actualizar_Tabla();
@@ -1382,6 +2138,7 @@ public class RRHH extends javax.swing.JFrame {
         jLabel_Departamento.setVisible(false);
         jLabel_ExpLD.setVisible(false);
         jLabel_ExpL.setVisible(false);
+        jLabel_Puesto.setVisible(false);
         jLabel_SolicitudE.setVisible(false);
         jLabel_NivelA.setVisible(false);
         Panel_DIMEC.setVisible(false);
@@ -1389,6 +2146,11 @@ public class RRHH extends javax.swing.JFrame {
         Panel_ExpLDIMEC.setVisible(false);
         Panel_ExpLIMEC.setVisible(false);
         jPanel_MatenimientosD.setVisible(true);
+        Panel_MIMEC.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        Panel_PIMEC.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
         
         Departamento De = new Departamento(txt_id_Departamento.toString(),txt_Nombre_Departamento.toString(),txt_Estatus_Departamento.toString());
         De.Actualizar_Tabla(tbl_Departamento);
@@ -1502,6 +2264,7 @@ public class RRHH extends javax.swing.JFrame {
         // TODO add your handling code here:
         jLabel_RRHH.setVisible(false);
         jLabel_Departamento.setVisible(false);
+        jLabel_Medio.setVisible(false);
         jPanel_MantenimientosP.setVisible(false);
         jLabel_ExpLD.setVisible(false);
         jLabel_Puesto.setVisible(false);
@@ -1513,6 +2276,8 @@ public class RRHH extends javax.swing.JFrame {
         Panel_NAIMEC.setVisible(false);
         Panel_ExpLDIMEC.setVisible(false);
         Panel_ExpLIMEC.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
         
         Nivel_Academico NA = new Nivel_Academico(txt_id_NivelA,txt_Nombre_NivelA,txt_Descripcion_NivelA,txt_Buscar_NivelA,tbl_NivelA);
         NA.Actualizar_Tabla();
@@ -1660,6 +2425,10 @@ public class RRHH extends javax.swing.JFrame {
         Panel_NAIMEC.setVisible(false);
         Panel_ExpLDIMEC.setVisible(false);
         Panel_ExpLIMEC.setVisible(false);
+        Panel_MIMEC.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
         
         
         Experiencia_Laboral_Detallada ExpLD = new Experiencia_Laboral_Detallada(txt_id_ExpLD,txt_NombreExpLD,txt_Nombre_EmpresaExpLD,txt_Tiempo_InicioExpLD,txt_Tiempo_FinalizacionExpLD,txt_Buscar_ExpLD,tbl_ExpLD);
@@ -1799,6 +2568,10 @@ public class RRHH extends javax.swing.JFrame {
         Panel_NAIMEC.setVisible(false);
         Panel_ExpLDIMEC.setVisible(false);
         Panel_ExpLIMEC.setVisible(false);
+        Panel_MIMEC.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
         
         
         Experiencia_Laboral ExpL= new Experiencia_Laboral(txt_id_ExpL,jLabel_id_Nombre_EpLLD,txt_Buscar_ExpL,tbl_ExpL);
@@ -1869,6 +2642,398 @@ public class RRHH extends javax.swing.JFrame {
         ExpL.EncontrarID_ExpLD("id_tipoexp", "explab_detallado", "nombre_tipo",jComboBox_Nombre_EpLLD);
     }//GEN-LAST:event_jComboBox_Nombre_EpLLDActionPerformed
 
+    private void txt_id_SolicitudEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_SolicitudEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_SolicitudEActionPerformed
+
+    private void txt_RangoEdadMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RangoEdadMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_RangoEdadMActionPerformed
+
+    private void txt_RangoEdadMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RangoEdadMaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_RangoEdadMaActionPerformed
+
+    private void txt_GeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_GeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_GeneroActionPerformed
+
+    private void jComboBox_PuestoSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_PuestoSEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_PuestoSEActionPerformed
+
+    private void jComboBox_DepartamentoSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_DepartamentoSEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_DepartamentoSEActionPerformed
+
+    private void jComboBox_NivelASEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_NivelASEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_NivelASEActionPerformed
+
+    private void jComboBox_ExperienciaL_SEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ExperienciaL_SEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_ExperienciaL_SEActionPerformed
+
+    private void txt_Buscar_SEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Buscar_SEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Buscar_SEActionPerformed
+
+    private void txt_Buscar_SEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_SEKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Buscar_SEKeyReleased
+
+    private void jLabel_ModificarSEMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarSEMouseMoved
+        // TODO add your handling code here:
+        Panel_SEIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ModificarSEMouseMoved
+
+    private void jLabel_ModificarSEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarSEMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ModificarSEMouseExited
+
+    private void jLabel_EliminarSEMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarSEMouseMoved
+        // TODO add your handling code here:
+        Panel_SEIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_EliminarSEMouseMoved
+
+    private void jLabel_EliminarSEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarSEMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_EliminarSEMouseExited
+
+    private void jLabel_ConsultarSEMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarSEMouseMoved
+        // TODO add your handling code here:
+        Panel_SEIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ConsultarSEMouseMoved
+
+    private void jLabel_ConsultarSEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarSEMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ConsultarSEMouseExited
+
+    private void jLabel_MantenimientoSEMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoSEMouseMoved
+        // TODO add your handling code here:
+        Panel_SEIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_MantenimientoSEMouseMoved
+
+    private void jLabel_MantenimientoSEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoSEMouseClicked
+        // TODO add your handling code here:
+        jLabel_RRHH.setVisible(false);
+        jLabel_Departamento.setVisible(false);
+        jLabel_ExpLD.setVisible(false);
+        jLabel_ExpL.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        jPanel_MantenimientosP.setVisible(false);
+        jPanel_MantenimientoNA.setVisible(false);
+        jPanel_MantenimientoExpLD.setVisible(false);
+        jLabel_Puesto.setVisible(false);
+        jLabel_SolicitudE.setVisible(false);
+        jLabel_NivelA.setVisible(false);
+        Panel_DIMEC.setVisible(false);
+        Panel_PIMEC.setVisible(false);
+        Panel_NAIMEC.setVisible(false);
+        Panel_ExpLDIMEC.setVisible(false);
+        Panel_ExpLIMEC.setVisible(false);
+        Panel_SEIMEC.setVisible(false);
+        Panel_MIMEC.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
+        
+        
+        jPanel_MantenimientoSE.setVisible(true);
+    }//GEN-LAST:event_jLabel_MantenimientoSEMouseClicked
+
+    private void jLabel_MantenimientoSEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoSEMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_MantenimientoSEMouseExited
+
+    private void Panel_SEIMECMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_SEIMECMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_SEIMECMouseDragged
+
+    private void Panel_SEIMECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_SEIMECMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_SEIMECMouseMoved
+
+    private void Panel_SEIMECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_SEIMECMouseExited
+        // TODO add your handling code here:
+        Panel_SEIMEC.setVisible(false);
+    }//GEN-LAST:event_Panel_SEIMECMouseExited
+
+    private void Panel_SEIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_SEIMECMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_SEIMECMouseReleased
+
+    private void jLabel_SolicitudEMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_SolicitudEMouseMoved
+        // TODO add your handling code here:
+        Panel_SEIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_SolicitudEMouseMoved
+
+    private void jLabel_IngresarSEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarSEMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_IngresarSEMouseClicked
+
+    private void jLabel_Modificar_SEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_SEMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Modificar_SEMouseClicked
+
+    private void jLabel_Eliminar_SEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_SEMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Eliminar_SEMouseClicked
+
+    private void txt_id_MedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_MedioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_MedioActionPerformed
+
+    private void jComboBox_IDSEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_IDSEMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_IDSEMActionPerformed
+
+    private void txt_NombreMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NombreMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_NombreMActionPerformed
+
+    private void txt_BuscarMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscarMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarMActionPerformed
+
+    private void txt_BuscarMKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarMKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarMKeyReleased
+
+    private void jLabel_IngresarMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarMMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_IngresarMMouseClicked
+
+    private void jLabel_ModificarMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarMMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ModificarMMouseClicked
+
+    private void jLabel_EliminarMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarMMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_EliminarMMouseClicked
+
+    private void jLabel_MedioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MedioMouseMoved
+        // TODO add your handling code here:
+        Panel_MIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_MedioMouseMoved
+
+    private void jLabel_Modificar_MMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_MMouseMoved
+        // TODO add your handling code here:
+        Panel_MIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_Modificar_MMouseMoved
+
+    private void jLabel_Modificar_MMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_MMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Modificar_MMouseExited
+
+    private void jLabel_Eliminar_MMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_MMouseMoved
+        // TODO add your handling code here:
+        Panel_MIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_Eliminar_MMouseMoved
+
+    private void jLabel_Eliminar_MMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_MMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Eliminar_MMouseExited
+
+    private void jLabel_ConsultarMMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarMMouseMoved
+        // TODO add your handling code here:
+        Panel_MIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ConsultarMMouseMoved
+
+    private void jLabel_ConsultarMMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarMMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ConsultarMMouseExited
+
+    private void jLabel_MantenimientoMMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoMMouseMoved
+        // TODO add your handling code here:
+        Panel_MIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_MantenimientoMMouseMoved
+
+    private void jLabel_MantenimientoMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoMMouseClicked
+        // TODO add your handling code here:
+        jLabel_RRHH.setVisible(false);
+        jLabel_Departamento.setVisible(false);
+        jLabel_ExpLD.setVisible(false);
+        jLabel_ExpL.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        jPanel_MantenimientosP.setVisible(false);
+        jPanel_MantenimientoNA.setVisible(false);
+        jPanel_MantenimientoExpLD.setVisible(false);
+        jLabel_Puesto.setVisible(false);
+        jLabel_SolicitudE.setVisible(false);
+        jLabel_NivelA.setVisible(false);
+        Panel_DIMEC.setVisible(false);
+        Panel_PIMEC.setVisible(false);
+        Panel_NAIMEC.setVisible(false);
+        Panel_ExpLDIMEC.setVisible(false);
+        Panel_ExpLIMEC.setVisible(false);
+        Panel_SEIMEC.setVisible(false);
+        Panel_MIMEC.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
+        
+        
+        jPanel_Mantenimiento_Medio.setVisible(true);
+    }//GEN-LAST:event_jLabel_MantenimientoMMouseClicked
+
+    private void jLabel_MantenimientoMMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoMMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_MantenimientoMMouseExited
+
+    private void Panel_MIMECMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_MIMECMouseDragged
+
+    private void Panel_MIMECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_MIMECMouseMoved
+
+    private void Panel_MIMECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseExited
+        // TODO add your handling code here:
+        Panel_MIMEC.setVisible(false);
+    }//GEN-LAST:event_Panel_MIMECMouseExited
+
+    private void Panel_MIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_MIMECMouseReleased
+
+    private void txt_id_ReferenciaLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_ReferenciaLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_ReferenciaLActionPerformed
+
+    private void txt_NombreRLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NombreRLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_NombreRLActionPerformed
+
+    private void txt_TelefonoRLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_TelefonoRLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_TelefonoRLActionPerformed
+
+    private void jLabel_IngresarRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarRLMouseClicked
+        // TODO add your handling code here:
+        Referencias_Laborales referencias_Lab = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_Lab.Insertar_ReferenciasL();
+        
+    }//GEN-LAST:event_jLabel_IngresarRLMouseClicked
+
+    private void jLabel_ModificarRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarRLMouseClicked
+        // TODO add your handling code here:
+        Referencias_Laborales referencias_Lab = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_Lab.Modificar_RefLab();
+    }//GEN-LAST:event_jLabel_ModificarRLMouseClicked
+
+    private void jLabel_EliminarRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarRLMouseClicked
+        // TODO add your handling code here:
+        Referencias_Laborales referencias_Lab = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_Lab.Eliminar_ReferenciasL();
+    }//GEN-LAST:event_jLabel_EliminarRLMouseClicked
+
+    private void txt_BuscarRLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscarRLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarRLActionPerformed
+
+    private void txt_BuscarRLKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarRLKeyReleased
+        // TODO add your handling code here:
+        Referencias_Laborales referencias_lab = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_lab.Buscar_ReferenciasLF(txt_BuscarRL.getText());
+    }//GEN-LAST:event_txt_BuscarRLKeyReleased
+
+    private void jLabel_RLMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_RLMouseMoved
+        // TODO add your handling code here:
+        Panel_RLIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_RLMouseMoved
+
+    private void jLabel_Modificar_RLMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_RLMouseMoved
+        // TODO add your handling code here:
+        Panel_RLIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_Modificar_RLMouseMoved
+
+    private void jLabel_Modificar_RLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_RLMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Modificar_RLMouseExited
+
+    private void jLabel_Eliminar_RLMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_RLMouseMoved
+        // TODO add your handling code here:
+        Panel_RLIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_Eliminar_RLMouseMoved
+
+    private void jLabel_Eliminar_RLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_RLMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Eliminar_RLMouseExited
+
+    private void jLabel_Consultar_RLMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Consultar_RLMouseMoved
+        // TODO add your handling code here:
+        Panel_RLIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_Consultar_RLMouseMoved
+
+    private void jLabel_Consultar_RLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Consultar_RLMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Consultar_RLMouseExited
+
+    private void jLabel_Mantenimiento_RLMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Mantenimiento_RLMouseMoved
+        // TODO add your handling code here:
+        Panel_RLIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_Mantenimiento_RLMouseMoved
+
+    private void jLabel_Mantenimiento_RLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Mantenimiento_RLMouseClicked
+        // TODO add your handling code here:
+        jLabel_RRHH.setVisible(false);
+        jLabel_Departamento.setVisible(false);
+        jLabel_ExpLD.setVisible(false);
+        jLabel_ExpL.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        jPanel_MantenimientosP.setVisible(false);
+        jPanel_MantenimientoNA.setVisible(false);
+        jPanel_MantenimientoExpLD.setVisible(false);
+        jLabel_Puesto.setVisible(false);
+        jLabel_SolicitudE.setVisible(false);
+        jLabel_NivelA.setVisible(false);
+        Panel_DIMEC.setVisible(false);
+        Panel_PIMEC.setVisible(false);
+        Panel_NAIMEC.setVisible(false);
+        Panel_ExpLDIMEC.setVisible(false);
+        Panel_ExpLIMEC.setVisible(false);
+        Panel_SEIMEC.setVisible(false);
+        Panel_MIMEC.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
+        
+        jPanel_ReferenciasL.setVisible(true);
+        
+        Referencias_Laborales referencias_laborales = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        referencias_laborales.Actualizar_Tabla();
+        
+    }//GEN-LAST:event_jLabel_Mantenimiento_RLMouseClicked
+
+    private void jLabel_Mantenimiento_RLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Mantenimiento_RLMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Mantenimiento_RLMouseExited
+
+    private void Panel_RLIMECMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_RLIMECMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_RLIMECMouseDragged
+
+    private void Panel_RLIMECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_RLIMECMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_RLIMECMouseMoved
+
+    private void Panel_RLIMECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_RLIMECMouseExited
+        // TODO add your handling code here:
+        Panel_RLIMEC.setVisible(false);
+    }//GEN-LAST:event_Panel_RLIMECMouseExited
+
+    private void Panel_RLIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_RLIMECMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_RLIMECMouseReleased
+
+    private void Panel_SEIMECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_SEIMECMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_SEIMECMouseClicked
+
+    private void jLabel_BuscarRLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_BuscarRLMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel_BuscarRLMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1898,6 +3063,34 @@ public class RRHH extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1911,20 +3104,38 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_DIMEC;
     private javax.swing.JPanel Panel_ExpLDIMEC;
     private javax.swing.JPanel Panel_ExpLIMEC;
+    private javax.swing.JPanel Panel_MIMEC;
     private javax.swing.JPanel Panel_NAIMEC;
     private javax.swing.JPanel Panel_PIMEC;
+    private javax.swing.JPanel Panel_RLIMEC;
+    private javax.swing.JPanel Panel_SEIMEC;
+    private javax.swing.JComboBox<String> jComboBox_DepartamentoSE;
+    private javax.swing.JComboBox<String> jComboBox_ExperienciaL_SE;
+    private javax.swing.JComboBox<String> jComboBox_IDSEM;
+    private javax.swing.JComboBox<String> jComboBox_NivelASE;
     private javax.swing.JComboBox<String> jComboBox_Nombre_EpLLD;
+    private javax.swing.JComboBox<String> jComboBox_PuestoSE;
     private javax.swing.JLabel jLabel_Buscar;
+    private javax.swing.JLabel jLabel_BuscarM;
+    private javax.swing.JLabel jLabel_BuscarRL;
     private javax.swing.JLabel jLabel_Buscar_ExpL;
     private javax.swing.JLabel jLabel_Buscar_ExpLD;
     private javax.swing.JLabel jLabel_Buscar_NivelA;
     private javax.swing.JLabel jLabel_Buscar_Puesto;
+    private javax.swing.JLabel jLabel_Buscar_SE;
     private javax.swing.JLabel jLabel_ConsultarA;
     private javax.swing.JLabel jLabel_ConsultarD;
     private javax.swing.JLabel jLabel_ConsultarExpL;
     private javax.swing.JLabel jLabel_ConsultarExpLD;
+    private javax.swing.JLabel jLabel_ConsultarM;
     private javax.swing.JLabel jLabel_ConsultarP;
+    private javax.swing.JLabel jLabel_ConsultarSE;
+    private javax.swing.JLabel jLabel_Consultar_RL;
     private javax.swing.JLabel jLabel_Departamento;
+    private javax.swing.JLabel jLabel_DepartamentoSE;
+    private javax.swing.JLabel jLabel_Departamento_SE;
+    private javax.swing.JLabel jLabel_DescripcionM;
+    private javax.swing.JLabel jLabel_DescripcionSE;
     private javax.swing.JLabel jLabel_Descripcion_NivelA;
     private javax.swing.JLabel jLabel_Descripcion_Puesto;
     private javax.swing.JLabel jLabel_Descripcion_Puesto1;
@@ -1933,21 +3144,36 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_EliminarD;
     private javax.swing.JLabel jLabel_EliminarExpL;
     private javax.swing.JLabel jLabel_EliminarExpLD;
+    private javax.swing.JLabel jLabel_EliminarM;
     private javax.swing.JLabel jLabel_EliminarP;
+    private javax.swing.JLabel jLabel_EliminarRL;
+    private javax.swing.JLabel jLabel_EliminarSE;
     private javax.swing.JLabel jLabel_Eliminar_ExpL;
     private javax.swing.JLabel jLabel_Eliminar_ExpLD;
+    private javax.swing.JLabel jLabel_Eliminar_M;
     private javax.swing.JLabel jLabel_Eliminar_NivelA;
     private javax.swing.JLabel jLabel_Eliminar_Puesto;
+    private javax.swing.JLabel jLabel_Eliminar_RL;
+    private javax.swing.JLabel jLabel_Eliminar_SE;
     private javax.swing.JLabel jLabel_Estatus_Departamento;
     private javax.swing.JLabel jLabel_ExpL;
     private javax.swing.JLabel jLabel_ExpLD;
+    private javax.swing.JLabel jLabel_ExperieciaLSE;
+    private javax.swing.JLabel jLabel_ExperienciaL_SE;
     private javax.swing.JLabel jLabel_ID_Departamento;
     private javax.swing.JLabel jLabel_ID_ExpL;
     private javax.swing.JLabel jLabel_ID_ExpLD;
     private javax.swing.JLabel jLabel_ID_ExpLLD;
+    private javax.swing.JLabel jLabel_ID_Medio;
     private javax.swing.JLabel jLabel_ID_NivelA;
     private javax.swing.JLabel jLabel_ID_Puesto;
+    private javax.swing.JLabel jLabel_ID_ReferenciaL;
+    private javax.swing.JLabel jLabel_ID_SEM;
+    private javax.swing.JLabel jLabel_ID_SolicitudE1;
     private javax.swing.JLabel jLabel_Ingresar;
+    private javax.swing.JLabel jLabel_IngresarM;
+    private javax.swing.JLabel jLabel_IngresarRL;
+    private javax.swing.JLabel jLabel_IngresarSE;
     private javax.swing.JLabel jLabel_Insertar_ExpL;
     private javax.swing.JLabel jLabel_Insertar_ExpLD;
     private javax.swing.JLabel jLabel_Insertar_NivelA;
@@ -1956,66 +3182,112 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_MantenimientoD;
     private javax.swing.JLabel jLabel_MantenimientoExpL;
     private javax.swing.JLabel jLabel_MantenimientoExpLD;
+    private javax.swing.JLabel jLabel_MantenimientoM;
     private javax.swing.JLabel jLabel_MantenimientoP;
+    private javax.swing.JLabel jLabel_MantenimientoSE;
+    private javax.swing.JLabel jLabel_Mantenimiento_RL;
+    private javax.swing.JLabel jLabel_Medio;
     private javax.swing.JLabel jLabel_Modificar;
     private javax.swing.JLabel jLabel_ModificarA;
     private javax.swing.JLabel jLabel_ModificarD;
     private javax.swing.JLabel jLabel_ModificarExpL;
     private javax.swing.JLabel jLabel_ModificarExpLD;
+    private javax.swing.JLabel jLabel_ModificarM;
     private javax.swing.JLabel jLabel_ModificarP;
+    private javax.swing.JLabel jLabel_ModificarRL;
+    private javax.swing.JLabel jLabel_ModificarSE;
     private javax.swing.JLabel jLabel_Modificar_ExpL;
     private javax.swing.JLabel jLabel_Modificar_ExpLD;
+    private javax.swing.JLabel jLabel_Modificar_M;
     private javax.swing.JLabel jLabel_Modificar_NivelA;
     private javax.swing.JLabel jLabel_Modificar_Puesto;
+    private javax.swing.JLabel jLabel_Modificar_RL;
+    private javax.swing.JLabel jLabel_Modificar_SE;
     private javax.swing.JLabel jLabel_NivelA;
+    private javax.swing.JLabel jLabel_NivelASE;
+    private javax.swing.JLabel jLabel_NivelA_SE;
     private javax.swing.JLabel jLabel_NombreD;
     private javax.swing.JLabel jLabel_NombreExpLD;
+    private javax.swing.JLabel jLabel_NombreM;
+    private javax.swing.JLabel jLabel_NombreRL;
+    private javax.swing.JLabel jLabel_NombreSEM;
     private javax.swing.JLabel jLabel_Nombre_EmpresaExpLD;
     private javax.swing.JLabel jLabel_Nombre_NivelA;
     private javax.swing.JLabel jLabel_Nombre_Puesto;
     private javax.swing.JLabel jLabel_Puesto;
+    private javax.swing.JLabel jLabel_PuestoSE;
+    private javax.swing.JLabel jLabel_Puesto_SE;
+    private javax.swing.JLabel jLabel_RL;
     private javax.swing.JLabel jLabel_RRHH;
+    private javax.swing.JLabel jLabel_RangoEdadM;
+    private javax.swing.JLabel jLabel_RangoEdadMa;
+    private javax.swing.JLabel jLabel_RangoEdadMa1;
     private javax.swing.JLabel jLabel_SolicitudE;
-    private javax.swing.JLabel jLabel_Status;
+    private javax.swing.JLabel jLabel_TelefonoRL;
     private javax.swing.JLabel jLabel_Tiempo_FinalizacionExpLD;
     private javax.swing.JLabel jLabel_Tiempo_InicioExpLD;
     private javax.swing.JLabel jLabel_id_Nombre_EpLLD;
     private javax.swing.JPanel jPanel_MantenimientoExpL;
     private javax.swing.JPanel jPanel_MantenimientoExpLD;
     private javax.swing.JPanel jPanel_MantenimientoNA;
+    private javax.swing.JPanel jPanel_MantenimientoSE;
+    private javax.swing.JPanel jPanel_Mantenimiento_Medio;
     private javax.swing.JPanel jPanel_MantenimientosP;
     private javax.swing.JPanel jPanel_MatenimientosD;
     private javax.swing.JPanel jPanel_RRHH;
+    private javax.swing.JPanel jPanel_ReferenciasL;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JScrollPane jScrollPane25;
+    private javax.swing.JScrollPane jScrollPane26;
+    private javax.swing.JScrollPane jScrollPane27;
+    private javax.swing.JScrollPane jScrollPane28;
+    private javax.swing.JTextArea jTextArea_DescripcionM;
+    private javax.swing.JTextArea jTextArea_DescripcionSE;
     private javax.swing.JTable tbl_Departamento;
     private javax.swing.JTable tbl_ExpL;
     private javax.swing.JTable tbl_ExpLD;
+    private javax.swing.JTable tbl_Medio;
     private javax.swing.JTable tbl_NivelA;
     private javax.swing.JTable tbl_Puesto;
+    private javax.swing.JTable tbl_RL;
+    private javax.swing.JTable tbl_SE;
     private javax.swing.JTextField txt_Buscar;
+    private javax.swing.JTextField txt_BuscarM;
+    private javax.swing.JTextField txt_BuscarRL;
     private javax.swing.JTextField txt_Buscar_ExpL;
     private javax.swing.JTextField txt_Buscar_ExpLD;
     private javax.swing.JTextField txt_Buscar_NivelA;
     private javax.swing.JTextField txt_Buscar_Puesto;
+    private javax.swing.JTextField txt_Buscar_SE;
     private javax.swing.JTextField txt_Descripcion_NivelA;
     private javax.swing.JTextField txt_Descripcion_Puesto;
     private javax.swing.JTextField txt_Estatus_Departamento;
     private javax.swing.JTextField txt_Estatus_Puesto;
+    private javax.swing.JTextField txt_Genero;
     private javax.swing.JTextField txt_NombreExpLD;
+    private javax.swing.JTextField txt_NombreM;
+    private javax.swing.JTextField txt_NombreRL;
     private javax.swing.JTextField txt_Nombre_Departamento;
     private javax.swing.JTextField txt_Nombre_EmpresaExpLD;
     private javax.swing.JTextField txt_Nombre_NivelA;
     private javax.swing.JTextField txt_Nombre_Puesto;
+    private javax.swing.JTextField txt_RangoEdadM;
+    private javax.swing.JTextField txt_RangoEdadMa;
+    private javax.swing.JTextField txt_TelefonoRL;
     private javax.swing.JTextField txt_Tiempo_FinalizacionExpLD;
     private javax.swing.JTextField txt_Tiempo_InicioExpLD;
     private javax.swing.JTextField txt_id_Departamento;
     private javax.swing.JTextField txt_id_ExpL;
     private javax.swing.JTextField txt_id_ExpLD;
+    private javax.swing.JTextField txt_id_Medio;
     private javax.swing.JTextField txt_id_NivelA;
     private javax.swing.JTextField txt_id_Puesto;
+    private javax.swing.JTextField txt_id_ReferenciaL;
+    private javax.swing.JTextField txt_id_SolicitudE;
     // End of variables declaration//GEN-END:variables
 }
