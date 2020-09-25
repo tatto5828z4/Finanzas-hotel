@@ -23,7 +23,7 @@ public class Departamento
     
     public static String Base_de_Datos = "jdbc:mysql://localhost/Hotel";
     public static String Usuario = "root";
-    public static String Clave = "admin";
+    public static String Clave = "jorgito5828H";
     
 
     //Constructor
@@ -46,7 +46,7 @@ public class Departamento
             pstID.setString(3, Estatus.getText().trim());
             
             pstID.executeUpdate();
-            
+             
             id.setText("");
             Nombre.setText("");
             Estatus.setText("");
@@ -55,7 +55,7 @@ public class Departamento
             
             Actualizar_Tabla(Tabla);
             
-
+  
             
         }catch(Exception e)
         {
