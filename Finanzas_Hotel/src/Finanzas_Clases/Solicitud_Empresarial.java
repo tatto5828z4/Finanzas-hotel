@@ -339,7 +339,6 @@ public class Solicitud_Empresarial {
             if(rs.next()) {
                 boxNombre.setSelectedItem(rs.getString(Nombre));
             } 
-            
         }catch(Exception e){
             
         }

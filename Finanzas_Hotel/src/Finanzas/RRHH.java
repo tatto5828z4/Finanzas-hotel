@@ -8,6 +8,7 @@ package Finanzas;
 import Finanzas_Clases.Departamento;
 import Finanzas_Clases.Experiencia_Laboral;
 import Finanzas_Clases.Experiencia_Laboral_Detallada;
+import Finanzas_Clases.Medio;
 import Finanzas_Clases.Nivel_Academico;
 import Finanzas_Clases.Puesto;
 import Finanzas_Clases.Referencias_Laborales;
@@ -1518,6 +1519,11 @@ public class RRHH extends javax.swing.JFrame {
         jPanel_Mantenimiento_Medio.add(jScrollPane27, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 600, 190));
 
         jLabel_BuscarM.setText("Buscar");
+        jLabel_BuscarM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_BuscarMMouseClicked(evt);
+            }
+        });
         jPanel_Mantenimiento_Medio.add(jLabel_BuscarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 50, 20));
 
         txt_BuscarM.setBackground(new java.awt.Color(231, 231, 231));
@@ -1832,6 +1838,11 @@ public class RRHH extends javax.swing.JFrame {
         jPanel_MantenimientoSE.add(txt_Buscar_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 290, 20));
 
         jLabel_Buscar_SE.setText("Buscar");
+        jLabel_Buscar_SE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Buscar_SEMouseClicked(evt);
+            }
+        });
         jPanel_MantenimientoSE.add(jLabel_Buscar_SE, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, -1));
 
         jLabel_IngresarSE.setText("Ingresar");
@@ -2813,6 +2824,8 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jComboBox_IDSEMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_IDSEMActionPerformed
         // TODO add your handling code here:
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);
+        M.EncontrarID_M("id_solicitud", "solicitud_empresarial", "id_solicitud", jComboBox_IDSEM, jLabel_ID_SEM);
     }//GEN-LAST:event_jComboBox_IDSEMActionPerformed
 
     private void txt_NombreMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NombreMActionPerformed
@@ -2825,18 +2838,30 @@ public class RRHH extends javax.swing.JFrame {
 
     private void txt_BuscarMKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarMKeyReleased
         // TODO add your handling code here:
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);
+        M.Buscar_SolicitudM(txt_BuscarM.getText());
     }//GEN-LAST:event_txt_BuscarMKeyReleased
 
     private void jLabel_IngresarMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarMMouseClicked
         // TODO add your handling code here:
+        //ingresar
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);        
+        M.Insertar_Me();
+        M.Encontrar_ListaM("solicitud_empresarial", "id_solicitud", jComboBox_IDSEM);
     }//GEN-LAST:event_jLabel_IngresarMMouseClicked
 
     private void jLabel_ModificarMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarMMouseClicked
         // TODO add your handling code here:
+        //modificar
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);
+        M.Modificar_SE();
     }//GEN-LAST:event_jLabel_ModificarMMouseClicked
 
     private void jLabel_EliminarMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarMMouseClicked
         // TODO add your handling code here:
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);
+        M.Eliminar_SE();
+        M.EncontrarID_M("id_solicitud", "solicitud_empresarial", "id_solicitud", jComboBox_IDSEM, jLabel_ID_SEM);
     }//GEN-LAST:event_jLabel_EliminarMMouseClicked
 
     private void jLabel_MedioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MedioMouseMoved
@@ -2900,6 +2925,11 @@ public class RRHH extends javax.swing.JFrame {
         Panel_RLIMEC.setVisible(false);
 
         jPanel_Mantenimiento_Medio.setVisible(true);
+        
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);        
+        M.Encontrar_ListaM("solicitud_empresarial", "id_solicitud", jComboBox_IDSEM);
+
+        M.Actualizar_Tabla();
     }//GEN-LAST:event_jLabel_MantenimientoMMouseClicked
 
     private void jLabel_MantenimientoMMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoMMouseExited
@@ -3109,6 +3139,14 @@ public class RRHH extends javax.swing.JFrame {
     private void jLabel_Puesto_SEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Puesto_SEMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_Puesto_SEMouseClicked
+
+    private void jLabel_BuscarMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_BuscarMMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_BuscarMMouseClicked
+
+    private void jLabel_Buscar_SEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Buscar_SEMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Buscar_SEMouseClicked
 
     /**
      * @param args the command line arguments
