@@ -5,6 +5,7 @@
  */
 package Finanzas;
 
+import Finanzas_Clases.Curriculum;
 import Finanzas_Clases.Departamento;
 import Finanzas_Clases.Experiencia_Laboral;
 import Finanzas_Clases.Experiencia_Laboral_Detallada;
@@ -4462,6 +4463,17 @@ public class RRHH extends javax.swing.JFrame {
         Panel_TPIMEC.setVisible(false);
         
         jPanel_MantenimientoCV.setVisible(true);
+        
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.Encontrar_ListaCV("nivel_academico", "nombre_nivel", jComboBox_NivelACV);
+        CV.Encontrar_ListaCV("referenciasp", "nombre_personaP", jComboBox_RPCV);
+        CV.Encontrar_ListaCV("referenciasl", "nombre_personaL", jComboBox_RLCV);
+        CV.Encontrar_ListaCV("experiencia_laboral", "id_tipoexp", jComboBox_ELCV);
+        CV.Encontrar_ListaCV("medio", "nombre_medio", jComboBox_MedioCV);
+
+
+        CV.Actualizar_Tabla();
+        
     }//GEN-LAST:event_jLabel_MantenimientoCVMouseClicked
 
     private void jLabel_MantenimientoCVMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoCVMouseExited
@@ -4527,34 +4539,56 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jComboBox_NivelACVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_NivelACVActionPerformed
         // TODO add your handling code here:
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.EncontrarID_CV("id_nivel_academico", "nivel_academico", "nombre_nivel", jComboBox_NivelACV, jLabel_NivelA_CV);
     }//GEN-LAST:event_jComboBox_NivelACVActionPerformed
 
     private void jComboBox_RPCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RPCVActionPerformed
         // TODO add your handling code here:
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.EncontrarID_CV("id_referenciaP", "referenciasp", "nombre_personaP", jComboBox_RPCV, jLabel_RP_CV);
     }//GEN-LAST:event_jComboBox_RPCVActionPerformed
 
     private void jComboBox_RLCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_RLCVActionPerformed
         // TODO add your handling code here:
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.EncontrarID_CV("id_referenciaL", "referenciasl", "nombre_personaL", jComboBox_RLCV, jLabel_RL_CV);
     }//GEN-LAST:event_jComboBox_RLCVActionPerformed
 
     private void jComboBox_ELCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ELCVActionPerformed
         // TODO add your handling code here:
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.EncontrarID_CV("id_experiencia", "experiencia_laboral", "id_tipoexp", jComboBox_ELCV, jLabel_EL_CV);
     }//GEN-LAST:event_jComboBox_ELCVActionPerformed
 
     private void jComboBox_MedioCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_MedioCVActionPerformed
         // TODO add your handling code here:
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.EncontrarID_CV("id_medio", "medio", "nombre_medio", jComboBox_MedioCV, jLabel_Medio_CV);
     }//GEN-LAST:event_jComboBox_MedioCVActionPerformed
 
     private void jLabel_Insertar_CVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Insertar_CVMouseClicked
         // TODO add your handling code here:
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.Insertar_C();
+        
     }//GEN-LAST:event_jLabel_Insertar_CVMouseClicked
 
     private void jLabel_Modificar_CVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_CVMouseClicked
         // TODO add your handling code here:
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.Modificar_C();
     }//GEN-LAST:event_jLabel_Modificar_CVMouseClicked
 
     private void jLabel_Eliminar_CVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_CVMouseClicked
         // TODO add your handling code here:
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.Eliminar_C();
+        CV.EncontrarID_CV("id_nivel_academico", "nivel_academico", "nombre_nivel", jComboBox_NivelACV, jLabel_NivelA_CV);
+        CV.EncontrarID_CV("id_referenciaP", "referenciasp", "nombre_personaP", jComboBox_RPCV, jLabel_RP_CV);
+        CV.EncontrarID_CV("id_referenciaL", "referenciasl", "nombre_personaL", jComboBox_RLCV, jLabel_RL_CV);
+        CV.EncontrarID_CV("id_experiencia", "experiencia_laboral", "id_tipoexp", jComboBox_ELCV, jLabel_EL_CV);
+        CV.EncontrarID_CV("id_medio", "medio", "nombre_medio", jComboBox_MedioCV, jLabel_Medio_CV);
     }//GEN-LAST:event_jLabel_Eliminar_CVMouseClicked
 
     private void txt_Buscar_CVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Buscar_CVActionPerformed
@@ -4563,6 +4597,8 @@ public class RRHH extends javax.swing.JFrame {
 
     private void txt_Buscar_CVKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_CVKeyReleased
         // TODO add your handling code here:
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV,jLabel_EL_CV,jLabel_Medio_CV,txt_Buscar_CV,tbl_CV);
+        CV.Buscar_SolicitudCV(txt_Buscar_CV.getText());
     }//GEN-LAST:event_txt_Buscar_CVKeyReleased
 
     private void jLabel_APMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_APMouseMoved
