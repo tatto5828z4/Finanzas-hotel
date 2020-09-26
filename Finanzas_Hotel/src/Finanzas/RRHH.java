@@ -13,6 +13,7 @@ import Finanzas_Clases.Medio;
 import Finanzas_Clases.Nivel_Academico;
 import Finanzas_Clases.Puesto;
 import Finanzas_Clases.Referencias_Laborales;
+import Finanzas_Clases.Referencias_Personales;
 import Finanzas_Clases.Solicitud_Empresarial;
 import javax.swing.table.DefaultTableModel;
 
@@ -4335,6 +4336,9 @@ public class RRHH extends javax.swing.JFrame {
         Panel_TPIMEC.setVisible(false);
         
         jPanel_MantenimientosRP.setVisible(true);
+        Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
+        RP.Actualizar_Tabla();
+        
     }//GEN-LAST:event_jLabel_MantenimientoRPMouseClicked
 
     private void jLabel_MantenimientoRPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoRPMouseExited
@@ -4376,22 +4380,32 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jLabel_Insertar_RPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Insertar_RPMouseClicked
         // TODO add your handling code here:
+        Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
+        RP.Insertar_ReferenciasP();
     }//GEN-LAST:event_jLabel_Insertar_RPMouseClicked
 
     private void jLabel_Modificar_RPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_RPMouseClicked
         // TODO add your handling code here:
+        //MODIFICAAAR
+        Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
+        RP.Modificar_RefPer();
     }//GEN-LAST:event_jLabel_Modificar_RPMouseClicked
 
     private void jLabel_Eliminar_RPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_RPMouseClicked
         // TODO add your handling code here:
+        //ELIMINARRRRR
+        Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
+        RP.Eliminar_ReferenciasP();
     }//GEN-LAST:event_jLabel_Eliminar_RPMouseClicked
 
     private void txt_Buscar_RPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Buscar_RPActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
     }//GEN-LAST:event_txt_Buscar_RPActionPerformed
 
     private void txt_Buscar_RPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_RPKeyReleased
         // TODO add your handling code here:
+        Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
+        RP.Buscar_ReferenciasP(txt_Buscar_RP.getText());
     }//GEN-LAST:event_txt_Buscar_RPKeyReleased
 
     private void jLabel_CVMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_CVMouseMoved
