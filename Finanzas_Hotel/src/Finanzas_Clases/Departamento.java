@@ -6,6 +6,8 @@
 package Finanzas_Clases;
 
 import java.sql.*;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -23,7 +25,7 @@ public class Departamento
     
     public static String Base_de_Datos = "jdbc:mysql://localhost/Hotel";
     public static String Usuario = "root";
-    public static String Clave = "jorgito5828H";
+    public static String Clave = "root";
     
 
     //Constructor
@@ -210,6 +212,26 @@ public class Departamento
         DefaultTableModel model = Buscar_Departamento(Buscar);
         Tabla.setModel(model);
     }
+    
+    public void BuscarFila_Departamento(String Nombre,String tablaBD, String ID,JComboBox boxNombre,JLabel labelID)
+    {
+        try{
+            Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
+            PreparedStatement pst = cn.prepareStatement("select " +  Nombre  + " from " + tablaBD +" where " + ID + "= ?");
+            pst.setString(1, labelID.getText());
+
+            ResultSet rs = pst.executeQuery();
+             
+
+            if(rs.next()) {
+                boxNombre.setSelectedItem(rs.getString(Nombre));
+            } 
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+    
    
     
 }
