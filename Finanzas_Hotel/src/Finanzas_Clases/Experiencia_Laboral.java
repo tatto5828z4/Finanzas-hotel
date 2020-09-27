@@ -250,4 +250,23 @@ public class Experiencia_Laboral
             System.out.println(e);
         }
     }
+    
+    public void BuscarFila_ExpL(String Nombre,String tablaBD, String ID,JComboBox boxNombre,JLabel labelID)
+    {
+        try{
+            Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
+            PreparedStatement pst = cn.prepareStatement("select " +  Nombre  + " from " + tablaBD +" where " + ID + "= ?");
+            pst.setString(1, labelID.getText());
+
+            ResultSet rs = pst.executeQuery();
+             
+
+            if(rs.next()) {
+                boxNombre.setSelectedItem(rs.getString(Nombre));
+            } 
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
 }

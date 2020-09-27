@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -232,4 +234,6 @@ public class Experiencia_Laboral_Detallada
         DefaultTableModel model = Buscar_ExpLD(Buscar);
         tabla_ExpLD.setModel(model);
     }
+    
+
 }
