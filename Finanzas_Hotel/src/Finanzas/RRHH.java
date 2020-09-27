@@ -5,6 +5,7 @@
  */
 package Finanzas;
 
+import Finanzas_Clases.Aplicacion;
 import Finanzas_Clases.Curriculum;
 import Finanzas_Clases.Departamento;
 import Finanzas_Clases.Experiencia_Laboral;
@@ -236,6 +237,7 @@ public class RRHH extends javax.swing.JFrame {
         txt_BuscarAP = new javax.swing.JTextField();
         jLabel_BuscarAP = new javax.swing.JLabel();
         jLabel_DPI_AP = new javax.swing.JLabel();
+        jLabel_NombreAP = new javax.swing.JLabel();
         jPanel_MantenimientoExpL = new javax.swing.JPanel();
         jLabel_ID_ExpL = new javax.swing.JLabel();
         txt_id_ExpL = new javax.swing.JTextField();
@@ -1987,8 +1989,8 @@ public class RRHH extends javax.swing.JFrame {
         jLabel_ID_AP.setText("ID Aplicacion");
         jPanel_MantenimientoAP.add(jLabel_ID_AP, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
 
-        jLabel_DPIAP.setText("DPI");
-        jPanel_MantenimientoAP.add(jLabel_DPIAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
+        jLabel_DPIAP.setText("Nombre");
+        jPanel_MantenimientoAP.add(jLabel_DPIAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
 
         jComboBox_DPIAP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2005,10 +2007,10 @@ public class RRHH extends javax.swing.JFrame {
                 txt_RequisitosAPActionPerformed(evt);
             }
         });
-        jPanel_MantenimientoAP.add(txt_RequisitosAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 140, 20));
+        jPanel_MantenimientoAP.add(txt_RequisitosAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 140, 20));
 
         jLabel_RequisitosAP.setText("Cumple Requisitos?");
-        jPanel_MantenimientoAP.add(jLabel_RequisitosAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, -1, -1));
+        jPanel_MantenimientoAP.add(jLabel_RequisitosAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
 
         jLabel_IngresarAP.setText("Ingresar");
         jLabel_IngresarAP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2048,6 +2050,11 @@ public class RRHH extends javax.swing.JFrame {
         ));
         tbl_AP.setGridColor(new java.awt.Color(255, 255, 255));
         tbl_AP.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_AP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_APMouseClicked(evt);
+            }
+        });
         jScrollPane31.setViewportView(tbl_AP);
 
         jPanel_MantenimientoAP.add(jScrollPane31, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 600, 190));
@@ -2074,7 +2081,13 @@ public class RRHH extends javax.swing.JFrame {
             }
         });
         jPanel_MantenimientoAP.add(jLabel_BuscarAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 50, 20));
-        jPanel_MantenimientoAP.add(jLabel_DPI_AP, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 30, 20));
+
+        jLabel_DPI_AP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_MantenimientoAP.add(jLabel_DPI_AP, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 90, 20));
+
+        jLabel_NombreAP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_NombreAP.setText("DPI");
+        jPanel_MantenimientoAP.add(jLabel_NombreAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 70, -1));
 
         jPanel_RRHH.add(jPanel_MantenimientoAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 680));
 
@@ -2478,6 +2491,11 @@ public class RRHH extends javax.swing.JFrame {
         ));
         tbl_RL.setGridColor(new java.awt.Color(255, 255, 255));
         tbl_RL.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_RL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_RLMouseClicked(evt);
+            }
+        });
         jScrollPane28.setViewportView(tbl_RL);
 
         jPanel_ReferenciasL.add(jScrollPane28, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 600, 190));
@@ -3041,6 +3059,11 @@ public class RRHH extends javax.swing.JFrame {
         ));
         tbl_CV.setGridColor(new java.awt.Color(255, 255, 255));
         tbl_CV.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_CV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_CVMouseClicked(evt);
+            }
+        });
         jScrollPane30.setViewportView(tbl_CV);
 
         jPanel_MantenimientoCV.add(jScrollPane30, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 730, 190));
@@ -4689,6 +4712,11 @@ public class RRHH extends javax.swing.JFrame {
         Panel_TPIMEC.setVisible(false);
 
         jPanel_MantenimientoAP.setVisible(true);
+
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        ap.Encontrar_ListaAplicacion("curriculum", "nombres_persona", jComboBox_DPIAP);
+        ap.Actualizar_Tabla();
+
     }//GEN-LAST:event_jLabel_MantenimientoAPMouseClicked
 
     private void jLabel_MantenimientoAPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoAPMouseExited
@@ -4709,6 +4737,7 @@ public class RRHH extends javax.swing.JFrame {
 
     private void Panel_APIMECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_APIMECMouseExited
         // TODO add your handling code here:
+        Panel_APIMEC.setVisible(false);
     }//GEN-LAST:event_Panel_APIMECMouseExited
 
     private void Panel_APIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_APIMECMouseReleased
@@ -4721,6 +4750,8 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jComboBox_DPIAPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_DPIAPActionPerformed
         // TODO add your handling code here:
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        ap.EncontrarID_dpi("dpi_persona", "curriculum", "nombres_persona", jComboBox_DPIAP, jLabel_DPI_AP);
     }//GEN-LAST:event_jComboBox_DPIAPActionPerformed
 
     private void txt_RequisitosAPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_RequisitosAPActionPerformed
@@ -4729,14 +4760,20 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jLabel_IngresarAPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarAPMouseClicked
         // TODO add your handling code here:
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        ap.Insertar_Aplicacion();
     }//GEN-LAST:event_jLabel_IngresarAPMouseClicked
 
     private void jLabel_Modificar_APMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_APMouseClicked
         // TODO add your handling code here:
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        ap.Modificar_Aplicacion();
     }//GEN-LAST:event_jLabel_Modificar_APMouseClicked
 
     private void jLabel_Eliminar_APMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_APMouseClicked
         // TODO add your handling code here:
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        ap.Eliminar_Aplicacion();
     }//GEN-LAST:event_jLabel_Eliminar_APMouseClicked
 
     private void txt_BuscarAPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscarAPActionPerformed
@@ -4745,6 +4782,8 @@ public class RRHH extends javax.swing.JFrame {
 
     private void txt_BuscarAPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarAPKeyReleased
         // TODO add your handling code here:
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        ap.Buscar_AplicacionE(txt_BuscarAP.getText());
     }//GEN-LAST:event_txt_BuscarAPKeyReleased
 
     private void jLabel_BuscarAPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_BuscarAPMouseClicked
@@ -4949,6 +4988,59 @@ public class RRHH extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_tbl_TPMouseClicked
 
+    private void tbl_APMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_APMouseClicked
+        // TODO add your handling code here:
+
+        int Seleccion = tbl_AP.rowAtPoint(evt.getPoint());
+
+        txt_id_AP.setText(String.valueOf(tbl_AP.getValueAt(Seleccion, 0)));
+        jLabel_DPI_AP.setText(String.valueOf(tbl_AP.getValueAt(Seleccion, 1)));
+        txt_RequisitosAP.setText(String.valueOf(tbl_AP.getValueAt(Seleccion, 2)));
+
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        ap.BuscarFila_AP("nombres_persona", "curriculum", "dpi_persona", jComboBox_DPIAP, jLabel_DPI_AP);
+
+    }//GEN-LAST:event_tbl_APMouseClicked
+
+    private void tbl_RLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_RLMouseClicked
+        // TODO add your handling code here:
+
+        int Seleccion = tbl_RL.rowAtPoint(evt.getPoint());
+
+        txt_id_ReferenciaL.setText(String.valueOf(tbl_RL.getValueAt(Seleccion, 0)));
+        txt_NombreRL.setText(String.valueOf(tbl_RL.getValueAt(Seleccion, 1)));
+        txt_TelefonoRL.setText(String.valueOf(tbl_RL.getValueAt(Seleccion, 2)));
+
+    }//GEN-LAST:event_tbl_RLMouseClicked
+
+    private void tbl_CVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CVMouseClicked
+        // TODO add your handling code here:
+
+        int Seleccion = tbl_CV.rowAtPoint(evt.getPoint());
+
+        txt_DPICV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 0)));
+        txt_NombreCV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 1)));
+        txt_ApellidoCV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 2)));
+        txt_TelefonoCV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 3)));
+        txt_CorreoCV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 4)));
+        txt_DireccionCV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 5)));
+        txt_GeneroCV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 6)));
+        txt_EdadCV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 7)));
+        jLabel_NivelA_CV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 8)));
+        jLabel_RP_CV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 9)));
+        jLabel_RL_CV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 10)));
+        jLabel_EL_CV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 11)));
+        jLabel_Medio_CV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 12)));
+        
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV, jLabel_EL_CV, jLabel_Medio_CV, txt_Buscar_CV, tbl_CV);
+        CV.BuscarFila_CV("nombre_nivel", "nivel_academico", "id_nivel_academico", jComboBox_NivelACV, jLabel_NivelA_CV);
+        CV.BuscarFila_CV("nombre_personaP", "referenciasP", "id_referenciaP", jComboBox_RPCV, jLabel_RP_CV);
+        CV.BuscarFila_CV("nombre_personaL", "referenciasL", "id_referenciaL", jComboBox_RLCV, jLabel_RL_CV);
+        CV.BuscarFila_CV("id_tipoexp", "experiencia_laboral", "id_tipoexp", jComboBox_ELCV, jLabel_EL_CV);
+        CV.BuscarFila_CV("nombre_medio", "medio", "id_medio", jComboBox_MedioCV, jLabel_Medio_CV);
+        //id_experiencia
+    }//GEN-LAST:event_tbl_CVMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -4974,6 +5066,262 @@ public class RRHH extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(RRHH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -5407,6 +5755,7 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_NivelASE;
     private javax.swing.JLabel jLabel_NivelA_CV;
     private javax.swing.JLabel jLabel_NivelA_SE;
+    private javax.swing.JLabel jLabel_NombreAP;
     private javax.swing.JLabel jLabel_NombreCV;
     private javax.swing.JLabel jLabel_NombreD;
     private javax.swing.JLabel jLabel_NombreExpLD;
