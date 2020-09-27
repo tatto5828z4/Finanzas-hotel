@@ -55,7 +55,7 @@ public class Solicitud_Empresarial {
     }
     
    
-     public void Actualizar_Tabla()
+    public void Actualizar_Tabla()
     {
         int cantidad = Cantidad_Registros();
         
@@ -237,7 +237,7 @@ public class Solicitud_Empresarial {
     }
      
      
-      public DefaultTableModel Buscar_SE(String Buscar)
+    public DefaultTableModel Buscar_SE(String Buscar)
     {
         String[] nombre_ColumnasSE = {"ID Solicitud", "Rango de Edad Menor","Rando de Edad Mayor","Genero","ID Puesto","ID Departamento","ID Nivel Academino","ID Experiencia Labboral","ID Descripcion"};
         String[] RegistrosSE = new String[9];
@@ -275,7 +275,7 @@ public class Solicitud_Empresarial {
         return model;
     }
     
-       public void Buscar_SolicitudE(String Buscar)
+    public void Buscar_SolicitudE(String Buscar)
     {
         DefaultTableModel model = Buscar_SE(Buscar);
         tbl_SE.setModel(model);

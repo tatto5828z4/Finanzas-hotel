@@ -1,4 +1,4 @@
-Drop database Hotel;
+-- Drop database Hotel;
 create database Hotel;
 use Hotel;
 
@@ -13,7 +13,7 @@ create table explab_detallado(
 	id_tipoexp varchar(10) primary key,-- 1
     nombre_tipo varchar(50), -- inventarios, bodega
     nombre_empresa varchar(50), -- x
-	tiempo_inicicio date, -- 10/10/2000
+	tiempo_inicio date, -- 10/10/2000
     tiempo_finalizacion date -- 10/08/2015
 ) engine = InnoDB default char set=latin1;
 
@@ -76,7 +76,7 @@ create table medio(
 ) engine = InnoDB default char set=latin1;
 
 create table curriculum(/*Reclutamiento*/
-	dpi_persona int primary key,
+	dpi_persona varchar(13) primary key,
     nombres_persona varchar(100),
     apellidos_persona varchar(100),
     telefono_persona int,
@@ -101,7 +101,7 @@ create table curriculum(/*Reclutamiento*/
 
 create table aplicacion(
 	id_aplicacion varchar(10) primary key,
-    dpi_persona int, -- foranea 
+    dpi_persona varchar(13), -- foranea 
     cumple_requisitos char(1), -- Aplica o no Aplica
     
     foreign key(dpi_persona) references curriculum(dpi_persona)
