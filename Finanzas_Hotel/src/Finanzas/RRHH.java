@@ -8,15 +8,19 @@ package Finanzas;
 import Finanzas_Clases.Actividad;
 import Finanzas_Clases.Aplicacion;
 import Finanzas_Clases.Aplicacion_Prueba;
+import Finanzas_Clases.Contratacion;
 import Finanzas_Clases.Curriculum;
 import Finanzas_Clases.Departamento;
+import Finanzas_Clases.Empleado_Contratado;
 import Finanzas_Clases.Experiencia_Laboral;
 import Finanzas_Clases.Experiencia_Laboral_Detallada;
 import Finanzas_Clases.Medio;
 import Finanzas_Clases.Nivel_Academico;
+import Finanzas_Clases.Periodo_Prueba;
 import Finanzas_Clases.Puesto;
 import Finanzas_Clases.Referencias_Laborales;
 import Finanzas_Clases.Referencias_Personales;
+import Finanzas_Clases.Seleccion;
 import Finanzas_Clases.Solicitud_Empresarial;
 import Finanzas_Clases.Tipo_Prueba;
 
@@ -49,6 +53,9 @@ public class RRHH extends javax.swing.JFrame {
         jPanel_MantenimientoAPP.setVisible(false);
         jPanel_MantenimientoS.setVisible(false);
         jPanel_MantenimientoA.setVisible(false);
+        jPanel_MantenimientoPP.setVisible(false);
+        jPanel_MantenimientoC.setVisible(false);
+        jPanel_MantenimientoEC.setVisible(false);
 
         //Labels de Puesto (Ingresar - Modificar - Eliminar - Consultar)
         Panel_PIMEC.setVisible(false);
@@ -82,15 +89,24 @@ public class RRHH extends javax.swing.JFrame {
 
         //Labels de Aplicacion Prueba (Ingresar - Modificar - Eliminar - Consultar)
         Panel_TPIMEC.setVisible(false);
-        
+
         //Labels de Aplicacion Prueba (Ingresar - Modificar - Eliminar - Consultar)
         Panel_APPIMEC.setVisible(false);
-        
+
         //Labels de Seleccion (Ingresar - Modificar - Eliminar - Consultar)
         Panel_SIMEC.setVisible(false);
-        
+
         //Labels de Actividad (Ingresar - Modificar - Eliminar - Consultar)
         Panel_AIMEC.setVisible(false);
+
+        //Labels de Periodo Prueba (Ingresar - Modificar - Eliminar - Consultar)
+        Panel_PPIMEC.setVisible(false);
+
+        //Labels de Contratacion (Ingresar - Modificar - Eliminar - Consultar)
+        Panel_CTIMEC.setVisible(false);
+        
+        //Labels de Empleado Contratado (Ingresar - Modificar - Eliminar - Consultar)
+        Panel_ECTIMEC.setVisible(false);
     }
 
     /**
@@ -194,6 +210,86 @@ public class RRHH extends javax.swing.JFrame {
         jLabel_Eliminar_A = new javax.swing.JLabel();
         jLabel_Consultar_A = new javax.swing.JLabel();
         jLabel_Mantenimiento_A = new javax.swing.JLabel();
+        jLabel_PeriodoP = new javax.swing.JLabel();
+        Panel_PPIMEC = new javax.swing.JPanel();
+        jLabel_ModificarPP = new javax.swing.JLabel();
+        jLabel_EliminarPP = new javax.swing.JLabel();
+        jLabel_ConsultarPP = new javax.swing.JLabel();
+        jLabel_MantenimientoPP = new javax.swing.JLabel();
+        jLabel_Contratacion = new javax.swing.JLabel();
+        Panel_CTIMEC = new javax.swing.JPanel();
+        jLabel_ModificarC = new javax.swing.JLabel();
+        jLabel_EliminarC = new javax.swing.JLabel();
+        jLabel_ConsultarC = new javax.swing.JLabel();
+        jLabel_MantenimientoC = new javax.swing.JLabel();
+        jLabel_EmpleadoC = new javax.swing.JLabel();
+        Panel_ECTIMEC = new javax.swing.JPanel();
+        jLabel_ModificarEC = new javax.swing.JLabel();
+        jLabel_EliminarEC = new javax.swing.JLabel();
+        jLabel_ConsultarEC = new javax.swing.JLabel();
+        jLabel_MantenimientoEC = new javax.swing.JLabel();
+        jPanel_MantenimientoEC = new javax.swing.JPanel();
+        jLabel_ID_EC = new javax.swing.JLabel();
+        txt_id_EC = new javax.swing.JTextField();
+        jLabel_CEC = new javax.swing.JLabel();
+        jLabel_CECC = new javax.swing.JLabel();
+        jComboBox_CEC = new javax.swing.JComboBox<>();
+        jLabel_ECP = new javax.swing.JLabel();
+        jLabel_ECPP = new javax.swing.JLabel();
+        jComboBox_ECP = new javax.swing.JComboBox<>();
+        jLabel_ECD = new javax.swing.JLabel();
+        jLabel_ECDD = new javax.swing.JLabel();
+        jComboBox_ECD = new javax.swing.JComboBox<>();
+        jLabe_SEC = new javax.swing.JLabel();
+        txt_SEC = new javax.swing.JTextField();
+        jLabel_IngresarEC = new javax.swing.JLabel();
+        jLabel_Modificar_EC = new javax.swing.JLabel();
+        jLabel_Eliminar_EC = new javax.swing.JLabel();
+        jLabel_BuscarEC = new javax.swing.JLabel();
+        txt_BuscarEC = new javax.swing.JTextField();
+        jScrollPane38 = new javax.swing.JScrollPane();
+        tbl_EC = new javax.swing.JTable();
+        jPanel_MantenimientoC = new javax.swing.JPanel();
+        txt_id_C = new javax.swing.JTextField();
+        jLabel_ID_C = new javax.swing.JLabel();
+        jLabel_PPC = new javax.swing.JLabel();
+        jLabel_PPCC = new javax.swing.JLabel();
+        jComboBox_PPC = new javax.swing.JComboBox<>();
+        txt_FC = new javax.swing.JTextField();
+        jLabel_FC = new javax.swing.JLabel();
+        txt_DC = new javax.swing.JTextField();
+        jLabel_DC = new javax.swing.JLabel();
+        txt_EC = new javax.swing.JTextField();
+        jLabel_EC = new javax.swing.JLabel();
+        jLabel_InsertarC = new javax.swing.JLabel();
+        jLabel_Modificar_C = new javax.swing.JLabel();
+        jLabel_Eliminar_C = new javax.swing.JLabel();
+        jLabel_Buscar_C = new javax.swing.JLabel();
+        txt_Buscar_C = new javax.swing.JTextField();
+        jScrollPane37 = new javax.swing.JScrollPane();
+        tbl_C = new javax.swing.JTable();
+        jPanel_MantenimientoPP = new javax.swing.JPanel();
+        jLabel_ID_PP = new javax.swing.JLabel();
+        txt_id_PP = new javax.swing.JTextField();
+        jLabel_PPS = new javax.swing.JLabel();
+        jLabel_PPSE = new javax.swing.JLabel();
+        jComboBox_PPS = new javax.swing.JComboBox<>();
+        jLabel_FI = new javax.swing.JLabel();
+        txt_id_FI = new javax.swing.JTextField();
+        jLabel_FF = new javax.swing.JLabel();
+        txt_id_FF = new javax.swing.JTextField();
+        jLabel_Pago = new javax.swing.JLabel();
+        txt_id_Pago = new javax.swing.JTextField();
+        jLabel_PPA = new javax.swing.JLabel();
+        jComboBox_PPA = new javax.swing.JComboBox<>();
+        jLabel_PPAA = new javax.swing.JLabel();
+        jLabel_IngresarPP = new javax.swing.JLabel();
+        jLabel_Modificar_PP = new javax.swing.JLabel();
+        jLabel_Eliminar_PP = new javax.swing.JLabel();
+        jLabel_BuscarPP = new javax.swing.JLabel();
+        txt_BuscarPP = new javax.swing.JTextField();
+        jScrollPane36 = new javax.swing.JScrollPane();
+        tbl_PP = new javax.swing.JTable();
         jPanel_MantenimientoExpLD = new javax.swing.JPanel();
         jLabel_ID_ExpLD = new javax.swing.JLabel();
         txt_id_ExpLD = new javax.swing.JTextField();
@@ -570,6 +666,9 @@ public class RRHH extends javax.swing.JFrame {
         jLabel_MantenimientoP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel_MantenimientoPMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoPMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel_MantenimientoPMouseExited(evt);
@@ -1890,6 +1989,715 @@ public class RRHH extends javax.swing.JFrame {
         Panel_AIMEC.add(jLabel_Mantenimiento_A, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, -1));
 
         jPanel_RRHH.add(Panel_AIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 160, 90));
+
+        jLabel_PeriodoP.setText("Periodo Prueba");
+        jLabel_PeriodoP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_PeriodoPMouseMoved(evt);
+            }
+        });
+        jLabel_PeriodoP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_PeriodoPMouseClicked(evt);
+            }
+        });
+        jPanel_RRHH.add(jLabel_PeriodoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, -1, 20));
+
+        Panel_PPIMEC.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_PPIMEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_PPIMEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                Panel_PPIMECMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                Panel_PPIMECMouseMoved(evt);
+            }
+        });
+        Panel_PPIMEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_PPIMECMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Panel_PPIMECMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Panel_PPIMECMouseReleased(evt);
+            }
+        });
+        Panel_PPIMEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_ModificarPP.setText("Modificar Periodo Prueba");
+        jLabel_ModificarPP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_ModificarPP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarPPMouseMoved(evt);
+            }
+        });
+        jLabel_ModificarPP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarPPMouseExited(evt);
+            }
+        });
+        Panel_PPIMEC.add(jLabel_ModificarPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        jLabel_EliminarPP.setText("Eliminar Periodo Prueba");
+        jLabel_EliminarPP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_EliminarPP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarPPMouseMoved(evt);
+            }
+        });
+        jLabel_EliminarPP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarPPMouseExited(evt);
+            }
+        });
+        Panel_PPIMEC.add(jLabel_EliminarPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+
+        jLabel_ConsultarPP.setText("Consultar Periodo Prueba");
+        jLabel_ConsultarPP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_ConsultarPP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarPPMouseMoved(evt);
+            }
+        });
+        jLabel_ConsultarPP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarPPMouseExited(evt);
+            }
+        });
+        Panel_PPIMEC.add(jLabel_ConsultarPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+
+        jLabel_MantenimientoPP.setText("Mantenimientos Periodo Prueba");
+        jLabel_MantenimientoPP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_MantenimientoPP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoPPMouseMoved(evt);
+            }
+        });
+        jLabel_MantenimientoPP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoPPMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoPPMouseExited(evt);
+            }
+        });
+        Panel_PPIMEC.add(jLabel_MantenimientoPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 190, -1));
+
+        jPanel_RRHH.add(Panel_PPIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 400, 190, 90));
+
+        jLabel_Contratacion.setText("Contratacion");
+        jLabel_Contratacion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ContratacionMouseMoved(evt);
+            }
+        });
+        jLabel_Contratacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_ContratacionMouseClicked(evt);
+            }
+        });
+        jPanel_RRHH.add(jLabel_Contratacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, -1, 20));
+
+        Panel_CTIMEC.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_CTIMEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_CTIMEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                Panel_CTIMECMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                Panel_CTIMECMouseMoved(evt);
+            }
+        });
+        Panel_CTIMEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_CTIMECMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Panel_CTIMECMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Panel_CTIMECMouseReleased(evt);
+            }
+        });
+        Panel_CTIMEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_ModificarC.setText("Modificar Contratacion");
+        jLabel_ModificarC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_ModificarC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarCMouseMoved(evt);
+            }
+        });
+        jLabel_ModificarC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarCMouseExited(evt);
+            }
+        });
+        Panel_CTIMEC.add(jLabel_ModificarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        jLabel_EliminarC.setText("Eliminar Contratacion");
+        jLabel_EliminarC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_EliminarC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarCMouseMoved(evt);
+            }
+        });
+        jLabel_EliminarC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarCMouseExited(evt);
+            }
+        });
+        Panel_CTIMEC.add(jLabel_EliminarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+
+        jLabel_ConsultarC.setText("Consultar Contratacion");
+        jLabel_ConsultarC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_ConsultarC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarCMouseMoved(evt);
+            }
+        });
+        jLabel_ConsultarC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarCMouseExited(evt);
+            }
+        });
+        Panel_CTIMEC.add(jLabel_ConsultarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+
+        jLabel_MantenimientoC.setText("Mantenimientos Contratacion");
+        jLabel_MantenimientoC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_MantenimientoC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoCMouseMoved(evt);
+            }
+        });
+        jLabel_MantenimientoC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoCMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoCMouseExited(evt);
+            }
+        });
+        Panel_CTIMEC.add(jLabel_MantenimientoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 170, -1));
+
+        jPanel_RRHH.add(Panel_CTIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 530, 170, 90));
+
+        jLabel_EmpleadoC.setText("Empleado Contratado");
+        jLabel_EmpleadoC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_EmpleadoCMouseMoved(evt);
+            }
+        });
+        jLabel_EmpleadoC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_EmpleadoCMouseClicked(evt);
+            }
+        });
+        jPanel_RRHH.add(jLabel_EmpleadoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 540, -1, 20));
+
+        Panel_ECTIMEC.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_ECTIMEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_ECTIMEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                Panel_ECTIMECMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                Panel_ECTIMECMouseMoved(evt);
+            }
+        });
+        Panel_ECTIMEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_ECTIMECMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Panel_ECTIMECMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Panel_ECTIMECMouseReleased(evt);
+            }
+        });
+        Panel_ECTIMEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_ModificarEC.setText("Modificar Empleado Contratado");
+        jLabel_ModificarEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_ModificarEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarECMouseMoved(evt);
+            }
+        });
+        jLabel_ModificarEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarECMouseExited(evt);
+            }
+        });
+        Panel_ECTIMEC.add(jLabel_ModificarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        jLabel_EliminarEC.setText("Eliminar Empleado Contratado");
+        jLabel_EliminarEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_EliminarEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarECMouseMoved(evt);
+            }
+        });
+        jLabel_EliminarEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarECMouseExited(evt);
+            }
+        });
+        Panel_ECTIMEC.add(jLabel_EliminarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+
+        jLabel_ConsultarEC.setText("Consultar Empleado Contratado");
+        jLabel_ConsultarEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_ConsultarEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarECMouseMoved(evt);
+            }
+        });
+        jLabel_ConsultarEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_ConsultarECMouseExited(evt);
+            }
+        });
+        Panel_ECTIMEC.add(jLabel_ConsultarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+
+        jLabel_MantenimientoEC.setText("Mantenimientos Empleado Contratado");
+        jLabel_MantenimientoEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_MantenimientoEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoECMouseMoved(evt);
+            }
+        });
+        jLabel_MantenimientoEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoECMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel_MantenimientoECMouseExited(evt);
+            }
+        });
+        Panel_ECTIMEC.add(jLabel_MantenimientoEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 220, -1));
+
+        jPanel_RRHH.add(Panel_ECTIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, 220, 90));
+
+        jPanel_MantenimientoEC.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_ID_EC.setText("ID Empleado Contratado");
+        jPanel_MantenimientoEC.add(jLabel_ID_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        txt_id_EC.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_EC.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_EC.setBorder(null);
+        txt_id_EC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_ECActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(txt_id_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 140, 20));
+
+        jLabel_CEC.setText("Contratacion");
+        jPanel_MantenimientoEC.add(jLabel_CEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+        jPanel_MantenimientoEC.add(jLabel_CECC, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 30, 20));
+
+        jComboBox_CEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_CECActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jComboBox_CEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 140, -1));
+
+        jLabel_ECP.setText("Puesto");
+        jPanel_MantenimientoEC.add(jLabel_ECP, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
+        jPanel_MantenimientoEC.add(jLabel_ECPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 30, 20));
+
+        jComboBox_ECP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_ECPActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jComboBox_ECP, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 140, -1));
+
+        jLabel_ECD.setText("Departamento");
+        jPanel_MantenimientoEC.add(jLabel_ECD, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, -1, -1));
+        jPanel_MantenimientoEC.add(jLabel_ECDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 50, 30, 20));
+
+        jComboBox_ECD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_ECDActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jComboBox_ECD, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 140, -1));
+
+        jLabe_SEC.setText("Sueldo Empleado Contratado");
+        jPanel_MantenimientoEC.add(jLabe_SEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, -1, -1));
+
+        txt_SEC.setBackground(new java.awt.Color(231, 231, 231));
+        txt_SEC.setForeground(new java.awt.Color(153, 153, 153));
+        txt_SEC.setBorder(null);
+        txt_SEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_SECActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(txt_SEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 180, 20));
+
+        jLabel_IngresarEC.setText("Ingresar");
+        jLabel_IngresarEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_IngresarEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarECMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jLabel_IngresarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, 50, 40));
+
+        jLabel_Modificar_EC.setText("Modificar");
+        jLabel_Modificar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_ECMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jLabel_Modificar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 180, 60, 20));
+
+        jLabel_Eliminar_EC.setText("Eliminar");
+        jLabel_Eliminar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_ECMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jLabel_Eliminar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 50, 20));
+
+        jLabel_BuscarEC.setText("Buscar");
+        jPanel_MantenimientoEC.add(jLabel_BuscarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 50, 20));
+
+        txt_BuscarEC.setBackground(new java.awt.Color(231, 231, 231));
+        txt_BuscarEC.setForeground(new java.awt.Color(153, 153, 153));
+        txt_BuscarEC.setBorder(null);
+        txt_BuscarEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_BuscarECActionPerformed(evt);
+            }
+        });
+        txt_BuscarEC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_BuscarECKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_BuscarECKeyReleased(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(txt_BuscarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 240, 20));
+
+        tbl_EC.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_EC.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_EC.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_ECMouseClicked(evt);
+            }
+        });
+        jScrollPane38.setViewportView(tbl_EC);
+
+        jPanel_MantenimientoEC.add(jScrollPane38, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 600, 190));
+
+        jPanel_RRHH.add(jPanel_MantenimientoEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 640));
+
+        jPanel_MantenimientoC.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txt_id_C.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_C.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_C.setBorder(null);
+        txt_id_C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_CActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoC.add(txt_id_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 140, 20));
+
+        jLabel_ID_C.setText("ID Contratacion");
+        jPanel_MantenimientoC.add(jLabel_ID_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 90, -1));
+
+        jLabel_PPC.setText("Periodo Prueba");
+        jPanel_MantenimientoC.add(jLabel_PPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, -1, -1));
+        jPanel_MantenimientoC.add(jLabel_PPCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 30, 20));
+
+        jComboBox_PPC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_PPCActionPerformed(evt);
+            }
+        });
+        jComboBox_PPC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jComboBox_PPCKeyReleased(evt);
+            }
+        });
+        jPanel_MantenimientoC.add(jComboBox_PPC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 140, -1));
+
+        txt_FC.setBackground(new java.awt.Color(231, 231, 231));
+        txt_FC.setForeground(new java.awt.Color(153, 153, 153));
+        txt_FC.setBorder(null);
+        txt_FC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_FCActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoC.add(txt_FC, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 140, 20));
+
+        jLabel_FC.setText("Fecha Contratacion");
+        jPanel_MantenimientoC.add(jLabel_FC, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 110, -1));
+
+        txt_DC.setBackground(new java.awt.Color(231, 231, 231));
+        txt_DC.setForeground(new java.awt.Color(153, 153, 153));
+        txt_DC.setBorder(null);
+        txt_DC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_DCActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoC.add(txt_DC, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 140, 20));
+
+        jLabel_DC.setText("Duracion Contrato");
+        jPanel_MantenimientoC.add(jLabel_DC, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 110, -1));
+
+        txt_EC.setBackground(new java.awt.Color(231, 231, 231));
+        txt_EC.setForeground(new java.awt.Color(153, 153, 153));
+        txt_EC.setBorder(null);
+        txt_EC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ECActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoC.add(txt_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 140, 20));
+
+        jLabel_EC.setText("Estatus Contratacion");
+        jPanel_MantenimientoC.add(jLabel_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 130, -1));
+
+        jLabel_InsertarC.setText("Insertar");
+        jLabel_InsertarC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_InsertarCMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoC.add(jLabel_InsertarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, -1, -1));
+
+        jLabel_Modificar_C.setText("Modificar");
+        jLabel_Modificar_C.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_CMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoC.add(jLabel_Modificar_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, -1, -1));
+
+        jLabel_Eliminar_C.setText("Eliminar");
+        jLabel_Eliminar_C.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_CMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoC.add(jLabel_Eliminar_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, -1, -1));
+
+        jLabel_Buscar_C.setText("Buscar");
+        jPanel_MantenimientoC.add(jLabel_Buscar_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
+
+        txt_Buscar_C.setBackground(new java.awt.Color(231, 231, 231));
+        txt_Buscar_C.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Buscar_C.setBorder(null);
+        txt_Buscar_C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Buscar_CActionPerformed(evt);
+            }
+        });
+        txt_Buscar_C.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_Buscar_CKeyReleased(evt);
+            }
+        });
+        jPanel_MantenimientoC.add(txt_Buscar_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 290, 20));
+
+        tbl_C.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_C.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_C.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_C.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_CMouseClicked(evt);
+            }
+        });
+        jScrollPane37.setViewportView(tbl_C);
+
+        jPanel_MantenimientoC.add(jScrollPane37, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 600, 190));
+
+        jPanel_RRHH.add(jPanel_MantenimientoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
+
+        jPanel_MantenimientoPP.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoPP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_ID_PP.setText("ID Periodo Prueba");
+        jPanel_MantenimientoPP.add(jLabel_ID_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
+
+        txt_id_PP.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_PP.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_PP.setBorder(null);
+        txt_id_PP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_PPActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_id_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 140, 20));
+
+        jLabel_PPS.setText("Seleccion");
+        jPanel_MantenimientoPP.add(jLabel_PPS, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+        jPanel_MantenimientoPP.add(jLabel_PPSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 30, 20));
+
+        jComboBox_PPS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_PPSActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jComboBox_PPS, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 140, -1));
+
+        jLabel_FI.setText("Fecha de Inicio");
+        jPanel_MantenimientoPP.add(jLabel_FI, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
+
+        txt_id_FI.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_FI.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_FI.setBorder(null);
+        txt_id_FI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_FIActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_id_FI, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 140, 20));
+
+        jLabel_FF.setText("Fecha de Finalizacion");
+        jPanel_MantenimientoPP.add(jLabel_FF, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, -1, -1));
+
+        txt_id_FF.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_FF.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_FF.setBorder(null);
+        txt_id_FF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_FFActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_id_FF, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 140, 20));
+
+        jLabel_Pago.setText("Pago");
+        jPanel_MantenimientoPP.add(jLabel_Pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
+
+        txt_id_Pago.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_Pago.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_Pago.setBorder(null);
+        txt_id_Pago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_PagoActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_id_Pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 140, 20));
+
+        jLabel_PPA.setText("Actividad");
+        jPanel_MantenimientoPP.add(jLabel_PPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, -1));
+
+        jComboBox_PPA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_PPAActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jComboBox_PPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 140, -1));
+        jPanel_MantenimientoPP.add(jLabel_PPAA, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 140, 30, 20));
+
+        jLabel_IngresarPP.setText("Ingresar");
+        jLabel_IngresarPP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_IngresarPP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarPPMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jLabel_IngresarPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, 50, 40));
+
+        jLabel_Modificar_PP.setText("Modificar");
+        jLabel_Modificar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_PPMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jLabel_Modificar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 150, 60, 20));
+
+        jLabel_Eliminar_PP.setText("Eliminar");
+        jLabel_Eliminar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_PPMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jLabel_Eliminar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 180, 50, 20));
+
+        jLabel_BuscarPP.setText("Buscar");
+        jLabel_BuscarPP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_BuscarPPMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jLabel_BuscarPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 50, 20));
+
+        txt_BuscarPP.setBackground(new java.awt.Color(231, 231, 231));
+        txt_BuscarPP.setForeground(new java.awt.Color(153, 153, 153));
+        txt_BuscarPP.setBorder(null);
+        txt_BuscarPP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_BuscarPPActionPerformed(evt);
+            }
+        });
+        txt_BuscarPP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_BuscarPPKeyReleased(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_BuscarPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 240, 20));
+
+        tbl_PP.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_PP.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_PP.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_PPMouseClicked(evt);
+            }
+        });
+        jScrollPane36.setViewportView(tbl_PP);
+
+        jPanel_MantenimientoPP.add(jScrollPane36, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 600, 190));
+
+        jPanel_RRHH.add(jPanel_MantenimientoPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 720));
 
         jPanel_MantenimientoExpLD.setBackground(new java.awt.Color(255, 255, 255));
         jPanel_MantenimientoExpLD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -3833,6 +4641,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
         puesto.Actualizar_Tabla();
@@ -3981,6 +4795,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         Departamento De = new Departamento(txt_id_Departamento.toString(), txt_Nombre_Departamento.toString(), txt_Estatus_Departamento.toString());
         De.Actualizar_Tabla(tbl_Departamento);
@@ -4122,6 +4942,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         Nivel_Academico NA = new Nivel_Academico(txt_id_NivelA, txt_Nombre_NivelA, txt_Descripcion_NivelA, txt_Buscar_NivelA, tbl_NivelA);
         NA.Actualizar_Tabla();
@@ -4287,6 +5113,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         Experiencia_Laboral_Detallada ExpLD = new Experiencia_Laboral_Detallada(txt_id_ExpLD, txt_NombreExpLD, txt_Nombre_EmpresaExpLD, txt_Tiempo_InicioExpLD, txt_Tiempo_FinalizacionExpLD, txt_Buscar_ExpLD, tbl_ExpLD);
         jPanel_MantenimientoExpLD.setVisible(true);
@@ -4443,6 +5275,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         Experiencia_Laboral ExpL = new Experiencia_Laboral(txt_id_ExpL, jLabel_id_Nombre_EpLLD, txt_Buscar_ExpL, tbl_ExpL);
         jPanel_MantenimientoExpL.setVisible(true);
@@ -4630,7 +5468,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
-        
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         jPanel_MantenimientoSE.setVisible(true);
         Solicitud_Empresarial SE = new Solicitud_Empresarial(txt_id_SolicitudE, txt_RangoEdadM, txt_RangoEdadMa, txt_Genero, jLabel_Puesto_SE, jLabel_Departamento_SE, jLabel_NivelA_SE, jLabel_ExperienciaL_SE, jTextArea_DescripcionSE, txt_Buscar_SE, tbl_SE);
@@ -4810,6 +5653,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         jPanel_Mantenimiento_Medio.setVisible(true);
 
@@ -4954,7 +5803,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
-        
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         jPanel_MantenimientoRL.setVisible(true);
 
@@ -5121,6 +5975,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         jPanel_MantenimientosRP.setVisible(true);
         Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
@@ -5268,6 +6128,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         jPanel_MantenimientoCV.setVisible(true);
 
@@ -5480,6 +6346,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         jPanel_MantenimientoAP.setVisible(true);
 
@@ -5633,6 +6505,12 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         jPanel_Tipo_Prueba.setVisible(true);
         Tipo_Prueba TP = new Tipo_Prueba(txt_id_TP, txt_TP, tbl_TP, txt_BuscarTP);
@@ -5807,7 +6685,7 @@ public class RRHH extends javax.swing.JFrame {
         jLabel_RL_CV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 10)));
         jLabel_EL_CV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 11)));
         jLabel_Medio_CV.setText(String.valueOf(tbl_CV.getValueAt(Seleccion, 12)));
-        
+
         Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV, jLabel_EL_CV, jLabel_Medio_CV, txt_Buscar_CV, tbl_CV);
         CV.BuscarFila_CV("nombre_nivel", "nivel_academico", "id_nivel_academico", jComboBox_NivelACV, jLabel_NivelA_CV);
         CV.BuscarFila_CV("nombre_personaP", "referenciasP", "id_referenciaP", jComboBox_RPCV, jLabel_RP_CV);
@@ -5823,15 +6701,15 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jComboBox_PruebaAPPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_PruebaAPPActionPerformed
         // TODO add your handling code here:
-        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP,jLabel_Prueba_APP,jLabel_Aplicacion_APP,txt_AplicacionAPP,txt_Buscar_APP,tbl_APP);
-        APP.EncontrarID_APP("id_prueba","tipo_pruebas","tipo_prueba",jComboBox_PruebaAPP,jLabel_Prueba_APP);
-        
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
+        APP.EncontrarID_APP("id_prueba", "tipo_pruebas", "tipo_prueba", jComboBox_PruebaAPP, jLabel_Prueba_APP);
+
     }//GEN-LAST:event_jComboBox_PruebaAPPActionPerformed
 
     private void jComboBox_AplicacionAPPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_AplicacionAPPActionPerformed
         // TODO add your handling code here:
-        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP,jLabel_Prueba_APP,jLabel_Aplicacion_APP,txt_AplicacionAPP,txt_Buscar_APP,tbl_APP);
-        APP.EncontrarID_APP("id_aplicacion","aplicacion","dpi_persona",jComboBox_AplicacionAPP,jLabel_Aplicacion_APP);
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
+        APP.EncontrarID_APP("id_aplicacion", "aplicacion", "dpi_persona", jComboBox_AplicacionAPP, jLabel_Aplicacion_APP);
     }//GEN-LAST:event_jComboBox_AplicacionAPPActionPerformed
 
     private void txt_AplicacionAPPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_AplicacionAPPActionPerformed
@@ -5840,20 +6718,20 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jLabel_Ingresar_APPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Ingresar_APPMouseClicked
         // TODO add your handling code here:
-        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP,jLabel_Prueba_APP,jLabel_Aplicacion_APP,txt_AplicacionAPP,txt_Buscar_APP,tbl_APP);
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
         APP.Insertar_APP();
-        
+
     }//GEN-LAST:event_jLabel_Ingresar_APPMouseClicked
 
     private void jLabel_ModificarAPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarAPPMouseClicked
         // TODO add your handling code here:
-        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP,jLabel_Prueba_APP,jLabel_Aplicacion_APP,txt_AplicacionAPP,txt_Buscar_APP,tbl_APP);
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
         APP.Modificar_APP();
     }//GEN-LAST:event_jLabel_ModificarAPPMouseClicked
 
     private void jLabel_Eliminar_APPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_APPMouseClicked
         // TODO add your handling code here:
-        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP,jLabel_Prueba_APP,jLabel_Aplicacion_APP,txt_AplicacionAPP,txt_Buscar_APP,tbl_APP);
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
         APP.Eliminar_APP();
     }//GEN-LAST:event_jLabel_Eliminar_APPMouseClicked
 
@@ -5863,7 +6741,7 @@ public class RRHH extends javax.swing.JFrame {
 
     private void txt_Buscar_APPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_APPKeyReleased
         // TODO add your handling code here:
-        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP,jLabel_Prueba_APP,jLabel_Aplicacion_APP,txt_AplicacionAPP,txt_Buscar_APP,tbl_APP);
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
         APP.Buscar_APPF(txt_Buscar_APP.getText());
     }//GEN-LAST:event_txt_Buscar_APPKeyReleased
 
@@ -5874,10 +6752,10 @@ public class RRHH extends javax.swing.JFrame {
         jLabel_Prueba_APP.setText(String.valueOf(tbl_APP.getValueAt(Seleccion, 1)));
         jLabel_Aplicacion_APP.setText(String.valueOf(tbl_APP.getValueAt(Seleccion, 2)));
         txt_AplicacionAPP.setText(String.valueOf(tbl_APP.getValueAt(Seleccion, 3)));
-        
-        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP,jLabel_Prueba_APP,jLabel_Aplicacion_APP,txt_AplicacionAPP,txt_Buscar_APP,tbl_APP);
-        APP.BuscarFila_APP("tipo_prueba","tipo_pruebas","id_prueba",jComboBox_PruebaAPP,jLabel_Prueba_APP);
-        APP.BuscarFila_APP("dpi_persona","aplicacion","id_aplicacion",jComboBox_AplicacionAPP,jLabel_Aplicacion_APP);
+
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
+        APP.BuscarFila_APP("tipo_prueba", "tipo_pruebas", "id_prueba", jComboBox_PruebaAPP, jLabel_Prueba_APP);
+        APP.BuscarFila_APP("dpi_persona", "aplicacion", "id_aplicacion", jComboBox_AplicacionAPP, jLabel_Aplicacion_APP);
     }//GEN-LAST:event_tbl_APPMouseClicked
 
     private void jLabel_APPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_APPMouseMoved
@@ -5953,11 +6831,17 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
 
         jPanel_MantenimientoAPP.setVisible(true);
-        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP,jLabel_Prueba_APP,jLabel_Aplicacion_APP,txt_AplicacionAPP,txt_Buscar_APP,tbl_APP);
-        APP.Encontrar_ListaAPP("tipo_pruebas","tipo_prueba",jComboBox_PruebaAPP);
-        APP.Encontrar_ListaAPP("aplicacion","dpi_persona",jComboBox_AplicacionAPP);
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
+        APP.Encontrar_ListaAPP("tipo_pruebas", "tipo_prueba", jComboBox_PruebaAPP);
+        APP.Encontrar_ListaAPP("aplicacion", "dpi_persona", jComboBox_AplicacionAPP);
         APP.Actualizar_Tabla();
     }//GEN-LAST:event_jLabel_Mantenimiento_APPMouseClicked
 
@@ -6059,8 +6943,17 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
-        
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
+
         jPanel_MantenimientoS.setVisible(true);
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        S.Encontrar_ListaSeleccion("aplicacion_prueba", "id_ap", jComboBox_APPS);
+        S.Actualizar_Tabla();
     }//GEN-LAST:event_jLabel_Mantenimiento_SeleccionMouseClicked
 
     private void jLabel_Mantenimiento_SeleccionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Mantenimiento_SeleccionMouseExited
@@ -6098,6 +6991,10 @@ public class RRHH extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_idSActionPerformed
 
     private void jComboBox_APPSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_APPSActionPerformed
+
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        S.EncontrarID_Seleccion("id_ap", "aplicacion_prueba", "id_ap", jComboBox_APPS, jLabel_RL_APPS);
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_APPSActionPerformed
 
@@ -6106,18 +7003,27 @@ public class RRHH extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_EstatusSActionPerformed
 
     private void jLabel_InsertarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_InsertarSMouseClicked
+
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        S.Insertar_Seleccion();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_InsertarSMouseClicked
 
     private void jLabel_ModificarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarSMouseClicked
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        S.Modificar_Seleccion();
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_ModificarSMouseClicked
 
     private void jLabel_EliminarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarSMouseClicked
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        S.Eliminar_Seleccion();
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_EliminarSMouseClicked
 
     private void jLabel_BuscarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_BuscarSMouseClicked
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_BuscarSMouseClicked
 
@@ -6126,10 +7032,22 @@ public class RRHH extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_BuscarSActionPerformed
 
     private void txt_BuscarSKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarSKeyReleased
+
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        S.Buscar_Sele(txt_BuscarS.getText());
+
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_BuscarSKeyReleased
 
     private void tbl_SMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_SMouseClicked
+
+        int Seleccion = tbl_S.rowAtPoint(evt.getPoint());
+        txt_idS.setText(String.valueOf(tbl_S.getValueAt(Seleccion, 0)));
+        jLabel_RL_APPS.setText(String.valueOf(tbl_S.getValueAt(Seleccion, 1)));
+        txt_EstatusS.setText(String.valueOf(tbl_S.getValueAt(Seleccion, 2)));
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        S.BuscarFila_Seleccion("id_ap", " aplicacion_prueba", " id_ap", jComboBox_APPS, jLabel_RL_APPS);
+
         // TODO add your handling code here:
     }//GEN-LAST:event_tbl_SMouseClicked
 
@@ -6171,7 +7089,7 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jLabel_Mantenimiento_AMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Mantenimiento_AMouseMoved
         // TODO add your handling code here:
-        Panel_AIMEC.setVisible(true);   
+        Panel_AIMEC.setVisible(true);
     }//GEN-LAST:event_jLabel_Mantenimiento_AMouseMoved
 
     private void jLabel_Mantenimiento_AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Mantenimiento_AMouseClicked
@@ -6210,10 +7128,16 @@ public class RRHH extends javax.swing.JFrame {
         Panel_SIMEC.setVisible(false);
         jLabel_Actividad.setVisible(false);
         Panel_AIMEC.setVisible(false);
-        
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
+
         jPanel_MantenimientoA.setVisible(true);
-        
-        Actividad AC = new Actividad(txt_id_A,txt_TA,jTextArea_DescripcionA,txt_BuscarA,tbl_A);
+
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
         AC.Actualizar_Tabla();
     }//GEN-LAST:event_jLabel_Mantenimiento_AMouseClicked
 
@@ -6252,19 +7176,19 @@ public class RRHH extends javax.swing.JFrame {
 
     private void jLabel_Insertar_AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Insertar_AMouseClicked
         // TODO add your handling code here:
-        Actividad AC = new Actividad(txt_id_A,txt_TA,jTextArea_DescripcionA,txt_BuscarA,tbl_A);
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
         AC.Insertar_AC();
     }//GEN-LAST:event_jLabel_Insertar_AMouseClicked
 
     private void jLabel_Modificar_AcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_AcMouseClicked
         // TODO add your handling code here:
-        Actividad AC = new Actividad(txt_id_A,txt_TA,jTextArea_DescripcionA,txt_BuscarA,tbl_A);
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
         AC.Modificar_AC();
     }//GEN-LAST:event_jLabel_Modificar_AcMouseClicked
 
     private void jLabel_Eliminar_AcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_AcMouseClicked
         // TODO add your handling code here:
-        Actividad AC = new Actividad(txt_id_A,txt_TA,jTextArea_DescripcionA,txt_BuscarA,tbl_A);
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
         AC.Eliminar_AC();
     }//GEN-LAST:event_jLabel_Eliminar_AcMouseClicked
 
@@ -6278,7 +7202,7 @@ public class RRHH extends javax.swing.JFrame {
 
     private void txt_BuscarAKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarAKeyReleased
         // TODO add your handling code here:
-        Actividad AC = new Actividad(txt_id_A,txt_TA,jTextArea_DescripcionA,txt_BuscarA,tbl_A);
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
         AC.Buscar_ACF(txt_BuscarA.getText());
     }//GEN-LAST:event_txt_BuscarAKeyReleased
 
@@ -6289,6 +7213,590 @@ public class RRHH extends javax.swing.JFrame {
         txt_TA.setText(String.valueOf(tbl_A.getValueAt(Seleccion, 1)));
         jTextArea_DescripcionA.setText(String.valueOf(tbl_A.getValueAt(Seleccion, 2)));
     }//GEN-LAST:event_tbl_AMouseClicked
+
+    private void jLabel_PeriodoPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_PeriodoPMouseMoved
+        // TODO add your handling code here:
+        Panel_PPIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_PeriodoPMouseMoved
+
+    private void jLabel_PeriodoPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_PeriodoPMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_PeriodoPMouseClicked
+
+    private void jLabel_ModificarPPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarPPMouseMoved
+        // TODO add your handling code here:
+        Panel_PPIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ModificarPPMouseMoved
+
+    private void jLabel_ModificarPPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarPPMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ModificarPPMouseExited
+
+    private void jLabel_EliminarPPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarPPMouseMoved
+        // TODO add your handling code here:
+        Panel_PPIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_EliminarPPMouseMoved
+
+    private void jLabel_EliminarPPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarPPMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_EliminarPPMouseExited
+
+    private void jLabel_ConsultarPPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarPPMouseMoved
+        // TODO add your handling code here:
+        Panel_PPIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ConsultarPPMouseMoved
+
+    private void jLabel_ConsultarPPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarPPMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ConsultarPPMouseExited
+
+    private void jLabel_MantenimientoPPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoPPMouseMoved
+        // TODO add your handling code here:
+        Panel_PPIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_MantenimientoPPMouseMoved
+
+    private void jLabel_MantenimientoPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoPPMouseClicked
+        // TODO add your handling code here:
+        jLabel_RRHH.setVisible(false);
+        jLabel_Departamento.setVisible(false);
+        jLabel_ExpLD.setVisible(false);
+        jLabel_ExpL.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        jPanel_MantenimientosP.setVisible(false);
+        jPanel_MantenimientoNA.setVisible(false);
+        jPanel_MantenimientoExpLD.setVisible(false);
+        jLabel_Puesto.setVisible(false);
+        jLabel_SolicitudE.setVisible(false);
+        jLabel_NivelA.setVisible(false);
+        Panel_DIMEC.setVisible(false);
+        Panel_PIMEC.setVisible(false);
+        Panel_NAIMEC.setVisible(false);
+        Panel_ExpLDIMEC.setVisible(false);
+        Panel_ExpLIMEC.setVisible(false);
+        Panel_SEIMEC.setVisible(false);
+        Panel_MIMEC.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
+        jLabel_ReferenciasP.setVisible(false);
+        Panel_RPIMEC.setVisible(false);
+        jLabel_CV.setVisible(false);
+        Panel_CVIMEC.setVisible(false);
+        Panel_APIMEC.setVisible(false);
+        jLabel_AP.setVisible(false);
+        jLabel_TipoP.setVisible(false);
+        Panel_TPIMEC.setVisible(false);
+        jLabel_APP.setVisible(false);
+        Panel_APPIMEC.setVisible(false);
+        jLabel_Seleccion.setVisible(false);
+        Panel_SIMEC.setVisible(false);
+        jLabel_Actividad.setVisible(false);
+        Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
+
+        jPanel_MantenimientoPP.setVisible(true);
+
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Encontrar_ListaPP("seleccion", "id_seleccion", jComboBox_PPS);
+        periodo_p.Encontrar_ListaPP("actividad", "tipo_actividad", jComboBox_PPA);
+        periodo_p.Actualizar_Tabla();
+    }//GEN-LAST:event_jLabel_MantenimientoPPMouseClicked
+
+    private void jLabel_MantenimientoPPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoPPMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_MantenimientoPPMouseExited
+
+    private void Panel_PPIMECMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_PPIMECMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_PPIMECMouseDragged
+
+    private void Panel_PPIMECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_PPIMECMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_PPIMECMouseMoved
+
+    private void Panel_PPIMECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_PPIMECMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_PPIMECMouseClicked
+
+    private void Panel_PPIMECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_PPIMECMouseExited
+        // TODO add your handling code here:
+        Panel_PPIMEC.setVisible(false);
+    }//GEN-LAST:event_Panel_PPIMECMouseExited
+
+    private void Panel_PPIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_PPIMECMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_PPIMECMouseReleased
+
+    private void txt_id_PPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_PPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_PPActionPerformed
+
+    private void jComboBox_PPSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_PPSActionPerformed
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.EncontrarID_PP("id_seleccion", "seleccion", "id_seleccion", jComboBox_PPS, jLabel_PPSE);
+        
+    }//GEN-LAST:event_jComboBox_PPSActionPerformed
+
+    private void txt_id_FIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_FIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_FIActionPerformed
+
+    private void txt_id_FFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_FFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_FFActionPerformed
+
+    private void txt_id_PagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_PagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_PagoActionPerformed
+
+    private void jComboBox_PPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_PPAActionPerformed
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.EncontrarID_PP("id_actividad", "actividad", "tipo_actividad", jComboBox_PPA, jLabel_PPAA);
+    }//GEN-LAST:event_jComboBox_PPAActionPerformed
+
+    private void jLabel_IngresarPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarPPMouseClicked
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Insertar_PP();
+    }//GEN-LAST:event_jLabel_IngresarPPMouseClicked
+
+    private void jLabel_Modificar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_PPMouseClicked
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Modificar_PP();
+    }//GEN-LAST:event_jLabel_Modificar_PPMouseClicked
+
+    private void jLabel_Eliminar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_PPMouseClicked
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Eliminar_PP();
+    }//GEN-LAST:event_jLabel_Eliminar_PPMouseClicked
+
+    private void jLabel_BuscarPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_BuscarPPMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_BuscarPPMouseClicked
+
+    private void txt_BuscarPPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscarPPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarPPActionPerformed
+
+    private void txt_BuscarPPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarPPKeyReleased
+        // TODO add your handling code here:
+
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Buscar_PPE(txt_BuscarPP.getText());
+    }//GEN-LAST:event_txt_BuscarPPKeyReleased
+
+    private void tbl_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_PPMouseClicked
+        // TODO add your handling code here:
+
+        int Seleccion = tbl_PP.rowAtPoint(evt.getPoint());
+
+        txt_id_PP.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 0)));
+        jLabel_PPSE.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 1)));
+        txt_id_FI.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 2)));
+        txt_id_FF.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 3)));
+        txt_id_Pago.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 4)));
+        jLabel_PPAA.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 5)));
+
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.BuscarFila_PP("tipo_actividad", "actividad", "id_actividad", jComboBox_PPA, jLabel_PPAA);
+        periodo_p.BuscarFila_PP("id_ap", "seleccion", "id_seleccion", jComboBox_PPS, jLabel_PPSE);
+
+    }//GEN-LAST:event_tbl_PPMouseClicked
+
+    private void jLabel_ContratacionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ContratacionMouseMoved
+        // TODO add your handling code here:
+        Panel_CTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ContratacionMouseMoved
+
+    private void jLabel_ContratacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ContratacionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ContratacionMouseClicked
+
+    private void jLabel_ModificarCMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarCMouseMoved
+        // TODO add your handling code here:
+        Panel_CTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ModificarCMouseMoved
+
+    private void jLabel_ModificarCMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarCMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ModificarCMouseExited
+
+    private void jLabel_EliminarCMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarCMouseMoved
+        // TODO add your handling code here:
+        Panel_CTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_EliminarCMouseMoved
+
+    private void jLabel_EliminarCMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarCMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_EliminarCMouseExited
+
+    private void jLabel_ConsultarCMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarCMouseMoved
+        // TODO add your handling code here:
+        Panel_CTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ConsultarCMouseMoved
+
+    private void jLabel_ConsultarCMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarCMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ConsultarCMouseExited
+
+    private void jLabel_MantenimientoCMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoCMouseMoved
+        // TODO add your handling code here:
+        Panel_CTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_MantenimientoCMouseMoved
+
+    private void jLabel_MantenimientoCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoCMouseClicked
+        // TODO add your handling code here:
+        jLabel_RRHH.setVisible(false);
+        jLabel_Departamento.setVisible(false);
+        jLabel_ExpLD.setVisible(false);
+        jLabel_ExpL.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        jPanel_MantenimientosP.setVisible(false);
+        jPanel_MantenimientoNA.setVisible(false);
+        jPanel_MantenimientoExpLD.setVisible(false);
+        jLabel_Puesto.setVisible(false);
+        jLabel_SolicitudE.setVisible(false);
+        jLabel_NivelA.setVisible(false);
+        Panel_DIMEC.setVisible(false);
+        Panel_PIMEC.setVisible(false);
+        Panel_NAIMEC.setVisible(false);
+        Panel_ExpLDIMEC.setVisible(false);
+        Panel_ExpLIMEC.setVisible(false);
+        Panel_SEIMEC.setVisible(false);
+        Panel_MIMEC.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
+        jLabel_ReferenciasP.setVisible(false);
+        Panel_RPIMEC.setVisible(false);
+        jLabel_CV.setVisible(false);
+        Panel_CVIMEC.setVisible(false);
+        Panel_APIMEC.setVisible(false);
+        jLabel_AP.setVisible(false);
+        jLabel_TipoP.setVisible(false);
+        Panel_TPIMEC.setVisible(false);
+        jLabel_APP.setVisible(false);
+        Panel_APPIMEC.setVisible(false);
+        jLabel_Seleccion.setVisible(false);
+        Panel_SIMEC.setVisible(false);
+        jLabel_Actividad.setVisible(false);
+        Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
+
+        jPanel_MantenimientoC.setVisible(true);
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        C.Encontrar_ListaCon("periodo_prueba", "id_periodop", jComboBox_PPC);
+        C.Actualizar_Tabla();
+    }//GEN-LAST:event_jLabel_MantenimientoCMouseClicked
+
+    private void jLabel_MantenimientoCMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoCMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_MantenimientoCMouseExited
+
+    private void Panel_CTIMECMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_CTIMECMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_CTIMECMouseDragged
+
+    private void Panel_CTIMECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_CTIMECMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_CTIMECMouseMoved
+
+    private void Panel_CTIMECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_CTIMECMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_CTIMECMouseClicked
+
+    private void Panel_CTIMECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_CTIMECMouseExited
+        // TODO add your handling code here:
+        Panel_CTIMEC.setVisible(false);
+    }//GEN-LAST:event_Panel_CTIMECMouseExited
+
+    private void Panel_CTIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_CTIMECMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_CTIMECMouseReleased
+
+    private void txt_id_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_CActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_CActionPerformed
+
+    private void jComboBox_PPCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_PPCActionPerformed
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        C.EncontrarID_Contratacion("id_periodop", "periodo_prueba", "id_periodop", jComboBox_PPC, jLabel_PPCC);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_PPCActionPerformed
+
+    private void txt_FCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_FCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_FCActionPerformed
+
+    private void txt_DCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_DCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_DCActionPerformed
+
+    private void txt_ECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ECActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ECActionPerformed
+
+    private void jLabel_InsertarCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_InsertarCMouseClicked
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        C.Insertar_Contratacion();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_InsertarCMouseClicked
+
+    private void jLabel_Modificar_CMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_CMouseClicked
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        C.Modificar_Contratacion();
+// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Modificar_CMouseClicked
+
+    private void jLabel_Eliminar_CMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_CMouseClicked
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        C.Eliminar_Contratacion();
+// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Eliminar_CMouseClicked
+
+    private void txt_Buscar_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Buscar_CActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Buscar_CActionPerformed
+
+    private void txt_Buscar_CKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_CKeyReleased
+Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+ C.Buscar_SolicitudCon(txt_Buscar_C.getText());        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Buscar_CKeyReleased
+
+    private void tbl_CMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CMouseClicked
+        int Seleccion = tbl_C.rowAtPoint(evt.getPoint());
+        txt_id_C.setText(String.valueOf(tbl_C.getValueAt(Seleccion, 0)));
+        jLabel_PPCC.setText(String.valueOf(tbl_C.getValueAt(Seleccion, 1)));
+        txt_FC.setText(String.valueOf(tbl_C.getValueAt(Seleccion, 2)));
+        txt_DC.setText(String.valueOf(tbl_C.getValueAt(Seleccion, 3)));
+        txt_EC.setText(String.valueOf(tbl_C.getValueAt(Seleccion, 4)));
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        C.BuscarFila_Contratacion("id_periodop", "periodo_prueba", "id_periodop", jComboBox_PPC, jLabel_PPCC);
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_CMouseClicked
+
+    private void jComboBox_PPCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox_PPCKeyReleased
+       
+       Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+       C.Buscar_Contratacion(txt_Buscar_C.getText()); 
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_PPCKeyReleased
+
+    private void jLabel_EmpleadoCMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EmpleadoCMouseMoved
+        // TODO add your handling code here:
+        Panel_ECTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_EmpleadoCMouseMoved
+
+    private void jLabel_EmpleadoCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EmpleadoCMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_EmpleadoCMouseClicked
+
+    private void jLabel_ModificarECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarECMouseMoved
+        // TODO add your handling code here:
+        Panel_ECTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ModificarECMouseMoved
+
+    private void jLabel_ModificarECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarECMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ModificarECMouseExited
+
+    private void jLabel_EliminarECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarECMouseMoved
+        // TODO add your handling code here:
+        Panel_ECTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_EliminarECMouseMoved
+
+    private void jLabel_EliminarECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarECMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_EliminarECMouseExited
+
+    private void jLabel_ConsultarECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarECMouseMoved
+        // TODO add your handling code here:
+        Panel_ECTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_ConsultarECMouseMoved
+
+    private void jLabel_ConsultarECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarECMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_ConsultarECMouseExited
+
+    private void jLabel_MantenimientoECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoECMouseMoved
+        // TODO add your handling code here:
+        Panel_ECTIMEC.setVisible(true);
+    }//GEN-LAST:event_jLabel_MantenimientoECMouseMoved
+
+    private void jLabel_MantenimientoECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoECMouseClicked
+        // TODO add your handling code here:
+        jLabel_RRHH.setVisible(false);
+        jLabel_Departamento.setVisible(false);
+        jLabel_ExpLD.setVisible(false);
+        jLabel_ExpL.setVisible(false);
+        jLabel_Medio.setVisible(false);
+        jPanel_MantenimientosP.setVisible(false);
+        jPanel_MantenimientoNA.setVisible(false);
+        jPanel_MantenimientoExpLD.setVisible(false);
+        jLabel_Puesto.setVisible(false);
+        jLabel_SolicitudE.setVisible(false);
+        jLabel_NivelA.setVisible(false);
+        Panel_DIMEC.setVisible(false);
+        Panel_PIMEC.setVisible(false);
+        Panel_NAIMEC.setVisible(false);
+        Panel_ExpLDIMEC.setVisible(false);
+        Panel_ExpLIMEC.setVisible(false);
+        Panel_SEIMEC.setVisible(false);
+        Panel_MIMEC.setVisible(false);
+        jLabel_RL.setVisible(false);
+        Panel_RLIMEC.setVisible(false);
+        jLabel_ReferenciasP.setVisible(false);
+        Panel_RPIMEC.setVisible(false);
+        jLabel_CV.setVisible(false);
+        Panel_CVIMEC.setVisible(false);
+        Panel_APIMEC.setVisible(false);
+        jLabel_AP.setVisible(false);
+        jLabel_TipoP.setVisible(false);
+        Panel_TPIMEC.setVisible(false);
+        jLabel_APP.setVisible(false);
+        Panel_APPIMEC.setVisible(false);
+        jLabel_Seleccion.setVisible(false);
+        Panel_SIMEC.setVisible(false);
+        jLabel_Actividad.setVisible(false);
+        Panel_AIMEC.setVisible(false);
+        jLabel_PeriodoP.setVisible(false);
+        Panel_PPIMEC.setVisible(false);
+        jLabel_Contratacion.setVisible(false);
+        Panel_CTIMEC.setVisible(false);
+        jLabel_EmpleadoC.setVisible(false);
+        Panel_ECTIMEC.setVisible(false);
+        
+        jPanel_MantenimientoEC.setVisible(true);
+        
+        
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Encontrar_ListaEC("contratacion", "id_contratacion", jComboBox_CEC);
+        empleado.Encontrar_ListaEC("puesto", "nombre_puesto", jComboBox_ECP);
+        empleado.Encontrar_ListaEC("departamento", "nombre_departamento", jComboBox_ECD);
+        empleado.Actualizar_Tabla();
+    }//GEN-LAST:event_jLabel_MantenimientoECMouseClicked
+
+    private void jLabel_MantenimientoECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoECMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_MantenimientoECMouseExited
+
+    private void Panel_ECTIMECMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ECTIMECMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_ECTIMECMouseDragged
+
+    private void Panel_ECTIMECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ECTIMECMouseMoved
+        // TODO add your handling code here:
+        Panel_ECTIMEC.setVisible(false);
+    }//GEN-LAST:event_Panel_ECTIMECMouseMoved
+
+    private void Panel_ECTIMECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ECTIMECMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_ECTIMECMouseClicked
+
+    private void Panel_ECTIMECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ECTIMECMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_ECTIMECMouseExited
+
+    private void Panel_ECTIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ECTIMECMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_ECTIMECMouseReleased
+
+    private void jLabel_MantenimientoPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoPMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_MantenimientoPMouseEntered
+
+    private void txt_id_ECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_ECActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_ECActionPerformed
+
+    private void jComboBox_CECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_CECActionPerformed
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.EncontrarID_CE("id_contratacion", "contratacion", "id_contratacion", jComboBox_CEC, jLabel_CECC);
+        //60,63,65
+    }//GEN-LAST:event_jComboBox_CECActionPerformed
+
+    private void jComboBox_ECPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ECPActionPerformed
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.EncontrarID_CE("id_puesto", "puesto", "nombre_puesto", jComboBox_ECP, jLabel_ECPP);
+        
+    }//GEN-LAST:event_jComboBox_ECPActionPerformed
+
+    private void jComboBox_ECDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ECDActionPerformed
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.EncontrarID_CE("id_departamento", "departamento", "nombre_departamento", jComboBox_ECD, jLabel_ECDD);
+        
+    }//GEN-LAST:event_jComboBox_ECDActionPerformed
+
+    private void txt_SECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SECActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_SECActionPerformed
+
+    private void jLabel_IngresarECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarECMouseClicked
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Insertar_PP();
+    }//GEN-LAST:event_jLabel_IngresarECMouseClicked
+
+    private void jLabel_Modificar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_ECMouseClicked
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Modificar_EC();
+    }//GEN-LAST:event_jLabel_Modificar_ECMouseClicked
+
+    private void jLabel_Eliminar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_ECMouseClicked
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Eliminar_EC();
+    }//GEN-LAST:event_jLabel_Eliminar_ECMouseClicked
+
+    private void txt_BuscarECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscarECActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarECActionPerformed
+
+    private void txt_BuscarECKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarECKeyReleased
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Buscar_ECE(txt_BuscarEC.getText());
+    }//GEN-LAST:event_txt_BuscarECKeyReleased
+
+    private void tbl_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ECMouseClicked
+        // TODO add your handling code here:
+        int Seleccion = tbl_EC.rowAtPoint(evt.getPoint());
+        
+        txt_id_EC.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 0)));
+        jLabel_CECC.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 1)));
+        jLabel_ECPP.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 2)));
+        jLabel_ECDD.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 3)));
+        txt_SEC.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 4)));
+        
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.BuscarFila_EC("id_contratacion", "contratacion", "id_contratacion", jComboBox_CEC, jLabel_CECC);
+        empleado.BuscarFila_EC("nombre_puesto", "puesto", "id_puesto", jComboBox_ECP, jLabel_ECPP);
+        empleado.BuscarFila_EC("nombre_departamento", "departamento", "id_departamento", jComboBox_ECD, jLabel_ECDD);
+    }//GEN-LAST:event_tbl_ECMouseClicked
+
+    private void txt_BuscarECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarECKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarECKeyPressed
 
     /**
      * @param args the command line arguments
@@ -6315,1030 +7823,7 @@ public class RRHH extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(RRHH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -7352,13 +7837,16 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_AIMEC;
     private javax.swing.JPanel Panel_APIMEC;
     private javax.swing.JPanel Panel_APPIMEC;
+    private javax.swing.JPanel Panel_CTIMEC;
     private javax.swing.JPanel Panel_CVIMEC;
     private javax.swing.JPanel Panel_DIMEC;
+    private javax.swing.JPanel Panel_ECTIMEC;
     private javax.swing.JPanel Panel_ExpLDIMEC;
     private javax.swing.JPanel Panel_ExpLIMEC;
     private javax.swing.JPanel Panel_MIMEC;
     private javax.swing.JPanel Panel_NAIMEC;
     private javax.swing.JPanel Panel_PIMEC;
+    private javax.swing.JPanel Panel_PPIMEC;
     private javax.swing.JPanel Panel_RLIMEC;
     private javax.swing.JPanel Panel_RPIMEC;
     private javax.swing.JPanel Panel_SEIMEC;
@@ -7366,8 +7854,11 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_TPIMEC;
     private javax.swing.JComboBox<String> jComboBox_APPS;
     private javax.swing.JComboBox<String> jComboBox_AplicacionAPP;
+    private javax.swing.JComboBox<String> jComboBox_CEC;
     private javax.swing.JComboBox<String> jComboBox_DPIAP;
     private javax.swing.JComboBox<String> jComboBox_DepartamentoSE;
+    private javax.swing.JComboBox<String> jComboBox_ECD;
+    private javax.swing.JComboBox<String> jComboBox_ECP;
     private javax.swing.JComboBox<String> jComboBox_ELCV;
     private javax.swing.JComboBox<String> jComboBox_ExperienciaL_SE;
     private javax.swing.JComboBox<String> jComboBox_IDSEM;
@@ -7375,10 +7866,14 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_NivelACV;
     private javax.swing.JComboBox<String> jComboBox_NivelASE;
     private javax.swing.JComboBox<String> jComboBox_Nombre_EpLLD;
+    private javax.swing.JComboBox<String> jComboBox_PPA;
+    private javax.swing.JComboBox<String> jComboBox_PPC;
+    private javax.swing.JComboBox<String> jComboBox_PPS;
     private javax.swing.JComboBox<String> jComboBox_PruebaAPP;
     private javax.swing.JComboBox<String> jComboBox_PuestoSE;
     private javax.swing.JComboBox<String> jComboBox_RLCV;
     private javax.swing.JComboBox<String> jComboBox_RPCV;
+    private javax.swing.JLabel jLabe_SEC;
     private javax.swing.JLabel jLabel_AP;
     private javax.swing.JLabel jLabel_APP;
     private javax.swing.JLabel jLabel_APPS;
@@ -7389,11 +7884,14 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Buscar;
     private javax.swing.JLabel jLabel_BuscarA;
     private javax.swing.JLabel jLabel_BuscarAP;
+    private javax.swing.JLabel jLabel_BuscarEC;
     private javax.swing.JLabel jLabel_BuscarM;
+    private javax.swing.JLabel jLabel_BuscarPP;
     private javax.swing.JLabel jLabel_BuscarRL;
     private javax.swing.JLabel jLabel_BuscarS;
     private javax.swing.JLabel jLabel_BuscarTP;
     private javax.swing.JLabel jLabel_Buscar_APP;
+    private javax.swing.JLabel jLabel_Buscar_C;
     private javax.swing.JLabel jLabel_Buscar_CV;
     private javax.swing.JLabel jLabel_Buscar_ExpL;
     private javax.swing.JLabel jLabel_Buscar_ExpLD;
@@ -7401,24 +7899,31 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Buscar_Puesto;
     private javax.swing.JLabel jLabel_Buscar_RP;
     private javax.swing.JLabel jLabel_Buscar_SE;
+    private javax.swing.JLabel jLabel_CEC;
+    private javax.swing.JLabel jLabel_CECC;
     private javax.swing.JLabel jLabel_CV;
     private javax.swing.JLabel jLabel_ConsultarA;
     private javax.swing.JLabel jLabel_ConsultarAP;
     private javax.swing.JLabel jLabel_ConsultarAPP;
+    private javax.swing.JLabel jLabel_ConsultarC;
     private javax.swing.JLabel jLabel_ConsultarCV;
     private javax.swing.JLabel jLabel_ConsultarD;
+    private javax.swing.JLabel jLabel_ConsultarEC;
     private javax.swing.JLabel jLabel_ConsultarExpL;
     private javax.swing.JLabel jLabel_ConsultarExpLD;
     private javax.swing.JLabel jLabel_ConsultarM;
     private javax.swing.JLabel jLabel_ConsultarP;
+    private javax.swing.JLabel jLabel_ConsultarPP;
     private javax.swing.JLabel jLabel_ConsultarRP;
     private javax.swing.JLabel jLabel_ConsultarSE;
     private javax.swing.JLabel jLabel_ConsultarTP;
     private javax.swing.JLabel jLabel_Consultar_A;
     private javax.swing.JLabel jLabel_Consultar_RL;
     private javax.swing.JLabel jLabel_Consultar_Seleccion;
+    private javax.swing.JLabel jLabel_Contratacion;
     private javax.swing.JLabel jLabel_CorreoCV;
     private javax.swing.JLabel jLabel_Correo_CV;
+    private javax.swing.JLabel jLabel_DC;
     private javax.swing.JLabel jLabel_DPIAP;
     private javax.swing.JLabel jLabel_DPIAP1;
     private javax.swing.JLabel jLabel_DPICV;
@@ -7433,6 +7938,11 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Descripcion_Puesto;
     private javax.swing.JLabel jLabel_Descripcion_Puesto1;
     private javax.swing.JLabel jLabel_DireccionCV;
+    private javax.swing.JLabel jLabel_EC;
+    private javax.swing.JLabel jLabel_ECD;
+    private javax.swing.JLabel jLabel_ECDD;
+    private javax.swing.JLabel jLabel_ECP;
+    private javax.swing.JLabel jLabel_ECPP;
     private javax.swing.JLabel jLabel_ELCV;
     private javax.swing.JLabel jLabel_EL_CV;
     private javax.swing.JLabel jLabel_EdadCV;
@@ -7440,12 +7950,15 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_EliminarA;
     private javax.swing.JLabel jLabel_EliminarAP;
     private javax.swing.JLabel jLabel_EliminarAPP;
+    private javax.swing.JLabel jLabel_EliminarC;
     private javax.swing.JLabel jLabel_EliminarCV;
     private javax.swing.JLabel jLabel_EliminarD;
+    private javax.swing.JLabel jLabel_EliminarEC;
     private javax.swing.JLabel jLabel_EliminarExpL;
     private javax.swing.JLabel jLabel_EliminarExpLD;
     private javax.swing.JLabel jLabel_EliminarM;
     private javax.swing.JLabel jLabel_EliminarP;
+    private javax.swing.JLabel jLabel_EliminarPP;
     private javax.swing.JLabel jLabel_EliminarRL;
     private javax.swing.JLabel jLabel_EliminarRP;
     private javax.swing.JLabel jLabel_EliminarS;
@@ -7455,17 +7968,21 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Eliminar_AP;
     private javax.swing.JLabel jLabel_Eliminar_APP;
     private javax.swing.JLabel jLabel_Eliminar_Ac;
+    private javax.swing.JLabel jLabel_Eliminar_C;
     private javax.swing.JLabel jLabel_Eliminar_CV;
+    private javax.swing.JLabel jLabel_Eliminar_EC;
     private javax.swing.JLabel jLabel_Eliminar_ExpL;
     private javax.swing.JLabel jLabel_Eliminar_ExpLD;
     private javax.swing.JLabel jLabel_Eliminar_M;
     private javax.swing.JLabel jLabel_Eliminar_NivelA;
+    private javax.swing.JLabel jLabel_Eliminar_PP;
     private javax.swing.JLabel jLabel_Eliminar_Puesto;
     private javax.swing.JLabel jLabel_Eliminar_RL;
     private javax.swing.JLabel jLabel_Eliminar_RP;
     private javax.swing.JLabel jLabel_Eliminar_SE;
     private javax.swing.JLabel jLabel_Eliminar_Seleccion;
     private javax.swing.JLabel jLabel_Eliminar_TP;
+    private javax.swing.JLabel jLabel_EmpleadoC;
     private javax.swing.JLabel jLabel_EstatusAPP;
     private javax.swing.JLabel jLabel_EstatusS;
     private javax.swing.JLabel jLabel_Estatus_Departamento;
@@ -7473,17 +7990,23 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_ExpLD;
     private javax.swing.JLabel jLabel_ExperieciaLSE;
     private javax.swing.JLabel jLabel_ExperienciaL_SE;
+    private javax.swing.JLabel jLabel_FC;
+    private javax.swing.JLabel jLabel_FF;
+    private javax.swing.JLabel jLabel_FI;
     private javax.swing.JLabel jLabel_GeneroCV;
     private javax.swing.JLabel jLabel_IDS;
     private javax.swing.JLabel jLabel_ID_A;
     private javax.swing.JLabel jLabel_ID_AP;
     private javax.swing.JLabel jLabel_ID_APP;
+    private javax.swing.JLabel jLabel_ID_C;
     private javax.swing.JLabel jLabel_ID_Departamento;
+    private javax.swing.JLabel jLabel_ID_EC;
     private javax.swing.JLabel jLabel_ID_ExpL;
     private javax.swing.JLabel jLabel_ID_ExpLD;
     private javax.swing.JLabel jLabel_ID_ExpLLD;
     private javax.swing.JLabel jLabel_ID_Medio;
     private javax.swing.JLabel jLabel_ID_NivelA;
+    private javax.swing.JLabel jLabel_ID_PP;
     private javax.swing.JLabel jLabel_ID_Puesto;
     private javax.swing.JLabel jLabel_ID_RP;
     private javax.swing.JLabel jLabel_ID_ReferenciaL;
@@ -7491,11 +8014,14 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_ID_SolicitudE1;
     private javax.swing.JLabel jLabel_Ingresar;
     private javax.swing.JLabel jLabel_IngresarAP;
+    private javax.swing.JLabel jLabel_IngresarEC;
     private javax.swing.JLabel jLabel_IngresarM;
+    private javax.swing.JLabel jLabel_IngresarPP;
     private javax.swing.JLabel jLabel_IngresarRL;
     private javax.swing.JLabel jLabel_IngresarSE;
     private javax.swing.JLabel jLabel_IngresarTP;
     private javax.swing.JLabel jLabel_Ingresar_APP;
+    private javax.swing.JLabel jLabel_InsertarC;
     private javax.swing.JLabel jLabel_InsertarS;
     private javax.swing.JLabel jLabel_Insertar_A;
     private javax.swing.JLabel jLabel_Insertar_CV;
@@ -7506,12 +8032,15 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Insertar_RP;
     private javax.swing.JLabel jLabel_MantenimientoA;
     private javax.swing.JLabel jLabel_MantenimientoAP;
+    private javax.swing.JLabel jLabel_MantenimientoC;
     private javax.swing.JLabel jLabel_MantenimientoCV;
     private javax.swing.JLabel jLabel_MantenimientoD;
+    private javax.swing.JLabel jLabel_MantenimientoEC;
     private javax.swing.JLabel jLabel_MantenimientoExpL;
     private javax.swing.JLabel jLabel_MantenimientoExpLD;
     private javax.swing.JLabel jLabel_MantenimientoM;
     private javax.swing.JLabel jLabel_MantenimientoP;
+    private javax.swing.JLabel jLabel_MantenimientoPP;
     private javax.swing.JLabel jLabel_MantenimientoRP;
     private javax.swing.JLabel jLabel_MantenimientoSE;
     private javax.swing.JLabel jLabel_MantenimientoTP;
@@ -7526,12 +8055,15 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_ModificarA;
     private javax.swing.JLabel jLabel_ModificarAP;
     private javax.swing.JLabel jLabel_ModificarAPP;
+    private javax.swing.JLabel jLabel_ModificarC;
     private javax.swing.JLabel jLabel_ModificarCV;
     private javax.swing.JLabel jLabel_ModificarD;
+    private javax.swing.JLabel jLabel_ModificarEC;
     private javax.swing.JLabel jLabel_ModificarExpL;
     private javax.swing.JLabel jLabel_ModificarExpLD;
     private javax.swing.JLabel jLabel_ModificarM;
     private javax.swing.JLabel jLabel_ModificarP;
+    private javax.swing.JLabel jLabel_ModificarPP;
     private javax.swing.JLabel jLabel_ModificarRL;
     private javax.swing.JLabel jLabel_ModificarRP;
     private javax.swing.JLabel jLabel_ModificarS;
@@ -7541,11 +8073,14 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Modificar_AP;
     private javax.swing.JLabel jLabel_Modificar_APP;
     private javax.swing.JLabel jLabel_Modificar_Ac;
+    private javax.swing.JLabel jLabel_Modificar_C;
     private javax.swing.JLabel jLabel_Modificar_CV;
+    private javax.swing.JLabel jLabel_Modificar_EC;
     private javax.swing.JLabel jLabel_Modificar_ExpL;
     private javax.swing.JLabel jLabel_Modificar_ExpLD;
     private javax.swing.JLabel jLabel_Modificar_M;
     private javax.swing.JLabel jLabel_Modificar_NivelA;
+    private javax.swing.JLabel jLabel_Modificar_PP;
     private javax.swing.JLabel jLabel_Modificar_Puesto;
     private javax.swing.JLabel jLabel_Modificar_RL;
     private javax.swing.JLabel jLabel_Modificar_RP;
@@ -7568,6 +8103,14 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Nombre_NivelA;
     private javax.swing.JLabel jLabel_Nombre_Puesto;
     private javax.swing.JLabel jLabel_Nombre_RP;
+    private javax.swing.JLabel jLabel_PPA;
+    private javax.swing.JLabel jLabel_PPAA;
+    private javax.swing.JLabel jLabel_PPC;
+    private javax.swing.JLabel jLabel_PPCC;
+    private javax.swing.JLabel jLabel_PPS;
+    private javax.swing.JLabel jLabel_PPSE;
+    private javax.swing.JLabel jLabel_Pago;
+    private javax.swing.JLabel jLabel_PeriodoP;
     private javax.swing.JLabel jLabel_Prueba;
     private javax.swing.JLabel jLabel_PruebaAPP;
     private javax.swing.JLabel jLabel_Prueba_APP;
@@ -7600,10 +8143,13 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_MantenimientoA;
     private javax.swing.JPanel jPanel_MantenimientoAP;
     private javax.swing.JPanel jPanel_MantenimientoAPP;
+    private javax.swing.JPanel jPanel_MantenimientoC;
     private javax.swing.JPanel jPanel_MantenimientoCV;
+    private javax.swing.JPanel jPanel_MantenimientoEC;
     private javax.swing.JPanel jPanel_MantenimientoExpL;
     private javax.swing.JPanel jPanel_MantenimientoExpLD;
     private javax.swing.JPanel jPanel_MantenimientoNA;
+    private javax.swing.JPanel jPanel_MantenimientoPP;
     private javax.swing.JPanel jPanel_MantenimientoRL;
     private javax.swing.JPanel jPanel_MantenimientoS;
     private javax.swing.JPanel jPanel_MantenimientoSE;
@@ -7631,18 +8177,24 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane33;
     private javax.swing.JScrollPane jScrollPane34;
     private javax.swing.JScrollPane jScrollPane35;
+    private javax.swing.JScrollPane jScrollPane36;
+    private javax.swing.JScrollPane jScrollPane37;
+    private javax.swing.JScrollPane jScrollPane38;
     private javax.swing.JTextArea jTextArea_DescripcionA;
     private javax.swing.JTextArea jTextArea_DescripcionM;
     private javax.swing.JTextArea jTextArea_DescripcionSE;
     private javax.swing.JTable tbl_A;
     private javax.swing.JTable tbl_AP;
     private javax.swing.JTable tbl_APP;
+    private javax.swing.JTable tbl_C;
     private javax.swing.JTable tbl_CV;
     private javax.swing.JTable tbl_Departamento;
+    private javax.swing.JTable tbl_EC;
     private javax.swing.JTable tbl_ExpL;
     private javax.swing.JTable tbl_ExpLD;
     private javax.swing.JTable tbl_Medio;
     private javax.swing.JTable tbl_NivelA;
+    private javax.swing.JTable tbl_PP;
     private javax.swing.JTable tbl_Puesto;
     private javax.swing.JTable tbl_RL;
     private javax.swing.JTable tbl_RP;
@@ -7654,11 +8206,14 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Buscar;
     private javax.swing.JTextField txt_BuscarA;
     private javax.swing.JTextField txt_BuscarAP;
+    private javax.swing.JTextField txt_BuscarEC;
     private javax.swing.JTextField txt_BuscarM;
+    private javax.swing.JTextField txt_BuscarPP;
     private javax.swing.JTextField txt_BuscarRL;
     private javax.swing.JTextField txt_BuscarS;
     private javax.swing.JTextField txt_BuscarTP;
     private javax.swing.JTextField txt_Buscar_APP;
+    private javax.swing.JTextField txt_Buscar_C;
     private javax.swing.JTextField txt_Buscar_CV;
     private javax.swing.JTextField txt_Buscar_ExpL;
     private javax.swing.JTextField txt_Buscar_ExpLD;
@@ -7667,14 +8222,17 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Buscar_RP;
     private javax.swing.JTextField txt_Buscar_SE;
     private javax.swing.JTextField txt_CorreoCV;
+    private javax.swing.JTextField txt_DC;
     private javax.swing.JTextField txt_DPICV;
     private javax.swing.JTextField txt_Descripcion_NivelA;
     private javax.swing.JTextField txt_Descripcion_Puesto;
     private javax.swing.JTextField txt_DireccionCV;
+    private javax.swing.JTextField txt_EC;
     private javax.swing.JTextField txt_EdadCV;
     private javax.swing.JTextField txt_EstatusS;
     private javax.swing.JTextField txt_Estatus_Departamento;
     private javax.swing.JTextField txt_Estatus_Puesto;
+    private javax.swing.JTextField txt_FC;
     private javax.swing.JTextField txt_Genero;
     private javax.swing.JTextField txt_GeneroCV;
     private javax.swing.JTextField txt_NombreCV;
@@ -7689,6 +8247,7 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JTextField txt_RangoEdadM;
     private javax.swing.JTextField txt_RangoEdadMa;
     private javax.swing.JTextField txt_RequisitosAP;
+    private javax.swing.JTextField txt_SEC;
     private javax.swing.JTextField txt_TA;
     private javax.swing.JTextField txt_TP;
     private javax.swing.JTextField txt_TelefonoCV;
@@ -7700,11 +8259,17 @@ public class RRHH extends javax.swing.JFrame {
     private javax.swing.JTextField txt_id_A;
     private javax.swing.JTextField txt_id_AP;
     private javax.swing.JTextField txt_id_APP;
+    private javax.swing.JTextField txt_id_C;
     private javax.swing.JTextField txt_id_Departamento;
+    private javax.swing.JTextField txt_id_EC;
     private javax.swing.JTextField txt_id_ExpL;
     private javax.swing.JTextField txt_id_ExpLD;
+    private javax.swing.JTextField txt_id_FF;
+    private javax.swing.JTextField txt_id_FI;
     private javax.swing.JTextField txt_id_Medio;
     private javax.swing.JTextField txt_id_NivelA;
+    private javax.swing.JTextField txt_id_PP;
+    private javax.swing.JTextField txt_id_Pago;
     private javax.swing.JTextField txt_id_Puesto;
     private javax.swing.JTextField txt_id_RP;
     private javax.swing.JTextField txt_id_ReferenciaL;
