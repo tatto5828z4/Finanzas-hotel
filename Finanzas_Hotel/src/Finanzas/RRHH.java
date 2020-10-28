@@ -506,22 +506,6 @@ public class RRHH extends javax.swing.JFrame {
         jLabel_IngresarSE = new javax.swing.JLabel();
         jLabel_Modificar_SE = new javax.swing.JLabel();
         jLabel_Eliminar_SE = new javax.swing.JLabel();
-        jPanel_MantenimientosP = new javax.swing.JPanel();
-        jLabel_ID_Puesto = new javax.swing.JLabel();
-        txt_id_Puesto = new javax.swing.JTextField();
-        jLabel_Nombre_Puesto = new javax.swing.JLabel();
-        txt_Nombre_Puesto = new javax.swing.JTextField();
-        jLabel_Descripcion_Puesto = new javax.swing.JLabel();
-        txt_Descripcion_Puesto = new javax.swing.JTextField();
-        jLabel_Descripcion_Puesto1 = new javax.swing.JLabel();
-        txt_Estatus_Puesto = new javax.swing.JTextField();
-        jScrollPane22 = new javax.swing.JScrollPane();
-        tbl_Puesto = new javax.swing.JTable();
-        jLabel_Buscar_Puesto = new javax.swing.JLabel();
-        txt_Buscar_Puesto = new javax.swing.JTextField();
-        jLabel_Insertar_Puesto = new javax.swing.JLabel();
-        jLabel_Modificar_Puesto = new javax.swing.JLabel();
-        jLabel_Eliminar_Puesto = new javax.swing.JLabel();
         jPanel_MantenimientoCV = new javax.swing.JPanel();
         jLabel_DPICV = new javax.swing.JLabel();
         txt_DPICV = new javax.swing.JTextField();
@@ -624,6 +608,23 @@ public class RRHH extends javax.swing.JFrame {
         txt_BuscarAE = new javax.swing.JTextField();
         jScrollPane39 = new javax.swing.JScrollPane();
         tbl_AE = new javax.swing.JTable();
+        jPanel_MantenimientosP = new javax.swing.JPanel();
+        jLabel_ID_Puesto = new javax.swing.JLabel();
+        txt_id_Puesto = new javax.swing.JTextField();
+        jLabel_Nombre_Puesto = new javax.swing.JLabel();
+        txt_Nombre_Puesto = new javax.swing.JTextField();
+        jLabel_Descripcion_Puesto = new javax.swing.JLabel();
+        jLabel_Descripcion_Puesto1 = new javax.swing.JLabel();
+        txt_Estatus_Puesto = new javax.swing.JTextField();
+        jScrollPane22 = new javax.swing.JScrollPane();
+        tbl_Puesto = new javax.swing.JTable();
+        jLabel_Buscar_Puesto = new javax.swing.JLabel();
+        txt_Buscar_Puesto = new javax.swing.JTextField();
+        jLabel_Insertar_Puesto = new javax.swing.JLabel();
+        jLabel_Modificar_Puesto = new javax.swing.JLabel();
+        jLabel_Eliminar_Puesto = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txt_Descripcion_Puesto = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -4221,127 +4222,6 @@ public class RRHH extends javax.swing.JFrame {
 
         jPanel_RRHH.add(jPanel_MantenimientoSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 700));
 
-        jPanel_MantenimientosP.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_MantenimientosP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel_ID_Puesto.setText("ID Puesto");
-        jPanel_MantenimientosP.add(jLabel_ID_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
-
-        txt_id_Puesto.setBackground(new java.awt.Color(231, 231, 231));
-        txt_id_Puesto.setForeground(new java.awt.Color(153, 153, 153));
-        txt_id_Puesto.setBorder(null);
-        txt_id_Puesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_id_PuestoActionPerformed(evt);
-            }
-        });
-        jPanel_MantenimientosP.add(txt_id_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 140, 20));
-
-        jLabel_Nombre_Puesto.setText("Nombre Puesto");
-        jPanel_MantenimientosP.add(jLabel_Nombre_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
-
-        txt_Nombre_Puesto.setBackground(new java.awt.Color(231, 231, 231));
-        txt_Nombre_Puesto.setForeground(new java.awt.Color(153, 153, 153));
-        txt_Nombre_Puesto.setBorder(null);
-        txt_Nombre_Puesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Nombre_PuestoActionPerformed(evt);
-            }
-        });
-        jPanel_MantenimientosP.add(txt_Nombre_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 140, 20));
-
-        jLabel_Descripcion_Puesto.setText("Descripcion Puesto");
-        jPanel_MantenimientosP.add(jLabel_Descripcion_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
-
-        txt_Descripcion_Puesto.setBackground(new java.awt.Color(231, 231, 231));
-        txt_Descripcion_Puesto.setForeground(new java.awt.Color(153, 153, 153));
-        txt_Descripcion_Puesto.setBorder(null);
-        txt_Descripcion_Puesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Descripcion_PuestoActionPerformed(evt);
-            }
-        });
-        jPanel_MantenimientosP.add(txt_Descripcion_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 140, 20));
-
-        jLabel_Descripcion_Puesto1.setText("Estatus Puesto");
-        jPanel_MantenimientosP.add(jLabel_Descripcion_Puesto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, -1, -1));
-
-        txt_Estatus_Puesto.setBackground(new java.awt.Color(231, 231, 231));
-        txt_Estatus_Puesto.setForeground(new java.awt.Color(153, 153, 153));
-        txt_Estatus_Puesto.setBorder(null);
-        txt_Estatus_Puesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Estatus_PuestoActionPerformed(evt);
-            }
-        });
-        jPanel_MantenimientosP.add(txt_Estatus_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 140, 20));
-
-        tbl_Puesto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        tbl_Puesto.setGridColor(new java.awt.Color(255, 255, 255));
-        tbl_Puesto.setSelectionBackground(new java.awt.Color(0, 204, 255));
-        tbl_Puesto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_PuestoMouseClicked(evt);
-            }
-        });
-        jScrollPane22.setViewportView(tbl_Puesto);
-
-        jPanel_MantenimientosP.add(jScrollPane22, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 600, 190));
-
-        jLabel_Buscar_Puesto.setText("Buscar");
-        jPanel_MantenimientosP.add(jLabel_Buscar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
-
-        txt_Buscar_Puesto.setBackground(new java.awt.Color(231, 231, 231));
-        txt_Buscar_Puesto.setForeground(new java.awt.Color(153, 153, 153));
-        txt_Buscar_Puesto.setBorder(null);
-        txt_Buscar_Puesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_Buscar_PuestoActionPerformed(evt);
-            }
-        });
-        txt_Buscar_Puesto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_Buscar_PuestoKeyReleased(evt);
-            }
-        });
-        jPanel_MantenimientosP.add(txt_Buscar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 290, 20));
-
-        jLabel_Insertar_Puesto.setText("Insertar");
-        jLabel_Insertar_Puesto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_Insertar_PuestoMouseClicked(evt);
-            }
-        });
-        jPanel_MantenimientosP.add(jLabel_Insertar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, -1, -1));
-
-        jLabel_Modificar_Puesto.setText("Modificar");
-        jLabel_Modificar_Puesto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_Modificar_PuestoMouseClicked(evt);
-            }
-        });
-        jPanel_MantenimientosP.add(jLabel_Modificar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, -1, -1));
-
-        jLabel_Eliminar_Puesto.setText("Eliminar");
-        jLabel_Eliminar_Puesto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_Eliminar_PuestoMouseClicked(evt);
-            }
-        });
-        jPanel_MantenimientosP.add(jLabel_Eliminar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
-
-        jPanel_RRHH.add(jPanel_MantenimientosP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1080, 800));
-
         jPanel_MantenimientoCV.setBackground(new java.awt.Color(255, 255, 255));
         jPanel_MantenimientoCV.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -5009,6 +4889,124 @@ public class RRHH extends javax.swing.JFrame {
 
         jPanel_RRHH.add(jPanel_MantenimientoAE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1610, 900));
 
+        jPanel_MantenimientosP.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientosP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_ID_Puesto.setText("ID Puesto");
+        jPanel_MantenimientosP.add(jLabel_ID_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+
+        txt_id_Puesto.setBackground(new java.awt.Color(231, 231, 231));
+        txt_id_Puesto.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_Puesto.setBorder(null);
+        txt_id_Puesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_PuestoActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientosP.add(txt_id_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 140, 20));
+
+        jLabel_Nombre_Puesto.setText("Nombre Puesto");
+        jPanel_MantenimientosP.add(jLabel_Nombre_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
+
+        txt_Nombre_Puesto.setBackground(new java.awt.Color(231, 231, 231));
+        txt_Nombre_Puesto.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Nombre_Puesto.setBorder(null);
+        txt_Nombre_Puesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Nombre_PuestoActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientosP.add(txt_Nombre_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 140, 20));
+
+        jLabel_Descripcion_Puesto.setText("Descripcion Puesto");
+        jPanel_MantenimientosP.add(jLabel_Descripcion_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
+
+        jLabel_Descripcion_Puesto1.setText("Estatus Puesto");
+        jPanel_MantenimientosP.add(jLabel_Descripcion_Puesto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, -1, -1));
+
+        txt_Estatus_Puesto.setBackground(new java.awt.Color(231, 231, 231));
+        txt_Estatus_Puesto.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Estatus_Puesto.setBorder(null);
+        txt_Estatus_Puesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Estatus_PuestoActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientosP.add(txt_Estatus_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 140, 20));
+
+        tbl_Puesto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_Puesto.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_Puesto.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_Puesto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_PuestoMouseClicked(evt);
+            }
+        });
+        jScrollPane22.setViewportView(tbl_Puesto);
+
+        jPanel_MantenimientosP.add(jScrollPane22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 600, 190));
+
+        jLabel_Buscar_Puesto.setText("Buscar");
+        jPanel_MantenimientosP.add(jLabel_Buscar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
+
+        txt_Buscar_Puesto.setBackground(new java.awt.Color(231, 231, 231));
+        txt_Buscar_Puesto.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Buscar_Puesto.setBorder(null);
+        txt_Buscar_Puesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Buscar_PuestoActionPerformed(evt);
+            }
+        });
+        txt_Buscar_Puesto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_Buscar_PuestoKeyReleased(evt);
+            }
+        });
+        jPanel_MantenimientosP.add(txt_Buscar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 290, 20));
+
+        jLabel_Insertar_Puesto.setText("Insertar");
+        jLabel_Insertar_Puesto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Insertar_PuestoMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientosP.add(jLabel_Insertar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, -1, -1));
+
+        jLabel_Modificar_Puesto.setText("Modificar");
+        jLabel_Modificar_Puesto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_PuestoMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientosP.add(jLabel_Modificar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, -1, -1));
+
+        jLabel_Eliminar_Puesto.setText("Eliminar");
+        jLabel_Eliminar_Puesto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_PuestoMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientosP.add(jLabel_Eliminar_Puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
+
+        txt_Descripcion_Puesto.setColumns(20);
+        txt_Descripcion_Puesto.setRows(5);
+        txt_Descripcion_Puesto.setAutoscrolls(false);
+        jScrollPane4.setViewportView(txt_Descripcion_Puesto);
+
+        jPanel_MantenimientosP.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 180, 100));
+
+        jPanel_RRHH.add(jPanel_MantenimientosP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1080, 800));
+
         getContentPane().add(jPanel_RRHH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
 
         pack();
@@ -5150,22 +5148,6 @@ public class RRHH extends javax.swing.JFrame {
         De.Eliminar_Departamento(txt_id_Departamento, txt_Nombre_Departamento, txt_Estatus_Departamento, tbl_Departamento, txt_Buscar);
     }//GEN-LAST:event_jLabel_EliminarMouseClicked
 
-    private void txt_id_PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_PuestoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_id_PuestoActionPerformed
-
-    private void txt_Nombre_PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nombre_PuestoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Nombre_PuestoActionPerformed
-
-    private void txt_Descripcion_PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Descripcion_PuestoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Descripcion_PuestoActionPerformed
-
-    private void txt_Estatus_PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Estatus_PuestoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Estatus_PuestoActionPerformed
-
     private void jLabel_PuestoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_PuestoMouseMoved
         // TODO add your handling code here:
         Panel_PIMEC.setVisible(true);
@@ -5278,34 +5260,6 @@ public class RRHH extends javax.swing.JFrame {
     private void Panel_DIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_DIMECMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_DIMECMouseReleased
-
-    private void txt_Buscar_PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Buscar_PuestoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_Buscar_PuestoActionPerformed
-
-    private void jLabel_Insertar_PuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Insertar_PuestoMouseClicked
-        // TODO add your handling code here:
-        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
-        puesto.Insertar_Puesto();
-    }//GEN-LAST:event_jLabel_Insertar_PuestoMouseClicked
-
-    private void txt_Buscar_PuestoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_PuestoKeyReleased
-        // TODO add your handling code here:
-        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
-        puesto.Buscar_PuestoF(txt_Buscar_Puesto.getText());
-    }//GEN-LAST:event_txt_Buscar_PuestoKeyReleased
-
-    private void jLabel_Modificar_PuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_PuestoMouseClicked
-        // TODO add your handling code here:
-        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
-        puesto.Modificar_Puesto();
-    }//GEN-LAST:event_jLabel_Modificar_PuestoMouseClicked
-
-    private void jLabel_Eliminar_PuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_PuestoMouseClicked
-        // TODO add your handling code here:
-        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
-        puesto.Eliminar_Puesto();
-    }//GEN-LAST:event_jLabel_Eliminar_PuestoMouseClicked
 
     private void jLabel_ModificarAMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarAMouseMoved
         // TODO add your handling code here:
@@ -7062,15 +7016,6 @@ public class RRHH extends javax.swing.JFrame {
         txt_Estatus_Departamento.setText(String.valueOf(tbl_Departamento.getValueAt(Seleccion, 2)));
     }//GEN-LAST:event_tbl_DepartamentoMouseClicked
 
-    private void tbl_PuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_PuestoMouseClicked
-        // TODO add your handling code here:
-        int Seleccion = tbl_Puesto.rowAtPoint(evt.getPoint());
-        txt_id_Puesto.setText(String.valueOf(tbl_Puesto.getValueAt(Seleccion, 0)));
-        txt_Nombre_Puesto.setText(String.valueOf(tbl_Puesto.getValueAt(Seleccion, 1)));
-        txt_Descripcion_Puesto.setText(String.valueOf(tbl_Puesto.getValueAt(Seleccion, 2)));
-        txt_Estatus_Puesto.setText(String.valueOf(tbl_Puesto.getValueAt(Seleccion, 3)));
-    }//GEN-LAST:event_tbl_PuestoMouseClicked
-
     private void tbl_NivelAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_NivelAMouseClicked
         // TODO add your handling code here:
         int Seleccion = tbl_NivelA.rowAtPoint(evt.getPoint());
@@ -8816,6 +8761,55 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_puestoActionPerformed
 
+    private void txt_id_PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_PuestoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_PuestoActionPerformed
+
+    private void txt_Nombre_PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nombre_PuestoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Nombre_PuestoActionPerformed
+
+    private void txt_Estatus_PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Estatus_PuestoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Estatus_PuestoActionPerformed
+
+    private void tbl_PuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_PuestoMouseClicked
+        // TODO add your handling code here:
+        int Seleccion = tbl_Puesto.rowAtPoint(evt.getPoint());
+        txt_id_Puesto.setText(String.valueOf(tbl_Puesto.getValueAt(Seleccion, 0)));
+        txt_Nombre_Puesto.setText(String.valueOf(tbl_Puesto.getValueAt(Seleccion, 1)));
+        txt_Descripcion_Puesto.setText(String.valueOf(tbl_Puesto.getValueAt(Seleccion, 2)));
+        txt_Estatus_Puesto.setText(String.valueOf(tbl_Puesto.getValueAt(Seleccion, 3)));
+    }//GEN-LAST:event_tbl_PuestoMouseClicked
+
+    private void txt_Buscar_PuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Buscar_PuestoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Buscar_PuestoActionPerformed
+
+    private void txt_Buscar_PuestoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_PuestoKeyReleased
+        // TODO add your handling code here:
+        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
+        puesto.Buscar_PuestoF(txt_Buscar_Puesto.getText());
+    }//GEN-LAST:event_txt_Buscar_PuestoKeyReleased
+
+    private void jLabel_Insertar_PuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Insertar_PuestoMouseClicked
+        // TODO add your handling code here:
+        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
+        puesto.Insertar_Puesto();
+    }//GEN-LAST:event_jLabel_Insertar_PuestoMouseClicked
+
+    private void jLabel_Modificar_PuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_PuestoMouseClicked
+        // TODO add your handling code here:
+        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
+        puesto.Modificar_Puesto();
+    }//GEN-LAST:event_jLabel_Modificar_PuestoMouseClicked
+
+    private void jLabel_Eliminar_PuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_PuestoMouseClicked
+        // TODO add your handling code here:
+        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
+        puesto.Eliminar_Puesto();
+    }//GEN-LAST:event_jLabel_Eliminar_PuestoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -9223,6 +9217,7 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
     private javax.swing.JScrollPane jScrollPane37;
     private javax.swing.JScrollPane jScrollPane38;
     private javax.swing.JScrollPane jScrollPane39;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane40;
     private javax.swing.JTextArea jTextArea_DescripcionA;
     private javax.swing.JTextArea jTextArea_DescripcionM;
@@ -9274,7 +9269,7 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
     private javax.swing.JTextField txt_DC;
     private javax.swing.JTextField txt_DPICV;
     private javax.swing.JTextField txt_Descripcion_NivelA;
-    private javax.swing.JTextField txt_Descripcion_Puesto;
+    private javax.swing.JTextArea txt_Descripcion_Puesto;
     private javax.swing.JTextField txt_DireccionCV;
     private javax.swing.JTextField txt_EC;
     private javax.swing.JTextField txt_EdadCV;

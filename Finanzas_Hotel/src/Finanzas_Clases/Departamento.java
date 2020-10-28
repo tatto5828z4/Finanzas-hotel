@@ -53,7 +53,7 @@ public class Departamento
             Nombre.setText("");
             Estatus.setText("");
             
-            JOptionPane.showMessageDialog(null,"Registro Exitoso");
+            //JOptionPane.showMessageDialog(null,"Registro Exitoso");
             
             Actualizar_Tabla(Tabla);
             
