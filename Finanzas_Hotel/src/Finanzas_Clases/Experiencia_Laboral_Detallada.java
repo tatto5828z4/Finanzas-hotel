@@ -77,7 +77,7 @@ public class Experiencia_Laboral_Detallada
                 tabla_ExpLD.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tabla_ExpLD.setModel(model);
         }catch(Exception e)
         {

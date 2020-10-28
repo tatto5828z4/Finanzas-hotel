@@ -24,8 +24,8 @@ public class Departamento
     String estatus_Departamento;
     
     public static String Base_de_Datos = "jdbc:mysql://localhost/Hotel";
-    public static String Usuario = "rex";
-    public static String Clave = "polloloco900";
+    public static String Usuario = "root";
+    public static String Clave = "jorgito5828H";
     
 
     //Constructor
@@ -53,7 +53,7 @@ public class Departamento
             Nombre.setText("");
             Estatus.setText("");
             
-            JOptionPane.showMessageDialog(null,"Registro Exitoso");
+            //JOptionPane.showMessageDialog(null,"Registro Exitoso");
             
             Actualizar_Tabla(Tabla);
             

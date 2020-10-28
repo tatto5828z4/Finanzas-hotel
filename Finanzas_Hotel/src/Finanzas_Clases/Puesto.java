@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,12 +27,12 @@ public class Puesto
     //Atributos
     JTextField id_Puesto;
     JTextField nombre_Puesto;
-    JTextField descripcion_Puesto;
+    JTextArea descripcion_Puesto;
     JTextField estatus_Puesto;
     JTextField buscar_Puesto;
     JTable tabla_Puesto;
 
-    public Puesto(JTextField id_Puesto, JTextField nombre_Puesto, JTextField descripcion_Puesto, JTextField estatus_Puesto, JTextField buscar_Puesto, JTable tabla_Puesto) {
+    public Puesto(JTextField id_Puesto, JTextField nombre_Puesto, JTextArea descripcion_Puesto, JTextField estatus_Puesto, JTextField buscar_Puesto, JTable tabla_Puesto) {
         this.id_Puesto = id_Puesto;
         this.nombre_Puesto = nombre_Puesto;
         this.descripcion_Puesto = descripcion_Puesto;
@@ -71,7 +72,7 @@ public class Puesto
                 tabla_Puesto.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tabla_Puesto.setModel(model);
         }catch(Exception e)
         {
