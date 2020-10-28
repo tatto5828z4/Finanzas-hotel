@@ -292,8 +292,9 @@ public class Aplicacion_Prueba
             if(rs.next()) {
                 boxNombre.setSelectedItem(rs.getString(Nombre));
             } 
-        }catch(Exception e){
-            
+        }catch(Exception e)
+        {
+            System.out.println(e);
         }
     }
 }
