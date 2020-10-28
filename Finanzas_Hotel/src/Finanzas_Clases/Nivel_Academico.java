@@ -67,7 +67,7 @@ public class Nivel_Academico
                 tabla_NivelA.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tabla_NivelA.setModel(model);
         }catch(Exception e)
         {
