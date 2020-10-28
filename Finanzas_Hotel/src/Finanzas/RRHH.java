@@ -26,6 +26,21 @@ import Finanzas_Clases.Seleccion;
 import Finanzas_Clases.Solicitud_Empresarial;
 import Finanzas_Clases.Tipo_Prueba;
 import javax.swing.JTextField;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import static Finanzas_Clases.Departamento.Base_de_Datos;
+import static Finanzas_Clases.Departamento.Clave;
+import static Finanzas_Clases.Departamento.Usuario;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -255,6 +270,15 @@ public class RRHH extends javax.swing.JFrame {
         tbl_BE = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jTextField_Encontraid = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txt_contra = new javax.swing.JTextField();
+        txt_puesto = new javax.swing.JTextField();
+        txt_depa = new javax.swing.JTextField();
+        txt_peri = new javax.swing.JTextField();
+        txt_selec = new javax.swing.JTextField();
+        txt_ap = new javax.swing.JTextField();
+        txt_idap = new javax.swing.JTextField();
+        txt_dpi = new javax.swing.JTextField();
         jPanel_MantenimientoEC = new javax.swing.JPanel();
         jLabel_ID_EC = new javax.swing.JLabel();
         txt_id_EC = new javax.swing.JTextField();
@@ -2478,7 +2502,12 @@ public class RRHH extends javax.swing.JFrame {
         jPanel_MantenimientoBE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_Buscar_BE.setText("Buscar");
-        jPanel_MantenimientoBE.add(jLabel_Buscar_BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, -1, -1));
+        jLabel_Buscar_BE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Buscar_BEMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoBE.add(jLabel_Buscar_BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
 
         txt_Buscar_BE.setBackground(new java.awt.Color(231, 231, 231));
         txt_Buscar_BE.setForeground(new java.awt.Color(153, 153, 153));
@@ -2492,8 +2521,11 @@ public class RRHH extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_Buscar_BEKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_Buscar_BEKeyTyped(evt);
+            }
         });
-        jPanel_MantenimientoBE.add(txt_Buscar_BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 290, 20));
+        jPanel_MantenimientoBE.add(txt_Buscar_BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 290, 20));
 
         tbl_BE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2518,7 +2550,7 @@ public class RRHH extends javax.swing.JFrame {
         jPanel_MantenimientoBE.add(jScrollPane40, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 1110, 250));
 
         jLabel1.setText("Bitacora Empleado");
-        jPanel_MantenimientoBE.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 120, 50));
+        jPanel_MantenimientoBE.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 120, 50));
 
         jTextField_Encontraid.setBorder(null);
         jTextField_Encontraid.addActionListener(new java.awt.event.ActionListener() {
@@ -2527,6 +2559,47 @@ public class RRHH extends javax.swing.JFrame {
             }
         });
         jPanel_MantenimientoBE.add(jTextField_Encontraid, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, 190, 30));
+
+        jLabel2.setText("ingrese el id del empleado ya contratado a consultar.");
+        jPanel_MantenimientoBE.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
+
+        txt_contra.setForeground(new java.awt.Color(255, 255, 255));
+        txt_contra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 70, -1));
+
+        txt_puesto.setForeground(new java.awt.Color(255, 255, 255));
+        txt_puesto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_puesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_puestoActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoBE.add(txt_puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 70, -1));
+
+        txt_depa.setForeground(new java.awt.Color(255, 255, 255));
+        txt_depa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_depa, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 60, 80, -1));
+
+        txt_peri.setForeground(new java.awt.Color(255, 255, 255));
+        txt_peri.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_peri, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 160, 70, -1));
+
+        txt_selec.setForeground(new java.awt.Color(255, 255, 255));
+        txt_selec.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_selec, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 170, 80, -1));
+
+        txt_ap.setForeground(new java.awt.Color(255, 255, 255));
+        txt_ap.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_ap, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, 80, -1));
+
+        txt_idap.setForeground(new java.awt.Color(255, 255, 255));
+        txt_idap.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_idap, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 70, -1));
+
+        txt_dpi.setForeground(new java.awt.Color(255, 255, 255));
+        txt_dpi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_dpi.setFocusable(false);
+        jPanel_MantenimientoBE.add(txt_dpi, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 80, -1));
 
         jPanel_RRHH.add(jPanel_MantenimientoBE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1470, 680));
 
@@ -8459,7 +8532,40 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
         jPanel_MantenimientoBE.setVisible(true);
         
         Bitacora_Empleado BE= new Bitacora_Empleado(jTextField_Encontraid,txt_Buscar_BE,tbl_BE);
-        BE.Actualizar_Tabla();
+        //BE.Actualizar_Tabla();
+        String[] Bi_datos = new String [9];
+        try
+        {           
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("ID Bitacora");
+            model.addColumn("ID Empleado Contratado");
+            model.addColumn("ID Contatacion");
+            model.addColumn("Puesto");
+            model.addColumn("Departamento");
+            model.addColumn("Sueldo");
+            
+            
+            Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
+            PreparedStatement pst = cn.prepareStatement("select id_empleado, id_contratacion, id_puesto, id_departamento, sueldo_empleado from empleado_contratado ");  
+            PreparedStatement pst2 = cn.prepareStatement("select id_bitacora from bitacora_empleado");
+            ResultSet rs = pst.executeQuery();
+            ResultSet rs2 = pst2.executeQuery();
+            while(rs.next() && rs2.next())
+            {
+                Bi_datos[0] = rs2.getString("id_bitacora");
+                Bi_datos[1] = rs.getString("id_empleado");
+                Bi_datos[2] = rs.getString("id_contratacion");
+                Bi_datos[3] = rs.getString("id_puesto");
+                Bi_datos[4] = rs.getString("id_departamento");
+                Bi_datos[5] = rs.getString("sueldo_empleado");
+                model.addRow(Bi_datos);
+            }
+            tbl_BE.setModel(model);
+               
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }        
     }//GEN-LAST:event_jLabel_ConsultarBEMouseClicked
 
     private void jLabel_ConsultarBEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarBEMouseExited
@@ -8493,6 +8599,40 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
 
     private void txt_Buscar_BEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_BEKeyReleased
         // TODO add your handling code here:
+        String[] Bi_datos = new String [9];
+        try
+        {           
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("ID Bitacora");
+            model.addColumn("ID Empleado Contratado");
+            model.addColumn("ID Contatacion");
+            model.addColumn("Puesto");
+            model.addColumn("Departamento");
+            model.addColumn("Sueldo");
+            
+            
+            Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
+            PreparedStatement pst = cn.prepareStatement("select id_empleado, id_contratacion, id_puesto, id_departamento, sueldo_empleado from empleado_contratado ");  
+            PreparedStatement pst2 = cn.prepareStatement("select id_bitacora from bitacora_empleado");
+            ResultSet rs = pst.executeQuery();
+            ResultSet rs2 = pst2.executeQuery();
+            while(rs.next() && rs2.next())
+            {
+                Bi_datos[0] = rs2.getString("id_bitacora");
+                Bi_datos[1] = rs.getString("id_empleado");
+                Bi_datos[2] = rs.getString("id_contratacion");
+                Bi_datos[3] = rs.getString("id_puesto");
+                Bi_datos[4] = rs.getString("id_departamento");
+                Bi_datos[5] = rs.getString("sueldo_empleado");
+                model.addRow(Bi_datos);
+            }
+            tbl_BE.setModel(model);
+               
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        
     }//GEN-LAST:event_txt_Buscar_BEKeyReleased
 
     private void tbl_BEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_BEMouseClicked
@@ -8506,6 +8646,175 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
     private void jTextField_EncontraidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_EncontraidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_EncontraidActionPerformed
+
+    private void jLabel_Buscar_BEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Buscar_BEMouseClicked
+        // TODO add your handling code here:        
+        String[] B_datos = new String [12];
+        String Idbus;
+        String contrata;
+        Idbus = txt_Buscar_BE.getText();
+        try
+        {           
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("ID Bitacora");//0
+            model.addColumn("ID Empleado Contratado");//1
+            model.addColumn("ID Contatacion");//2
+            model.addColumn("Fecha contratacion");//3
+            model.addColumn("ID Puesto");//4
+            model.addColumn("Nombre Puesto");//5
+            model.addColumn("ID Departamento");//6
+            model.addColumn("Nombre Departamento");//7
+            model.addColumn("Sueldo");//8
+            model.addColumn("Dpi persona");//9
+            model.addColumn("Nombre Persona");//10
+            model.addColumn("Apellido Persona");//11
+            
+            
+            
+            
+            
+            Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
+            PreparedStatement pst = cn.prepareStatement("select id_empleado, id_contratacion, id_puesto, id_departamento, sueldo_empleado from empleado_contratado where id_empleado =" + Idbus );  
+            PreparedStatement pst2 = cn.prepareStatement("select id_bitacora from bitacora_empleado where id_empleado_B =" + Idbus);
+            ResultSet rs = pst.executeQuery();
+            ResultSet rs2 = pst2.executeQuery();
+            while(rs.next() && rs2.next())
+            {
+                txt_contra.setText(rs.getString("id_contratacion")); 
+                txt_puesto.setText(rs.getString("id_puesto"));
+                txt_depa.setText(rs.getString("id_departamento"));
+                B_datos[0] = rs2.getString("id_bitacora");
+                B_datos[1] = rs.getString("id_empleado");
+                B_datos[2] = rs.getString("id_contratacion");
+                B_datos[4] = rs.getString("id_puesto");
+                B_datos[6] = rs.getString("id_departamento");
+                B_datos[8] = rs.getString("sueldo_empleado");
+                PreparedStatement pst3 = cn.prepareStatement("select fecha_contratacion from contratacion where id_contratacion = " + txt_contra.getText());
+                ResultSet rs3 = pst3.executeQuery();
+                while(rs3.next())
+                {
+                    B_datos[3] = rs3.getString("fecha_contratacion");
+                    
+                    PreparedStatement pst4 = cn.prepareStatement("select nombre_puesto from puesto where id_puesto = " + txt_puesto.getText());
+                    ResultSet rs4 = pst4.executeQuery();
+                    while(rs4.next())
+                    {
+                        B_datos[5] = rs4.getString("nombre_puesto");
+                        
+                        PreparedStatement pst5 = cn.prepareStatement("select nombre_departamento from departamento where id_departamento = " + txt_depa.getText());
+                        ResultSet rs5 = pst5.executeQuery();
+                        while(rs5.next())
+                        {
+                            B_datos[7] = rs5.getString("nombre_departamento");   
+                            
+                            PreparedStatement pst6 = cn.prepareStatement("select id_periodop from contratacion where id_contratacion = " + txt_contra.getText());
+                            ResultSet rs6 = pst6.executeQuery();
+                            while(rs6.next())
+                            {
+                                txt_peri.setText(rs6.getString("id_periodop"));
+                                
+                                
+                                PreparedStatement pst7 = cn.prepareStatement("select id_seleccion from periodo_prueba where id_periodop = " + txt_peri.getText());
+                                ResultSet rs7 = pst7.executeQuery();
+                                while(rs7.next())
+                                {
+                                    txt_selec.setText(rs7.getString("id_seleccion"));
+                                    
+                                    
+                                    PreparedStatement pst8 = cn.prepareStatement("select id_ap from seleccion where id_seleccion = " + txt_selec.getText());
+                                    ResultSet rs8 = pst8.executeQuery();
+                                    while(rs8.next())
+                                    {
+                                        txt_ap.setText(rs8.getString("id_ap"));
+                                        
+                                        PreparedStatement pst9 = cn.prepareStatement("select id_aplicacion from aplicacion_prueba where id_ap = " + txt_ap.getText());
+                                        ResultSet rs9 = pst9.executeQuery();
+                                        while(rs9.next())
+                                        {
+                                            txt_idap.setText(rs9.getString("id_aplicacion"));
+                                            
+                                            
+                                            PreparedStatement pst10 = cn.prepareStatement("select * from aplicacion where id_aplicacion = " + txt_idap.getText());
+                                            ResultSet pel = pst10.executeQuery();
+                                            while(pel.next())
+                                            {
+                                                txt_dpi.setText(pel.getString("dpi_persona"));
+                                                B_datos[9] = pel.getString("dpi_persona");
+                                                //tbl_BE.setModel(model);
+                                                
+                                                PreparedStatement pst11 = cn.prepareStatement("select nombres_persona, apellidos_persona from curriculum where dpi_persona = " + txt_dpi.getText());
+                                                ResultSet res = pst11.executeQuery();
+                                                while(res.next())
+                                                {
+                                                //B_datos[9] = res.getString("dpi_persona");
+                                                B_datos[10] = res.getString("nombres_persona");
+                                                B_datos[11] = res.getString("apellidos_persona");
+                                                model.addRow(B_datos);
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                    
+                    
+                }
+            }
+            tbl_BE.setModel(model);
+               
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }        
+    }//GEN-LAST:event_jLabel_Buscar_BEMouseClicked
+
+    private void txt_Buscar_BEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_BEKeyTyped
+        // TODO add your handling code here:
+       /* String[] B_datos = new String [9];
+        String Idbus;
+        Idbus = txt_Buscar_BE.getText();
+        try
+        {           
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("ID Bitacora");
+            model.addColumn("ID Empleado Contratado");
+            model.addColumn("ID Contatacion");
+            model.addColumn("Puesto");
+            model.addColumn("Departamento");
+            model.addColumn("Sueldo");
+            
+            
+            Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
+            PreparedStatement pst = cn.prepareStatement("select id_empleado, id_contratacion, id_puesto, id_departamento, sueldo_empleado from empleado_contratado where id_empleado =" + Idbus );  
+            ResultSet rs = pst.executeQuery();
+            while(rs.next())
+            {
+                txt_puesto.setText(rs.getString("id_puesto")); 
+                B_datos[0] = (" ");
+                B_datos[1] = rs.getString("id_empleado");
+                B_datos[2] = rs.getString("id_contratacion");
+                B_datos[3] = rs.getString("id_puesto");
+                B_datos[4] = rs.getString("id_departamento");
+                B_datos[5] = rs.getString("sueldo_empleado");
+                model.addRow(B_datos);
+            }
+            PreparedStatement pst2 = cn.prepareStatement("select nombre_puesto from puesto where id_puesto = " + txt_puesto.getText() );  
+            ResultSet rs2 = pst2.executeQuery();
+            tbl_BE.setModel(model);
+               
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }      */  
+    }//GEN-LAST:event_txt_Buscar_BEKeyTyped
+
+    private void txt_puestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puestoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_puestoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -8588,6 +8897,7 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
     private javax.swing.JComboBox<String> jComboBox_RPCV;
     private javax.swing.JLabel jLabe_SEC;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel_AE;
     private javax.swing.JLabel jLabel_AE_EC;
     private javax.swing.JLabel jLabel_AE_ECC;
@@ -8994,6 +9304,10 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
     private javax.swing.JTextField txt_Telefono_RP;
     private javax.swing.JTextField txt_Tiempo_FinalizacionExpLD;
     private javax.swing.JTextField txt_Tiempo_InicioExpLD;
+    private javax.swing.JTextField txt_ap;
+    private javax.swing.JTextField txt_contra;
+    private javax.swing.JTextField txt_depa;
+    private javax.swing.JTextField txt_dpi;
     private javax.swing.JTextField txt_idS;
     private javax.swing.JTextField txt_id_A;
     private javax.swing.JTextField txt_id_AP;
@@ -9014,5 +9328,9 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
     private javax.swing.JTextField txt_id_ReferenciaL;
     private javax.swing.JTextField txt_id_SolicitudE;
     private javax.swing.JTextField txt_id_TP;
+    private javax.swing.JTextField txt_idap;
+    private javax.swing.JTextField txt_peri;
+    private javax.swing.JTextField txt_puesto;
+    private javax.swing.JTextField txt_selec;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,4 @@
--- Drop database Hotel;
+Drop database Hotel;
 create database Hotel;
 use Hotel;
 
@@ -64,6 +64,10 @@ create table solicitud_empresarial(
     foreign key (id_departamento) references departamento(id_departamento),
     foreign key (id_nivel_academico) references nivel_academico(id_nivel_academico),
     foreign key (id_experiencia) references experiencia_laboral(id_experiencia)
+    
+        
+    ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 create table medio(
@@ -73,6 +77,8 @@ create table medio(
     descripcion varchar(80),
     
     foreign key(id_solicitud) references solicitud_empresarial(id_solicitud)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 create table curriculum(/*Reclutamiento*/
@@ -96,6 +102,8 @@ create table curriculum(/*Reclutamiento*/
     foreign key ( id_referenciaL) references referenciasL(id_referenciaL),
     foreign key ( id_experiencia) references experiencia_laboral(id_experiencia),
     foreign key ( id_medio) references medio(id_medio)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 
@@ -105,6 +113,8 @@ create table aplicacion(
     cumple_requisitos char(1), -- Aplica o no Aplica
     
     foreign key(dpi_persona) references curriculum(dpi_persona)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 create table tipo_pruebas(
@@ -120,6 +130,8 @@ create table aplicacion_prueba(
     
     foreign key (id_prueba) references tipo_pruebas(id_prueba),
     foreign key (id_aplicacion) references aplicacion(id_aplicacion)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 create table seleccion(
@@ -128,6 +140,8 @@ create table seleccion(
     estatus_seleccion char(1), -- pendiente, aprobado, rechazado
     
     foreign key (id_ap) references aplicacion_prueba (id_ap)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 create table actividad(-- capacitacion, induccion, desempeño
@@ -146,6 +160,8 @@ create table periodo_prueba(
     
     foreign key (id_actividad) references actividad(id_actividad),
     foreign key (id_seleccion) references seleccion(id_seleccion)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 create table contratacion(
@@ -156,20 +172,11 @@ create table contratacion(
     estatus_contratacion char(1), -- contratado, rechazado
 	
     foreign key (id_periodop) references periodo_prueba(id_periodop)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
-create table bitacora_empleado(
-	id_bitacora varchar(10) primary key,
-    id_contratacion varchar(10),
-    id_departamento varchar(10),
-    id_puesto varchar(10),
-    
-    foreign key (id_contratacion) references contratacion (id_contratacion),
-    foreign key (id_departamento) references departamento (id_departamento),
-    foreign key (id_puesto) references puesto (id_puesto)
-) engine = InnoDB default char set=latin1;
-
-create table empleado_contratado(
+create table empleado_contratado( -- Se modifica se actualiza bitacora
 	id_empleado varchar(10) primary key,
     id_contratacion varchar(10), -- foranea
     id_puesto varchar(10), -- foranea
@@ -179,14 +186,36 @@ create table empleado_contratado(
     foreign key (id_contratacion) references contratacion(id_contratacion),
     foreign key (id_puesto) references puesto(id_puesto),
     foreign key (id_departamento) references departamento(id_departamento)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
+) engine = InnoDB default char set=latin1;
+
+create table bitacora_empleado(
+	id_bitacora int auto_increment primary key,
+    id_empleado_B varchar(10),
+    
+    -- id contratacion
+    -- puesto
+    -- dep
+    -- dpi
+    -- Nombre persona
+    -- Fecha contrata
+    -- Sueldo
+    -- Fecha Finalizacion
+    
+    foreign key (id_empleado_B ) references empleado_contratado(id_empleado)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 create table actividad_empleado( -- capacitacion, desempeño
-	id_empleado varchar(10),
+	id_empleado varchar(10) primary key,
     id_actividad varchar(10),
     
     foreign key (id_empleado) references empleado_contratado(id_empleado),
     foreign key (id_actividad) references actividad(id_actividad)
+	ON UPDATE CASCADE
+	ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 /*Área de Nómina*/
@@ -355,3 +384,5 @@ create table usuario( -- login de usuario
     
     -- foreign key (ID_Empresa) references Empresa(ID_Empresa)
 )engine = InnoDB default charset=latin1;
+
+select * from bitacora_Empleado;

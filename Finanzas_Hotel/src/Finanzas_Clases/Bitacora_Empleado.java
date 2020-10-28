@@ -78,15 +78,15 @@ public class Bitacora_Empleado
             PreparedStatement pst6 = cn.prepareStatement("select * from empleado_contratado");
             
             DefaultTableModel model = new DefaultTableModel();
-            model.addColumn("ID Bitacora");
-            model.addColumn("ID Empleado Contratado");
-            model.addColumn("ID Contatacion");
-            model.addColumn("Puesto");
-            model.addColumn("Departamento");
+            model.addColumn("ID Bitacora"); //si
+            model.addColumn("ID Empleado Contratado"); // tambien
+            model.addColumn("ID Contatacion"); // tambien
+            model.addColumn("Puesto"); // tambien
+            model.addColumn("Departamento"); // tambien
             model.addColumn("DPI");
             model.addColumn("Nombres");
             model.addColumn("Fecha de Contratacion");
-            model.addColumn("Sueldo");
+            model.addColumn("Sueldo"); // 
             
             ResultSet rs = pst.executeQuery();
             ResultSet rs2 = pst2.executeQuery();
@@ -98,9 +98,9 @@ public class Bitacora_Empleado
             while(rs.next() && rs2.next() && rs3.next() && rs4.next() && rs5.next() && rs6.next()) {
                 
                 APP_Datos[0] = rs.getString("id_bitacora");
-                APP_Datos[1] = rs.getString("id_empleado_B");
-                APP_Datos[2] = rs2.getString("id_contratacion");
-                APP_Datos[3] = rs3.getString("nombre_puesto");
+                APP_Datos[1] = rs.getString("id_empleado_B"); //ya
+                APP_Datos[2] = rs2.getString("id_contratacion");//ya
+                APP_Datos[3] = rs3.getString("nombre_puesto");//ya
                 APP_Datos[4] = rs4.getString("nombre_departamento");
                 APP_Datos[5] = rs5.getString("dpi_persona");
                 APP_Datos[6] = rs5.getString("nombres_persona");
@@ -109,11 +109,11 @@ public class Bitacora_Empleado
                 
                 model.addRow(APP_Datos);
                 
-                tabla_BE.setModel(model);
+                //tabla_BE.setModel(model);
                 
             }
             JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
-            tabla_BE.setModel(model);
+            //tabla_BE.setModel(model);
         }catch(Exception e)
         {
             System.out.println(e);
