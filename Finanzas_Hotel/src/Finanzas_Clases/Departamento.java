@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases_RRHH;
+package Finanzas_Clases;
 
 import java.sql.*;
 import javax.swing.JComboBox;
@@ -25,7 +25,7 @@ public class Departamento
     
     public static String Base_de_Datos = "jdbc:mysql://localhost/Hotel";
     public static String Usuario = "root";
-    public static String Clave = "jorgito5828H";
+    public static String Clave = "admin";
     
 
     //Constructor

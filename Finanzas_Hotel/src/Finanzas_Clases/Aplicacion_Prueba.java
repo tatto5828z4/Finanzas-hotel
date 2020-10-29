@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases_RRHH;
+package Finanzas_Clases;
 
-import static Clases_RRHH.Departamento.Base_de_Datos;
-import static Clases_RRHH.Departamento.Clave;
-import static Clases_RRHH.Departamento.Usuario;
+import static Finanzas_Clases.Departamento.Base_de_Datos;
+import static Finanzas_Clases.Departamento.Clave;
+import static Finanzas_Clases.Departamento.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,36 +21,35 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Brayan Cifuentes
+ * @author Langas
  */
+public class Aplicacion_Prueba 
+{
+    //Atributos
+    JTextField idAPP;
+    JLabel pruebaAPP;
+    JLabel aplicacionAPP;
+    JTextField estatusAPP;
+    JTextField buscarAPP;
+    JTable tabla_APP;
 
-public class Aplicacion {
-    
-    JTextField id_Aplicacion;
-    JLabel dpi;
-    JTextField cumple_Requisitos;
-    JTextField buscar_Aplicacion;
-    JTable tbl_Ap;
-
-
-
-    public Aplicacion(JTextField id_Aplicacion, JLabel dpi, JTextField cumple_Requisitos, JTextField buscar_Aplicacion, JTable tbl_Ap) {
-        this.id_Aplicacion = id_Aplicacion;
-        this.dpi = dpi;
-        this.cumple_Requisitos = cumple_Requisitos;
-        this.buscar_Aplicacion = buscar_Aplicacion;
-        this.tbl_Ap = tbl_Ap;
+    public Aplicacion_Prueba(JTextField idAPP, JLabel pruebaAPP, JLabel aplicacionAPP, JTextField estatusAPP, JTextField buscarAPP, JTable tabla_APP) {
+        this.idAPP = idAPP;
+        this.pruebaAPP = pruebaAPP;
+        this.aplicacionAPP = aplicacionAPP;
+        this.estatusAPP = estatusAPP;
+        this.buscarAPP = buscarAPP;
+        this.tabla_APP = tabla_APP;
     }
     
-    
-     public int Cantidad_Registros()
+    public int Cantidad_Registros()
     {
         int cant = 0;
         
         try
         {
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
-            PreparedStatement pst = cn.prepareStatement("select * from aplicacion");
+            PreparedStatement pst = cn.prepareStatement("select * from aplicacion_prueba");
             
             ResultSet rs = pst.executeQuery();
             
@@ -68,40 +67,39 @@ public class Aplicacion {
         return cant;
     }
     
-     
     public void Actualizar_Tabla()
     {
         int cantidad = Cantidad_Registros();
         
         
-        String[] Referencias_Laborales = new String [3];
+        String[] APP_Datos = new String [4];
         try
         {
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
-            PreparedStatement pst = cn.prepareStatement("select * from aplicacion");
+            PreparedStatement pst = cn.prepareStatement("select * from aplicacion_prueba");
             
             DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("ID Aplicacion Prueba");
+            model.addColumn("ID Prueba");
             model.addColumn("ID Aplicacion");
-            model.addColumn("DPI Persona");
-            model.addColumn("Cumple Requisitos");
-            
+            model.addColumn("Estatus Aplicacion Prueba");
             
             ResultSet rs = pst.executeQuery();
 
             while(rs.next()) {
                 
-                Referencias_Laborales[0] = rs.getString("id_aplicacion");
-                Referencias_Laborales[1] = rs.getString("dpi_persona");
-                Referencias_Laborales[2] = rs.getString("cumple_requisitos");
+                APP_Datos[0] = rs.getString("id_ap");
+                APP_Datos[1] = rs.getString("id_prueba");
+                APP_Datos[2] = rs.getString("id_aplicacion");
+                APP_Datos[3] = rs.getString("estatus_prueba");
                 
+                model.addRow(APP_Datos);
                 
-                model.addRow(Referencias_Laborales);
-                
-                tbl_Ap.setModel(model);
+                tabla_APP.setModel(model);
                 
             }
             JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
-            tbl_Ap.setModel(model);
+            tabla_APP.setModel(model);
         }catch(Exception e)
         {
             System.out.println(e);
@@ -109,30 +107,30 @@ public class Aplicacion {
                 
     }
     
-    
-    public void Insertar_Aplicacion()
+    public void Insertar_APP()
     {
         try
         {
-            Connection  cnAp = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
-            PreparedStatement pstAp = cnAp.prepareStatement("insert into aplicacion values(?,?,?)");
+            Connection  cnIEL = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
+            PreparedStatement pstIP = cnIEL.prepareStatement("insert into aplicacion_prueba values(?,?,?,?)");
             
-            pstAp.setString(1, id_Aplicacion.getText().trim());
-            pstAp.setString(2, dpi.getText().trim());
-            pstAp.setString(3, cumple_Requisitos.getText().trim());
-           
-            pstAp.executeUpdate();
+            pstIP.setString(1, idAPP.getText().trim());
+            pstIP.setString(2, pruebaAPP.getText().trim());
+            pstIP.setString(3, aplicacionAPP.getText().trim());
+            pstIP.setString(4, estatusAPP.getText().trim());
             
-            id_Aplicacion.setText("");
-            dpi.setText("");
-            cumple_Requisitos.setText("");
+            pstIP.executeUpdate();
             
+            idAPP.setText("");
+            pruebaAPP.setText("");
+            aplicacionAPP.setText("");
+            estatusAPP.setText("");
             
             JOptionPane.showMessageDialog(null,"Registro Exitoso");
             
             
             Actualizar_Tabla();
-
+            
             
         }catch(Exception e)
         {
@@ -140,23 +138,31 @@ public class Aplicacion {
         }
     }
     
-    
-     public void Modificar_Aplicacion()
+    public void Modificar_APP()
     {
         try
         {
-            String ID = buscar_Aplicacion.getText().trim();
+            String ID = buscarAPP.getText().trim();
 
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
-            PreparedStatement pst = cn.prepareStatement("update aplicacion set id_aplicacion = ?, dpi_persona=?,cumple_requisitos = ? where id_aplicacion = " + ID);
+            PreparedStatement pstSE = cn.prepareStatement("update aplicacion_prueba set id_ap = ?, id_prueba = ?, id_aplicacion = ?,estatus_prueba=? where id_ap = " + ID);
+            
+            pstSE.setString(1, idAPP.getText().trim());
+            pstSE.setString(2, pruebaAPP.getText().trim());
+            pstSE.setString(3, aplicacionAPP.getText().trim());
+            pstSE.setString(4, estatusAPP.getText().trim());
+            
+           
 
-            pst.setString(1, id_Aplicacion.getText().trim());
-            pst.setString(2, dpi.getText().trim());
-            pst.setString(3, cumple_Requisitos.getText().trim());
+            pstSE.executeUpdate();
 
-            pst.executeUpdate();
-
-            buscar_Aplicacion.setText("");
+            
+            buscarAPP.setText("");
+            idAPP.setText("");
+            pruebaAPP.setText("");
+            aplicacionAPP.setText("");
+            estatusAPP.setText("");
+            
             JOptionPane.showMessageDialog(null,"Modificacion Exitosa");
             
             Actualizar_Tabla();
@@ -167,21 +173,21 @@ public class Aplicacion {
         }
     }
     
-    
-     public void Eliminar_Aplicacion()
+    public void Eliminar_APP()
     {
         try
         {
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
-            PreparedStatement pst = cn.prepareStatement("delete from aplicacion where id_aplicacion = ?");
+            PreparedStatement pst = cn.prepareStatement("delete from aplicacion_prueba where id_ap = ?");
 
-            pst.setString(1, buscar_Aplicacion.getText().trim());
+            pst.setString(1, buscarAPP.getText().trim());
             pst.executeUpdate();
 
-            id_Aplicacion.setText("");
-            dpi.setText("");
-            cumple_Requisitos.setText("");
             
+            idAPP.setText("");
+            pruebaAPP.setText("");
+            aplicacionAPP.setText("");
+            estatusAPP.setText("");
 
             JOptionPane.showMessageDialog(null,"Eliminacion Exitosa");
             Actualizar_Tabla();
@@ -191,29 +197,30 @@ public class Aplicacion {
             System.out.println(e);
         }
     }
-     
     
-    public DefaultTableModel Buscar_Aplicacion(String Buscar)
+    public DefaultTableModel Buscar_APP(String Buscar)
     {
-        String[] nombre_ColumnasSE = {"ID Aplicacion", "DPI", "Cumple Requisitos"};
-        String[] RegistrosSE = new String[3];
+        String[] nombre_ColumnasAPP = {"ID Aplicacion Prueba","ID Prueba","ID Aplicacion", "Estatus Aplicacion Prueba"};
+        String[] RegistrosAPP = new String[4];
         
-        DefaultTableModel model = new DefaultTableModel(null,nombre_ColumnasSE);
+        DefaultTableModel model = new DefaultTableModel(null,nombre_ColumnasAPP);
         
         try
         {
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
-            PreparedStatement pst = cn.prepareStatement("select * from aplicacion WHERE id_aplicacion LIKE '%"+Buscar+"%'");
+            PreparedStatement pst = cn.prepareStatement("select * from aplicacion_prueba WHERE id_ap LIKE '%"+Buscar+"%'");
             ResultSet rs = pst.executeQuery();
             
             while(rs.next())
             {
-                 RegistrosSE[0] = rs.getString("id_aplicacion");
-                RegistrosSE[1] = rs.getString("dpi_persona");
-                RegistrosSE[2] = rs.getString("cumple_requisitos");
+                RegistrosAPP[0] = rs.getString("id_ap");
+                RegistrosAPP[1] = rs.getString("id_prueba");
+                RegistrosAPP[2] = rs.getString("id_aplicacion");
+                RegistrosAPP[3] = rs.getString("estatus_prueba");
                 
+               
                 
-                model.addRow(RegistrosSE);
+                model.addRow(RegistrosAPP);
             }
             
         }catch(Exception e)
@@ -224,17 +231,8 @@ public class Aplicacion {
         return model;
     }
     
-    public void Buscar_AplicacionE(String Buscar)
+    public void Encontrar_ListaAPP(String tablaBD, String nombre,JComboBox boxNombre)
     {
-        DefaultTableModel model = Buscar_Aplicacion(Buscar);
-        tbl_Ap.setModel(model);
-    }
-    
-    
-    /*Combobox*/
-    public void Encontrar_ListaAplicacion(String tablaBD, String nombre,JComboBox boxNombre)
-    {
-        
         try {
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
             PreparedStatement pst = cn.prepareStatement("select * from " + tablaBD);
@@ -255,9 +253,13 @@ public class Aplicacion {
         
     }
     
+    public void Buscar_APPF(String Buscar)
+    {
+        DefaultTableModel model = Buscar_APP(Buscar);
+        tabla_APP.setModel(model);
+    }
     
-    /*Para Foraneas*/
-    public void EncontrarID_dpi(String ID, String tablaBD, String Nombre,JComboBox boxNombre,JLabel label)
+    public void EncontrarID_APP(String ID, String tablaBD, String Nombre,JComboBox boxNombre,JLabel label)
     {     
         try {
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
@@ -278,10 +280,7 @@ public class Aplicacion {
         }
     }
     
-    
-    public void BuscarFila_AP(String Nombre,String tablaBD, String ID,JComboBox boxNombre,JLabel labelID)
-    {
-        
+    public void BuscarFila_APP(String Nombre,String tablaBD, String ID,JComboBox boxNombre,JLabel labelID){
         try{
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
             PreparedStatement pst = cn.prepareStatement("select " +  Nombre  + " from " + tablaBD +" where " + ID + "= ?");
@@ -293,10 +292,9 @@ public class Aplicacion {
             if(rs.next()) {
                 boxNombre.setSelectedItem(rs.getString(Nombre));
             } 
-        }catch(Exception e){
-            
+        }catch(Exception e)
+        {
+            System.out.println(e);
         }
     }
-    
-    
 }

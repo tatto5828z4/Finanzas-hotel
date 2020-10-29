@@ -5,10 +5,10 @@
  */
 package Ventanas_Tablas;
 
-import Clases_RRHH.Departamento;
-import Clases_RRHH.Experiencia_Laboral_Detallada;
-import Clases_RRHH.Puesto;
-import Clases_RRHH.Departamento;
+import Finanzas_Clases.Departamento;
+import Finanzas_Clases.Experiencia_Laboral_Detallada;
+import Finanzas_Clases.Puesto;
+import Finanzas_Clases.Departamento;
 
 /**
  *
