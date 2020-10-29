@@ -12,10 +12,10 @@ import Finanzas_Clases.Solicitud_Empresarial;
  *
  * @author jorgi
  */
-public class Medio_V extends javax.swing.JFrame {
+public class Solicitud_Empresarial_V extends javax.swing.JFrame {
     int x , y;
 
-     public static String S_Puesto = "Puesto";
+    public static String S_Puesto = "Puesto";
     public static String Item_P = "";
 
     public static String S_Departamento = "Departamento";
@@ -30,7 +30,7 @@ public class Medio_V extends javax.swing.JFrame {
     /**
      * Creates new form Medio_V
      */
-    public Medio_V() {
+    public Solicitud_Empresarial_V() {
         initComponents();
         
         jComboBox_TablasB_M_SE.addItem(S_Puesto);
@@ -128,9 +128,9 @@ public class Medio_V extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        Movimiento.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 0, 20, 30));
+        Movimiento.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 0, 20, 30));
 
-        ExpLD.add(Movimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1020, 40));
+        ExpLD.add(Movimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1030, 40));
 
         jLabel_Buscar.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Buscar.setText("Buscar");
@@ -303,9 +303,7 @@ public class Medio_V extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ExpLD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(ExpLD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1060, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -469,21 +467,23 @@ public class Medio_V extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Medio_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Solicitud_Empresarial_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Medio_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Solicitud_Empresarial_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Medio_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Solicitud_Empresarial_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Medio_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Solicitud_Empresarial_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Medio_V().setVisible(true);
+                new Solicitud_Empresarial_V().setVisible(true);
             }
         });
     }

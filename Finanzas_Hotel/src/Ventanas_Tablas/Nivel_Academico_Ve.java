@@ -165,9 +165,9 @@ public class Nivel_Academico_Ve extends javax.swing.JFrame {
         });
         ExpLD.add(txt_Nombre_NivelA, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 140, 20));
 
-        getContentPane().add(ExpLD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 450));
+        getContentPane().add(ExpLD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 380));
 
-        setBounds(0, 0, 629, 423);
+        setBounds(0, 0, 629, 380);
     }// </editor-fold>//GEN-END:initComponents
 
     private void MovimientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovimientoMousePressed
