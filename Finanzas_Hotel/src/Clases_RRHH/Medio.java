@@ -72,7 +72,7 @@ public class Medio {
                 
                tbl_Medio.setModel(model);                
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tbl_Medio.setModel(model);
         }catch(Exception e)
         {
