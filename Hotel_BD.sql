@@ -1,4 +1,4 @@
-Drop database Hotel;
+-- Drop database Hotel;
 create database Hotel;
 use Hotel;
 
@@ -191,7 +191,7 @@ create table empleado_contratado( -- Se modifica se actualiza bitacora
 ) engine = InnoDB default char set=latin1;
 
 create table bitacora_empleado(
-	id_bitacora int auto_increment primary key,
+	id_bitacora int primary key auto_increment,
     id_empleado_B varchar(10),
     
     -- id contratacion
@@ -204,8 +204,8 @@ create table bitacora_empleado(
     -- Fecha Finalizacion
     
     foreign key (id_empleado_B ) references empleado_contratado(id_empleado)
-	ON UPDATE CASCADE
-	ON DELETE SET NULL
+	-- ON UPDATE CASCADE
+	-- ON DELETE SET NULL
 ) engine = InnoDB default char set=latin1;
 
 create table actividad_empleado( -- capacitacion, desempeño
@@ -224,10 +224,32 @@ create table concepto_planilla(
 	nombre_concepto varchar(20),
 	tipo_concepto varchar (10),
 	clase_concepto varchar(25),
-	Valor_concepto  float,
+	Valor_concepto float,
 	aplicacion_concepto varchar(20)
 ) engine = InnoDB default char set=latin1;
 
+create table planilla_enc(
+	id_planillaenc varchar(10) primary key,
+	total_percepcion float,
+	total_deduccion float,
+	total_liquido  float
+    -- id_concepto varchar(10),
+    
+    -- foreign key (id_concepto) references concepto_movimiento(id_concepto)
+) engine = InnoDB default char set=latin1;
+
+create table planilla_det(
+	id_planillaenc varchar(10),
+	id_empleado varchar(10),
+    id_conceptoPlanilla varchar(10),
+	valor_conceptoDet float,
+    
+    primary key (id_planillaenc, id_empleado, id_conceptoPlanilla),
+    
+    foreign key (id_planillaenc) references planilla_enc(id_planillaenc),
+	foreign key(id_conceptoPlanilla) references Concepto_Planilla(id_conceptoPlanilla),
+	foreign key(id_empleado) references empleado_contratado(id_empleado)
+) engine = InnoDB default char set=latin1;
 
 
 /*Área de Bancos*/
@@ -238,37 +260,78 @@ create table moneda(
     estatus_moneda char(1)
 )engine = InnoDB default charset=latin1;
 
-create table concepto_movimiento(
+-- parte de contabilidad 
+create table clasificacion_cuenta(
+	id_clasificacion varchar(10) primary key,
+    nombre_clasificacion varchar(50)
+) engine = InnoDB default char set=latin1;
+
+create table cuenta_contable(
+	id_cuenta varchar(10) primary key,
+    nombre_cuenta varchar(35),
+    tipo_cuenta varchar(35),
+    id_clasificacion varchar(10),
+    
+    -- saldos
+    saldo_anterior float,
+    cargos_mes float,
+    abonos_mes float,
+    saldo_actual float,
+    cargos_acumulados float,
+    abonos_acumulados float,
+    
+    descripcion_cuenta varchar(35),
+    
+    foreign key (id_clasificacion) references clasificacion_cuenta (id_clasificacion)
+) engine = InnoDB default char set=latin1;
+
+create table Documento_bancario(
+	codigo_Documento varchar(10) primary key,
+    nombre_Documento varchar(50),
+    afecta char(1),  -- + o - a la cuenta
+    estatus_concepto char(1)
+
+) engine = InnoDB default char set=latin1;
+
+create table concepto_bancario(
+	codigo_concepto varchar(10) primary key,
+    nombre_concepto varchar(50),
+    afecta char(1),  -- + o - a la cuenta
+    estatus_concepto char(1),
+    id_cuenta varchar(10),
+    
+    foreign key (id_cuenta) references cuenta_contable(id_cuenta)
+) engine = InnoDB default char set=latin1;
+
+create table mov_bancEnc( -- solo que mov se realizo y cual es el monto 
+	id_movEnc varchar(10) primary key,
+    codigo_Documento varchar(10),
+    fecha date,
+    monto float,
+    descripcion varchar(80),
+    
+    foreign key (codigo_Documento) references Documento_bancario(codigo_Documento)
+	
+) engine = InnoDB default char set=latin1;
+
+create table mov_bancDet( -- cuentas involucradas y partida contable 
+	id_movEnc varchar(10),
+    codigo_concepto varchar(10),
+    saldo float,
+    tipo_saldo varchar(35), -- deudor o acreedor, Debe o haber
+    
+    primary key (id_movEnc, codigo_concepto), -- clave compuesta y agruparemos por tipo de saldo 
+    
+    foreign key (id_movEnc) references mov_bancEnc(id_movEnc),
+    foreign key (codigo_concepto) references concepto_bancario(codigo_concepto)
+    
+) engine = InnoDB default char set=latin1;
+
+/*create table concepto_movimiento(
 	id_concepto varchar(10) primary key,
-    nombre_concepto varchar(35), /*clientes, anticipo, cobro a clientes*/
-    tipo_concepto varchar(50) /*cargo, abono*/
-) engine = InnoDB default char set=latin1;
-
-/*Pago de planilla al banco */
-create table planilla_enc(
-	id_planillaenc varchar(10) primary key,
-	id_empleado varchar(10),
-	total_percepcion float,
-	total_deduccion float,
-	total_liquido  float,
-    id_concepto varchar(10),
-    
-	foreign key(id_empleado) references empleado_contratado(id_empleado),
-    foreign key (id_concepto) references concepto_movimiento(id_concepto)
-) engine = InnoDB default char set=latin1;
-
-create table planilla_det(
-	id_planillaenc varchar(10),
-	id_conceptoPlanilla varchar(10),
-	id_empleado varchar(10),
-	valor_conceptoDet float,
-    
-    primary key (id_planillaenc, id_conceptoPlanilla, id_empleado),
-    
-    foreign key (id_planillaenc) references planilla_enc(id_planillaenc),
-	foreign key(id_conceptoPlanilla) references Concepto_Planilla(id_conceptoPlanilla),
-	foreign key(id_empleado) references empleado_contratado(id_empleado)
-) engine = InnoDB default char set=latin1;
+    nombre_concepto varchar(35), /*clientes, anticipo, cobro a clientes
+    -- tipo_concepto varchar(50) /*cargo, abono
+) engine = InnoDB default char set=latin1;*/
 
 
 create table forma_pago(
@@ -276,20 +339,20 @@ create table forma_pago(
     tipo_pago varchar(35) /*cheque, efectivo, tarjeta, nota de credito, otro*/
 ) engine = InnoDB default char set=latin1;
 
-create table movimientos_bancarios(
-	id_concepto varchar(10), /*foranea*/
+/*create table movimientos_bancarios(
+	id_concepto varchar(10), -- foranea
     fecha date,
     fecha_aplicacion datetime,
     descripcion varchar(80),
     estado char(1),
-    id_formapago varchar(10), /*foranea*/
+    id_formapago varchar(10), -- foranea
 	abono float, 
     cargo float,
     saldo float,
     
     foreign key (id_concepto) references concepto_movimiento(id_concepto),
     foreign key (id_formapago) references forma_pago(id_formapago)
-) engine = InnoDB default char set=latin1;
+) engine = InnoDB default char set=latin1;*/
 
 create table banco(
 	nombre_banco varchar(50),
@@ -301,10 +364,10 @@ create table banco(
     numero_sucursal int,
     saldo_inicial float,
     id_moneda varchar(10),
-    id_concepto varchar(10), /*Movimientos*/
+    id_movEnc varchar(10), /*Movimientos*/
     
     foreign key (id_moneda) references moneda(id_moneda),
-    foreign key (id_concepto) references movimientos_bancarios(id_concepto)
+    foreign key (id_movEnc) references mov_bancEnc(id_movEnc)
 ) engine = InnoDB default char set=latin1;
 
 create table conciliacion_bancenc(
@@ -319,7 +382,7 @@ create table conciliacion_bancenc(
 
 create table conciliacion_bancaria_det(
 	id_encabezado varchar(10), /*foranea*/
-	id_concepto varchar(10), /*foranea*/
+	codigo_concepto varchar(10), /*foranea*/
     fecha_aplicacion date,
     descripcion varchar(50),
     id_formapago varchar(10), /*foranea*/
@@ -328,21 +391,15 @@ create table conciliacion_bancaria_det(
     cargo float,
     abono float,
     
-    primary key (id_encabezado, id_concepto, id_formapago),
+    primary key (id_encabezado, codigo_concepto, id_formapago),
     
-    foreign key(id_concepto) references concepto_movimiento(id_concepto),
+	foreign key (codigo_concepto) references concepto_bancario (codigo_concepto),
     foreign key(id_formapago) references forma_pago(id_formapago),
     foreign key(id_encabezado) references conciliacion_bancenc(id_encabezado)
 ) engine = InnoDB default char set=latin1;
 
 
 /*Área de Contabilidad*/
-create table cuenta_contable(
-	id_cuenta varchar(10) primary key,
-    nombre_cuenta varchar(35),
-    tipo_cuenta varchar(35),
-    descripcion_cuenta varchar(35)
-) engine = InnoDB default char set=latin1;
 
 create table poliza_encab(
 	id_encabezado varchar(10) primary key,
@@ -384,5 +441,3 @@ create table usuario( -- login de usuario
     
     -- foreign key (ID_Empresa) references Empresa(ID_Empresa)
 )engine = InnoDB default charset=latin1;
-
-select * from bitacora_Empleado;

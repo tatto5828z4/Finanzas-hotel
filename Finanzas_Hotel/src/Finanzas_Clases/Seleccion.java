@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases_RRHH;
+package Finanzas_Clases;
 
-import static Clases_RRHH.Departamento.Base_de_Datos;
-import static Clases_RRHH.Departamento.Clave;
-import static Clases_RRHH.Departamento.Usuario;
+import static Finanzas_Clases.Departamento.Base_de_Datos;
+import static Finanzas_Clases.Departamento.Clave;
+import static Finanzas_Clases.Departamento.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

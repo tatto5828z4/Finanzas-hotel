@@ -5,8 +5,8 @@
  */
 package Ventanas_Tablas;
 
-import Clases_RRHH.Medio;
-import Clases_RRHH.Solicitud_Empresarial;
+import Finanzas_Clases.Medio;
+import Finanzas_Clases.Solicitud_Empresarial;
 
 /**
  *
