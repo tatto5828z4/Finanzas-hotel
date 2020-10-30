@@ -184,7 +184,7 @@ public class Tipo_Prueba {
                 Tb_Tipo.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+           // JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             Tb_Tipo.setModel(model);
         }catch(Exception e)
         {
