@@ -100,7 +100,7 @@ public class Aplicacion {
                 tbl_Ap.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tbl_Ap.setModel(model);
         }catch(Exception e)
         {
