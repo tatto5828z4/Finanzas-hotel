@@ -108,7 +108,7 @@ public class Curriculum {
                 tbl_CV.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tbl_CV.setModel(model);
         }catch(Exception e)
         {

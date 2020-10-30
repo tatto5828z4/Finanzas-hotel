@@ -85,7 +85,7 @@ public class Referencias_Personales {
                 model.addRow(Referencias_Personales);
                 tbl_RP.setModel(model);
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tbl_RP.setModel(model);
         }catch(Exception e)
         {
