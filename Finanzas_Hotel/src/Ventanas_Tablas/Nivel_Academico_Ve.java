@@ -5,8 +5,8 @@
  */
 package Ventanas_Tablas;
 
-import Clases_RRHH.Experiencia_Laboral_Detallada;
-import Clases_RRHH.Puesto;
+import Finanzas_Clases.Experiencia_Laboral_Detallada;
+import Finanzas_Clases.Puesto;
 
 /**
  *
@@ -23,7 +23,7 @@ public class Nivel_Academico_Ve extends javax.swing.JFrame {
         initComponents();
 
         //AWTUtilities.setWindowOpacity();
-        Clases_RRHH.Nivel_Academico NA = new Clases_RRHH.Nivel_Academico(txt_id_NivelA, txt_Nombre_NivelA, txt_Descripcion_NivelA, txt_Buscar_NivelA, tbl_NivelA);
+        Finanzas_Clases.Nivel_Academico NA = new Finanzas_Clases.Nivel_Academico(txt_id_NivelA, txt_Nombre_NivelA, txt_Descripcion_NivelA, txt_Buscar_NivelA, tbl_NivelA);
         NA.Actualizar_Tabla();
         txt_id_NivelA.setVisible(false);
         txt_Nombre_NivelA.setVisible(false);
@@ -165,9 +165,9 @@ public class Nivel_Academico_Ve extends javax.swing.JFrame {
         });
         ExpLD.add(txt_Nombre_NivelA, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 140, 20));
 
-        getContentPane().add(ExpLD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 450));
+        getContentPane().add(ExpLD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 380));
 
-        setBounds(0, 0, 629, 423);
+        setBounds(0, 0, 629, 380);
     }// </editor-fold>//GEN-END:initComponents
 
     private void MovimientoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MovimientoMousePressed
@@ -192,7 +192,7 @@ public class Nivel_Academico_Ve extends javax.swing.JFrame {
 
     private void txt_Buscar_NivelAKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_NivelAKeyReleased
         // TODO add your handling code here:
-        Clases_RRHH.Nivel_Academico NA = new Clases_RRHH.Nivel_Academico(txt_id_NivelA, txt_Nombre_NivelA, txt_Descripcion_NivelA, txt_Buscar_NivelA, tbl_NivelA);
+        Finanzas_Clases.Nivel_Academico NA = new Finanzas_Clases.Nivel_Academico(txt_id_NivelA, txt_Nombre_NivelA, txt_Descripcion_NivelA, txt_Buscar_NivelA, tbl_NivelA);
         NA.Buscar_NivelAF(txt_Buscar_NivelA.getText());
     }//GEN-LAST:event_txt_Buscar_NivelAKeyReleased
 

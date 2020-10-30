@@ -5,8 +5,8 @@
  */
 package Ventanas_Tablas;
 
-import Clases_RRHH.Experiencia_Laboral_Detallada;
-import Clases_RRHH.Puesto;
+import Finanzas_Clases.Experiencia_Laboral_Detallada;
+import Finanzas_Clases.Puesto;
 
 /**
  *
@@ -179,7 +179,7 @@ public class Puesto_V extends javax.swing.JFrame {
 
         getContentPane().add(ExpLD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 480));
 
-        setBounds(0, 0, 616, 464);
+        setBounds(0, 0, 605, 389);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbl_PuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_PuestoMouseClicked
