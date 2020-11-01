@@ -98,7 +98,7 @@ public class Aplicacion_Prueba
                 tabla_APP.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tabla_APP.setModel(model);
         }catch(Exception e)
         {
