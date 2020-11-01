@@ -96,7 +96,7 @@ public class Referencias_Laborales
                 tabla_referenciasL.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+//            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tabla_referenciasL.setModel(model);
         }catch(Exception e)
         {

@@ -96,7 +96,7 @@ public class Solicitud_Empresarial {
                 tbl_SE.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tbl_SE.setModel(model);
         }catch(Exception e)
         {
