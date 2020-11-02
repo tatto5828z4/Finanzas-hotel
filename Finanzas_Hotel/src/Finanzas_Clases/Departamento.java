@@ -24,8 +24,8 @@ public class Departamento
     String estatus_Departamento;
     
     public static String Base_de_Datos = "jdbc:mysql://localhost/Hotel";
-    public static String Usuario = "root";
-    public static String Clave = "root";
+    public static String Usuario = "rex";
+    public static String Clave = "polloloco900";
     
 
     //Constructor
