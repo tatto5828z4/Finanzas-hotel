@@ -65,7 +65,7 @@ public class Seleccion {
                 Tabla_Sele.setModel(model);
 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+           // JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             Tabla_Sele.setModel(model);
         } catch (Exception e) {
             System.out.println(e);
