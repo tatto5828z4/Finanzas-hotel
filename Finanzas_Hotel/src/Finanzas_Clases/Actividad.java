@@ -93,7 +93,7 @@ public class Actividad
                 tablaA.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tablaA.setModel(model);
         }catch(Exception e)
         {
