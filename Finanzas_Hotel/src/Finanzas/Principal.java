@@ -18,12 +18,14 @@ import Finanzas_Clases.Experiencia_Laboral;
 import Finanzas_Clases.Experiencia_Laboral_Detallada;
 import Finanzas_Clases.Medio;
 import Finanzas_Clases.Nivel_Academico;
+import Finanzas_Clases.Periodo_Prueba;
 import Finanzas_Clases.Puesto;
 import Finanzas_Clases.Referencias_Laborales;
 import Finanzas_Clases.Referencias_Personales;
 import Finanzas_Clases.Seleccion;
 import Finanzas_Clases.Solicitud_Empresarial;
 import Finanzas_Clases.Tipo_Prueba;
+import Ventanas_Tablas.Actividad_V;
 import Ventanas_Tablas.Aplicacion_V;
 import Ventanas_Tablas.Curriculum_V;
 import Ventanas_Tablas.Departamento_V;
@@ -37,6 +39,7 @@ import Ventanas_Tablas.Puesto_V;
 import Ventanas_Tablas.Referencias_Laborales_V;
 import Ventanas_Tablas.Referencias_Personales_V;
 import Ventanas_Tablas.AplicacionPrueba_V;
+import Ventanas_Tablas.Seleccion_V;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -93,6 +96,12 @@ public class Principal extends javax.swing.JFrame {
 
     public static String S_Seleccion = "Seleccion";
     public static String Item_Seleccion = "";
+    
+    public static String S_PeriodoP = "Seleccion";
+    public static String Item_Periodop= "";
+    
+    public static String S_Actividad = "Actividad";
+    public static String Item_Actividad="";
 
     public Principal() {
 
@@ -131,6 +140,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoAPP.setVisible(false);
         jPanel_MantenimientoS.setVisible(false);
         jPanel_MantenimientoA.setVisible(false);
+        jPanel_MantenimientoPP.setVisible(false);
 
         //Labels Departamento Ingresar - Modificar - Eliminar
         jLabel_ModificarD.setVisible(false);
@@ -190,6 +200,10 @@ public class Principal extends javax.swing.JFrame {
         //Labels Aplicacion Prueba  Ingresar - Modificar - Eliminar
         jLabel_Modificar_Ac.setVisible(false);
         jLabel_Eliminar_Ac.setVisible(false);
+        
+        //Label Periodo Prueba Ingresar-Modificar-Eliminar
+        jLabel_Modificar_PP.setVisible(false);
+        jLabel_Eliminar_PP.setVisible(false);
 
     }
 
@@ -239,6 +253,40 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel_MantenimientoPP = new javax.swing.JPanel();
+        jLabel_ID_PP = new javax.swing.JLabel();
+        txt_id_PP = new javax.swing.JTextField();
+        jLabel_PPS = new javax.swing.JLabel();
+        jLabel_PPSE = new javax.swing.JLabel();
+        jComboBox_PPS = new javax.swing.JComboBox<>();
+        jLabel_FI = new javax.swing.JLabel();
+        txt_id_FI = new javax.swing.JTextField();
+        jLabel_FF = new javax.swing.JLabel();
+        txt_id_FF = new javax.swing.JTextField();
+        jLabel_Pago = new javax.swing.JLabel();
+        txt_id_Pago = new javax.swing.JTextField();
+        jLabel_PPA = new javax.swing.JLabel();
+        jComboBox_PPA = new javax.swing.JComboBox<>();
+        jLabel_PPAA = new javax.swing.JLabel();
+        jLabel_IngresarPP = new javax.swing.JLabel();
+        jLabel_Modificar_PP = new javax.swing.JLabel();
+        jLabel_Eliminar_PP = new javax.swing.JLabel();
+        jLabel_BuscarPP = new javax.swing.JLabel();
+        txt_BuscarPP = new javax.swing.JTextField();
+        jScrollPane36 = new javax.swing.JScrollPane();
+        tbl_PP = new javax.swing.JTable();
+        jLabel_TituloPP = new javax.swing.JLabel();
+        Panel_Ingresar_PP = new javax.swing.JPanel();
+        Texto_Ingresar_PP = new javax.swing.JLabel();
+        Panel_Modificar_PP = new javax.swing.JPanel();
+        Texto_Modificar_PP = new javax.swing.JLabel();
+        Panel_Eliminar_PP = new javax.swing.JPanel();
+        Texto_Eliminar_PP = new javax.swing.JLabel();
+        Panel_Consultar_PP = new javax.swing.JPanel();
+        Texto_Consultar_PP = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBox_TablasPP = new javax.swing.JComboBox<>();
+        jLabel_Buscar_TablasPP = new javax.swing.JLabel();
         jPanel_MantenimientoA = new javax.swing.JPanel();
         jLabel_ID_A = new javax.swing.JLabel();
         txt_id_A = new javax.swing.JTextField();
@@ -789,6 +837,266 @@ public class Principal extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(100, 70));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel_MantenimientoPP.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_MantenimientoPP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_ID_PP.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_ID_PP.setText("ID Periodo Prueba");
+        jPanel_MantenimientoPP.add(jLabel_ID_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, -1, -1));
+
+        txt_id_PP.setBackground(new java.awt.Color(40, 41, 46));
+        txt_id_PP.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_PP.setBorder(null);
+        txt_id_PP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_PPActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_id_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 140, 20));
+
+        jLabel_PPS.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_PPS.setText("Seleccion");
+        jPanel_MantenimientoPP.add(jLabel_PPS, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
+
+        jLabel_PPSE.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoPP.add(jLabel_PPSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 30, 20));
+
+        jComboBox_PPS.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBox_PPS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_PPSActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jComboBox_PPS, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 140, -1));
+
+        jLabel_FI.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_FI.setText("Fecha de Inicio");
+        jPanel_MantenimientoPP.add(jLabel_FI, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, -1, -1));
+
+        txt_id_FI.setBackground(new java.awt.Color(40, 41, 46));
+        txt_id_FI.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_FI.setBorder(null);
+        txt_id_FI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_FIActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_id_FI, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, 140, 20));
+
+        jLabel_FF.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_FF.setText("Fecha de Finalizacion");
+        jPanel_MantenimientoPP.add(jLabel_FF, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 310, -1, -1));
+
+        txt_id_FF.setBackground(new java.awt.Color(40, 41, 46));
+        txt_id_FF.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_FF.setBorder(null);
+        txt_id_FF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_FFActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_id_FF, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 140, 20));
+
+        jLabel_Pago.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Pago.setText("Pago");
+        jPanel_MantenimientoPP.add(jLabel_Pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
+
+        txt_id_Pago.setBackground(new java.awt.Color(40, 41, 46));
+        txt_id_Pago.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_Pago.setBorder(null);
+        txt_id_Pago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_PagoActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_id_Pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 140, 20));
+
+        jLabel_PPA.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_PPA.setText("Actividad");
+        jPanel_MantenimientoPP.add(jLabel_PPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, -1, -1));
+
+        jComboBox_PPA.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBox_PPA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_PPAActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jComboBox_PPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 140, -1));
+
+        jLabel_PPAA.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoPP.add(jLabel_PPAA, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 420, 30, 20));
+
+        jLabel_IngresarPP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
+        jLabel_IngresarPP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_IngresarPP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarPPMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jLabel_IngresarPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, 50, 50));
+
+        jLabel_Modificar_PP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
+        jLabel_Modificar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_PPMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jLabel_Modificar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, 50, 50));
+
+        jLabel_Eliminar_PP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
+        jLabel_Eliminar_PP.setText("Eliminar");
+        jLabel_Eliminar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_PPMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jLabel_Eliminar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, 50, 50));
+
+        jLabel_BuscarPP.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_BuscarPP.setText("Buscar");
+        jLabel_BuscarPP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_BuscarPPMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jLabel_BuscarPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 50, 20));
+
+        txt_BuscarPP.setBackground(new java.awt.Color(40, 41, 46));
+        txt_BuscarPP.setForeground(new java.awt.Color(153, 153, 153));
+        txt_BuscarPP.setBorder(null);
+        txt_BuscarPP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_BuscarPPActionPerformed(evt);
+            }
+        });
+        txt_BuscarPP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_BuscarPPKeyReleased(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(txt_BuscarPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, 240, 20));
+
+        tbl_PP.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_PP.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_PP.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_PPMouseClicked(evt);
+            }
+        });
+        jScrollPane36.setViewportView(tbl_PP);
+
+        jPanel_MantenimientoPP.add(jScrollPane36, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 550, 600, 190));
+
+        jLabel_TituloPP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Periodo Prueba.png"))); // NOI18N
+        jPanel_MantenimientoPP.add(jLabel_TituloPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 400, 120));
+
+        Panel_Ingresar_PP.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Ingresar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Ingresar_PPMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_PP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Ingresar_PP.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Ingresar_PP.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Ingresar_PP.setText("Ingresar");
+        Texto_Ingresar_PP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Ingresar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Ingresar_PPMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_PP.add(Texto_Ingresar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoPP.add(Panel_Ingresar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 130, 50));
+
+        Panel_Modificar_PP.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Modificar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Modificar_PPMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_PP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Modificar_PP.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Modificar_PP.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Modificar_PP.setText("Modificar");
+        Texto_Modificar_PP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Modificar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Modificar_PPMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_PP.add(Texto_Modificar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
+
+        jPanel_MantenimientoPP.add(Panel_Modificar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 130, 50));
+
+        Panel_Eliminar_PP.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Eliminar_PP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Eliminar_PP.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Eliminar_PP.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Eliminar_PP.setText("Eliminar");
+        Texto_Eliminar_PP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Eliminar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Eliminar_PPMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_PP.add(Texto_Eliminar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoPP.add(Panel_Eliminar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 130, 50));
+
+        Panel_Consultar_PP.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Consultar_PP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Consultar_PP.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Consultar_PP.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Consultar_PP.setText("Consultar");
+        Texto_Consultar_PP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Consultar_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Consultar_PPMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_PP.add(Texto_Consultar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
+
+        jPanel_MantenimientoPP.add(Panel_Consultar_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 130, 50));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
+        jPanel_MantenimientoPP.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, -1, -1));
+
+        jComboBox_TablasPP.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBox_TablasPP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_TablasPPActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jComboBox_TablasPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 520, 170, -1));
+
+        jLabel_Buscar_TablasPP.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Buscar_TablasPP.setText("Buscar");
+        jLabel_Buscar_TablasPP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Buscar_TablasPPMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoPP.add(jLabel_Buscar_TablasPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 560, -1, -1));
+
+        getContentPane().add(jPanel_MantenimientoPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1600, 720));
 
         jPanel_MantenimientoA.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoA.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -4451,8 +4759,7 @@ public class Principal extends javax.swing.JFrame {
 
         Cant_R20.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
         Cant_R20.setForeground(new java.awt.Color(255, 255, 255));
-        Cant_R20.setText("1");
-        ExpLD.add(Cant_R20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 20, -1));
+        ExpLD.add(Cant_R20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 20, 20));
 
         icon_PP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_PP.png"))); // NOI18N
         icon_PP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -4461,6 +4768,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         icon_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_PPMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 icon_PPMouseExited(evt);
             }
@@ -6809,6 +7119,7 @@ public class Principal extends javax.swing.JFrame {
         int cantidad_APP = 0;
         int cantidad_S = 0;
         int cantidad_Actividad = 0;
+        int cantidad_periodo_p =0;
 
         jPanel_Bienvenido.setVisible(false);
         ExpLD.setVisible(true);
@@ -6842,6 +7153,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoAPP.setVisible(false);
         jPanel_MantenimientoS.setVisible(false);
         jPanel_MantenimientoA.setVisible(false);
+        jPanel_MantenimientoPP.setVisible(false);
 
         jLabel_Felcha2.setVisible(true);
         jLabel_Flecha_Iz1.setVisible(true);
@@ -6895,6 +7207,9 @@ public class Principal extends javax.swing.JFrame {
 
         Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
         cantidad_Actividad += AC.Cantidad_Registros();
+        
+        Periodo_Prueba p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        cantidad_periodo_p += p.Cantidad_Registros();
 
         Cant_R2.setText("" + cantidad_D);
         Cant_R3.setText("" + cantidad_P);
@@ -6911,6 +7226,7 @@ public class Principal extends javax.swing.JFrame {
         Cant_R17.setText("" + cantidad_APP);
         Cant_R18.setText("" + cantidad_S);
         Cant_R19.setText("" + cantidad_Actividad);
+        Cant_R20.setText(""+ cantidad_periodo_p);
     }//GEN-LAST:event_Icono_RRHHMouseClicked
 
     private void Panel_Icono_RRHHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Icono_RRHHMouseClicked
@@ -6930,6 +7246,7 @@ public class Principal extends javax.swing.JFrame {
         int cantidad_APP = 0;
         int cantidad_S = 0;
         int cantidad_Actividad = 0;
+        int cantidad_periodo_p=0;
 
         jPanel_Bienvenido.setVisible(false);
         ExpLD.setVisible(true);
@@ -6963,6 +7280,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoAPP.setVisible(false);
         jPanel_MantenimientoS.setVisible(false);
         jPanel_MantenimientoA.setVisible(false);
+        jPanel_MantenimientoPP.setVisible(false);
 
         jLabel_Felcha2.setVisible(true);
         jLabel_Flecha_Iz1.setVisible(true);
@@ -7016,6 +7334,9 @@ public class Principal extends javax.swing.JFrame {
 
         Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
         cantidad_Actividad += AC.Cantidad_Registros();
+        
+        Periodo_Prueba p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        cantidad_periodo_p += p.Cantidad_Registros();
 
         Cant_R2.setText("" + cantidad_D);
         Cant_R3.setText("" + cantidad_P);
@@ -7032,6 +7353,7 @@ public class Principal extends javax.swing.JFrame {
         Cant_R17.setText("" + cantidad_APP);
         Cant_R18.setText("" + cantidad_S);
         Cant_R19.setText("" + cantidad_Actividad);
+        Cant_R20.setText(""+ cantidad_periodo_p);
     }//GEN-LAST:event_Panel_Icono_RRHHMouseClicked
 
     private void jLabel_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_LogoMouseClicked
@@ -7086,6 +7408,7 @@ public class Principal extends javax.swing.JFrame {
         int cantidad_APP = 0;
         int cantidad_S = 0;
         int cantidad_Actividad = 0;
+        int cantidad_periodo_p=0;
 
         jPanel_Bienvenido.setVisible(false);
         ExpLD.setVisible(true);
@@ -7119,6 +7442,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoAPP.setVisible(false);
         jPanel_MantenimientoS.setVisible(false);
         jPanel_MantenimientoA.setVisible(false);
+        jPanel_MantenimientoPP.setVisible(false);
 
         jLabel_Felcha2.setVisible(true);
         jLabel_Flecha_Iz1.setVisible(true);
@@ -7172,6 +7496,9 @@ public class Principal extends javax.swing.JFrame {
 
         Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
         cantidad_Actividad += AC.Cantidad_Registros();
+        
+        Periodo_Prueba p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        cantidad_periodo_p += p.Cantidad_Registros();
 
         Cant_R2.setText("" + cantidad_D);
         Cant_R3.setText("" + cantidad_P);
@@ -7188,6 +7515,7 @@ public class Principal extends javax.swing.JFrame {
         Cant_R17.setText("" + cantidad_APP);
         Cant_R18.setText("" + cantidad_S);
         Cant_R19.setText("" + cantidad_Actividad);
+        Cant_R20.setText(""+ cantidad_periodo_p);
 
         setColor_PanelI(Panel_Icono_RRHH);
         resetColor_PanelI(Panel_Icono_Nomina);
@@ -8269,6 +8597,178 @@ public class Principal extends javax.swing.JFrame {
         //t.stop();
     }//GEN-LAST:event_jPanel_BGMouseExited
 
+    private void txt_id_PPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_PPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_PPActionPerformed
+
+    private void jComboBox_PPSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_PPSActionPerformed
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.EncontrarID_PP("id_seleccion", "seleccion", "id_seleccion", jComboBox_PPS, jLabel_PPSE);
+
+    }//GEN-LAST:event_jComboBox_PPSActionPerformed
+
+    private void txt_id_FIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_FIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_FIActionPerformed
+
+    private void txt_id_FFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_FFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_FFActionPerformed
+
+    private void txt_id_PagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_PagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_PagoActionPerformed
+
+    private void jComboBox_PPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_PPAActionPerformed
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.EncontrarID_PP("id_actividad", "actividad", "tipo_actividad", jComboBox_PPA, jLabel_PPAA);
+    }//GEN-LAST:event_jComboBox_PPAActionPerformed
+
+    private void jLabel_IngresarPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarPPMouseClicked
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Insertar_PP();
+    }//GEN-LAST:event_jLabel_IngresarPPMouseClicked
+
+    private void jLabel_Modificar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_PPMouseClicked
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Modificar_PP();
+    }//GEN-LAST:event_jLabel_Modificar_PPMouseClicked
+
+    private void jLabel_Eliminar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_PPMouseClicked
+        // TODO add your handling code here:
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Eliminar_PP();
+    }//GEN-LAST:event_jLabel_Eliminar_PPMouseClicked
+
+    private void jLabel_BuscarPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_BuscarPPMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_BuscarPPMouseClicked
+
+    private void txt_BuscarPPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscarPPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarPPActionPerformed
+
+    private void txt_BuscarPPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarPPKeyReleased
+        // TODO add your handling code here:
+
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Buscar_PPE(txt_BuscarPP.getText());
+    }//GEN-LAST:event_txt_BuscarPPKeyReleased
+
+    private void tbl_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_PPMouseClicked
+        // TODO add your handling code here:
+
+        int Seleccion = tbl_PP.rowAtPoint(evt.getPoint());
+
+        txt_id_PP.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 0)));
+        jLabel_PPSE.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 1)));
+        txt_id_FI.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 2)));
+        txt_id_FF.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 3)));
+        txt_id_Pago.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 4)));
+        jLabel_PPAA.setText(String.valueOf(tbl_PP.getValueAt(Seleccion, 5)));
+
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.BuscarFila_PP("tipo_actividad", "actividad", "id_actividad", jComboBox_PPA, jLabel_PPAA);
+        periodo_p.BuscarFila_PP("id_ap", "seleccion", "id_seleccion", jComboBox_PPS, jLabel_PPSE);
+    }//GEN-LAST:event_tbl_PPMouseClicked
+
+    private void Texto_Ingresar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Ingresar_PPMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarPP.setVisible(true);
+        jLabel_Modificar_PP.setVisible(false);
+        jLabel_Eliminar_PP.setVisible(false);
+    }//GEN-LAST:event_Texto_Ingresar_PPMouseClicked
+
+    private void Panel_Ingresar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Ingresar_PPMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Ingresar_PPMouseClicked
+
+    private void Texto_Modificar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Modificar_PPMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarPP.setVisible(false);
+        jLabel_Modificar_PP.setVisible(true);
+        jLabel_Eliminar_PP.setVisible(false);
+    }//GEN-LAST:event_Texto_Modificar_PPMouseClicked
+
+    private void Panel_Modificar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Modificar_PPMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Modificar_PPMouseClicked
+
+    private void Texto_Eliminar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Eliminar_PPMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarPP.setVisible(false);
+        jLabel_Modificar_PP.setVisible(false);
+        jLabel_Eliminar_PP.setVisible(true);
+    }//GEN-LAST:event_Texto_Eliminar_PPMouseClicked
+
+    private void Texto_Consultar_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Consultar_PPMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarPP.setVisible(false);
+        jLabel_Modificar_PP.setVisible(false);
+        jLabel_Eliminar_PP.setVisible(false);
+    }//GEN-LAST:event_Texto_Consultar_PPMouseClicked
+
+    private void icon_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_PPMouseClicked
+        // TODO add your handling code here:
+        Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+        
+        jPanel_MantenimientoPP.setVisible(true);
+        
+        //  combobox
+        jComboBox_TablasPP.addItem(S_PeriodoP);
+        jComboBox_TablasPP.addItem(S_Actividad);
+        
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Encontrar_ListaPP("seleccion", "id_seleccion", jComboBox_PPS);
+        periodo_p.Encontrar_ListaPP("actividad", "tipo_actividad", jComboBox_PPA);
+        periodo_p.Actualizar_Tabla();
+        
+        
+        
+    }//GEN-LAST:event_icon_PPMouseClicked
+
+    private void jComboBox_TablasPPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_TablasPPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_TablasPPActionPerformed
+
+    private void jLabel_Buscar_TablasPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Buscar_TablasPPMouseClicked
+        // TODO add your handling code here:
+        
+        Item_Periodop = jComboBox_TablasPP.getSelectedItem().toString();
+
+        if (Item_Periodop == S_PeriodoP) {
+            Seleccion_V s = new Seleccion_V();
+            s.setVisible(true);
+        }
+    
+//        public static String S_Actividad = "Actividad";
+//    public static String Item_Actividad="";
+        
+        Item_Actividad = jComboBox_TablasPP.getSelectedItem().toString();
+
+        if (Item_Actividad == S_Actividad) {
+            Actividad_V ac = new Actividad_V();
+            ac.setVisible(true);
+        }
+    }//GEN-LAST:event_jLabel_Buscar_TablasPPMouseClicked
+
     int posYA1 = 0;
 
     public void setColor_PanelI(JPanel Panel_Icono) {
@@ -8306,281 +8806,7 @@ public class Principal extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+       
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -9393,6 +9619,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_ConsultarSE;
     private javax.swing.JPanel Panel_ConsultarTP;
     private javax.swing.JPanel Panel_Consultar_Actividad;
+    private javax.swing.JPanel Panel_Consultar_PP;
     private javax.swing.JPanel Panel_Eliminar;
     private javax.swing.JPanel Panel_Eliminar1;
     private javax.swing.JPanel Panel_EliminarAP;
@@ -9408,6 +9635,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_EliminarSE;
     private javax.swing.JPanel Panel_EliminarTP;
     private javax.swing.JPanel Panel_Eliminar_Actividad;
+    private javax.swing.JPanel Panel_Eliminar_PP;
     private javax.swing.JPanel Panel_Icono_Bancos;
     private javax.swing.JPanel Panel_Icono_Conta;
     private javax.swing.JPanel Panel_Icono_Nomina;
@@ -9427,6 +9655,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_IngresarSE;
     private javax.swing.JPanel Panel_IngresarTP;
     private javax.swing.JPanel Panel_Ingresar_Actividad;
+    private javax.swing.JPanel Panel_Ingresar_PP;
     private javax.swing.JPanel Panel_IzquierdoC;
     private javax.swing.JPanel Panel_Modificar;
     private javax.swing.JPanel Panel_Modificar1;
@@ -9443,6 +9672,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_ModificarSE;
     private javax.swing.JPanel Panel_ModificarTP;
     private javax.swing.JPanel Panel_Modificar_Actividad;
+    private javax.swing.JPanel Panel_Modificar_PP;
     private javax.swing.JPanel Panel_Text_Bancos;
     private javax.swing.JPanel Panel_Text_Conta;
     private javax.swing.JPanel Panel_Text_Nomina;
@@ -9491,6 +9721,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_ConsultarSE4;
     private javax.swing.JLabel Texto_ConsultarTP;
     private javax.swing.JLabel Texto_Consultar_Actividad;
+    private javax.swing.JLabel Texto_Consultar_PP;
     private javax.swing.JLabel Texto_Conta;
     private javax.swing.JLabel Texto_Eliminar;
     private javax.swing.JLabel Texto_Eliminar1;
@@ -9507,6 +9738,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_EliminarSE4;
     private javax.swing.JLabel Texto_EliminarTP;
     private javax.swing.JLabel Texto_Eliminar_Actividad;
+    private javax.swing.JLabel Texto_Eliminar_PP;
     private javax.swing.JLabel Texto_Ingresar;
     private javax.swing.JLabel Texto_Ingresar1;
     private javax.swing.JLabel Texto_IngresarAP;
@@ -9522,6 +9754,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_IngresarSE4;
     private javax.swing.JLabel Texto_IngresarTp;
     private javax.swing.JLabel Texto_Ingresar_Actividad;
+    private javax.swing.JLabel Texto_Ingresar_PP;
     private javax.swing.JLabel Texto_Modificar;
     private javax.swing.JLabel Texto_Modificar1;
     private javax.swing.JLabel Texto_ModificarAP;
@@ -9536,6 +9769,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_ModificarSE3;
     private javax.swing.JLabel Texto_ModificarSE4;
     private javax.swing.JLabel Texto_Modificar_Actividad;
+    private javax.swing.JLabel Texto_Modificar_PP;
     private javax.swing.JLabel Texto_Modificartp;
     private javax.swing.JLabel Texto_Nomina;
     private javax.swing.JLabel Texto_RRHH;
@@ -9580,6 +9814,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_NivelACV;
     private javax.swing.JComboBox<String> jComboBox_NivelASE;
     private javax.swing.JComboBox<String> jComboBox_Nombre_EpLLD;
+    private javax.swing.JComboBox<String> jComboBox_PPA;
+    private javax.swing.JComboBox<String> jComboBox_PPS;
     private javax.swing.JComboBox<String> jComboBox_PruebaAPP;
     private javax.swing.JComboBox<String> jComboBox_PuestoSE;
     private javax.swing.JComboBox<String> jComboBox_RLCV;
@@ -9591,6 +9827,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_TablasB_M1;
     private javax.swing.JComboBox<String> jComboBox_TablasB_S;
     private javax.swing.JComboBox<String> jComboBox_TablasB_SE;
+    private javax.swing.JComboBox<String> jComboBox_TablasPP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -9599,6 +9836,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_APPS;
     private javax.swing.JLabel jLabel_ApellidoCV;
     private javax.swing.JLabel jLabel_AplicacionAPP;
@@ -9607,6 +9845,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_BuscarA;
     private javax.swing.JLabel jLabel_BuscarAP;
     private javax.swing.JLabel jLabel_BuscarM;
+    private javax.swing.JLabel jLabel_BuscarPP;
     private javax.swing.JLabel jLabel_BuscarRL;
     private javax.swing.JLabel jLabel_BuscarS;
     private javax.swing.JLabel jLabel_BuscarTP;
@@ -9621,6 +9860,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Buscar_Tablas;
     private javax.swing.JLabel jLabel_Buscar_Tablas1;
     private javax.swing.JLabel jLabel_Buscar_TablasAPP;
+    private javax.swing.JLabel jLabel_Buscar_TablasPP;
     private javax.swing.JLabel jLabel_Buscar_TablasS;
     private javax.swing.JLabel jLabel_Buscar_Tablas_M1;
     private javax.swing.JLabel jLabel_Buscar_Tablas_M2;
@@ -9654,6 +9894,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Eliminar_ExpL;
     private javax.swing.JLabel jLabel_Eliminar_ExpLD;
     private javax.swing.JLabel jLabel_Eliminar_NivelA;
+    private javax.swing.JLabel jLabel_Eliminar_PP;
     private javax.swing.JLabel jLabel_Eliminar_Puesto;
     private javax.swing.JLabel jLabel_Eliminar_RP;
     private javax.swing.JLabel jLabel_Eliminar_SE;
@@ -9663,6 +9904,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Estatus_Departamento;
     private javax.swing.JLabel jLabel_ExperieciaLSE;
     private javax.swing.JLabel jLabel_ExperienciaL_SE;
+    private javax.swing.JLabel jLabel_FF;
+    private javax.swing.JLabel jLabel_FI;
     private javax.swing.JLabel jLabel_Felcha2;
     private javax.swing.JLabel jLabel_Flecha_Iz1;
     private javax.swing.JLabel jLabel_GeneroCV;
@@ -9676,6 +9919,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_ID_ExpLLD;
     private javax.swing.JLabel jLabel_ID_Medio;
     private javax.swing.JLabel jLabel_ID_NivelA;
+    private javax.swing.JLabel jLabel_ID_PP;
     private javax.swing.JLabel jLabel_ID_Puesto;
     private javax.swing.JLabel jLabel_ID_RP;
     private javax.swing.JLabel jLabel_ID_ReferenciaL;
@@ -9684,6 +9928,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Ingresar;
     private javax.swing.JLabel jLabel_IngresarAP;
     private javax.swing.JLabel jLabel_IngresarM;
+    private javax.swing.JLabel jLabel_IngresarPP;
     private javax.swing.JLabel jLabel_IngresarRL;
     private javax.swing.JLabel jLabel_IngresarSE;
     private javax.swing.JLabel jLabel_IngresarTP;
@@ -9710,6 +9955,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Modificar_ExpL;
     private javax.swing.JLabel jLabel_Modificar_ExpLD;
     private javax.swing.JLabel jLabel_Modificar_NivelA;
+    private javax.swing.JLabel jLabel_Modificar_PP;
     private javax.swing.JLabel jLabel_Modificar_Puesto;
     private javax.swing.JLabel jLabel_Modificar_RP;
     private javax.swing.JLabel jLabel_Modificar_SE;
@@ -9729,6 +9975,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Nombre_NivelA;
     private javax.swing.JLabel jLabel_Nombre_Puesto;
     private javax.swing.JLabel jLabel_Nombre_RP;
+    private javax.swing.JLabel jLabel_PPA;
+    private javax.swing.JLabel jLabel_PPAA;
+    private javax.swing.JLabel jLabel_PPS;
+    private javax.swing.JLabel jLabel_PPSE;
+    private javax.swing.JLabel jLabel_Pago;
     private javax.swing.JLabel jLabel_Prueba;
     private javax.swing.JLabel jLabel_PruebaAPP;
     private javax.swing.JLabel jLabel_Prueba_APP;
@@ -9761,6 +10012,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_TituloELD;
     private javax.swing.JLabel jLabel_TituloELD1;
     private javax.swing.JLabel jLabel_TituloExpL;
+    private javax.swing.JLabel jLabel_TituloPP;
     private javax.swing.JLabel jLabel_TituloRL;
     private javax.swing.JLabel jLabel_TituloSE;
     private javax.swing.JLabel jLabel_TituloSE1;
@@ -9776,6 +10028,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_MantenimientoExpL;
     private javax.swing.JPanel jPanel_MantenimientoExpLD;
     private javax.swing.JPanel jPanel_MantenimientoNA;
+    private javax.swing.JPanel jPanel_MantenimientoPP;
     private javax.swing.JPanel jPanel_MantenimientoRL;
     private javax.swing.JPanel jPanel_MantenimientoS;
     private javax.swing.JPanel jPanel_MantenimientoSE;
@@ -9801,6 +10054,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane33;
     private javax.swing.JScrollPane jScrollPane34;
     private javax.swing.JScrollPane jScrollPane35;
+    private javax.swing.JScrollPane jScrollPane36;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea_DescripcionA;
     private javax.swing.JTextArea jTextArea_DescripcionM;
@@ -9815,6 +10069,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tbl_ExpLD;
     private javax.swing.JTable tbl_Medio;
     private javax.swing.JTable tbl_NivelA;
+    private javax.swing.JTable tbl_PP;
     private javax.swing.JTable tbl_Puesto;
     private javax.swing.JTable tbl_RL;
     private javax.swing.JTable tbl_RP;
@@ -9827,6 +10082,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_BuscarA;
     private javax.swing.JTextField txt_BuscarAP;
     private javax.swing.JTextField txt_BuscarM;
+    private javax.swing.JTextField txt_BuscarPP;
     private javax.swing.JTextField txt_BuscarRL;
     private javax.swing.JTextField txt_BuscarS;
     private javax.swing.JTextField txt_BuscarTP;
@@ -9875,8 +10131,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_id_Departamento;
     private javax.swing.JTextField txt_id_ExpL;
     private javax.swing.JTextField txt_id_ExpLD;
+    private javax.swing.JTextField txt_id_FF;
+    private javax.swing.JTextField txt_id_FI;
     private javax.swing.JTextField txt_id_Medio;
     private javax.swing.JTextField txt_id_NivelA;
+    private javax.swing.JTextField txt_id_PP;
+    private javax.swing.JTextField txt_id_Pago;
     private javax.swing.JTextField txt_id_Puesto;
     private javax.swing.JTextField txt_id_RP;
     private javax.swing.JTextField txt_id_ReferenciaL;
