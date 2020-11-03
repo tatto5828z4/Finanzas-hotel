@@ -89,7 +89,7 @@ public class Actividad_Empleado
                 tabla_AE.setModel(model);
                 
             }
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tabla_AE.setModel(model);
         }catch(Exception e)
         {
