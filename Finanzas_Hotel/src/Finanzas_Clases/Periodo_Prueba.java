@@ -105,7 +105,7 @@ public class Periodo_Prueba {
 
             }
             
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            // JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tabla_periodop.setModel(model);
 
         } catch (Exception e) {
