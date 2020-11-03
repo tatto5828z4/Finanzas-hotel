@@ -15,6 +15,7 @@ import Finanzas_Clases.Aplicacion_Prueba;
 import Finanzas_Clases.Contratacion;
 import Finanzas_Clases.Curriculum;
 import Finanzas_Clases.Departamento;
+import Finanzas_Clases.Empleado_Contratado;
 import Finanzas_Clases.Experiencia_Laboral;
 import Finanzas_Clases.Experiencia_Laboral_Detallada;
 import Finanzas_Clases.Medio;
@@ -26,6 +27,10 @@ import Finanzas_Clases.Referencias_Personales;
 import Finanzas_Clases.Seleccion;
 import Finanzas_Clases.Solicitud_Empresarial;
 import Finanzas_Clases.Tipo_Prueba;
+import Finanzas_Clases.Bitacora_Empleado;
+import static Finanzas_Clases.Departamento.Base_de_Datos;
+import static Finanzas_Clases.Departamento.Usuario;
+import static Finanzas_Clases.Departamento.Clave;
 import Ventanas_Tablas.Actividad_V;
 import Ventanas_Tablas.Aplicacion_V;
 import Ventanas_Tablas.Curriculum_V;
@@ -40,8 +45,11 @@ import Ventanas_Tablas.Puesto_V;
 import Ventanas_Tablas.Referencias_Laborales_V;
 import Ventanas_Tablas.Referencias_Personales_V;
 import Ventanas_Tablas.AplicacionPrueba_V;
+import Ventanas_Tablas.Contratacion_V;
 import Ventanas_Tablas.Periodo_Prueba_V;
 import Ventanas_Tablas.Seleccion_V;
+import com.mysql.jdbc.PreparedStatement;
+import java.sql.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,6 +57,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -104,6 +113,9 @@ public class Principal extends javax.swing.JFrame {
 
     public static String S_Actividad = "Actividad";
     public static String Item_Actividad = "";
+    
+    public static String S_Contratacion = "Contratacion";
+    public static String Item_Contratacion = "";
 
     public Principal() {
 
@@ -144,6 +156,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoA.setVisible(false);
         jPanel_MantenimientoPP.setVisible(false);
         jPanel_MantenimientoC.setVisible(false);
+        jPanel_MantenimientoEC.setVisible(false);
 
         //Labels Departamento Ingresar - Modificar - Eliminar
         jLabel_ModificarD.setVisible(false);
@@ -212,6 +225,9 @@ public class Principal extends javax.swing.JFrame {
         jLabel_Modificar_C.setVisible(false);
         jLabel_Eliminar_C.setVisible(false);
 
+        //Label Empleado Ingresar-Modificar-Eliminar
+        jLabel_Modificar_EC.setVisible(false);
+        jLabel_Eliminar_EC.setVisible(false);
     }
 
     /*public void tiempo(JLabel Logo, JLabel Logo1,JLabel Logo2,JLabel Logo3,int tiempoC)
@@ -260,6 +276,39 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel_MantenimientoEC = new javax.swing.JPanel();
+        jLabel_ID_EC = new javax.swing.JLabel();
+        txt_id_EC = new javax.swing.JTextField();
+        jLabel_CEC = new javax.swing.JLabel();
+        jLabel_CECC = new javax.swing.JLabel();
+        jComboBox_CEC = new javax.swing.JComboBox<>();
+        jLabel_ECP = new javax.swing.JLabel();
+        jLabel_ECPP = new javax.swing.JLabel();
+        jComboBox_ECP = new javax.swing.JComboBox<>();
+        jLabel_ECD = new javax.swing.JLabel();
+        jLabel_ECDD = new javax.swing.JLabel();
+        jComboBox_ECD = new javax.swing.JComboBox<>();
+        jLabe_SEC = new javax.swing.JLabel();
+        txt_SEC = new javax.swing.JTextField();
+        jLabel_IngresarEC = new javax.swing.JLabel();
+        jLabel_Modificar_EC = new javax.swing.JLabel();
+        jLabel_Eliminar_EC = new javax.swing.JLabel();
+        jLabel_BuscarEC = new javax.swing.JLabel();
+        txt_BuscarEC = new javax.swing.JTextField();
+        jScrollPane38 = new javax.swing.JScrollPane();
+        tbl_EC = new javax.swing.JTable();
+        jLabel_TituloEC = new javax.swing.JLabel();
+        Panel_Ingresar_EC = new javax.swing.JPanel();
+        Texto_Ingresar_EC = new javax.swing.JLabel();
+        Panel_Modificar_EC = new javax.swing.JPanel();
+        Texto_Modificar_EC = new javax.swing.JLabel();
+        Panel_Eliminar_EC = new javax.swing.JPanel();
+        Texto_Eliminar_EC = new javax.swing.JLabel();
+        Panel_Consultar_EC = new javax.swing.JPanel();
+        Texto_Consultar_EC = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox_TablasEC = new javax.swing.JComboBox<>();
+        jLabel_Buscar_TablasEC = new javax.swing.JLabel();
         jPanel_MantenimientoC = new javax.swing.JPanel();
         txt_id_C = new javax.swing.JTextField();
         jLabel_ID_C = new javax.swing.JLabel();
@@ -876,6 +925,260 @@ public class Principal extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel_MantenimientoEC.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_MantenimientoEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_ID_EC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_ID_EC.setText("ID Empleado Contratado");
+        jPanel_MantenimientoEC.add(jLabel_ID_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
+
+        txt_id_EC.setBackground(new java.awt.Color(40, 41, 46));
+        txt_id_EC.setForeground(new java.awt.Color(153, 153, 153));
+        txt_id_EC.setBorder(null);
+        txt_id_EC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_id_ECActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(txt_id_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 140, 20));
+
+        jLabel_CEC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_CEC.setText("Contratacion");
+        jPanel_MantenimientoEC.add(jLabel_CEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, -1, -1));
+
+        jLabel_CECC.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoEC.add(jLabel_CECC, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 30, 20));
+
+        jComboBox_CEC.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBox_CEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_CECActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jComboBox_CEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 140, -1));
+
+        jLabel_ECP.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_ECP.setText("Puesto");
+        jPanel_MantenimientoEC.add(jLabel_ECP, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, -1, -1));
+
+        jLabel_ECPP.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoEC.add(jLabel_ECPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, 30, 20));
+
+        jComboBox_ECP.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBox_ECP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_ECPActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jComboBox_ECP, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 140, -1));
+
+        jLabel_ECD.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_ECD.setText("Departamento");
+        jPanel_MantenimientoEC.add(jLabel_ECD, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, -1, -1));
+
+        jLabel_ECDD.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoEC.add(jLabel_ECDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 340, 30, 20));
+
+        jComboBox_ECD.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBox_ECD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_ECDActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jComboBox_ECD, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 340, 140, -1));
+
+        jLabe_SEC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabe_SEC.setText("Sueldo Empleado Contratado");
+        jPanel_MantenimientoEC.add(jLabe_SEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, -1, -1));
+
+        txt_SEC.setBackground(new java.awt.Color(40, 41, 46));
+        txt_SEC.setForeground(new java.awt.Color(153, 153, 153));
+        txt_SEC.setBorder(null);
+        txt_SEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_SECActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(txt_SEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 180, 20));
+
+        jLabel_IngresarEC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
+        jLabel_IngresarEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_IngresarEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarECMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jLabel_IngresarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 470, 50, 50));
+
+        jLabel_Modificar_EC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
+        jLabel_Modificar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Modificar_ECMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jLabel_Modificar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 470, 50, 50));
+
+        jLabel_Eliminar_EC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
+        jLabel_Eliminar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Eliminar_ECMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jLabel_Eliminar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 470, 50, 50));
+
+        jLabel_BuscarEC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_BuscarEC.setText("Buscar");
+        jPanel_MantenimientoEC.add(jLabel_BuscarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 50, 20));
+
+        txt_BuscarEC.setBackground(new java.awt.Color(40, 41, 46));
+        txt_BuscarEC.setForeground(new java.awt.Color(153, 153, 153));
+        txt_BuscarEC.setBorder(null);
+        txt_BuscarEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_BuscarECActionPerformed(evt);
+            }
+        });
+        txt_BuscarEC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_BuscarECKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_BuscarECKeyReleased(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(txt_BuscarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, 240, 20));
+
+        tbl_EC.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_EC.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_EC.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_ECMouseClicked(evt);
+            }
+        });
+        jScrollPane38.setViewportView(tbl_EC);
+
+        jPanel_MantenimientoEC.add(jScrollPane38, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 540, 600, 190));
+
+        jLabel_TituloEC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Contratacion.png"))); // NOI18N
+        jPanel_MantenimientoEC.add(jLabel_TituloEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 400, 120));
+
+        Panel_Ingresar_EC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Ingresar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Ingresar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_EC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Ingresar_EC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Ingresar_EC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Ingresar_EC.setText("Ingresar");
+        Texto_Ingresar_EC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Ingresar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Ingresar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_EC.add(Texto_Ingresar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoEC.add(Panel_Ingresar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 130, 50));
+
+        Panel_Modificar_EC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Modificar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Modificar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_EC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Modificar_EC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Modificar_EC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Modificar_EC.setText("Modificar");
+        Texto_Modificar_EC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Modificar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Modificar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_EC.add(Texto_Modificar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
+
+        jPanel_MantenimientoEC.add(Panel_Modificar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 130, 50));
+
+        Panel_Eliminar_EC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Eliminar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Eliminar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_EC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Eliminar_EC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Eliminar_EC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Eliminar_EC.setText("Eliminar");
+        Texto_Eliminar_EC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Eliminar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Eliminar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_EC.add(Texto_Eliminar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoEC.add(Panel_Eliminar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 130, 50));
+
+        Panel_Consultar_EC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Consultar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Consultar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_EC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Consultar_EC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Consultar_EC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Consultar_EC.setText("Consultar");
+        Texto_Consultar_EC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Consultar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Consultar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_EC.add(Texto_Consultar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
+
+        jPanel_MantenimientoEC.add(Panel_Consultar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, 130, 50));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
+        jPanel_MantenimientoEC.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, -1, -1));
+
+        jComboBox_TablasEC.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBox_TablasEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_TablasECActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jComboBox_TablasEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 520, 170, -1));
+
+        jLabel_Buscar_TablasEC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Buscar_TablasEC.setText("Buscar");
+        jLabel_Buscar_TablasEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Buscar_TablasECMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoEC.add(jLabel_Buscar_TablasEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 560, -1, -1));
+
+        getContentPane().add(jPanel_MantenimientoEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1150, 640));
+
         jPanel_MantenimientoC.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoC.setForeground(new java.awt.Color(255, 255, 255));
         jPanel_MantenimientoC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1023,7 +1326,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel_MantenimientoC.add(jScrollPane37, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 540, 600, 190));
 
-        jLabel_TituloPP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Periodo Prueba.png"))); // NOI18N
+        jLabel_TituloPP1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Contratacion.png"))); // NOI18N
         jPanel_MantenimientoC.add(jLabel_TituloPP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 400, 120));
 
         Panel_Ingresar_PP1.setBackground(new java.awt.Color(28, 27, 33));
@@ -5316,6 +5619,11 @@ public class Principal extends javax.swing.JFrame {
 
         SE.setBackground(new java.awt.Color(28, 27, 33));
         SE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SEMouseClicked(evt);
+            }
+        });
         SE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SeleccionadoA5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
@@ -5347,8 +5655,7 @@ public class Principal extends javax.swing.JFrame {
 
         Cant_R22.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
         Cant_R22.setForeground(new java.awt.Color(255, 255, 255));
-        Cant_R22.setText("1");
-        SE.add(Cant_R22, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 20, -1));
+        SE.add(Cant_R22, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 158, 20, 20));
 
         icon_EC.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
         icon_EC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_EC.png"))); // NOI18N
@@ -5358,6 +5665,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         icon_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_ECMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 icon_ECMouseExited(evt);
             }
@@ -7408,6 +7718,7 @@ public class Principal extends javax.swing.JFrame {
         int cantidad_Actividad = 0;
         int cantidad_periodo_p = 0;
         int cantidad_contratacion = 0;
+        int cantidad_empleado=0;
 
         jPanel_Bienvenido.setVisible(false);
         ExpLD.setVisible(true);
@@ -7443,6 +7754,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoA.setVisible(false);
         jPanel_MantenimientoPP.setVisible(false);
         jPanel_MantenimientoC.setVisible(false);
+        jPanel_MantenimientoEC.setVisible(false);
 
         jLabel_Felcha2.setVisible(true);
         jLabel_Flecha_Iz1.setVisible(true);
@@ -7503,6 +7815,9 @@ public class Principal extends javax.swing.JFrame {
         Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
         cantidad_contratacion += C.Cantidad_Registros();
         
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        cantidad_empleado+= empleado.Cantidad_Registros();
+        
         Cant_R2.setText("" + cantidad_D);
         Cant_R3.setText("" + cantidad_P);
         Cant_R4.setText("" + cantidad_NA);
@@ -7520,6 +7835,7 @@ public class Principal extends javax.swing.JFrame {
         Cant_R19.setText("" + cantidad_Actividad);
         Cant_R20.setText("" + cantidad_periodo_p);
         Cant_R21.setText("" + cantidad_contratacion);
+        Cant_R22.setText("" + cantidad_empleado);
     }//GEN-LAST:event_Icono_RRHHMouseClicked
 
     private void Panel_Icono_RRHHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Icono_RRHHMouseClicked
@@ -7541,6 +7857,7 @@ public class Principal extends javax.swing.JFrame {
         int cantidad_Actividad = 0;
         int cantidad_periodo_p = 0;
         int cantidad_contratacion = 0;
+        int cantidad_empleado = 0;
 
         jPanel_Bienvenido.setVisible(false);
         ExpLD.setVisible(true);
@@ -7576,6 +7893,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoA.setVisible(false);
         jPanel_MantenimientoPP.setVisible(false);
         jPanel_MantenimientoC.setVisible(false);
+        jPanel_MantenimientoEC.setVisible(false);
 
         jLabel_Felcha2.setVisible(true);
         jLabel_Flecha_Iz1.setVisible(true);
@@ -7635,6 +7953,9 @@ public class Principal extends javax.swing.JFrame {
 
         Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
         cantidad_contratacion += C.Cantidad_Registros();
+        
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        cantidad_empleado+= empleado.Cantidad_Registros();
 
         Cant_R2.setText("" + cantidad_D);
         Cant_R3.setText("" + cantidad_P);
@@ -7653,6 +7974,7 @@ public class Principal extends javax.swing.JFrame {
         Cant_R19.setText("" + cantidad_Actividad);
         Cant_R20.setText("" + cantidad_periodo_p);
         Cant_R21.setText("" + cantidad_contratacion);
+        Cant_R22.setText("" + cantidad_empleado);
     }//GEN-LAST:event_Panel_Icono_RRHHMouseClicked
 
     private void jLabel_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_LogoMouseClicked
@@ -7709,6 +8031,7 @@ public class Principal extends javax.swing.JFrame {
         int cantidad_Actividad = 0;
         int cantidad_periodo_p = 0;
         int cantidad_contratacion = 0;
+        int cantidad_empleado=0;
 
         jPanel_Bienvenido.setVisible(false);
         ExpLD.setVisible(true);
@@ -7744,6 +8067,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoA.setVisible(false);
         jPanel_MantenimientoPP.setVisible(false);
         jPanel_MantenimientoC.setVisible(false);
+        jPanel_MantenimientoEC.setVisible(false);
 
         jLabel_Felcha2.setVisible(true);
         jLabel_Flecha_Iz1.setVisible(true);
@@ -7803,6 +8127,9 @@ public class Principal extends javax.swing.JFrame {
 
         Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
         cantidad_contratacion += C.Cantidad_Registros();
+        
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        cantidad_empleado+= empleado.Cantidad_Registros();
 
         Cant_R2.setText("" + cantidad_D);
         Cant_R3.setText("" + cantidad_P);
@@ -7821,6 +8148,7 @@ public class Principal extends javax.swing.JFrame {
         Cant_R19.setText("" + cantidad_Actividad);
         Cant_R20.setText("" + cantidad_periodo_p);
         Cant_R21.setText("" + cantidad_contratacion);
+        Cant_R22.setText("" + cantidad_empleado);
 
         setColor_PanelI(Panel_Icono_RRHH);
         resetColor_PanelI(Panel_Icono_Nomina);
@@ -9223,6 +9551,200 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_icon_ContratacionMouseClicked
 
+    private void txt_id_ECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_ECActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_ECActionPerformed
+
+    private void jComboBox_CECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_CECActionPerformed
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.EncontrarID_CE("id_contratacion", "contratacion", "id_contratacion", jComboBox_CEC, jLabel_CECC);
+        //60,63,65
+    }//GEN-LAST:event_jComboBox_CECActionPerformed
+
+    private void jComboBox_ECPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ECPActionPerformed
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.EncontrarID_CE("id_puesto", "puesto", "nombre_puesto", jComboBox_ECP, jLabel_ECPP);
+
+    }//GEN-LAST:event_jComboBox_ECPActionPerformed
+
+    private void jComboBox_ECDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_ECDActionPerformed
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.EncontrarID_CE("id_departamento", "departamento", "nombre_departamento", jComboBox_ECD, jLabel_ECDD);
+
+    }//GEN-LAST:event_jComboBox_ECDActionPerformed
+
+    private void txt_SECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SECActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_SECActionPerformed
+
+    private void jLabel_IngresarECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarECMouseClicked
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Insertar_PP();
+       
+        // BITACORA APARTADO
+//        Bitacora_Empleado BE= new Bitacora_Empleado(jTextField_Encontraid,txt_Buscar_BE,tbl_BE);
+//        BE.Insertar_BE();
+    }//GEN-LAST:event_jLabel_IngresarECMouseClicked
+
+    private void jLabel_Modificar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_ECMouseClicked
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Modificar_EC();
+    }//GEN-LAST:event_jLabel_Modificar_ECMouseClicked
+
+    private void jLabel_Eliminar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Eliminar_ECMouseClicked
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Eliminar_EC();
+    }//GEN-LAST:event_jLabel_Eliminar_ECMouseClicked
+
+    private void txt_BuscarECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_BuscarECActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarECActionPerformed
+
+    private void txt_BuscarECKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarECKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarECKeyPressed
+
+    private void txt_BuscarECKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarECKeyReleased
+        // TODO add your handling code here:
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Buscar_ECE(txt_BuscarEC.getText());
+    }//GEN-LAST:event_txt_BuscarECKeyReleased
+
+    private void tbl_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ECMouseClicked
+        // TODO add your handling code here:
+        int Seleccion = tbl_EC.rowAtPoint(evt.getPoint());
+
+        txt_id_EC.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 0)));
+        jLabel_CECC.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 1)));
+        jLabel_ECPP.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 2)));
+        jLabel_ECDD.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 3)));
+        txt_SEC.setText(String.valueOf(tbl_EC.getValueAt(Seleccion, 4)));
+
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.BuscarFila_EC("id_contratacion", "contratacion", "id_contratacion", jComboBox_CEC, jLabel_CECC);
+        empleado.BuscarFila_EC("nombre_puesto", "puesto", "id_puesto", jComboBox_ECP, jLabel_ECPP);
+        empleado.BuscarFila_EC("nombre_departamento", "departamento", "id_departamento", jComboBox_ECD, jLabel_ECDD);
+    }//GEN-LAST:event_tbl_ECMouseClicked
+
+    private void Texto_Ingresar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Ingresar_ECMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarEC.setVisible(true);
+        jLabel_Modificar_EC.setVisible(false);
+        jLabel_Eliminar_EC.setVisible(false);
+    }//GEN-LAST:event_Texto_Ingresar_ECMouseClicked
+
+    private void Panel_Ingresar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Ingresar_ECMouseClicked
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_Panel_Ingresar_ECMouseClicked
+
+    private void Texto_Modificar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Modificar_ECMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarEC.setVisible(false);
+        jLabel_Modificar_EC.setVisible(true);
+        jLabel_Eliminar_EC.setVisible(false);
+    }//GEN-LAST:event_Texto_Modificar_ECMouseClicked
+
+    private void Panel_Modificar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Modificar_ECMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Panel_Modificar_ECMouseClicked
+
+    private void Texto_Eliminar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Eliminar_ECMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarEC.setVisible(false);
+        jLabel_Modificar_EC.setVisible(false);
+        jLabel_Eliminar_EC.setVisible(true);
+    }//GEN-LAST:event_Texto_Eliminar_ECMouseClicked
+
+    private void Texto_Consultar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Consultar_ECMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarEC.setVisible(false);
+        jLabel_Modificar_EC.setVisible(false);
+        jLabel_Eliminar_EC.setVisible(false);
+    }//GEN-LAST:event_Texto_Consultar_ECMouseClicked
+
+    private void Panel_Eliminar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Eliminar_ECMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Panel_Eliminar_ECMouseClicked
+
+    private void Panel_Consultar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Consultar_ECMouseClicked
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_Panel_Consultar_ECMouseClicked
+
+    private void icon_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ECMouseClicked
+        // TODO add your handling code here:
+        
+        Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+        
+        jPanel_MantenimientoEC.setVisible(true);
+        
+        //Combobox
+        jComboBox_TablasEC.addItem(S_Contratacion);
+        jComboBox_TablasEC.addItem(S_Puesto);
+        jComboBox_TablasEC.addItem(S_Departamento);
+        
+        Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Encontrar_ListaEC("contratacion", "id_contratacion", jComboBox_CEC);
+        empleado.Encontrar_ListaEC("puesto", "nombre_puesto", jComboBox_ECP);
+        empleado.Encontrar_ListaEC("departamento", "nombre_departamento", jComboBox_ECD);
+        empleado.Actualizar_Tabla();
+    }//GEN-LAST:event_icon_ECMouseClicked
+
+    private void jComboBox_TablasECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_TablasECActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_TablasECActionPerformed
+
+    private void jLabel_Buscar_TablasECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Buscar_TablasECMouseClicked
+        // TODO add your handling code here:
+        Item_Contratacion = jComboBox_TablasEC.getSelectedItem().toString();
+
+        if (Item_Contratacion == S_Contratacion) {
+            Contratacion_V empleado = new Contratacion_V();
+            empleado.setVisible(true);
+        }
+        
+        Item_P = jComboBox_TablasEC.getSelectedItem().toString();
+
+        if (Item_P == S_Puesto) {
+            Puesto_V puesto = new Puesto_V();
+            puesto.setVisible(true);
+        }
+        
+        Item_D = jComboBox_TablasEC.getSelectedItem().toString();
+
+        if (Item_D == S_Departamento) {
+            Departamento_V dep = new Departamento_V();
+            dep.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_jLabel_Buscar_TablasECMouseClicked
+
+    private void SEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SEMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SEMouseClicked
+
     int posYA1 = 0;
 
     public void setColor_PanelI(JPanel Panel_Icono) {
@@ -9258,6 +9780,10 @@ public class Principal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -10075,6 +10601,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_ConsultarSE;
     private javax.swing.JPanel Panel_ConsultarTP;
     private javax.swing.JPanel Panel_Consultar_Actividad;
+    private javax.swing.JPanel Panel_Consultar_EC;
     private javax.swing.JPanel Panel_Consultar_PP;
     private javax.swing.JPanel Panel_Consultar_PP1;
     private javax.swing.JPanel Panel_Eliminar;
@@ -10092,6 +10619,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_EliminarSE;
     private javax.swing.JPanel Panel_EliminarTP;
     private javax.swing.JPanel Panel_Eliminar_Actividad;
+    private javax.swing.JPanel Panel_Eliminar_EC;
     private javax.swing.JPanel Panel_Eliminar_PP;
     private javax.swing.JPanel Panel_Eliminar_PP1;
     private javax.swing.JPanel Panel_Icono_Bancos;
@@ -10113,6 +10641,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_IngresarSE;
     private javax.swing.JPanel Panel_IngresarTP;
     private javax.swing.JPanel Panel_Ingresar_Actividad;
+    private javax.swing.JPanel Panel_Ingresar_EC;
     private javax.swing.JPanel Panel_Ingresar_PP;
     private javax.swing.JPanel Panel_Ingresar_PP1;
     private javax.swing.JPanel Panel_IzquierdoC;
@@ -10131,6 +10660,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_ModificarSE;
     private javax.swing.JPanel Panel_ModificarTP;
     private javax.swing.JPanel Panel_Modificar_Actividad;
+    private javax.swing.JPanel Panel_Modificar_EC;
     private javax.swing.JPanel Panel_Modificar_PP;
     private javax.swing.JPanel Panel_Modificar_PP1;
     private javax.swing.JPanel Panel_Text_Bancos;
@@ -10181,6 +10711,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_ConsultarSE4;
     private javax.swing.JLabel Texto_ConsultarTP;
     private javax.swing.JLabel Texto_Consultar_Actividad;
+    private javax.swing.JLabel Texto_Consultar_EC;
     private javax.swing.JLabel Texto_Consultar_PP;
     private javax.swing.JLabel Texto_Consultar_PP1;
     private javax.swing.JLabel Texto_Conta;
@@ -10199,6 +10730,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_EliminarSE4;
     private javax.swing.JLabel Texto_EliminarTP;
     private javax.swing.JLabel Texto_Eliminar_Actividad;
+    private javax.swing.JLabel Texto_Eliminar_EC;
     private javax.swing.JLabel Texto_Eliminar_PP;
     private javax.swing.JLabel Texto_Eliminar_PP1;
     private javax.swing.JLabel Texto_Ingresar;
@@ -10216,6 +10748,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_IngresarSE4;
     private javax.swing.JLabel Texto_IngresarTp;
     private javax.swing.JLabel Texto_Ingresar_Actividad;
+    private javax.swing.JLabel Texto_Ingresar_EC;
     private javax.swing.JLabel Texto_Ingresar_PP;
     private javax.swing.JLabel Texto_Ingresar_PP1;
     private javax.swing.JLabel Texto_Modificar;
@@ -10232,6 +10765,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_ModificarSE3;
     private javax.swing.JLabel Texto_ModificarSE4;
     private javax.swing.JLabel Texto_Modificar_Actividad;
+    private javax.swing.JLabel Texto_Modificar_EC;
     private javax.swing.JLabel Texto_Modificar_PP;
     private javax.swing.JLabel Texto_Modificar_PP1;
     private javax.swing.JLabel Texto_Modificartp;
@@ -10269,8 +10803,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel icono_BuscarSE;
     private javax.swing.JComboBox<String> jComboBox_APPS;
     private javax.swing.JComboBox<String> jComboBox_AplicacionAPP;
+    private javax.swing.JComboBox<String> jComboBox_CEC;
     private javax.swing.JComboBox<String> jComboBox_DPIAP;
     private javax.swing.JComboBox<String> jComboBox_DepartamentoSE;
+    private javax.swing.JComboBox<String> jComboBox_ECD;
+    private javax.swing.JComboBox<String> jComboBox_ECP;
     private javax.swing.JComboBox<String> jComboBox_ELCV;
     private javax.swing.JComboBox<String> jComboBox_ExperienciaL_SE;
     private javax.swing.JComboBox<String> jComboBox_IDSEM;
@@ -10293,9 +10830,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_TablasB_S;
     private javax.swing.JComboBox<String> jComboBox_TablasB_SE;
     private javax.swing.JComboBox<String> jComboBox_TablasC;
+    private javax.swing.JComboBox<String> jComboBox_TablasEC;
     private javax.swing.JComboBox<String> jComboBox_TablasPP;
+    private javax.swing.JLabel jLabe_SEC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -10311,6 +10851,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Buscar;
     private javax.swing.JLabel jLabel_BuscarA;
     private javax.swing.JLabel jLabel_BuscarAP;
+    private javax.swing.JLabel jLabel_BuscarEC;
     private javax.swing.JLabel jLabel_BuscarM;
     private javax.swing.JLabel jLabel_BuscarPP;
     private javax.swing.JLabel jLabel_BuscarRL;
@@ -10329,11 +10870,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Buscar_Tablas1;
     private javax.swing.JLabel jLabel_Buscar_TablasAPP;
     private javax.swing.JLabel jLabel_Buscar_TablasC;
+    private javax.swing.JLabel jLabel_Buscar_TablasEC;
     private javax.swing.JLabel jLabel_Buscar_TablasPP;
     private javax.swing.JLabel jLabel_Buscar_TablasS;
     private javax.swing.JLabel jLabel_Buscar_Tablas_M1;
     private javax.swing.JLabel jLabel_Buscar_Tablas_M2;
     private javax.swing.JLabel jLabel_Buscar_Tablas_SE;
+    private javax.swing.JLabel jLabel_CEC;
+    private javax.swing.JLabel jLabel_CECC;
     private javax.swing.JLabel jLabel_CorreoCV;
     private javax.swing.JLabel jLabel_Correo_CV;
     private javax.swing.JLabel jLabel_DC;
@@ -10351,6 +10895,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Descripcion_Puesto1;
     private javax.swing.JLabel jLabel_DireccionCV;
     private javax.swing.JLabel jLabel_EC;
+    private javax.swing.JLabel jLabel_ECD;
+    private javax.swing.JLabel jLabel_ECDD;
+    private javax.swing.JLabel jLabel_ECP;
+    private javax.swing.JLabel jLabel_ECPP;
     private javax.swing.JLabel jLabel_ELCV;
     private javax.swing.JLabel jLabel_EL_CV;
     private javax.swing.JLabel jLabel_EdadCV;
@@ -10363,6 +10911,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Eliminar_Ac;
     private javax.swing.JLabel jLabel_Eliminar_C;
     private javax.swing.JLabel jLabel_Eliminar_CV;
+    private javax.swing.JLabel jLabel_Eliminar_EC;
     private javax.swing.JLabel jLabel_Eliminar_ExpL;
     private javax.swing.JLabel jLabel_Eliminar_ExpLD;
     private javax.swing.JLabel jLabel_Eliminar_NivelA;
@@ -10388,6 +10937,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_ID_APP;
     private javax.swing.JLabel jLabel_ID_C;
     private javax.swing.JLabel jLabel_ID_Departamento;
+    private javax.swing.JLabel jLabel_ID_EC;
     private javax.swing.JLabel jLabel_ID_ExpL;
     private javax.swing.JLabel jLabel_ID_ExpLD;
     private javax.swing.JLabel jLabel_ID_ExpLLD;
@@ -10401,6 +10951,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_ID_SolicitudE1;
     private javax.swing.JLabel jLabel_Ingresar;
     private javax.swing.JLabel jLabel_IngresarAP;
+    private javax.swing.JLabel jLabel_IngresarEC;
     private javax.swing.JLabel jLabel_IngresarM;
     private javax.swing.JLabel jLabel_IngresarPP;
     private javax.swing.JLabel jLabel_IngresarRL;
@@ -10428,6 +10979,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Modificar_Ac;
     private javax.swing.JLabel jLabel_Modificar_C;
     private javax.swing.JLabel jLabel_Modificar_CV;
+    private javax.swing.JLabel jLabel_Modificar_EC;
     private javax.swing.JLabel jLabel_Modificar_ExpL;
     private javax.swing.JLabel jLabel_Modificar_ExpLD;
     private javax.swing.JLabel jLabel_Modificar_NivelA;
@@ -10487,6 +11039,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_TituloD;
     private javax.swing.JLabel jLabel_TituloD1;
     private javax.swing.JLabel jLabel_TituloD2;
+    private javax.swing.JLabel jLabel_TituloEC;
     private javax.swing.JLabel jLabel_TituloELD;
     private javax.swing.JLabel jLabel_TituloELD1;
     private javax.swing.JLabel jLabel_TituloExpL;
@@ -10505,6 +11058,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_MantenimientoAPP;
     private javax.swing.JPanel jPanel_MantenimientoC;
     private javax.swing.JPanel jPanel_MantenimientoCV;
+    private javax.swing.JPanel jPanel_MantenimientoEC;
     private javax.swing.JPanel jPanel_MantenimientoExpL;
     private javax.swing.JPanel jPanel_MantenimientoExpLD;
     private javax.swing.JPanel jPanel_MantenimientoNA;
@@ -10536,6 +11090,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane35;
     private javax.swing.JScrollPane jScrollPane36;
     private javax.swing.JScrollPane jScrollPane37;
+    private javax.swing.JScrollPane jScrollPane38;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea_DescripcionA;
     private javax.swing.JTextArea jTextArea_DescripcionM;
@@ -10547,6 +11102,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable tbl_C;
     private javax.swing.JTable tbl_CV;
     private javax.swing.JTable tbl_Departamento;
+    private javax.swing.JTable tbl_EC;
     private javax.swing.JTable tbl_ExpL;
     private javax.swing.JTable tbl_ExpLD;
     private javax.swing.JTable tbl_Medio;
@@ -10563,6 +11119,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Buscar;
     private javax.swing.JTextField txt_BuscarA;
     private javax.swing.JTextField txt_BuscarAP;
+    private javax.swing.JTextField txt_BuscarEC;
     private javax.swing.JTextField txt_BuscarM;
     private javax.swing.JTextField txt_BuscarPP;
     private javax.swing.JTextField txt_BuscarRL;
@@ -10603,6 +11160,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_RangoEdadM;
     private javax.swing.JTextField txt_RangoEdadMa;
     private javax.swing.JTextField txt_RequisitosAP;
+    private javax.swing.JTextField txt_SEC;
     private javax.swing.JTextField txt_TA;
     private javax.swing.JTextField txt_TP;
     private javax.swing.JTextField txt_TelefonoCV;
@@ -10616,6 +11174,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_id_APP;
     private javax.swing.JTextField txt_id_C;
     private javax.swing.JTextField txt_id_Departamento;
+    private javax.swing.JTextField txt_id_EC;
     private javax.swing.JTextField txt_id_ExpL;
     private javax.swing.JTextField txt_id_ExpLD;
     private javax.swing.JTextField txt_id_FF;

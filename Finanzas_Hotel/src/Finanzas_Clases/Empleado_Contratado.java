@@ -103,7 +103,7 @@ public class Empleado_Contratado {
 
             }
             
-            JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
+            //JOptionPane.showMessageDialog(null, "La cantidad es " + cantidad);
             tbl_empleado.setModel(model);
 
         } catch (Exception e) {
