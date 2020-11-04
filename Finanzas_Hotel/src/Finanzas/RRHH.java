@@ -49,7 +49,7 @@ import javax.swing.table.DefaultTableModel;
 public class RRHH extends javax.swing.JFrame {
 
     /**
-     * Creates new form Finanzas
+     * Creates new form 
      */
     //String [] nombres_ColumnasDepartamento = {"Id Departamento", "Nombre Departamento", "Estatus Departamento"};
     public RRHH() {
@@ -8193,8 +8193,8 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
         Empleado_Contratado empleado = new Empleado_Contratado (txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
         empleado.Insertar_PP();
         
-        Bitacora_Empleado BE= new Bitacora_Empleado(jTextField_Encontraid,txt_Buscar_BE,tbl_BE);
-        BE.Insertar_BE();
+        /*Bitacora_Empleado BE= new Bitacora_Empleado(jTextField_Encontraid,txt_Buscar_BE,tbl_BE);
+        BE.Insertar_BE();*/
     }//GEN-LAST:event_jLabel_IngresarECMouseClicked
 
     private void jLabel_Modificar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_ECMouseClicked
@@ -8476,7 +8476,7 @@ Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC,
         
         jPanel_MantenimientoBE.setVisible(true);
         
-        Bitacora_Empleado BE= new Bitacora_Empleado(jTextField_Encontraid,txt_Buscar_BE,tbl_BE);
+        //Bitacora_Empleado BE= new Bitacora_Empleado(jTextField_Encontraid,txt_Buscar_BE,tbl_BE);
         //BE.Actualizar_Tabla();
         String[] Bi_datos = new String [9];
         try
