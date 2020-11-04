@@ -163,6 +163,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoC.setVisible(false);
         jPanel_MantenimientoEC.setVisible(false);
         jPanel_MantenimientoAE.setVisible(false);
+        jPanel_MantenimientoBE.setVisible(false);
 
         //Labels Departamento Ingresar - Modificar - Eliminar
         jLabel_ModificarD.setVisible(false);
@@ -238,6 +239,18 @@ public class Principal extends javax.swing.JFrame {
         //Labels Actividad Empleado  Ingresar - Modificar - Eliminar
         jLabel_Modificar_AE.setVisible(false);
         jLabel_Eliminar_AE.setVisible(false);
+        
+        
+        // bitacora
+        jTextField_Encontraid.setVisible(false);
+        txt_contra.setVisible(false);
+        txt_puesto.setVisible(false);
+        txt_depa.setVisible(false);
+        txt_peri.setVisible(false);
+        txt_selec.setVisible(false);
+        txt_ap.setVisible(false);
+        txt_idap.setVisible(false);
+        txt_dpi.setVisible(false);
     }
 
     /*public void tiempo(JLabel Logo, JLabel Logo1,JLabel Logo2,JLabel Logo3,int tiempoC)
@@ -286,6 +299,21 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel_MantenimientoBE = new javax.swing.JPanel();
+        jLabel_TituloAE1 = new javax.swing.JLabel();
+        jLabel_Buscar_BE = new javax.swing.JLabel();
+        txt_Buscar_BE = new javax.swing.JTextField();
+        jScrollPane40 = new javax.swing.JScrollPane();
+        tbl_BE = new javax.swing.JTable();
+        jTextField_Encontraid = new javax.swing.JTextField();
+        txt_contra = new javax.swing.JTextField();
+        txt_puesto = new javax.swing.JTextField();
+        txt_depa = new javax.swing.JTextField();
+        txt_peri = new javax.swing.JTextField();
+        txt_selec = new javax.swing.JTextField();
+        txt_ap = new javax.swing.JTextField();
+        txt_idap = new javax.swing.JTextField();
+        txt_dpi = new javax.swing.JTextField();
         jPanel_MantenimientoAE = new javax.swing.JPanel();
         jLabel_AE_EC = new javax.swing.JLabel();
         jLabel_AE_ECC = new javax.swing.JLabel();
@@ -960,6 +988,123 @@ public class Principal extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(100, 70));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel_MantenimientoBE.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_MantenimientoBE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_TituloAE1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Actividad Empleado.png"))); // NOI18N
+        jPanel_MantenimientoBE.add(jLabel_TituloAE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 400, 120));
+
+        jLabel_Buscar_BE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
+        jLabel_Buscar_BE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Buscar_BEMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoBE.add(jLabel_Buscar_BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
+
+        txt_Buscar_BE.setBackground(new java.awt.Color(40, 41, 46));
+        txt_Buscar_BE.setForeground(new java.awt.Color(153, 153, 153));
+        txt_Buscar_BE.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_Buscar_BE.setBorder(null);
+        txt_Buscar_BE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Buscar_BEActionPerformed(evt);
+            }
+        });
+        txt_Buscar_BE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_Buscar_BEKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_Buscar_BEKeyTyped(evt);
+            }
+        });
+        jPanel_MantenimientoBE.add(txt_Buscar_BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 290, 20));
+
+        tbl_BE.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_BE.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_BE.setSelectionBackground(new java.awt.Color(40, 41, 46));
+        tbl_BE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_BEMouseClicked(evt);
+            }
+        });
+        jScrollPane40.setViewportView(tbl_BE);
+
+        jPanel_MantenimientoBE.add(jScrollPane40, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 1090, 250));
+
+        jTextField_Encontraid.setBackground(new java.awt.Color(28, 27, 33));
+        jTextField_Encontraid.setBorder(null);
+        jTextField_Encontraid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_EncontraidActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoBE.add(jTextField_Encontraid, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, 190, 30));
+
+        txt_contra.setBackground(new java.awt.Color(28, 27, 33));
+        txt_contra.setForeground(new java.awt.Color(28, 27, 33));
+        txt_contra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 70, -1));
+
+        txt_puesto.setBackground(new java.awt.Color(28, 27, 33));
+        txt_puesto.setForeground(new java.awt.Color(255, 255, 255));
+        txt_puesto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_puesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_puestoActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoBE.add(txt_puesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 70, -1));
+
+        txt_depa.setBackground(new java.awt.Color(28, 27, 33));
+        txt_depa.setForeground(new java.awt.Color(255, 255, 255));
+        txt_depa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_depa, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 60, 80, -1));
+
+        txt_peri.setBackground(new java.awt.Color(28, 27, 33));
+        txt_peri.setForeground(new java.awt.Color(255, 255, 255));
+        txt_peri.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_peri, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 160, 70, -1));
+
+        txt_selec.setBackground(new java.awt.Color(28, 27, 33));
+        txt_selec.setForeground(new java.awt.Color(255, 255, 255));
+        txt_selec.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_selec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_selecActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoBE.add(txt_selec, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 170, 80, -1));
+
+        txt_ap.setBackground(new java.awt.Color(28, 27, 33));
+        txt_ap.setForeground(new java.awt.Color(255, 255, 255));
+        txt_ap.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_ap, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, 80, -1));
+
+        txt_idap.setBackground(new java.awt.Color(28, 27, 33));
+        txt_idap.setForeground(new java.awt.Color(255, 255, 255));
+        txt_idap.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBE.add(txt_idap, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 70, -1));
+
+        txt_dpi.setBackground(new java.awt.Color(28, 27, 33));
+        txt_dpi.setForeground(new java.awt.Color(255, 255, 255));
+        txt_dpi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_dpi.setFocusable(false);
+        jPanel_MantenimientoBE.add(txt_dpi, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 80, -1));
+
+        getContentPane().add(jPanel_MantenimientoBE, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1470, 680));
 
         jPanel_MantenimientoAE.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoAE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -5955,8 +6100,7 @@ public class Principal extends javax.swing.JFrame {
 
         Cant_R24.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
         Cant_R24.setForeground(new java.awt.Color(255, 255, 255));
-        Cant_R24.setText("1");
-        RL.add(Cant_R24, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 20, -1));
+        RL.add(Cant_R24, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 158, 20, 20));
 
         icon_BE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_Bitacora.png"))); // NOI18N
         icon_BE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -5965,6 +6109,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         icon_BE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_BEMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 icon_BEMouseExited(evt);
             }
@@ -7969,6 +8116,7 @@ public class Principal extends javax.swing.JFrame {
         int cantidad_contratacion = 0;
         int cantidad_empleado=0;
         int cantidad_AE = 0;
+        int cantidad_BE = 0;
 
         jPanel_Bienvenido.setVisible(false);
         ExpLD.setVisible(true);
@@ -8007,6 +8155,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoEC.setVisible(false);
         jPanel_MantenimientoExpL.setVisible(false);
         jPanel_MantenimientoAE.setVisible(false);
+        jPanel_MantenimientoBE.setVisible(false);
 
         jLabel_Felcha2.setVisible(true);
         jLabel_Flecha_Iz1.setVisible(true);
@@ -8073,6 +8222,9 @@ public class Principal extends javax.swing.JFrame {
         Actividad_Empleado AE = new Actividad_Empleado(jLabel_AE_ECC,jLabel_Actividad_AEE,txt_BuscarAE,tbl_AE);
         cantidad_AE += AE.Cantidad_Registros();
         
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE,jTextField_Encontraid,txt_contra,txt_puesto,txt_depa,txt_peri,txt_selec,txt_ap,txt_idap,txt_dpi,txt_Buscar_BE, tbl_BE);
+        cantidad_BE += BE.Cantidad_Registros();
+        
         Cant_R2.setText("" + cantidad_D);
         Cant_R3.setText("" + cantidad_P);
         Cant_R4.setText("" + cantidad_NA);
@@ -8092,6 +8244,7 @@ public class Principal extends javax.swing.JFrame {
         Cant_R21.setText("" + cantidad_contratacion);
         Cant_R22.setText("" + cantidad_empleado);
         Cant_R23.setText("" + cantidad_AE);
+        Cant_R24.setText("" + cantidad_BE);
     }//GEN-LAST:event_Icono_RRHHMouseClicked
 
     private void Panel_Icono_RRHHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Icono_RRHHMouseClicked
@@ -8296,6 +8449,7 @@ public class Principal extends javax.swing.JFrame {
         int cantidad_contratacion = 0;
         int cantidad_empleado=0;
         int cantidad_AE = 0;
+        int cantidad_BE = 0;
 
         jPanel_Bienvenido.setVisible(false);
         ExpLD.setVisible(true);
@@ -8400,6 +8554,9 @@ public class Principal extends javax.swing.JFrame {
         Actividad_Empleado AE = new Actividad_Empleado(jLabel_AE_ECC,jLabel_Actividad_AEE,txt_BuscarAE,tbl_AE);
         cantidad_AE += AE.Cantidad_Registros();
         
+         Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE,jTextField_Encontraid,txt_contra,txt_puesto,txt_depa,txt_peri,txt_selec,txt_ap,txt_idap,txt_dpi,txt_Buscar_BE, tbl_BE);
+        cantidad_BE += BE.Cantidad_Registros();
+        
         Cant_R2.setText("" + cantidad_D);
         Cant_R3.setText("" + cantidad_P);
         Cant_R4.setText("" + cantidad_NA);
@@ -8419,6 +8576,7 @@ public class Principal extends javax.swing.JFrame {
         Cant_R21.setText("" + cantidad_contratacion);
         Cant_R22.setText("" + cantidad_empleado);
         Cant_R23.setText("" + cantidad_AE);
+        Cant_R24.setText("" + cantidad_BE);
 
         setColor_PanelI(Panel_Icono_RRHH);
         resetColor_PanelI(Panel_Icono_Nomina);
@@ -10166,6 +10324,102 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel_Buscar_TablasAEMouseClicked
 
+    private void jLabel_Buscar_BEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Buscar_BEMouseClicked
+        // TODO add your handling code here:
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE,jTextField_Encontraid,txt_contra,txt_puesto,txt_depa,txt_peri,txt_selec,txt_ap,txt_idap,txt_dpi,txt_Buscar_BE, tbl_BE);
+        BE.buscarBit();
+    }//GEN-LAST:event_jLabel_Buscar_BEMouseClicked
+
+    private void txt_Buscar_BEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Buscar_BEActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Buscar_BEActionPerformed
+
+    private void txt_Buscar_BEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_BEKeyReleased
+        // TODO add your handling code here:
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE,jTextField_Encontraid,txt_contra,txt_puesto,txt_depa,txt_peri,txt_selec,txt_ap,txt_idap,txt_dpi,txt_Buscar_BE, tbl_BE);
+        BE.actualizarBit();
+        
+
+    }//GEN-LAST:event_txt_Buscar_BEKeyReleased
+
+    private void txt_Buscar_BEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_BEKeyTyped
+        // TODO add your handling code here:
+        /* String[] B_datos = new String [9];
+        String Idbus;
+        Idbus = txt_Buscar_BE.getText();
+        try
+        {
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("ID Bitacora");
+            model.addColumn("ID Empleado Contratado");
+            model.addColumn("ID Contatacion");
+            model.addColumn("Puesto");
+            model.addColumn("Departamento");
+            model.addColumn("Sueldo");
+
+            Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
+            PreparedStatement pst = cn.prepareStatement("select id_empleado, id_contratacion, id_puesto, id_departamento, sueldo_empleado from empleado_contratado where id_empleado =" + Idbus );
+            ResultSet rs = pst.executeQuery();
+            while(rs.next())
+            {
+                txt_puesto.setText(rs.getString("id_puesto"));
+                B_datos[0] = (" ");
+                B_datos[1] = rs.getString("id_empleado");
+                B_datos[2] = rs.getString("id_contratacion");
+                B_datos[3] = rs.getString("id_puesto");
+                B_datos[4] = rs.getString("id_departamento");
+                B_datos[5] = rs.getString("sueldo_empleado");
+                model.addRow(B_datos);
+            }
+            PreparedStatement pst2 = cn.prepareStatement("select nombre_puesto from puesto where id_puesto = " + txt_puesto.getText() );
+            ResultSet rs2 = pst2.executeQuery();
+            tbl_BE.setModel(model);
+
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }      */
+    }//GEN-LAST:event_txt_Buscar_BEKeyTyped
+
+    private void tbl_BEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_BEMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_BEMouseClicked
+
+    private void jTextField_EncontraidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_EncontraidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_EncontraidActionPerformed
+
+    private void txt_puestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_puestoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_puestoActionPerformed
+
+    private void txt_selecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_selecActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_selecActionPerformed
+
+    private void icon_BEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BEMouseClicked
+        // TODO add your handling code here:
+        Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+
+        jPanel_MantenimientoBE.setVisible(true);
+
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE,jTextField_Encontraid,txt_contra,txt_puesto,txt_depa,txt_peri,txt_selec,txt_ap,txt_idap,txt_dpi,txt_Buscar_BE, tbl_BE);
+        BE.actualizarBit();
+    }//GEN-LAST:event_icon_BEMouseClicked
+
     int posYA1 = 0;
 
     public void setColor_PanelI(JPanel Panel_Icono) {
@@ -11304,6 +11558,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_BuscarS;
     private javax.swing.JLabel jLabel_BuscarTP;
     private javax.swing.JLabel jLabel_Buscar_APP;
+    private javax.swing.JLabel jLabel_Buscar_BE;
     private javax.swing.JLabel jLabel_Buscar_C;
     private javax.swing.JLabel jLabel_Buscar_CV;
     private javax.swing.JLabel jLabel_Buscar_ExpL;
@@ -11483,6 +11738,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_Tiempo_InicioExpLD;
     private javax.swing.JLabel jLabel_Titulo;
     private javax.swing.JLabel jLabel_TituloAE;
+    private javax.swing.JLabel jLabel_TituloAE1;
     private javax.swing.JLabel jLabel_TituloAP;
     private javax.swing.JLabel jLabel_TituloAPP;
     private javax.swing.JLabel jLabel_TituloAPP1;
@@ -11508,6 +11764,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_MantenimientoAE;
     private javax.swing.JPanel jPanel_MantenimientoAP;
     private javax.swing.JPanel jPanel_MantenimientoAPP;
+    private javax.swing.JPanel jPanel_MantenimientoBE;
     private javax.swing.JPanel jPanel_MantenimientoC;
     private javax.swing.JPanel jPanel_MantenimientoCV;
     private javax.swing.JPanel jPanel_MantenimientoEC;
@@ -11545,14 +11802,17 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane38;
     private javax.swing.JScrollPane jScrollPane39;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane40;
     private javax.swing.JTextArea jTextArea_DescripcionA;
     private javax.swing.JTextArea jTextArea_DescripcionM;
     private javax.swing.JTextArea jTextArea_DescripcionSE;
+    private javax.swing.JTextField jTextField_Encontraid;
     private javax.swing.JLabel lbl_BuscarS;
     private javax.swing.JTable tbl_A;
     private javax.swing.JTable tbl_AE;
     private javax.swing.JTable tbl_AP;
     private javax.swing.JTable tbl_APP;
+    private javax.swing.JTable tbl_BE;
     private javax.swing.JTable tbl_C;
     private javax.swing.JTable tbl_CV;
     private javax.swing.JTable tbl_Departamento;
@@ -11581,6 +11841,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_BuscarS;
     private javax.swing.JTextField txt_BuscarTP;
     private javax.swing.JTextField txt_Buscar_APP;
+    private javax.swing.JTextField txt_Buscar_BE;
     private javax.swing.JTextField txt_Buscar_C;
     private javax.swing.JTextField txt_Buscar_CV;
     private javax.swing.JTextField txt_Buscar_ExpL;
@@ -11623,6 +11884,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_Telefono_RP;
     private javax.swing.JTextField txt_Tiempo_FinalizacionExpLD;
     private javax.swing.JTextField txt_Tiempo_InicioExpLD;
+    private javax.swing.JTextField txt_ap;
+    private javax.swing.JTextField txt_contra;
+    private javax.swing.JTextField txt_depa;
+    private javax.swing.JTextField txt_dpi;
     private javax.swing.JTextField txt_idS;
     private javax.swing.JTextField txt_id_A;
     private javax.swing.JTextField txt_id_AP;
@@ -11643,5 +11908,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_id_ReferenciaL;
     private javax.swing.JTextField txt_id_SolicitudE;
     private javax.swing.JTextField txt_id_TP;
+    private javax.swing.JTextField txt_idap;
+    private javax.swing.JTextField txt_peri;
+    private javax.swing.JTextField txt_puesto;
+    private javax.swing.JTextField txt_selec;
     // End of variables declaration//GEN-END:variables
 }
