@@ -6,7 +6,9 @@
 package Finanzas;
 
 import Finanzas_Clases.Clasificacion_Cuenta;
+import Finanzas_Clases.Cuenta_Contable;
 import Finanzas_Clases.Moneda;
+import Finanzas_Clases.Solicitud_Empresarial;
 
 /**
  *
@@ -22,6 +24,7 @@ public class Bancos extends javax.swing.JFrame {
         // mantenimientos
         jPanel_MantenimientoMoneda.setVisible(false);
         jPanel_MantenimientoClasiCuenta.setVisible(false);
+        Panel_CuentaContable.setVisible(false);
         
         
         
@@ -29,6 +32,10 @@ public class Bancos extends javax.swing.JFrame {
         jLabel_Ingresar.setVisible(false);
         jLabel_Modificar.setVisible(false);
         jLabel_Eliminar.setVisible(false);
+        
+        // Iconos Panel Cuenta Contable Insertar- Modificar-Eliminar
+        jLabel_ModificarCC.setVisible(false);
+        jLabel_EliminarCC.setVisible(false);
         
     }
 
@@ -41,6 +48,48 @@ public class Bancos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Panel_CuentaContable = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField_IDCuenta = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField_NombreCuenta = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField_IDClasif = new javax.swing.JTextField();
+        jLabel_clasificacion = new javax.swing.JLabel();
+        jComboBoxIDClasificacion = new javax.swing.JComboBox<>();
+        jTextField_SaldoA = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField_CargosM = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField_AbonosM = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField_SaldoActual = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jTextField_Buscar = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        jTextField_AbonosA = new javax.swing.JTextField();
+        jLabel44 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea_Descripcion = new javax.swing.JTextArea();
+        jLabel45 = new javax.swing.JLabel();
+        jTextField_CargosAC = new javax.swing.JTextField();
+        jLabel_IngresarCC = new javax.swing.JLabel();
+        jLabel_ModificarCC = new javax.swing.JLabel();
+        jLabel_EliminarCC = new javax.swing.JLabel();
+        jScrollPane40 = new javax.swing.JScrollPane();
+        tbl_CuentaContable = new javax.swing.JTable();
+        jLabel_TituloCC = new javax.swing.JLabel();
+        Panel_Ingresar_CC = new javax.swing.JPanel();
+        Texto_Ingresar_CC = new javax.swing.JLabel();
+        Panel_Modificar_CC = new javax.swing.JPanel();
+        Texto_Modificar_CC = new javax.swing.JLabel();
+        Panel_Eliminar_CC = new javax.swing.JPanel();
+        Texto_Eliminar_CC = new javax.swing.JLabel();
+        Panel_Consultar_CC = new javax.swing.JPanel();
+        Texto_Consultar_CC = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
         jPanel_MantenimientoClasiCuenta = new javax.swing.JPanel();
         jLabel_CC = new javax.swing.JLabel();
         Panel_IngresarS = new javax.swing.JPanel();
@@ -137,6 +186,295 @@ public class Bancos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1880, 900));
+
+        Panel_CuentaContable.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_CuentaContable.setPreferredSize(new java.awt.Dimension(1880, 900));
+        Panel_CuentaContable.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("ID Cuenta");
+        Panel_CuentaContable.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, 63, -1));
+
+        jTextField_IDCuenta.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_IDCuenta.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_IDCuenta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Panel_CuentaContable.add(jTextField_IDCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 110, -1));
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Nombre Cuenta");
+        Panel_CuentaContable.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, -1, -1));
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Tipo Cuenta");
+        Panel_CuentaContable.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 330, -1, -1));
+
+        jTextField_NombreCuenta.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_NombreCuenta.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_NombreCuenta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Panel_CuentaContable.add(jTextField_NombreCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 139, -1));
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("ID Clasificacion");
+        Panel_CuentaContable.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 330, -1, -1));
+
+        jTextField_IDClasif.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_IDClasif.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_IDClasif.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Panel_CuentaContable.add(jTextField_IDClasif, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 360, 139, -1));
+
+        jLabel_clasificacion.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_clasificacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Panel_CuentaContable.add(jLabel_clasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 360, 40, 20));
+
+        jComboBoxIDClasificacion.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBoxIDClasificacion.setForeground(new java.awt.Color(153, 153, 153));
+        jComboBoxIDClasificacion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jComboBoxIDClasificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxIDClasificacionActionPerformed(evt);
+            }
+        });
+        Panel_CuentaContable.add(jComboBoxIDClasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 360, 120, -1));
+
+        jTextField_SaldoA.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_SaldoA.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_SaldoA.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Panel_CuentaContable.add(jTextField_SaldoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 110, -1));
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Saldo Anterior");
+        Panel_CuentaContable.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 80, -1));
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Cargos del Mes");
+        Panel_CuentaContable.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 420, 100, -1));
+
+        jTextField_CargosM.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_CargosM.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_CargosM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Panel_CuentaContable.add(jTextField_CargosM, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 130, -1));
+
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Abonos del Mes");
+        Panel_CuentaContable.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 100, -1));
+
+        jTextField_AbonosM.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_AbonosM.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_AbonosM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Panel_CuentaContable.add(jTextField_AbonosM, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, 130, -1));
+
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Saldo Actual");
+        Panel_CuentaContable.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, 100, -1));
+
+        jTextField_SaldoActual.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_SaldoActual.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_SaldoActual.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Panel_CuentaContable.add(jTextField_SaldoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 130, -1));
+
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("Cargos Acumulados");
+        Panel_CuentaContable.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 420, 110, -1));
+
+        jTextField_Buscar.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_Buscar.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_Buscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField_Buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField_BuscarKeyReleased(evt);
+            }
+        });
+        Panel_CuentaContable.add(jTextField_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 540, 300, -1));
+
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("Descripcion Cuenta");
+        Panel_CuentaContable.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 420, 110, -1));
+
+        jTextField_AbonosA.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_AbonosA.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_AbonosA.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Panel_CuentaContable.add(jTextField_AbonosA, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 450, 130, -1));
+
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel44.setText("Abonos Acumulados");
+        Panel_CuentaContable.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 420, 110, -1));
+
+        jTextArea_Descripcion.setBackground(new java.awt.Color(40, 41, 46));
+        jTextArea_Descripcion.setColumns(20);
+        jTextArea_Descripcion.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextArea_Descripcion.setForeground(new java.awt.Color(153, 153, 153));
+        jTextArea_Descripcion.setRows(5);
+        jTextArea_Descripcion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane1.setViewportView(jTextArea_Descripcion);
+
+        Panel_CuentaContable.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 450, 220, 90));
+
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel45.setText("Buscar");
+        Panel_CuentaContable.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 60, 20));
+
+        jTextField_CargosAC.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_CargosAC.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_CargosAC.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Panel_CuentaContable.add(jTextField_CargosAC, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 450, 130, -1));
+
+        jLabel_IngresarCC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_IngresarCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
+        jLabel_IngresarCC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarCCMouseClicked(evt);
+            }
+        });
+        Panel_CuentaContable.add(jLabel_IngresarCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 530, 50, 50));
+
+        jLabel_ModificarCC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_ModificarCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
+        jLabel_ModificarCC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarCCMouseClicked(evt);
+            }
+        });
+        Panel_CuentaContable.add(jLabel_ModificarCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 530, 50, 50));
+
+        jLabel_EliminarCC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_EliminarCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
+        jLabel_EliminarCC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarCCMouseClicked(evt);
+            }
+        });
+        Panel_CuentaContable.add(jLabel_EliminarCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 530, 50, 50));
+
+        tbl_CuentaContable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_CuentaContable.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_CuentaContable.setSelectionBackground(new java.awt.Color(40, 41, 46));
+        tbl_CuentaContable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_CuentaContableMouseClicked(evt);
+            }
+        });
+        tbl_CuentaContable.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                tbl_CuentaContableCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        jScrollPane40.setViewportView(tbl_CuentaContable);
+
+        Panel_CuentaContable.add(jScrollPane40, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 1070, 170));
+
+        jLabel_TituloCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Empleado Contratado.png"))); // NOI18N
+        Panel_CuentaContable.add(jLabel_TituloCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 400, 120));
+
+        Panel_Ingresar_CC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Ingresar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Ingresar_CCMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_CC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Ingresar_CC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Ingresar_CC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Ingresar_CC.setText("Ingresar");
+        Texto_Ingresar_CC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Ingresar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Ingresar_CCMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_CC.add(Texto_Ingresar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        Panel_CuentaContable.add(Panel_Ingresar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 130, 50));
+
+        Panel_Modificar_CC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Modificar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Modificar_CCMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_CC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Modificar_CC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Modificar_CC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Modificar_CC.setText("Modificar");
+        Texto_Modificar_CC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Modificar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Modificar_CCMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_CC.add(Texto_Modificar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
+
+        Panel_CuentaContable.add(Panel_Modificar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 130, 50));
+
+        Panel_Eliminar_CC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Eliminar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Eliminar_CCMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_CC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Eliminar_CC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Eliminar_CC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Eliminar_CC.setText("Eliminar");
+        Texto_Eliminar_CC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Eliminar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Eliminar_CCMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_CC.add(Texto_Eliminar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        Panel_CuentaContable.add(Panel_Eliminar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 220, 130, 50));
+
+        Panel_Consultar_CC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Consultar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Consultar_CCMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_CC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Consultar_CC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Consultar_CC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Consultar_CC.setText("Consultar");
+        Texto_Consultar_CC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Consultar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Consultar_CCMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_CC.add(Texto_Consultar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
+
+        Panel_CuentaContable.add(Panel_Consultar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 220, 130, 50));
+
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
+        Panel_CuentaContable.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, -1, -1));
 
         jPanel_MantenimientoClasiCuenta.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoClasiCuenta.setPreferredSize(new java.awt.Dimension(1880, 900));
@@ -610,6 +948,9 @@ public class Bancos extends javax.swing.JFrame {
             }
         });
         Panel_MIMECContable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_MIMECContableMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Panel_MIMECContableMouseExited(evt);
             }
@@ -1028,7 +1369,7 @@ public class Bancos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_Bancos, javax.swing.GroupLayout.DEFAULT_SIZE, 1880, Short.MAX_VALUE)
+            .addComponent(Panel_Bancos, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1036,22 +1377,30 @@ public class Bancos extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanel_MantenimientoClasiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 12, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addComponent(Panel_CuentaContable, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 6, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_Bancos, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+            .addComponent(Panel_Bancos, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 85, Short.MAX_VALUE)
                     .addComponent(jPanel_MantenimientoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 85, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel_MantenimientoClasiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 170, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_MantenimientoClasiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel_CuentaContable, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -1501,6 +1850,122 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tbl_ClasiCaretPositionChanged
 
+    private void jLabel_IngresarCCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarCCMouseClicked
+        // TODO add your handling code here:
+        
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosM, jTextField_AbonosM, jTextField_SaldoActual, jTextField_CargosAC, jTextField_AbonosA, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        cuenta_c.Insertar_CC();
+    }//GEN-LAST:event_jLabel_IngresarCCMouseClicked
+
+    private void Panel_MIMECContableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECContableMouseClicked
+        // TODO add your handling code here:
+        Panel_Bancos.setVisible(false);
+        Panel_CuentaContable.setVisible(true);
+        
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosM, jTextField_AbonosM, jTextField_SaldoActual, jTextField_CargosAC, jTextField_AbonosA, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        cuenta_c.Encontrar_ListaCC("clasificacion_cuenta", "nombre_clasificacion", jComboBoxIDClasificacion);
+        cuenta_c.Actualizar_Tabla();
+        
+        
+        
+        
+    }//GEN-LAST:event_Panel_MIMECContableMouseClicked
+
+    private void tbl_CuentaContableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CuentaContableMouseClicked
+        // TODO add your handling code here:
+        
+        int Seleccion = tbl_CuentaContable.rowAtPoint(evt.getPoint());
+         
+        jTextField_IDCuenta.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 0)));
+        jTextField_NombreCuenta.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 1)));
+        jTextField_IDClasif.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 2)));
+        jLabel_clasificacion.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 3)));
+        jTextField_SaldoA.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 4)));
+        jTextField_CargosM.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 5)));
+        jTextField_AbonosM.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 6)));
+        jTextField_SaldoActual.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 7)));
+        jTextField_CargosAC.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 8)));
+        jTextField_AbonosA.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 9)));
+        jTextArea_Descripcion.setText(String.valueOf(tbl_CuentaContable.getValueAt(Seleccion, 10)));
+        
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosM, jTextField_AbonosM, jTextField_SaldoActual, jTextField_CargosAC, jTextField_AbonosA, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        cuenta_c.BuscarFila_CC("nombre_clasificacion", "clasificacion_cuenta", "id_clasificacion", jComboBoxIDClasificacion, jLabel_clasificacion);
+        
+//   
+    }//GEN-LAST:event_tbl_CuentaContableMouseClicked
+
+    private void tbl_CuentaContableCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tbl_CuentaContableCaretPositionChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_CuentaContableCaretPositionChanged
+
+    private void jTextField_BuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_BuscarKeyReleased
+        // TODO add your handling code here:
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosM, jTextField_AbonosM, jTextField_SaldoActual, jTextField_CargosAC, jTextField_AbonosA, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        cuenta_c.Buscar_CCF(jTextField_Buscar.getText());
+    }//GEN-LAST:event_jTextField_BuscarKeyReleased
+
+    private void jLabel_ModificarCCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarCCMouseClicked
+        // TODO add your handling code here:
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosM, jTextField_AbonosM, jTextField_SaldoActual, jTextField_CargosAC, jTextField_AbonosA, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        cuenta_c.Modificar_CC();
+    }//GEN-LAST:event_jLabel_ModificarCCMouseClicked
+
+    private void jLabel_EliminarCCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarCCMouseClicked
+        // TODO add your handling code here:
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosM, jTextField_AbonosM, jTextField_SaldoActual, jTextField_CargosAC, jTextField_AbonosA, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        cuenta_c.Eliminar_CC();
+    }//GEN-LAST:event_jLabel_EliminarCCMouseClicked
+
+    private void jComboBoxIDClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDClasificacionActionPerformed
+        // TODO add your handling code here:
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosM, jTextField_AbonosM, jTextField_SaldoActual, jTextField_CargosAC, jTextField_AbonosA, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        cuenta_c.EncontrarID_CC("id_clasificacion", "clasificacion_cuenta", "nombre_clasificacion", jComboBoxIDClasificacion, jLabel_clasificacion);
+    }//GEN-LAST:event_jComboBoxIDClasificacionActionPerformed
+
+    private void Texto_Ingresar_CCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Ingresar_CCMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarCC.setVisible(true);
+        jLabel_ModificarCC.setVisible(false);
+        jLabel_EliminarCC.setVisible(false);
+    }//GEN-LAST:event_Texto_Ingresar_CCMouseClicked
+
+    private void Panel_Ingresar_CCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Ingresar_CCMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Ingresar_CCMouseClicked
+
+    private void Texto_Modificar_CCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Modificar_CCMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarCC.setVisible(false);
+        jLabel_ModificarCC.setVisible(true);
+        jLabel_EliminarCC.setVisible(false);
+    }//GEN-LAST:event_Texto_Modificar_CCMouseClicked
+
+    private void Panel_Modificar_CCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Modificar_CCMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Modificar_CCMouseClicked
+
+    private void Texto_Eliminar_CCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Eliminar_CCMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarCC.setVisible(false);
+        jLabel_ModificarCC.setVisible(false);
+        jLabel_EliminarCC.setVisible(true);
+    }//GEN-LAST:event_Texto_Eliminar_CCMouseClicked
+
+    private void Panel_Eliminar_CCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Eliminar_CCMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Eliminar_CCMouseClicked
+
+    private void Texto_Consultar_CCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Consultar_CCMouseClicked
+        // TODO add your handling code here:
+        jLabel_IngresarCC.setVisible(false);
+        jLabel_ModificarCC.setVisible(false);
+        jLabel_EliminarCC.setVisible(false);
+    }//GEN-LAST:event_Texto_Consultar_CCMouseClicked
+
+    private void Panel_Consultar_CCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Consultar_CCMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Consultar_CCMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1528,6 +1993,8 @@ public class Bancos extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1540,10 +2007,14 @@ public class Bancos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_Bancos;
     private javax.swing.JPanel Panel_ConsultarS;
+    private javax.swing.JPanel Panel_Consultar_CC;
     private javax.swing.JPanel Panel_Consultar_EC;
+    private javax.swing.JPanel Panel_CuentaContable;
     private javax.swing.JPanel Panel_EliminarS;
+    private javax.swing.JPanel Panel_Eliminar_CC;
     private javax.swing.JPanel Panel_Eliminar_EC;
     private javax.swing.JPanel Panel_IngresarS;
+    private javax.swing.JPanel Panel_Ingresar_CC;
     private javax.swing.JPanel Panel_Ingresar_EC;
     private javax.swing.JPanel Panel_MB;
     private javax.swing.JPanel Panel_MCBEnc;
@@ -1557,18 +2028,27 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_MIMEMBE;
     private javax.swing.JPanel Panel_MIMFP;
     private javax.swing.JPanel Panel_ModificarS;
+    private javax.swing.JPanel Panel_Modificar_CC;
     private javax.swing.JPanel Panel_Modificar_EC;
     private javax.swing.JLabel Texto_ConsultarS;
+    private javax.swing.JLabel Texto_Consultar_CC;
     private javax.swing.JLabel Texto_Consultar_EC;
     private javax.swing.JLabel Texto_EliminarS;
+    private javax.swing.JLabel Texto_Eliminar_CC;
     private javax.swing.JLabel Texto_Eliminar_EC;
     private javax.swing.JLabel Texto_IngresarS;
+    private javax.swing.JLabel Texto_Ingresar_CC;
     private javax.swing.JLabel Texto_Ingresar_EC;
     private javax.swing.JLabel Texto_ModificarS;
+    private javax.swing.JLabel Texto_Modificar_CC;
     private javax.swing.JLabel Texto_Modificar_EC;
     private javax.swing.JLabel eliminar;
     private javax.swing.JLabel ingresar;
+    private javax.swing.JComboBox<String> jComboBoxIDClasificacion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1587,6 +2067,8 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -1595,13 +2077,23 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_CC;
     private javax.swing.JLabel jLabel_Eliminar;
+    private javax.swing.JLabel jLabel_EliminarCC;
     private javax.swing.JLabel jLabel_Ingresar;
+    private javax.swing.JLabel jLabel_IngresarCC;
     private javax.swing.JLabel jLabel_MMon;
     private javax.swing.JLabel jLabel_MantenimientoM;
     private javax.swing.JLabel jLabel_MantenimientoM1;
@@ -1615,12 +2107,29 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_MantenimientoM8;
     private javax.swing.JLabel jLabel_MantenimientoM9;
     private javax.swing.JLabel jLabel_Modificar;
+    private javax.swing.JLabel jLabel_ModificarCC;
+    private javax.swing.JLabel jLabel_TituloCC;
+    private javax.swing.JLabel jLabel_clasificacion;
     private javax.swing.JPanel jPanel_MantenimientoClasiCuenta;
     private javax.swing.JPanel jPanel_MantenimientoMoneda;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane38;
     private javax.swing.JScrollPane jScrollPane39;
+    private javax.swing.JScrollPane jScrollPane40;
+    private javax.swing.JTextArea jTextArea_Descripcion;
+    private javax.swing.JTextField jTextField_AbonosA;
+    private javax.swing.JTextField jTextField_AbonosM;
+    private javax.swing.JTextField jTextField_Buscar;
+    private javax.swing.JTextField jTextField_CargosAC;
+    private javax.swing.JTextField jTextField_CargosM;
+    private javax.swing.JTextField jTextField_IDClasif;
+    private javax.swing.JTextField jTextField_IDCuenta;
+    private javax.swing.JTextField jTextField_NombreCuenta;
+    private javax.swing.JTextField jTextField_SaldoA;
+    private javax.swing.JTextField jTextField_SaldoActual;
     private javax.swing.JLabel modificar;
     private javax.swing.JTable tbl_Clasi;
+    private javax.swing.JTable tbl_CuentaContable;
     private javax.swing.JTable tbl_Moneda;
     private javax.swing.JTextField txt_IDM;
     private javax.swing.JTextField txt_NombreM;
