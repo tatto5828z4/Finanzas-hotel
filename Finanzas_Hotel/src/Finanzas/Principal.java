@@ -1021,7 +1021,6 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel_MantenimientoBE.add(txt_Buscar_BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 290, 20));
 
-        tbl_BE.setForeground(new java.awt.Color(0, 0, 0));
         tbl_BE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1188,7 +1187,6 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel_MantenimientoAE.add(txt_BuscarAE, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 240, 20));
 
-        tbl_AE.setForeground(new java.awt.Color(0, 0, 0));
         tbl_AE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -2368,6 +2366,9 @@ public class Principal extends javax.swing.JFrame {
         txt_BuscarS.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_BuscarSKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_BuscarSKeyTyped(evt);
             }
         });
         jPanel_MantenimientoS.add(txt_BuscarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 240, 20));
@@ -10478,6 +10479,10 @@ public class Principal extends javax.swing.JFrame {
     private void ExpLDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExpLDMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_ExpLDMouseClicked
+
+    private void txt_BuscarSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarSKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarSKeyTyped
 
     int posYA1 = 0;
 

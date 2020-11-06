@@ -5,6 +5,9 @@
  */
 package Finanzas;
 
+import Finanzas_Clases.Clasificacion_Cuenta;
+import Finanzas_Clases.Moneda;
+
 /**
  *
  * @author Brayan Cifuentes
@@ -16,6 +19,17 @@ public class Bancos extends javax.swing.JFrame {
      */
     public Bancos() {
         initComponents();
+        // mantenimientos
+        jPanel_MantenimientoMoneda.setVisible(false);
+        jPanel_MantenimientoClasiCuenta.setVisible(false);
+        
+        
+        
+        //jlabel
+        jLabel_Ingresar.setVisible(false);
+        jLabel_Modificar.setVisible(false);
+        jLabel_Eliminar.setVisible(false);
+        
     }
 
     /**
@@ -27,89 +41,468 @@ public class Bancos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel_MantenimientoClasiCuenta = new javax.swing.JPanel();
+        jLabel_CC = new javax.swing.JLabel();
+        Panel_IngresarS = new javax.swing.JPanel();
+        Texto_IngresarS = new javax.swing.JLabel();
+        Panel_ModificarS = new javax.swing.JPanel();
+        Texto_ModificarS = new javax.swing.JLabel();
+        Panel_EliminarS = new javax.swing.JPanel();
+        Texto_EliminarS = new javax.swing.JLabel();
+        Panel_ConsultarS = new javax.swing.JPanel();
+        Texto_ConsultarS = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_idclasi = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        txt_nombrecla = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        txt_buscarclasi = new javax.swing.JTextField();
+        jLabel_Ingresar = new javax.swing.JLabel();
+        jLabel_Eliminar = new javax.swing.JLabel();
+        jLabel_Modificar = new javax.swing.JLabel();
+        jScrollPane39 = new javax.swing.JScrollPane();
+        tbl_Clasi = new javax.swing.JTable();
+        jPanel_MantenimientoMoneda = new javax.swing.JPanel();
+        jLabel_MMon = new javax.swing.JLabel();
+        txt_IDM = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txt_NombreM = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        txt_TipoM = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txt_estM = new javax.swing.JTextField();
+        jScrollPane38 = new javax.swing.JScrollPane();
+        tbl_Moneda = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
+        txt_buscarMon = new javax.swing.JTextField();
+        ingresar = new javax.swing.JLabel();
+        eliminar = new javax.swing.JLabel();
+        modificar = new javax.swing.JLabel();
+        Panel_Ingresar_EC = new javax.swing.JPanel();
+        Texto_Ingresar_EC = new javax.swing.JLabel();
+        Panel_Modificar_EC = new javax.swing.JPanel();
+        Texto_Modificar_EC = new javax.swing.JLabel();
+        Panel_Eliminar_EC = new javax.swing.JPanel();
+        Texto_Eliminar_EC = new javax.swing.JLabel();
+        Panel_Consultar_EC = new javax.swing.JPanel();
+        Texto_Consultar_EC = new javax.swing.JLabel();
         Panel_Bancos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         Panel_MIMEC = new javax.swing.JPanel();
-        jLabel_ModificarM = new javax.swing.JLabel();
-        jLabel_EliminarM = new javax.swing.JLabel();
-        jLabel_ConsultarM = new javax.swing.JLabel();
         jLabel_MantenimientoM = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         Panel_MIMEC1 = new javax.swing.JPanel();
-        jLabel_ModificarM1 = new javax.swing.JLabel();
-        jLabel_EliminarM1 = new javax.swing.JLabel();
-        jLabel_ConsultarM1 = new javax.swing.JLabel();
         jLabel_MantenimientoM1 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         Panel_MIMECContable = new javax.swing.JPanel();
-        jLabel_ModificarM2 = new javax.swing.JLabel();
-        jLabel_EliminarM2 = new javax.swing.JLabel();
-        jLabel_ConsultarM2 = new javax.swing.JLabel();
         jLabel_MantenimientoM2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         Panel_MIMEDocumento = new javax.swing.JPanel();
-        jLabel_ModificarM3 = new javax.swing.JLabel();
-        jLabel_EliminarM3 = new javax.swing.JLabel();
-        jLabel_ConsultarM3 = new javax.swing.JLabel();
         jLabel_MantenimientoM3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
         Panel_MIMEConcepto = new javax.swing.JPanel();
-        jLabel_ModificarM4 = new javax.swing.JLabel();
-        jLabel_EliminarM4 = new javax.swing.JLabel();
-        jLabel_ConsultarM4 = new javax.swing.JLabel();
         jLabel_MantenimientoM4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         Panel_MIMEMBE = new javax.swing.JPanel();
-        jLabel_ModificarM5 = new javax.swing.JLabel();
-        jLabel_EliminarM5 = new javax.swing.JLabel();
-        jLabel_ConsultarM5 = new javax.swing.JLabel();
         jLabel_MantenimientoM5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
         Panel_MIMBD = new javax.swing.JPanel();
-        jLabel_ModificarM6 = new javax.swing.JLabel();
-        jLabel_EliminarM6 = new javax.swing.JLabel();
-        jLabel_ConsultarM6 = new javax.swing.JLabel();
         jLabel_MantenimientoM6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
         Panel_MIMFP = new javax.swing.JPanel();
-        jLabel_ModificarM7 = new javax.swing.JLabel();
-        jLabel_EliminarM7 = new javax.swing.JLabel();
-        jLabel_ConsultarM7 = new javax.swing.JLabel();
         jLabel_MantenimientoM7 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
         Panel_MB = new javax.swing.JPanel();
-        jLabel_ModificarM8 = new javax.swing.JLabel();
-        jLabel_EliminarM8 = new javax.swing.JLabel();
-        jLabel_ConsultarM8 = new javax.swing.JLabel();
         jLabel_MantenimientoM8 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
         Panel_MCBEnc = new javax.swing.JPanel();
-        jLabel_ModificarM9 = new javax.swing.JLabel();
-        jLabel_EliminarM9 = new javax.swing.JLabel();
-        jLabel_ConsultarM9 = new javax.swing.JLabel();
         jLabel_MantenimientoM9 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
         Panel_MCBEnc1 = new javax.swing.JPanel();
-        jLabel_ModificarM10 = new javax.swing.JLabel();
-        jLabel_EliminarM10 = new javax.swing.JLabel();
-        jLabel_ConsultarM10 = new javax.swing.JLabel();
         jLabel_MantenimientoM10 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1880, 900));
 
-        Panel_Bancos.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_MantenimientoClasiCuenta.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_MantenimientoClasiCuenta.setPreferredSize(new java.awt.Dimension(1880, 900));
+        jPanel_MantenimientoClasiCuenta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_CC.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        jLabel_CC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_CC.setText("MANTENIMIENTO  CLASIFICACION  CUENTAS");
+        jPanel_MantenimientoClasiCuenta.add(jLabel_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+
+        Panel_IngresarS.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_IngresarS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_IngresarSMouseClicked(evt);
+            }
+        });
+        Panel_IngresarS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_IngresarS.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_IngresarS.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_IngresarS.setText("Ingresar");
+        Texto_IngresarS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_IngresarS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_IngresarSMouseClicked(evt);
+            }
+        });
+        Panel_IngresarS.add(Texto_IngresarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoClasiCuenta.add(Panel_IngresarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 130, 50));
+
+        Panel_ModificarS.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_ModificarS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_ModificarSMouseClicked(evt);
+            }
+        });
+        Panel_ModificarS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_ModificarS.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_ModificarS.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_ModificarS.setText("Modificar");
+        Texto_ModificarS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_ModificarS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_ModificarSMouseClicked(evt);
+            }
+        });
+        Panel_ModificarS.add(Texto_ModificarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
+
+        jPanel_MantenimientoClasiCuenta.add(Panel_ModificarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 130, 50));
+
+        Panel_EliminarS.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_EliminarS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_EliminarS.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_EliminarS.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_EliminarS.setText("Eliminar");
+        Texto_EliminarS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_EliminarS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_EliminarSMouseClicked(evt);
+            }
+        });
+        Panel_EliminarS.add(Texto_EliminarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoClasiCuenta.add(Panel_EliminarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, 130, 50));
+
+        Panel_ConsultarS.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_ConsultarS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_ConsultarS.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_ConsultarS.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_ConsultarS.setText("Consultar");
+        Texto_ConsultarS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_ConsultarS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_ConsultarSMouseClicked(evt);
+            }
+        });
+        Panel_ConsultarS.add(Texto_ConsultarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
+
+        jPanel_MantenimientoClasiCuenta.add(Panel_ConsultarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, 130, 50));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ID CLASIFICACION");
+        jPanel_MantenimientoClasiCuenta.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, -1));
+
+        txt_idclasi.setBackground(new java.awt.Color(40, 41, 46));
+        txt_idclasi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoClasiCuenta.add(txt_idclasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 129, -1));
+
+        jLabel20.setBackground(new java.awt.Color(40, 41, 46));
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("NOMBRE CLASIFICACION");
+        jPanel_MantenimientoClasiCuenta.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, -1, -1));
+
+        txt_nombrecla.setBackground(new java.awt.Color(40, 41, 46));
+        txt_nombrecla.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoClasiCuenta.add(txt_nombrecla, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 177, -1));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
+        jPanel_MantenimientoClasiCuenta.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
+
+        txt_buscarclasi.setBackground(new java.awt.Color(40, 41, 46));
+        txt_buscarclasi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_buscarclasi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_buscarclasiKeyReleased(evt);
+            }
+        });
+        jPanel_MantenimientoClasiCuenta.add(txt_buscarclasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 221, -1));
+
+        jLabel_Ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
+        jLabel_Ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_IngresarMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoClasiCuenta.add(jLabel_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, -1, -1));
+
+        jLabel_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
+        jLabel_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_EliminarMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoClasiCuenta.add(jLabel_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, -1, -1));
+
+        jLabel_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
+        jLabel_Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_ModificarMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoClasiCuenta.add(jLabel_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 280, -1, -1));
+
+        tbl_Clasi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_Clasi.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_Clasi.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_Clasi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_ClasiMouseClicked(evt);
+            }
+        });
+        tbl_Clasi.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                tbl_ClasiCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        jScrollPane39.setViewportView(tbl_Clasi);
+
+        jPanel_MantenimientoClasiCuenta.add(jScrollPane39, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 600, 190));
+
+        jPanel_MantenimientoMoneda.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_MantenimientoMoneda.setPreferredSize(new java.awt.Dimension(1880, 900));
+        jPanel_MantenimientoMoneda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_MMon.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        jLabel_MMon.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MMon.setText("MANTENIMIENTO MONEDA");
+        jPanel_MantenimientoMoneda.add(jLabel_MMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+
+        txt_IDM.setBackground(new java.awt.Color(40, 41, 46));
+        txt_IDM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoMoneda.add(txt_IDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 104, -1));
+
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("ID MONEDA");
+        jPanel_MantenimientoMoneda.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, -1, -1));
+
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("NOMBRE MONEDA");
+        jPanel_MantenimientoMoneda.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, -1, -1));
+
+        txt_NombreM.setBackground(new java.awt.Color(40, 41, 46));
+        txt_NombreM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoMoneda.add(txt_NombreM, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 104, -1));
+
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("TIPO DE CAMBIO");
+        jPanel_MantenimientoMoneda.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, -1, -1));
+
+        txt_TipoM.setBackground(new java.awt.Color(40, 41, 46));
+        txt_TipoM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoMoneda.add(txt_TipoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 270, 104, -1));
+
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("ESTADO MONEDA");
+        jPanel_MantenimientoMoneda.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 250, -1, -1));
+
+        txt_estM.setBackground(new java.awt.Color(40, 41, 46));
+        txt_estM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoMoneda.add(txt_estM, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 270, 104, -1));
+
+        tbl_Moneda.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_Moneda.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_Moneda.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_Moneda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_MonedaMouseClicked(evt);
+            }
+        });
+        jScrollPane38.setViewportView(tbl_Moneda);
+
+        jPanel_MantenimientoMoneda.add(jScrollPane38, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 600, 190));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
+        jPanel_MantenimientoMoneda.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 330, -1, -1));
+
+        txt_buscarMon.setBackground(new java.awt.Color(40, 41, 46));
+        txt_buscarMon.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_buscarMon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_buscarMonKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_buscarMonKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_buscarMonKeyTyped(evt);
+            }
+        });
+        jPanel_MantenimientoMoneda.add(txt_buscarMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 219, -1));
+
+        ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
+        ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresarMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoMoneda.add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 310, -1, -1));
+
+        eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
+        eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminarMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoMoneda.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 310, -1, -1));
+
+        modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
+        modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoMoneda.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 310, -1, -1));
+
+        Panel_Ingresar_EC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Ingresar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Ingresar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_EC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Ingresar_EC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Ingresar_EC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Ingresar_EC.setText("Ingresar");
+        Texto_Ingresar_EC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Ingresar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Ingresar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_EC.add(Texto_Ingresar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoMoneda.add(Panel_Ingresar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 130, 50));
+
+        Panel_Modificar_EC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Modificar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Modificar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_EC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Modificar_EC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Modificar_EC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Modificar_EC.setText("Modificar");
+        Texto_Modificar_EC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Modificar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Modificar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_EC.add(Texto_Modificar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
+
+        jPanel_MantenimientoMoneda.add(Panel_Modificar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 130, 50));
+
+        Panel_Eliminar_EC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Eliminar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Eliminar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_EC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Eliminar_EC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Eliminar_EC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Eliminar_EC.setText("Eliminar");
+        Texto_Eliminar_EC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Eliminar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Eliminar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_EC.add(Texto_Eliminar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoMoneda.add(Panel_Eliminar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 130, 50));
+
+        Panel_Consultar_EC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Consultar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Consultar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_EC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Consultar_EC.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Consultar_EC.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Consultar_EC.setText("Consultar");
+        Texto_Consultar_EC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Consultar_EC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Consultar_ECMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_EC.add(Texto_Consultar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
+
+        jPanel_MantenimientoMoneda.add(Panel_Consultar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 160, 130, 50));
+
+        Panel_Bancos.setBackground(new java.awt.Color(28, 27, 33));
         Panel_Bancos.setPreferredSize(new java.awt.Dimension(1470, 680));
         Panel_Bancos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Bancos");
         Panel_Bancos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 78, -1));
 
-        jLabel2.setText("Moneda");
-        Panel_Bancos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 78, -1));
-
-        Panel_MIMEC.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_MIMEC.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MIMEC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MIMEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MIMEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -117,6 +510,9 @@ public class Bancos extends javax.swing.JFrame {
             }
         });
         Panel_MIMEC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_MIMECMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Panel_MIMECMouseExited(evt);
             }
@@ -126,49 +522,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MIMEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM.setText("Modificar Moneda");
-        jLabel_ModificarM.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarMMouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarMMouseExited(evt);
-            }
-        });
-        Panel_MIMEC.add(jLabel_ModificarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM.setText("Eliminar Moneda");
-        jLabel_EliminarM.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarMMouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarMMouseExited(evt);
-            }
-        });
-        Panel_MIMEC.add(jLabel_EliminarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM.setText("Consultar Moneda");
-        jLabel_ConsultarM.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarMMouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarMMouseExited(evt);
-            }
-        });
-        Panel_MIMEC.add(jLabel_ConsultarM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM.setText("Mantenimiento Moneda");
+        jLabel_MantenimientoM.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM.setText("MANTENIMIENTO MONEDA.");
         jLabel_MantenimientoM.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -183,14 +539,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoMMouseExited(evt);
             }
         });
-        Panel_MIMEC.add(jLabel_MantenimientoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 180, -1));
+        Panel_MIMEC.add(jLabel_MantenimientoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
-        Panel_Bancos.add(Panel_MIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 150, 100));
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Cantidad:");
+        Panel_MIMEC.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 71, -1, -1));
 
-        jLabel3.setText("Clasificacion Cuenta");
-        Panel_Bancos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 130, -1));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("1");
+        Panel_MIMEC.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 68, 20, 20));
 
-        Panel_MIMEC1.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_Bancos.add(Panel_MIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 270, 100));
+
+        Panel_MIMEC1.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MIMEC1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
         Panel_MIMEC1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MIMEC1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -198,6 +560,9 @@ public class Bancos extends javax.swing.JFrame {
             }
         });
         Panel_MIMEC1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_MIMEC1MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Panel_MIMEC1MouseExited(evt);
             }
@@ -207,49 +572,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MIMEC1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM1.setText("Modificar Moneda");
-        jLabel_ModificarM1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM1MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM1MouseExited(evt);
-            }
-        });
-        Panel_MIMEC1.add(jLabel_ModificarM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM1.setText("Eliminar Moneda");
-        jLabel_EliminarM1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM1MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM1MouseExited(evt);
-            }
-        });
-        Panel_MIMEC1.add(jLabel_EliminarM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM1.setText("Consultar Moneda");
-        jLabel_ConsultarM1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM1MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM1MouseExited(evt);
-            }
-        });
-        Panel_MIMEC1.add(jLabel_ConsultarM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM1.setText("Mantenimiento Clasificacion Cuenta");
+        jLabel_MantenimientoM1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM1.setText("MANTENIMIENTO CLASIFICACION CUENTAS");
         jLabel_MantenimientoM1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -264,11 +589,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM1MouseExited(evt);
             }
         });
-        Panel_MIMEC1.add(jLabel_MantenimientoM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 190, -1));
+        Panel_MIMEC1.add(jLabel_MantenimientoM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, -1));
 
-        Panel_Bancos.add(Panel_MIMEC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 210, 100));
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Cantidad:");
+        Panel_MIMEC1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
-        Panel_MIMECContable.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("1");
+        Panel_MIMEC1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 67, 20, 20));
+
+        Panel_Bancos.add(Panel_MIMEC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 270, 100));
+
+        Panel_MIMECContable.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MIMECContable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MIMECContable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MIMECContable.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -285,49 +619,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MIMECContable.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM2.setText("Modificar Moneda");
-        jLabel_ModificarM2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM2MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM2MouseExited(evt);
-            }
-        });
-        Panel_MIMECContable.add(jLabel_ModificarM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM2.setText("Eliminar Moneda");
-        jLabel_EliminarM2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM2MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM2MouseExited(evt);
-            }
-        });
-        Panel_MIMECContable.add(jLabel_EliminarM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM2.setText("Consultar Moneda");
-        jLabel_ConsultarM2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM2MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM2MouseExited(evt);
-            }
-        });
-        Panel_MIMECContable.add(jLabel_ConsultarM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM2.setText("Mantenimiento Cuenta Contable");
+        jLabel_MantenimientoM2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM2.setText("MANTENIMIENTO CUENTA CONTABLE");
         jLabel_MantenimientoM2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -342,17 +636,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM2MouseExited(evt);
             }
         });
-        Panel_MIMECContable.add(jLabel_MantenimientoM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 180, -1));
+        Panel_MIMECContable.add(jLabel_MantenimientoM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 200, -1));
 
-        Panel_Bancos.add(Panel_MIMECContable, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 60, 190, 100));
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Cantidad:");
+        Panel_MIMECContable.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        jLabel4.setText("Cuenta Contable");
-        Panel_Bancos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, 100, -1));
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("1");
+        Panel_MIMECContable.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
 
-        jLabel5.setText("Documento Bancario");
-        Panel_Bancos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 70, 130, -1));
+        Panel_Bancos.add(Panel_MIMECContable, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 270, 100));
 
-        Panel_MIMEDocumento.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_MIMEDocumento.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MIMEDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MIMEDocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MIMEDocumento.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -369,49 +666,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MIMEDocumento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM3.setText("Modificar Moneda");
-        jLabel_ModificarM3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM3MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM3MouseExited(evt);
-            }
-        });
-        Panel_MIMEDocumento.add(jLabel_ModificarM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM3.setText("Eliminar Moneda");
-        jLabel_EliminarM3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM3MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM3MouseExited(evt);
-            }
-        });
-        Panel_MIMEDocumento.add(jLabel_EliminarM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM3.setText("Consultar Moneda");
-        jLabel_ConsultarM3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM3MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM3MouseExited(evt);
-            }
-        });
-        Panel_MIMEDocumento.add(jLabel_ConsultarM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM3.setText("Mantenimiento Doc Bancario ");
+        jLabel_MantenimientoM3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM3.setText("MANTENIMIENTO DOCUMENTO BANCARIO");
         jLabel_MantenimientoM3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -426,14 +683,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM3MouseExited(evt);
             }
         });
-        Panel_MIMEDocumento.add(jLabel_MantenimientoM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 160, -1));
+        Panel_MIMEDocumento.add(jLabel_MantenimientoM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 220, -1));
 
-        Panel_Bancos.add(Panel_MIMEDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 60, 190, 100));
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Cantidad:");
+        Panel_MIMEDocumento.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        jLabel6.setText("Concepto Bancario");
-        Panel_Bancos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 130, -1));
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("1");
+        Panel_MIMEDocumento.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
 
-        Panel_MIMEConcepto.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_Bancos.add(Panel_MIMEDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 60, 270, 100));
+
+        Panel_MIMEConcepto.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MIMEConcepto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MIMEConcepto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MIMEConcepto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -450,49 +713,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MIMEConcepto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM4.setText("Modificar Moneda");
-        jLabel_ModificarM4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM4MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM4MouseExited(evt);
-            }
-        });
-        Panel_MIMEConcepto.add(jLabel_ModificarM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM4.setText("Eliminar Moneda");
-        jLabel_EliminarM4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM4MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM4MouseExited(evt);
-            }
-        });
-        Panel_MIMEConcepto.add(jLabel_EliminarM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM4.setText("Consultar Moneda");
-        jLabel_ConsultarM4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM4MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM4MouseExited(evt);
-            }
-        });
-        Panel_MIMEConcepto.add(jLabel_ConsultarM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM4.setText("Mantenimiento Concepto Bancario");
+        jLabel_MantenimientoM4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM4.setText("MANTENIMIENTO CONCEPTO BANCARIO");
         jLabel_MantenimientoM4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -507,14 +730,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM4MouseExited(evt);
             }
         });
-        Panel_MIMEConcepto.add(jLabel_MantenimientoM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 190, -1));
+        Panel_MIMEConcepto.add(jLabel_MantenimientoM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 210, -1));
 
-        Panel_Bancos.add(Panel_MIMEConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 220, 100));
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("Cantidad:");
+        Panel_MIMEConcepto.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        jLabel7.setText("Mov Ban Enc");
-        Panel_Bancos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 80, -1));
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("1");
+        Panel_MIMEConcepto.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
 
-        Panel_MIMEMBE.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_Bancos.add(Panel_MIMEConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 270, 100));
+
+        Panel_MIMEMBE.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MIMEMBE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MIMEMBE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MIMEMBE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -531,49 +760,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MIMEMBE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM5.setText("Modificar Moneda");
-        jLabel_ModificarM5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM5MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM5MouseExited(evt);
-            }
-        });
-        Panel_MIMEMBE.add(jLabel_ModificarM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM5.setText("Eliminar Moneda");
-        jLabel_EliminarM5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM5MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM5MouseExited(evt);
-            }
-        });
-        Panel_MIMEMBE.add(jLabel_EliminarM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM5.setText("Consultar Moneda");
-        jLabel_ConsultarM5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM5MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM5MouseExited(evt);
-            }
-        });
-        Panel_MIMEMBE.add(jLabel_ConsultarM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM5.setText("Mantenimiento Ban Enc");
+        jLabel_MantenimientoM5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM5.setText("MANTENIMIENTO BANCO ENCABEZADO");
         jLabel_MantenimientoM5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -588,14 +777,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM5MouseExited(evt);
             }
         });
-        Panel_MIMEMBE.add(jLabel_MantenimientoM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 150, -1));
+        Panel_MIMEMBE.add(jLabel_MantenimientoM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        Panel_Bancos.add(Panel_MIMEMBE, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, 150, 100));
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("Cantidad:");
+        Panel_MIMEMBE.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        jLabel8.setText("Mov Ban Detalle");
-        Panel_Bancos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, 90, -1));
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("1");
+        Panel_MIMEMBE.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
 
-        Panel_MIMBD.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_Bancos.add(Panel_MIMEMBE, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 270, 100));
+
+        Panel_MIMBD.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MIMBD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MIMBD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MIMBD.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -612,49 +807,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MIMBD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM6.setText("Modificar Moneda");
-        jLabel_ModificarM6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM6MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM6MouseExited(evt);
-            }
-        });
-        Panel_MIMBD.add(jLabel_ModificarM6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM6.setText("Eliminar Moneda");
-        jLabel_EliminarM6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM6MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM6MouseExited(evt);
-            }
-        });
-        Panel_MIMBD.add(jLabel_EliminarM6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM6.setText("Consultar Moneda");
-        jLabel_ConsultarM6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM6MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM6MouseExited(evt);
-            }
-        });
-        Panel_MIMBD.add(jLabel_ConsultarM6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM6.setText("Mantenimiento Mov Ban Det");
+        jLabel_MantenimientoM6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM6.setText("MANTENIMIENTO MOVIMIENTO BANCARIO DETALLE");
         jLabel_MantenimientoM6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -669,14 +824,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM6MouseExited(evt);
             }
         });
-        Panel_MIMBD.add(jLabel_MantenimientoM6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 190, -1));
+        Panel_MIMBD.add(jLabel_MantenimientoM6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
-        Panel_Bancos.add(Panel_MIMBD, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 180, 100));
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Cantidad:");
+        Panel_MIMBD.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        jLabel9.setText("Forma de Pago ");
-        Panel_Bancos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 200, 90, -1));
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("1");
+        Panel_MIMBD.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
 
-        Panel_MIMFP.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_Bancos.add(Panel_MIMBD, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 270, 100));
+
+        Panel_MIMFP.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MIMFP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MIMFP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MIMFP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -693,49 +854,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MIMFP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM7.setText("Modificar Moneda");
-        jLabel_ModificarM7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM7MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM7MouseExited(evt);
-            }
-        });
-        Panel_MIMFP.add(jLabel_ModificarM7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM7.setText("Eliminar Moneda");
-        jLabel_EliminarM7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM7MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM7MouseExited(evt);
-            }
-        });
-        Panel_MIMFP.add(jLabel_EliminarM7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM7.setText("Consultar Moneda");
-        jLabel_ConsultarM7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM7MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM7MouseExited(evt);
-            }
-        });
-        Panel_MIMFP.add(jLabel_ConsultarM7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM7.setText("Mantenimiento Forma de Pago ");
+        jLabel_MantenimientoM7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM7.setText("MANTENIMIENTO FORMA DE PAGO");
         jLabel_MantenimientoM7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -750,14 +871,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM7MouseExited(evt);
             }
         });
-        Panel_MIMFP.add(jLabel_MantenimientoM7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 190, -1));
+        Panel_MIMFP.add(jLabel_MantenimientoM7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 180, -1));
 
-        Panel_Bancos.add(Panel_MIMFP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 190, 180, 100));
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("Cantidad:");
+        Panel_MIMFP.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
 
-        jLabel10.setText("Banco ");
-        Panel_Bancos.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 60, -1));
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setText("1");
+        Panel_MIMFP.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 20, 20));
 
-        Panel_MB.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_Bancos.add(Panel_MIMFP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 190, 270, 100));
+
+        Panel_MB.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MB.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -774,49 +901,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM8.setText("Modificar Moneda");
-        jLabel_ModificarM8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM8MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM8MouseExited(evt);
-            }
-        });
-        Panel_MB.add(jLabel_ModificarM8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM8.setText("Eliminar Moneda");
-        jLabel_EliminarM8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM8MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM8MouseExited(evt);
-            }
-        });
-        Panel_MB.add(jLabel_EliminarM8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM8.setText("Consultar Moneda");
-        jLabel_ConsultarM8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM8MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM8MouseExited(evt);
-            }
-        });
-        Panel_MB.add(jLabel_ConsultarM8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM8.setText("Mantenimiento Banco");
+        jLabel_MantenimientoM8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM8.setText("MANTENIMIENTO BANCO");
         jLabel_MantenimientoM8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -831,14 +918,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM8MouseExited(evt);
             }
         });
-        Panel_MB.add(jLabel_MantenimientoM8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 140, -1));
+        Panel_MB.add(jLabel_MantenimientoM8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, -1));
 
-        Panel_Bancos.add(Panel_MB, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 130, 100));
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setText("Cantidad:");
+        Panel_MB.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        jLabel11.setText("Conciliacion Ban Enc");
-        Panel_Bancos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 120, -1));
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel39.setText("1");
+        Panel_MB.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
 
-        Panel_MCBEnc.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_Bancos.add(Panel_MB, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 270, 100));
+
+        Panel_MCBEnc.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MCBEnc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MCBEnc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MCBEnc.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -855,49 +948,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MCBEnc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM9.setText("Modificar Moneda");
-        jLabel_ModificarM9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM9MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM9MouseExited(evt);
-            }
-        });
-        Panel_MCBEnc.add(jLabel_ModificarM9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM9.setText("Eliminar Moneda");
-        jLabel_EliminarM9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM9MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM9MouseExited(evt);
-            }
-        });
-        Panel_MCBEnc.add(jLabel_EliminarM9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM9.setText("Consultar Moneda");
-        jLabel_ConsultarM9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM9MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM9MouseExited(evt);
-            }
-        });
-        Panel_MCBEnc.add(jLabel_ConsultarM9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM9.setText("Mantenimiento Conc Ban Enc");
+        jLabel_MantenimientoM9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM9.setText("MANTENIMIENTO CONCEPTO BANCARIO ENCABEZADO");
         jLabel_MantenimientoM9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -912,14 +965,20 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM9MouseExited(evt);
             }
         });
-        Panel_MCBEnc.add(jLabel_MantenimientoM9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 180, -1));
+        Panel_MCBEnc.add(jLabel_MantenimientoM9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
-        Panel_Bancos.add(Panel_MCBEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 180, 100));
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Cantidad:");
+        Panel_MCBEnc.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
 
-        jLabel12.setText("Conciliacion Ban Det");
-        Panel_Bancos.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, 120, -1));
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("1");
+        Panel_MCBEnc.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 20, 20));
 
-        Panel_MCBEnc1.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_Bancos.add(Panel_MCBEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 280, 100));
+
+        Panel_MCBEnc1.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_MCBEnc1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         Panel_MCBEnc1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Panel_MCBEnc1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -936,49 +995,9 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_MCBEnc1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_ModificarM10.setText("Modificar Moneda");
-        jLabel_ModificarM10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ModificarM10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM10MouseMoved(evt);
-            }
-        });
-        jLabel_ModificarM10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ModificarM10MouseExited(evt);
-            }
-        });
-        Panel_MCBEnc1.add(jLabel_ModificarM10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
-
-        jLabel_EliminarM10.setText("Eliminar Moneda");
-        jLabel_EliminarM10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_EliminarM10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM10MouseMoved(evt);
-            }
-        });
-        jLabel_EliminarM10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_EliminarM10MouseExited(evt);
-            }
-        });
-        Panel_MCBEnc1.add(jLabel_EliminarM10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
-
-        jLabel_ConsultarM10.setText("Consultar Moneda");
-        jLabel_ConsultarM10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_ConsultarM10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM10MouseMoved(evt);
-            }
-        });
-        jLabel_ConsultarM10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_ConsultarM10MouseExited(evt);
-            }
-        });
-        Panel_MCBEnc1.add(jLabel_ConsultarM10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
-
-        jLabel_MantenimientoM10.setText("Mantenimiento Conc Ban Det");
+        jLabel_MantenimientoM10.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
+        jLabel_MantenimientoM10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MantenimientoM10.setText("MANTENIMIENTO CONCEPTO BANCARIO DETALLE");
         jLabel_MantenimientoM10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel_MantenimientoM10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -993,19 +1012,47 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_MantenimientoM10MouseExited(evt);
             }
         });
-        Panel_MCBEnc1.add(jLabel_MantenimientoM10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 170, -1));
+        Panel_MCBEnc1.add(jLabel_MantenimientoM10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
-        Panel_Bancos.add(Panel_MCBEnc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 320, 180, 100));
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel42.setText("Cantidad:");
+        Panel_MCBEnc1.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setText("1");
+        Panel_MCBEnc1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
+
+        Panel_Bancos.add(Panel_MCBEnc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, 270, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_Bancos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel_Bancos, javax.swing.GroupLayout.DEFAULT_SIZE, 1880, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_MantenimientoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_MantenimientoClasiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_Bancos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel_Bancos, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_MantenimientoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_MantenimientoClasiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1035,30 +1082,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_MantenimientoM1MouseMoved
 
-    private void jLabel_ConsultarM1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM1MouseExited
-
-    private void jLabel_ConsultarM1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM1MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM1MouseMoved
-
-    private void jLabel_EliminarM1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM1MouseExited
-
-    private void jLabel_EliminarM1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM1MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM1MouseMoved
-
-    private void jLabel_ModificarM1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM1MouseExited
-
-    private void jLabel_ModificarM1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM1MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM1MouseMoved
-
     private void Panel_MIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MIMECMouseReleased
@@ -1085,57 +1108,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_MantenimientoMMouseMoved
 
-    private void jLabel_ConsultarMMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarMMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarMMouseExited
-
-    private void jLabel_ConsultarMMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarMMouseMoved
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jLabel_ConsultarMMouseMoved
-
-    private void jLabel_EliminarMMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarMMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarMMouseExited
-
-    private void jLabel_EliminarMMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarMMouseMoved
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jLabel_EliminarMMouseMoved
-
-    private void jLabel_ModificarMMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarMMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarMMouseExited
-
-    private void jLabel_ModificarMMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarMMouseMoved
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jLabel_ModificarMMouseMoved
-
-    private void jLabel_ModificarM2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM2MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM2MouseMoved
-
-    private void jLabel_ModificarM2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM2MouseExited
-
-    private void jLabel_EliminarM2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM2MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM2MouseMoved
-
-    private void jLabel_EliminarM2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM2MouseExited
-
-    private void jLabel_ConsultarM2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM2MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM2MouseMoved
-
-    private void jLabel_ConsultarM2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM2MouseExited
-
     private void jLabel_MantenimientoM2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM2MouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_MantenimientoM2MouseMoved
@@ -1159,30 +1131,6 @@ public class Bancos extends javax.swing.JFrame {
     private void Panel_MIMECContableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECContableMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MIMECContableMouseReleased
-
-    private void jLabel_ModificarM3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM3MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM3MouseMoved
-
-    private void jLabel_ModificarM3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM3MouseExited
-
-    private void jLabel_EliminarM3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM3MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM3MouseMoved
-
-    private void jLabel_EliminarM3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM3MouseExited
-
-    private void jLabel_ConsultarM3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM3MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM3MouseMoved
-
-    private void jLabel_ConsultarM3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM3MouseExited
 
     private void jLabel_MantenimientoM3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM3MouseMoved
         // TODO add your handling code here:
@@ -1208,30 +1156,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MIMEDocumentoMouseReleased
 
-    private void jLabel_ModificarM4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM4MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM4MouseMoved
-
-    private void jLabel_ModificarM4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM4MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM4MouseExited
-
-    private void jLabel_EliminarM4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM4MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM4MouseMoved
-
-    private void jLabel_EliminarM4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM4MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM4MouseExited
-
-    private void jLabel_ConsultarM4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM4MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM4MouseMoved
-
-    private void jLabel_ConsultarM4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM4MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM4MouseExited
-
     private void jLabel_MantenimientoM4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM4MouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_MantenimientoM4MouseMoved
@@ -1255,30 +1179,6 @@ public class Bancos extends javax.swing.JFrame {
     private void Panel_MIMEConceptoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEConceptoMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MIMEConceptoMouseReleased
-
-    private void jLabel_ModificarM5MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM5MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM5MouseMoved
-
-    private void jLabel_ModificarM5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM5MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM5MouseExited
-
-    private void jLabel_EliminarM5MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM5MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM5MouseMoved
-
-    private void jLabel_EliminarM5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM5MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM5MouseExited
-
-    private void jLabel_ConsultarM5MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM5MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM5MouseMoved
-
-    private void jLabel_ConsultarM5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM5MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM5MouseExited
 
     private void jLabel_MantenimientoM5MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM5MouseMoved
         // TODO add your handling code here:
@@ -1304,30 +1204,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MIMEMBEMouseReleased
 
-    private void jLabel_ModificarM6MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM6MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM6MouseMoved
-
-    private void jLabel_ModificarM6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM6MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM6MouseExited
-
-    private void jLabel_EliminarM6MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM6MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM6MouseMoved
-
-    private void jLabel_EliminarM6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM6MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM6MouseExited
-
-    private void jLabel_ConsultarM6MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM6MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM6MouseMoved
-
-    private void jLabel_ConsultarM6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM6MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM6MouseExited
-
     private void jLabel_MantenimientoM6MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM6MouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_MantenimientoM6MouseMoved
@@ -1351,30 +1227,6 @@ public class Bancos extends javax.swing.JFrame {
     private void Panel_MIMBDMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMBDMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MIMBDMouseReleased
-
-    private void jLabel_ModificarM7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM7MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM7MouseMoved
-
-    private void jLabel_ModificarM7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM7MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM7MouseExited
-
-    private void jLabel_EliminarM7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM7MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM7MouseMoved
-
-    private void jLabel_EliminarM7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM7MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM7MouseExited
-
-    private void jLabel_ConsultarM7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM7MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM7MouseMoved
-
-    private void jLabel_ConsultarM7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM7MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM7MouseExited
 
     private void jLabel_MantenimientoM7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM7MouseMoved
         // TODO add your handling code here:
@@ -1400,30 +1252,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MIMFPMouseReleased
 
-    private void jLabel_ModificarM8MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM8MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM8MouseMoved
-
-    private void jLabel_ModificarM8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM8MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM8MouseExited
-
-    private void jLabel_EliminarM8MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM8MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM8MouseMoved
-
-    private void jLabel_EliminarM8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM8MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM8MouseExited
-
-    private void jLabel_ConsultarM8MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM8MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM8MouseMoved
-
-    private void jLabel_ConsultarM8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM8MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM8MouseExited
-
     private void jLabel_MantenimientoM8MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM8MouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_MantenimientoM8MouseMoved
@@ -1447,30 +1275,6 @@ public class Bancos extends javax.swing.JFrame {
     private void Panel_MBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MBMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MBMouseReleased
-
-    private void jLabel_ModificarM9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM9MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM9MouseMoved
-
-    private void jLabel_ModificarM9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM9MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM9MouseExited
-
-    private void jLabel_EliminarM9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM9MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM9MouseMoved
-
-    private void jLabel_EliminarM9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM9MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM9MouseExited
-
-    private void jLabel_ConsultarM9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM9MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM9MouseMoved
-
-    private void jLabel_ConsultarM9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM9MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM9MouseExited
 
     private void jLabel_MantenimientoM9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM9MouseMoved
         // TODO add your handling code here:
@@ -1496,30 +1300,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MCBEncMouseReleased
 
-    private void jLabel_ModificarM10MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM10MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM10MouseMoved
-
-    private void jLabel_ModificarM10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarM10MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ModificarM10MouseExited
-
-    private void jLabel_EliminarM10MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM10MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM10MouseMoved
-
-    private void jLabel_EliminarM10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarM10MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_EliminarM10MouseExited
-
-    private void jLabel_ConsultarM10MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM10MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM10MouseMoved
-
-    private void jLabel_ConsultarM10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ConsultarM10MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_ConsultarM10MouseExited
-
     private void jLabel_MantenimientoM10MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM10MouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel_MantenimientoM10MouseMoved
@@ -1543,6 +1323,183 @@ public class Bancos extends javax.swing.JFrame {
     private void Panel_MCBEnc1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEnc1MouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_MCBEnc1MouseReleased
+
+    private void Panel_MIMECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseClicked
+        // TODO add your handling code here:
+        Panel_Bancos.setVisible(false);
+        jPanel_MantenimientoMoneda.setVisible(true);
+        Moneda mon = new Moneda (jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        mon.Actualizar_Tabla();
+        
+    }//GEN-LAST:event_Panel_MIMECMouseClicked
+
+    private void tbl_MonedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_MonedaMouseClicked
+        // TODO add your handling code here:
+        int Seleccion = tbl_Moneda.rowAtPoint(evt.getPoint());
+        txt_IDM.setText(String.valueOf(tbl_Moneda.getValueAt(Seleccion, 0)));
+        txt_NombreM.setText(String.valueOf(tbl_Moneda.getValueAt(Seleccion, 1)));
+        txt_TipoM.setText(String.valueOf(tbl_Moneda.getValueAt(Seleccion, 2)));
+        txt_estM.setText(String.valueOf(tbl_Moneda.getValueAt(Seleccion, 3)));
+        Moneda mon = new Moneda (jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+    }//GEN-LAST:event_tbl_MonedaMouseClicked
+
+    private void Texto_Ingresar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Ingresar_ECMouseClicked
+        // TODO add your handling code here:
+        ingresar.setVisible(true);
+        modificar.setVisible(false);
+        eliminar.setVisible(false);
+      
+    }//GEN-LAST:event_Texto_Ingresar_ECMouseClicked
+
+    private void Panel_Ingresar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Ingresar_ECMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Ingresar_ECMouseClicked
+
+    private void Texto_Modificar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Modificar_ECMouseClicked
+        // TODO add your handling code here:
+        ingresar.setVisible(false);
+        modificar.setVisible(true);
+        eliminar.setVisible(false);
+    }//GEN-LAST:event_Texto_Modificar_ECMouseClicked
+
+    private void Panel_Modificar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Modificar_ECMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Modificar_ECMouseClicked
+
+    private void Texto_Eliminar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Eliminar_ECMouseClicked
+        // TODO add your handling code here:
+        ingresar.setVisible(false);
+        modificar.setVisible(false);
+        eliminar.setVisible(true);
+    }//GEN-LAST:event_Texto_Eliminar_ECMouseClicked
+
+    private void Panel_Eliminar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Eliminar_ECMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Eliminar_ECMouseClicked
+
+    private void Texto_Consultar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Consultar_ECMouseClicked
+        // TODO add your handling code here:
+        ingresar.setVisible(false);
+        modificar.setVisible(false);
+        eliminar.setVisible(false);
+    }//GEN-LAST:event_Texto_Consultar_ECMouseClicked
+
+    private void Panel_Consultar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Consultar_ECMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Consultar_ECMouseClicked
+
+    private void ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarMouseClicked
+        // TODO add your handling code here:
+        Moneda mon = new Moneda (jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        mon.Insertar_Me();
+    }//GEN-LAST:event_ingresarMouseClicked
+
+    private void eliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarMouseClicked
+        // TODO add your handling code here:
+        Moneda mon = new Moneda (jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        mon.Eliminar_M();
+    }//GEN-LAST:event_eliminarMouseClicked
+
+    private void modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarMouseClicked
+        // TODO add your handling code here:
+        Moneda mon = new Moneda (jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        mon.Modificar_M();
+    }//GEN-LAST:event_modificarMouseClicked
+
+    private void txt_buscarMonKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarMonKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_buscarMonKeyTyped
+
+    private void txt_buscarMonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarMonKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_buscarMonKeyPressed
+
+    private void txt_buscarMonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarMonKeyReleased
+        // TODO add your handling code here:
+        String buscar = txt_buscarMon.getText();
+        Moneda mon = new Moneda (jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        mon.BuscarMon(buscar);
+    }//GEN-LAST:event_txt_buscarMonKeyReleased
+
+    private void Texto_IngresarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_IngresarSMouseClicked
+
+        jLabel_Eliminar.setVisible(false);
+        jLabel_Ingresar.setVisible(true);
+        jLabel_Modificar.setVisible(false);
+    }//GEN-LAST:event_Texto_IngresarSMouseClicked
+
+    private void Panel_IngresarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_IngresarSMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_IngresarSMouseClicked
+
+    private void Texto_ModificarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_ModificarSMouseClicked
+        jLabel_Eliminar.setVisible(false);
+        jLabel_Ingresar.setVisible(false);
+        jLabel_Modificar.setVisible(true);        
+// TODO add your handling code here:
+    }//GEN-LAST:event_Texto_ModificarSMouseClicked
+
+    private void Panel_ModificarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ModificarSMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_ModificarSMouseClicked
+
+    private void Texto_EliminarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_EliminarSMouseClicked
+        jLabel_Eliminar.setVisible(true);
+        jLabel_Ingresar.setVisible(false);
+        jLabel_Modificar.setVisible(false);   
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Texto_EliminarSMouseClicked
+
+    private void Texto_ConsultarSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_ConsultarSMouseClicked
+        jLabel_Eliminar.setVisible(false);
+        jLabel_Ingresar.setVisible(false);
+        jLabel_Modificar.setVisible(false);   
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Texto_ConsultarSMouseClicked
+
+    private void tbl_ClasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ClasiMouseClicked
+        // TODO add your handling code here:
+        int Seleccion = tbl_Clasi.rowAtPoint(evt.getPoint());
+        txt_idclasi.setText(String.valueOf(tbl_Clasi.getValueAt(Seleccion, 0)));
+        txt_nombrecla.setText(String.valueOf(tbl_Clasi.getValueAt(Seleccion, 1)));
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta (jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+    }//GEN-LAST:event_tbl_ClasiMouseClicked
+
+    private void Panel_MIMEC1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEC1MouseClicked
+        // TODO add your handling code here:
+        Panel_Bancos.setVisible(false);
+        jPanel_MantenimientoClasiCuenta.setVisible(true);
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta (jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        CC.Actualizar_Tabla();
+    }//GEN-LAST:event_Panel_MIMEC1MouseClicked
+
+    private void jLabel_IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarMouseClicked
+        // TODO add your handling code here:
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta (jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        CC.Insertar_CC();
+    }//GEN-LAST:event_jLabel_IngresarMouseClicked
+
+    private void jLabel_EliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_EliminarMouseClicked
+        // TODO add your handling code here:
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta (jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        CC.Eliminar_CC();
+    }//GEN-LAST:event_jLabel_EliminarMouseClicked
+
+    private void jLabel_ModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ModificarMouseClicked
+        // TODO add your handling code here:
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta (jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        CC.Modificar_CC();
+    }//GEN-LAST:event_jLabel_ModificarMouseClicked
+
+    private void txt_buscarclasiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarclasiKeyReleased
+        // TODO add your handling code here:
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta (jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        CC.BuscarCC(txt_buscarclasi.getText());        
+    }//GEN-LAST:event_txt_buscarclasiKeyReleased
+
+    private void tbl_ClasiCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tbl_ClasiCaretPositionChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_ClasiCaretPositionChanged
 
     /**
      * @param args the command line arguments
@@ -1582,6 +1539,12 @@ public class Bancos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_Bancos;
+    private javax.swing.JPanel Panel_ConsultarS;
+    private javax.swing.JPanel Panel_Consultar_EC;
+    private javax.swing.JPanel Panel_EliminarS;
+    private javax.swing.JPanel Panel_Eliminar_EC;
+    private javax.swing.JPanel Panel_IngresarS;
+    private javax.swing.JPanel Panel_Ingresar_EC;
     private javax.swing.JPanel Panel_MB;
     private javax.swing.JPanel Panel_MCBEnc;
     private javax.swing.JPanel Panel_MCBEnc1;
@@ -1593,40 +1556,53 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_MIMEDocumento;
     private javax.swing.JPanel Panel_MIMEMBE;
     private javax.swing.JPanel Panel_MIMFP;
+    private javax.swing.JPanel Panel_ModificarS;
+    private javax.swing.JPanel Panel_Modificar_EC;
+    private javax.swing.JLabel Texto_ConsultarS;
+    private javax.swing.JLabel Texto_Consultar_EC;
+    private javax.swing.JLabel Texto_EliminarS;
+    private javax.swing.JLabel Texto_Eliminar_EC;
+    private javax.swing.JLabel Texto_IngresarS;
+    private javax.swing.JLabel Texto_Ingresar_EC;
+    private javax.swing.JLabel Texto_ModificarS;
+    private javax.swing.JLabel Texto_Modificar_EC;
+    private javax.swing.JLabel eliminar;
+    private javax.swing.JLabel ingresar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel_ConsultarM;
-    private javax.swing.JLabel jLabel_ConsultarM1;
-    private javax.swing.JLabel jLabel_ConsultarM10;
-    private javax.swing.JLabel jLabel_ConsultarM2;
-    private javax.swing.JLabel jLabel_ConsultarM3;
-    private javax.swing.JLabel jLabel_ConsultarM4;
-    private javax.swing.JLabel jLabel_ConsultarM5;
-    private javax.swing.JLabel jLabel_ConsultarM6;
-    private javax.swing.JLabel jLabel_ConsultarM7;
-    private javax.swing.JLabel jLabel_ConsultarM8;
-    private javax.swing.JLabel jLabel_ConsultarM9;
-    private javax.swing.JLabel jLabel_EliminarM;
-    private javax.swing.JLabel jLabel_EliminarM1;
-    private javax.swing.JLabel jLabel_EliminarM10;
-    private javax.swing.JLabel jLabel_EliminarM2;
-    private javax.swing.JLabel jLabel_EliminarM3;
-    private javax.swing.JLabel jLabel_EliminarM4;
-    private javax.swing.JLabel jLabel_EliminarM5;
-    private javax.swing.JLabel jLabel_EliminarM6;
-    private javax.swing.JLabel jLabel_EliminarM7;
-    private javax.swing.JLabel jLabel_EliminarM8;
-    private javax.swing.JLabel jLabel_EliminarM9;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel_CC;
+    private javax.swing.JLabel jLabel_Eliminar;
+    private javax.swing.JLabel jLabel_Ingresar;
+    private javax.swing.JLabel jLabel_MMon;
     private javax.swing.JLabel jLabel_MantenimientoM;
     private javax.swing.JLabel jLabel_MantenimientoM1;
     private javax.swing.JLabel jLabel_MantenimientoM10;
@@ -1638,16 +1614,21 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_MantenimientoM7;
     private javax.swing.JLabel jLabel_MantenimientoM8;
     private javax.swing.JLabel jLabel_MantenimientoM9;
-    private javax.swing.JLabel jLabel_ModificarM;
-    private javax.swing.JLabel jLabel_ModificarM1;
-    private javax.swing.JLabel jLabel_ModificarM10;
-    private javax.swing.JLabel jLabel_ModificarM2;
-    private javax.swing.JLabel jLabel_ModificarM3;
-    private javax.swing.JLabel jLabel_ModificarM4;
-    private javax.swing.JLabel jLabel_ModificarM5;
-    private javax.swing.JLabel jLabel_ModificarM6;
-    private javax.swing.JLabel jLabel_ModificarM7;
-    private javax.swing.JLabel jLabel_ModificarM8;
-    private javax.swing.JLabel jLabel_ModificarM9;
+    private javax.swing.JLabel jLabel_Modificar;
+    private javax.swing.JPanel jPanel_MantenimientoClasiCuenta;
+    private javax.swing.JPanel jPanel_MantenimientoMoneda;
+    private javax.swing.JScrollPane jScrollPane38;
+    private javax.swing.JScrollPane jScrollPane39;
+    private javax.swing.JLabel modificar;
+    private javax.swing.JTable tbl_Clasi;
+    private javax.swing.JTable tbl_Moneda;
+    private javax.swing.JTextField txt_IDM;
+    private javax.swing.JTextField txt_NombreM;
+    private javax.swing.JTextField txt_TipoM;
+    private javax.swing.JTextField txt_buscarMon;
+    private javax.swing.JTextField txt_buscarclasi;
+    private javax.swing.JTextField txt_estM;
+    private javax.swing.JTextField txt_idclasi;
+    private javax.swing.JTextField txt_nombrecla;
     // End of variables declaration//GEN-END:variables
 }
