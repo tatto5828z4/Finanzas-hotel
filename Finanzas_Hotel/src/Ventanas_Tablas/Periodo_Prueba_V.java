@@ -94,9 +94,9 @@ public class Periodo_Prueba_V extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        Movimiento.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 20, 30));
+        Movimiento.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 20, 30));
 
-        Panel_AP.add(Movimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 40));
+        Panel_AP.add(Movimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 40));
 
         jLabel_BuscarPP.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_BuscarPP.setText("Buscar");
@@ -142,7 +142,7 @@ public class Periodo_Prueba_V extends javax.swing.JFrame {
         });
         jScrollPane36.setViewportView(tbl_PP);
 
-        Panel_AP.add(jScrollPane36, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 600, 190));
+        Panel_AP.add(jScrollPane36, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 600, 190));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
         Panel_AP.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
@@ -213,11 +213,11 @@ public class Periodo_Prueba_V extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_AP, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
+            .addComponent(Panel_AP, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_AP, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
+            .addComponent(Panel_AP, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -324,6 +324,8 @@ public class Periodo_Prueba_V extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Periodo_Prueba_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

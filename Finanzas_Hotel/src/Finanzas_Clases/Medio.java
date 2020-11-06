@@ -41,13 +41,7 @@ public class Medio {
         this.txt_BuscarM = txt_BuscarM;
         this.tbl_Medio = tbl_Medio;
     }
-
-    public Medio(JTextField txt_id_Medio, JLabel jLabel_ID_SEM, JTextField txt_NombreM, JTextArea jTextArea_DescripcionM) {
-        
-    }
-
-    
-     public void Actualizar_Tabla()
+    public void Actualizar_Tabla()
     {
         int cantidad = Cantidad_Registros();        
         String[] M_Datos = new String [4];
@@ -79,7 +73,7 @@ public class Medio {
             System.out.println(e);
         }                
     }
-     public int Cantidad_Registros()
+    public int Cantidad_Registros()
     {
         int cant = 0;        
         try
@@ -100,7 +94,7 @@ public class Medio {
         return cant;
     }
      
-     public void Insertar_Me()
+    public void Insertar_Me()
     {
         try
         {
@@ -126,7 +120,7 @@ public class Medio {
         }
     }
     
-     public void Eliminar_SE()
+    public void Eliminar_SE()
     {
         try
         {
@@ -151,7 +145,7 @@ public class Medio {
         }
     }
      
-     public void Modificar_SE()
+    public void Modificar_SE()
     {
         try
         {
@@ -177,7 +171,7 @@ public class Medio {
         }
     }
      
-      public DefaultTableModel BuscarM(String Buscar)
+    public DefaultTableModel BuscarM(String Buscar)
     {
         String[] nombre_ColumnasM = {"ID MEDIO", "ID SOLICITUD","NOMBRE MEDIO","DESCRIPCION"};
         String[] RegistrosM = new String[4];
