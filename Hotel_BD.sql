@@ -353,8 +353,9 @@ create table forma_pago(
     foreign key (id_concepto) references concepto_movimiento(id_concepto),
     foreign key (id_formapago) references forma_pago(id_formapago)
 ) engine = InnoDB default char set=latin1;*/
-
+-- Drop table banco;
 create table banco(
+	id_banco varchar(10)primary key,
 	nombre_banco varchar(50),
     nombre_cuenta varchar(50), /*Cuenta maestra*/
     clave_banco varchar(10),
@@ -380,6 +381,8 @@ create table conciliacion_bancenc(
     saldo_final float
 ) engine = InnoDB default char set=latin1;
 
+
+-- jorge
 create table conciliacion_bancaria_det(
 	id_encabezado varchar(10), /*foranea*/
 	codigo_concepto varchar(10), /*foranea*/
