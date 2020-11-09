@@ -5,8 +5,11 @@
  */
 package Finanzas;
 
+import Finanzas_Clases.Banco;
 import Finanzas_Clases.Clasificacion_Cuenta;
 import Finanzas_Clases.Concepto_Bancario;
+import Finanzas_Clases.Concilacion_Bancaria_Encabezado;
+import Finanzas_Clases.Conciliacion_Bancaria_Detalle;
 import Finanzas_Clases.Cuenta_Contable;
 import Finanzas_Clases.Documento_Bancario;
 import Finanzas_Clases.Forma_de_Pago;
@@ -36,18 +39,25 @@ public class Bancos extends javax.swing.JFrame {
         JPanel_MantenimientoMovimientoBanEn.setVisible(false);
         jPanel_MantenimientoMovBanDet.setVisible(false);
         jPanel_Forma_de_Pago.setVisible(false);
+        jPanel_MantenimientoBanco.setVisible(false);
+        jPanel_Manatenimiento_ConBanEn.setVisible(false);
+        jPanel_Mantenimiento_CBD.setVisible(false);
 
         //jlabel
         jLabel_Modificar.setVisible(false);
         jLabel_Eliminar.setVisible(false);
         modificard.setVisible(false);
         eliminard.setVisible(false);
+        
+        IngresaB1.setVisible(true);
+        ModificarB1.setVisible(false);
+        EliminarB1.setVisible(false);
 
         // Iconos Panel Cuenta Contable Insertar- Modificar-Eliminar
         jLabel_ModificarCC.setVisible(false);
         jLabel_EliminarCC.setVisible(false);
-        
-         //Label Moneda
+
+        //Label Moneda
         ingresar.setVisible(true);
         modificar.setVisible(false);
         eliminar.setVisible(false);
@@ -61,10 +71,19 @@ public class Bancos extends javax.swing.JFrame {
         jLabel_IngresarMBEN.setVisible(true);
         jLabel_Modificar_MBEN.setVisible(false);
         jLabel_Eliminar_MBEN.setVisible(false);
-        
+
         //Label Movimiento Bancario Detalle (Pendiente para el diseño)
         //Label Forma de Pago (pendiente para el diseño) 
+        //Labels Bancos
+        IngresaB.setVisible(true);
+        EliminarB.setVisible(false);
+        ModificarB.setVisible(false);
 
+        //
+        //ingresarConcilacionEn.setVisible(true);
+        ingresarConcilacionEn.setVisible(true);
+        eliminarConcilacionEn.setVisible(false);
+        modificarConcilacionEn.setVisible(false);
     }
 
     /**
@@ -76,6 +95,117 @@ public class Bancos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel_Mantenimiento_CBD = new javax.swing.JPanel();
+        jLabel_MMon4 = new javax.swing.JLabel();
+        jScrollPane46 = new javax.swing.JScrollPane();
+        tbl_CBD = new javax.swing.JTable();
+        jLabel90 = new javax.swing.JLabel();
+        txt_buscardCBD = new javax.swing.JTextField();
+        IngresaB1 = new javax.swing.JLabel();
+        EliminarB1 = new javax.swing.JLabel();
+        ModificarB1 = new javax.swing.JLabel();
+        Panel_Ingresar_B1 = new javax.swing.JPanel();
+        Texto_Ingresar_B1 = new javax.swing.JLabel();
+        Panel_Modificar_B1 = new javax.swing.JPanel();
+        Texto_Modificar_B1 = new javax.swing.JLabel();
+        Panel_Eliminar_B1 = new javax.swing.JPanel();
+        Texto_Eliminar_B1 = new javax.swing.JLabel();
+        Panel_Consultar_B1 = new javax.swing.JPanel();
+        Texto_Consultar_B1 = new javax.swing.JLabel();
+        jLabel91 = new javax.swing.JLabel();
+        jLabel92 = new javax.swing.JLabel();
+        jLabel93 = new javax.swing.JLabel();
+        txt_fechaap = new javax.swing.JTextField();
+        jLabel_ID_Encabezado = new javax.swing.JLabel();
+        jComboBoxIDFormaPago = new javax.swing.JComboBox<>();
+        jLabel95 = new javax.swing.JLabel();
+        jLabel96 = new javax.swing.JLabel();
+        jLabel97 = new javax.swing.JLabel();
+        txt_beneficiario = new javax.swing.JTextField();
+        jLabel98 = new javax.swing.JLabel();
+        txt_estcon = new javax.swing.JTextField();
+        jLabel99 = new javax.swing.JLabel();
+        txt_abono = new javax.swing.JTextField();
+        jLabel_Idcodigoconcepto = new javax.swing.JLabel();
+        jComboBoxCODIGOCONCEPTO = new javax.swing.JComboBox<>();
+        jLabel101 = new javax.swing.JLabel();
+        txt_cargo = new javax.swing.JTextField();
+        jComboBoxIDEncabezado = new javax.swing.JComboBox<>();
+        jLabel_idformapago = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea_Descrip = new javax.swing.JTextArea();
+        jPanel_Manatenimiento_ConBanEn = new javax.swing.JPanel();
+        jLabel_MMon3 = new javax.swing.JLabel();
+        txt_IdEnca = new javax.swing.JTextField();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        txt_CargoAConciliar = new javax.swing.JTextField();
+        jLabel72 = new javax.swing.JLabel();
+        txt_AbonoA_Conciliar = new javax.swing.JTextField();
+        jLabel73 = new javax.swing.JLabel();
+        txt_SaldoCorte = new javax.swing.JTextField();
+        jScrollPane45 = new javax.swing.JScrollPane();
+        tbl_ConcilacioEn = new javax.swing.JTable();
+        jLabel86 = new javax.swing.JLabel();
+        txt_BuscarCoBaEn = new javax.swing.JTextField();
+        ingresarConcilacionEn = new javax.swing.JLabel();
+        eliminarConcilacionEn = new javax.swing.JLabel();
+        modificarConcilacionEn = new javax.swing.JLabel();
+        Panel_Ingresar_CoBaEn = new javax.swing.JPanel();
+        Texto_Ingresar_CoBaEn = new javax.swing.JLabel();
+        Panel_Modificar_CoBaEn = new javax.swing.JPanel();
+        Texto_Modificar_CoBaEn = new javax.swing.JLabel();
+        Panel_Eliminar_CoBaEn = new javax.swing.JPanel();
+        Texto_Eliminar_CoBaEn = new javax.swing.JLabel();
+        Panel_Consultar_CoBaEn = new javax.swing.JPanel();
+        Texto_Consultar_CoBaEn = new javax.swing.JLabel();
+        txt_Cargo_Conciliado = new javax.swing.JTextField();
+        jLabel87 = new javax.swing.JLabel();
+        jLabel88 = new javax.swing.JLabel();
+        txt_Abono_Conciliado = new javax.swing.JTextField();
+        jLabel89 = new javax.swing.JLabel();
+        txt_Saldo_Final = new javax.swing.JTextField();
+        jPanel_MantenimientoBanco = new javax.swing.JPanel();
+        jLabel_MMon2 = new javax.swing.JLabel();
+        jScrollPane44 = new javax.swing.JScrollPane();
+        tbl_Bancos = new javax.swing.JTable();
+        jLabel74 = new javax.swing.JLabel();
+        txt_buscardBan = new javax.swing.JTextField();
+        IngresaB = new javax.swing.JLabel();
+        EliminarB = new javax.swing.JLabel();
+        ModificarB = new javax.swing.JLabel();
+        Panel_Ingresar_B = new javax.swing.JPanel();
+        Texto_Ingresar_B = new javax.swing.JLabel();
+        Panel_Modificar_B = new javax.swing.JPanel();
+        Texto_Modificar_B = new javax.swing.JLabel();
+        Panel_Eliminar_B = new javax.swing.JPanel();
+        Texto_Eliminar_B = new javax.swing.JLabel();
+        Panel_Consultar_B = new javax.swing.JPanel();
+        Texto_Consultar_B = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        jTextField_IDBanco = new javax.swing.JTextField();
+        jLabel76 = new javax.swing.JLabel();
+        jLabel77 = new javax.swing.JLabel();
+        jTextField_NombreBanco = new javax.swing.JTextField();
+        jLabel78 = new javax.swing.JLabel();
+        jTextField_NombreC = new javax.swing.JTextField();
+        jLabel_ID_Moneda = new javax.swing.JLabel();
+        jComboBoxIDMoneda = new javax.swing.JComboBox<>();
+        jTextField_ClaveBan = new javax.swing.JTextField();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        jTextField_Funcionario = new javax.swing.JTextField();
+        jLabel81 = new javax.swing.JLabel();
+        jTextField_Telefono = new javax.swing.JTextField();
+        jLabel82 = new javax.swing.JLabel();
+        jTextField_NumeroPlaza = new javax.swing.JTextField();
+        jLabel83 = new javax.swing.JLabel();
+        jTextField_SaldoI = new javax.swing.JTextField();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel_IdMovimiento = new javax.swing.JLabel();
+        jComboBoxIDMovEn = new javax.swing.JComboBox<>();
+        jLabel84 = new javax.swing.JLabel();
+        jTextField_NumeroS = new javax.swing.JTextField();
         jPanel_Forma_de_Pago = new javax.swing.JPanel();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
@@ -334,6 +464,800 @@ public class Bancos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1880, 900));
+
+        jPanel_Mantenimiento_CBD.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_Mantenimiento_CBD.setPreferredSize(new java.awt.Dimension(1880, 900));
+        jPanel_Mantenimiento_CBD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_MMon4.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        jLabel_MMon4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MMon4.setText("MANTENIMIENTO COINCILIACION BANCARIA DETALLE.");
+        jPanel_Mantenimiento_CBD.add(jLabel_MMon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
+
+        tbl_CBD.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_CBD.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_CBD.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_CBD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_CBDMouseClicked(evt);
+            }
+        });
+        tbl_CBD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbl_CBDKeyReleased(evt);
+            }
+        });
+        jScrollPane46.setViewportView(tbl_CBD);
+
+        jPanel_Mantenimiento_CBD.add(jScrollPane46, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 600, 190));
+
+        jLabel90.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
+        jPanel_Mantenimiento_CBD.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 520, -1, -1));
+
+        txt_buscardCBD.setBackground(new java.awt.Color(40, 41, 46));
+        txt_buscardCBD.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_buscardCBD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_buscardCBDKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_buscardCBDKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_buscardCBDKeyTyped(evt);
+            }
+        });
+        jPanel_Mantenimiento_CBD.add(txt_buscardCBD, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 520, 219, -1));
+
+        IngresaB1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
+        IngresaB1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IngresaB1MouseClicked(evt);
+            }
+        });
+        jPanel_Mantenimiento_CBD.add(IngresaB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, -1, -1));
+
+        EliminarB1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
+        EliminarB1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EliminarB1MouseClicked(evt);
+            }
+        });
+        jPanel_Mantenimiento_CBD.add(EliminarB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, -1, -1));
+
+        ModificarB1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
+        ModificarB1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ModificarB1MouseClicked(evt);
+            }
+        });
+        jPanel_Mantenimiento_CBD.add(ModificarB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, -1, -1));
+
+        Panel_Ingresar_B1.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Ingresar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Ingresar_B1MouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_B1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Ingresar_B1.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Ingresar_B1.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Ingresar_B1.setText("Ingresar");
+        Texto_Ingresar_B1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Ingresar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Ingresar_B1MouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_B1.add(Texto_Ingresar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_Mantenimiento_CBD.add(Panel_Ingresar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 130, 50));
+
+        Panel_Modificar_B1.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Modificar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Modificar_B1MouseClicked(evt);
+            }
+        });
+        Panel_Modificar_B1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Modificar_B1.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Modificar_B1.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Modificar_B1.setText("Modificar");
+        Texto_Modificar_B1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Modificar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Modificar_B1MouseClicked(evt);
+            }
+        });
+        Panel_Modificar_B1.add(Texto_Modificar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
+
+        jPanel_Mantenimiento_CBD.add(Panel_Modificar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 130, 50));
+
+        Panel_Eliminar_B1.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Eliminar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Eliminar_B1MouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_B1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Eliminar_B1.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Eliminar_B1.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Eliminar_B1.setText("Eliminar");
+        Texto_Eliminar_B1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Eliminar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Eliminar_B1MouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_B1.add(Texto_Eliminar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_Mantenimiento_CBD.add(Panel_Eliminar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 130, 50));
+
+        Panel_Consultar_B1.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Consultar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Consultar_B1MouseClicked(evt);
+            }
+        });
+        Panel_Consultar_B1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Consultar_B1.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Consultar_B1.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Consultar_B1.setText("Consultar");
+        Texto_Consultar_B1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Consultar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Consultar_B1MouseClicked(evt);
+            }
+        });
+        Panel_Consultar_B1.add(Texto_Consultar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
+
+        jPanel_Mantenimiento_CBD.add(Panel_Consultar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 180, 130, 50));
+
+        jLabel91.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel91.setText("ID ENCABEZADO");
+        jPanel_Mantenimiento_CBD.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 90, -1));
+
+        jLabel92.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel92.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel92.setText("CODIGO CONCEPTO");
+        jPanel_Mantenimiento_CBD.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, -1));
+
+        jLabel93.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel93.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel93.setText("FECHA APLICACION");
+        jPanel_Mantenimiento_CBD.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, -1, -1));
+
+        txt_fechaap.setBackground(new java.awt.Color(40, 41, 46));
+        txt_fechaap.setForeground(new java.awt.Color(153, 153, 153));
+        txt_fechaap.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Mantenimiento_CBD.add(txt_fechaap, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 320, 139, -1));
+
+        jLabel_ID_Encabezado.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_ID_Encabezado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_Mantenimiento_CBD.add(jLabel_ID_Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 40, 20));
+
+        jComboBoxIDFormaPago.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBoxIDFormaPago.setForeground(new java.awt.Color(153, 153, 153));
+        jComboBoxIDFormaPago.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jComboBoxIDFormaPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxIDFormaPagoActionPerformed(evt);
+            }
+        });
+        jPanel_Mantenimiento_CBD.add(jComboBoxIDFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 320, 120, -1));
+
+        jLabel95.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel95.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel95.setText("DESCRIPCION");
+        jPanel_Mantenimiento_CBD.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 300, 80, -1));
+
+        jLabel96.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel96.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel96.setText("ID FORMA DE PAGO");
+        jPanel_Mantenimiento_CBD.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 300, 100, -1));
+
+        jLabel97.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel97.setText("BENEFICIARIO");
+        jPanel_Mantenimiento_CBD.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 100, -1));
+
+        txt_beneficiario.setBackground(new java.awt.Color(40, 41, 46));
+        txt_beneficiario.setForeground(new java.awt.Color(153, 153, 153));
+        txt_beneficiario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Mantenimiento_CBD.add(txt_beneficiario, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 130, -1));
+
+        jLabel98.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel98.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel98.setText("ESTADO CONCILACION");
+        jPanel_Mantenimiento_CBD.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 120, -1));
+
+        txt_estcon.setBackground(new java.awt.Color(40, 41, 46));
+        txt_estcon.setForeground(new java.awt.Color(153, 153, 153));
+        txt_estcon.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Mantenimiento_CBD.add(txt_estcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, 130, -1));
+
+        jLabel99.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel99.setText("ABONO");
+        jPanel_Mantenimiento_CBD.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 430, 110, -1));
+
+        txt_abono.setBackground(new java.awt.Color(40, 41, 46));
+        txt_abono.setForeground(new java.awt.Color(153, 153, 153));
+        txt_abono.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Mantenimiento_CBD.add(txt_abono, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 450, 130, -1));
+
+        jLabel_Idcodigoconcepto.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Idcodigoconcepto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_Mantenimiento_CBD.add(jLabel_Idcodigoconcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 40, 20));
+
+        jComboBoxCODIGOCONCEPTO.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBoxCODIGOCONCEPTO.setForeground(new java.awt.Color(153, 153, 153));
+        jComboBoxCODIGOCONCEPTO.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jComboBoxCODIGOCONCEPTO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCODIGOCONCEPTOActionPerformed(evt);
+            }
+        });
+        jPanel_Mantenimiento_CBD.add(jComboBoxCODIGOCONCEPTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 120, -1));
+
+        jLabel101.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel101.setText("CARGO");
+        jPanel_Mantenimiento_CBD.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 110, -1));
+
+        txt_cargo.setBackground(new java.awt.Color(40, 41, 46));
+        txt_cargo.setForeground(new java.awt.Color(153, 153, 153));
+        txt_cargo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Mantenimiento_CBD.add(txt_cargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, 130, -1));
+
+        jComboBoxIDEncabezado.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBoxIDEncabezado.setForeground(new java.awt.Color(153, 153, 153));
+        jComboBoxIDEncabezado.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jComboBoxIDEncabezado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxIDEncabezadoActionPerformed(evt);
+            }
+        });
+        jPanel_Mantenimiento_CBD.add(jComboBoxIDEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 120, -1));
+
+        jLabel_idformapago.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel_Mantenimiento_CBD.add(jLabel_idformapago, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 320, 40, 20));
+
+        jTextArea_Descrip.setColumns(20);
+        jTextArea_Descrip.setRows(5);
+        jScrollPane2.setViewportView(jTextArea_Descrip);
+
+        jPanel_Mantenimiento_CBD.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 320, -1, -1));
+
+        jPanel_Manatenimiento_ConBanEn.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_Manatenimiento_ConBanEn.setPreferredSize(new java.awt.Dimension(1880, 900));
+        jPanel_Manatenimiento_ConBanEn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_MMon3.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        jLabel_MMon3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MMon3.setText("Conciliacion Bancaria Encabezado");
+        jPanel_Manatenimiento_ConBanEn.add(jLabel_MMon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
+
+        txt_IdEnca.setBackground(new java.awt.Color(40, 41, 46));
+        txt_IdEnca.setForeground(new java.awt.Color(255, 255, 255));
+        txt_IdEnca.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Manatenimiento_ConBanEn.add(txt_IdEnca, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 110, -1));
+
+        jLabel70.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel70.setText("ID Encabezado");
+        jPanel_Manatenimiento_ConBanEn.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, -1));
+
+        jLabel71.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel71.setText("Cargo A Conciliar");
+        jPanel_Manatenimiento_ConBanEn.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, -1, -1));
+
+        txt_CargoAConciliar.setBackground(new java.awt.Color(40, 41, 46));
+        txt_CargoAConciliar.setForeground(new java.awt.Color(255, 255, 255));
+        txt_CargoAConciliar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Manatenimiento_ConBanEn.add(txt_CargoAConciliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 110, -1));
+
+        jLabel72.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel72.setText("Abono A Conciliar");
+        jPanel_Manatenimiento_ConBanEn.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 270, 90, -1));
+
+        txt_AbonoA_Conciliar.setBackground(new java.awt.Color(40, 41, 46));
+        txt_AbonoA_Conciliar.setForeground(new java.awt.Color(255, 255, 255));
+        txt_AbonoA_Conciliar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Manatenimiento_ConBanEn.add(txt_AbonoA_Conciliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 104, -1));
+
+        jLabel73.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel73.setText("Saldo Corte");
+        jPanel_Manatenimiento_ConBanEn.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 270, -1, -1));
+
+        txt_SaldoCorte.setBackground(new java.awt.Color(40, 41, 46));
+        txt_SaldoCorte.setForeground(new java.awt.Color(255, 255, 255));
+        txt_SaldoCorte.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Manatenimiento_ConBanEn.add(txt_SaldoCorte, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 290, 120, -1));
+
+        tbl_ConcilacioEn.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_ConcilacioEn.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_ConcilacioEn.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_ConcilacioEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_ConcilacioEnMouseClicked(evt);
+            }
+        });
+        jScrollPane45.setViewportView(tbl_ConcilacioEn);
+
+        jPanel_Manatenimiento_ConBanEn.add(jScrollPane45, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 600, 190));
+
+        jLabel86.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
+        jPanel_Manatenimiento_ConBanEn.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
+
+        txt_BuscarCoBaEn.setBackground(new java.awt.Color(40, 41, 46));
+        txt_BuscarCoBaEn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_BuscarCoBaEn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_BuscarCoBaEnKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_BuscarCoBaEnKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_BuscarCoBaEnKeyTyped(evt);
+            }
+        });
+        jPanel_Manatenimiento_ConBanEn.add(txt_BuscarCoBaEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 219, -1));
+
+        ingresarConcilacionEn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
+        ingresarConcilacionEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresarConcilacionEnMouseClicked(evt);
+            }
+        });
+        jPanel_Manatenimiento_ConBanEn.add(ingresarConcilacionEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 390, -1, -1));
+
+        eliminarConcilacionEn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
+        eliminarConcilacionEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminarConcilacionEnMouseClicked(evt);
+            }
+        });
+        jPanel_Manatenimiento_ConBanEn.add(eliminarConcilacionEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 390, -1, -1));
+
+        modificarConcilacionEn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
+        modificarConcilacionEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarConcilacionEnMouseClicked(evt);
+            }
+        });
+        jPanel_Manatenimiento_ConBanEn.add(modificarConcilacionEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 390, -1, -1));
+
+        Panel_Ingresar_CoBaEn.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Ingresar_CoBaEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Ingresar_CoBaEnMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_CoBaEn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Ingresar_CoBaEn.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Ingresar_CoBaEn.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Ingresar_CoBaEn.setText("Ingresar");
+        Texto_Ingresar_CoBaEn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Ingresar_CoBaEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Ingresar_CoBaEnMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_CoBaEn.add(Texto_Ingresar_CoBaEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_Manatenimiento_ConBanEn.add(Panel_Ingresar_CoBaEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 130, 50));
+
+        Panel_Modificar_CoBaEn.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Modificar_CoBaEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Modificar_CoBaEnMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_CoBaEn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Modificar_CoBaEn.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Modificar_CoBaEn.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Modificar_CoBaEn.setText("Modificar");
+        Texto_Modificar_CoBaEn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Modificar_CoBaEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Modificar_CoBaEnMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_CoBaEn.add(Texto_Modificar_CoBaEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
+
+        jPanel_Manatenimiento_ConBanEn.add(Panel_Modificar_CoBaEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 130, 50));
+
+        Panel_Eliminar_CoBaEn.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Eliminar_CoBaEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Eliminar_CoBaEnMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_CoBaEn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Eliminar_CoBaEn.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Eliminar_CoBaEn.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Eliminar_CoBaEn.setText("Eliminar");
+        Texto_Eliminar_CoBaEn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Eliminar_CoBaEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Eliminar_CoBaEnMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_CoBaEn.add(Texto_Eliminar_CoBaEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_Manatenimiento_ConBanEn.add(Panel_Eliminar_CoBaEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 130, 50));
+
+        Panel_Consultar_CoBaEn.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Consultar_CoBaEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Consultar_CoBaEnMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_CoBaEn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Consultar_CoBaEn.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Consultar_CoBaEn.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Consultar_CoBaEn.setText("Consultar");
+        Texto_Consultar_CoBaEn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Consultar_CoBaEn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Consultar_CoBaEnMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_CoBaEn.add(Texto_Consultar_CoBaEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
+
+        jPanel_Manatenimiento_ConBanEn.add(Panel_Consultar_CoBaEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 180, 130, 50));
+
+        txt_Cargo_Conciliado.setBackground(new java.awt.Color(40, 41, 46));
+        txt_Cargo_Conciliado.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Cargo_Conciliado.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Manatenimiento_ConBanEn.add(txt_Cargo_Conciliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 110, -1));
+
+        jLabel87.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel87.setText("Cargo Conciliado");
+        jPanel_Manatenimiento_ConBanEn.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, -1, -1));
+
+        jLabel88.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel88.setText("Abono Conciliado");
+        jPanel_Manatenimiento_ConBanEn.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, -1, -1));
+
+        txt_Abono_Conciliado.setBackground(new java.awt.Color(40, 41, 46));
+        txt_Abono_Conciliado.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Abono_Conciliado.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Manatenimiento_ConBanEn.add(txt_Abono_Conciliado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 110, -1));
+
+        jLabel89.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel89.setText("Saldo Final");
+        jPanel_Manatenimiento_ConBanEn.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 330, 90, -1));
+
+        txt_Saldo_Final.setBackground(new java.awt.Color(40, 41, 46));
+        txt_Saldo_Final.setForeground(new java.awt.Color(255, 255, 255));
+        txt_Saldo_Final.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_Manatenimiento_ConBanEn.add(txt_Saldo_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, 104, -1));
+
+        jPanel_MantenimientoBanco.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_MantenimientoBanco.setPreferredSize(new java.awt.Dimension(1880, 900));
+        jPanel_MantenimientoBanco.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel_MMon2.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
+        jLabel_MMon2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_MMon2.setText("MANTENIMIENTO BANCOS");
+        jPanel_MantenimientoBanco.add(jLabel_MMon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
+
+        tbl_Bancos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_Bancos.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_Bancos.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_Bancos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_BancosMouseClicked(evt);
+            }
+        });
+        tbl_Bancos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbl_BancosKeyReleased(evt);
+            }
+        });
+        jScrollPane44.setViewportView(tbl_Bancos);
+
+        jPanel_MantenimientoBanco.add(jScrollPane44, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 550, 600, 190));
+
+        jLabel74.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
+        jPanel_MantenimientoBanco.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, -1, -1));
+
+        txt_buscardBan.setBackground(new java.awt.Color(40, 41, 46));
+        txt_buscardBan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_buscardBan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_buscardBanKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_buscardBanKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_buscardBanKeyTyped(evt);
+            }
+        });
+        jPanel_MantenimientoBanco.add(txt_buscardBan, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 510, 219, -1));
+
+        IngresaB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
+        IngresaB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IngresaBMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoBanco.add(IngresaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, -1, -1));
+
+        EliminarB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
+        EliminarB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EliminarBMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoBanco.add(EliminarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, -1, -1));
+
+        ModificarB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
+        ModificarB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ModificarBMouseClicked(evt);
+            }
+        });
+        jPanel_MantenimientoBanco.add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 490, -1, -1));
+
+        Panel_Ingresar_B.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Ingresar_B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Ingresar_BMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_B.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Ingresar_B.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Ingresar_B.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Ingresar_B.setText("Ingresar");
+        Texto_Ingresar_B.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Ingresar_B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Ingresar_BMouseClicked(evt);
+            }
+        });
+        Panel_Ingresar_B.add(Texto_Ingresar_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoBanco.add(Panel_Ingresar_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 130, 50));
+
+        Panel_Modificar_B.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Modificar_B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Modificar_BMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_B.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Modificar_B.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Modificar_B.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Modificar_B.setText("Modificar");
+        Texto_Modificar_B.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Modificar_B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Modificar_BMouseClicked(evt);
+            }
+        });
+        Panel_Modificar_B.add(Texto_Modificar_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
+
+        jPanel_MantenimientoBanco.add(Panel_Modificar_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 130, 50));
+
+        Panel_Eliminar_B.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Eliminar_B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Eliminar_BMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_B.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Eliminar_B.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Eliminar_B.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Eliminar_B.setText("Eliminar");
+        Texto_Eliminar_B.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Eliminar_B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Eliminar_BMouseClicked(evt);
+            }
+        });
+        Panel_Eliminar_B.add(Texto_Eliminar_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
+
+        jPanel_MantenimientoBanco.add(Panel_Eliminar_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 130, 50));
+
+        Panel_Consultar_B.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Consultar_B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Consultar_BMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_B.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Consultar_B.setFont(new java.awt.Font("Open Sans SemiBold", 0, 14)); // NOI18N
+        Texto_Consultar_B.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Consultar_B.setText("Consultar");
+        Texto_Consultar_B.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Consultar_B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_Consultar_BMouseClicked(evt);
+            }
+        });
+        Panel_Consultar_B.add(Texto_Consultar_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
+
+        jPanel_MantenimientoBanco.add(Panel_Consultar_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, 130, 50));
+
+        jLabel75.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel75.setText("ID Banco");
+        jPanel_MantenimientoBanco.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 63, -1));
+
+        jTextField_IDBanco.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_IDBanco.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_IDBanco.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBanco.add(jTextField_IDBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 110, -1));
+
+        jLabel76.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel76.setText("Nombre Banco");
+        jPanel_MantenimientoBanco.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
+
+        jLabel77.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel77.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel77.setText("Nombre Cuenta");
+        jPanel_MantenimientoBanco.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, -1, -1));
+
+        jTextField_NombreBanco.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_NombreBanco.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_NombreBanco.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBanco.add(jTextField_NombreBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 139, -1));
+
+        jLabel78.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel78.setText("ID Moneda");
+        jPanel_MantenimientoBanco.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, -1, -1));
+
+        jTextField_NombreC.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_NombreC.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_NombreC.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBanco.add(jTextField_NombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 139, -1));
+
+        jLabel_ID_Moneda.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_ID_Moneda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_MantenimientoBanco.add(jLabel_ID_Moneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 40, 20));
+
+        jComboBoxIDMoneda.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBoxIDMoneda.setForeground(new java.awt.Color(153, 153, 153));
+        jComboBoxIDMoneda.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jComboBoxIDMoneda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxIDMonedaActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoBanco.add(jComboBoxIDMoneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 120, -1));
+
+        jTextField_ClaveBan.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_ClaveBan.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_ClaveBan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBanco.add(jTextField_ClaveBan, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, 110, -1));
+
+        jLabel79.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel79.setText("Clave Banco");
+        jPanel_MantenimientoBanco.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, 80, -1));
+
+        jLabel80.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel80.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel80.setText("Funcionario");
+        jPanel_MantenimientoBanco.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 280, 100, -1));
+
+        jTextField_Funcionario.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_Funcionario.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_Funcionario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField_Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_FuncionarioActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoBanco.add(jTextField_Funcionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 310, 130, -1));
+
+        jLabel81.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel81.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel81.setText("Telefono");
+        jPanel_MantenimientoBanco.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 100, -1));
+
+        jTextField_Telefono.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_Telefono.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_Telefono.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBanco.add(jTextField_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 130, -1));
+
+        jLabel82.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel82.setText("Numero Plaza");
+        jPanel_MantenimientoBanco.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 100, -1));
+
+        jTextField_NumeroPlaza.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_NumeroPlaza.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_NumeroPlaza.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBanco.add(jTextField_NumeroPlaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 130, -1));
+
+        jLabel83.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel83.setText("Saldo Inicial");
+        jPanel_MantenimientoBanco.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, 110, -1));
+
+        jTextField_SaldoI.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_SaldoI.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_SaldoI.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBanco.add(jTextField_SaldoI, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, 130, -1));
+
+        jLabel85.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel85.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel85.setText("ID Movimiento Enc");
+        jPanel_MantenimientoBanco.add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, -1, -1));
+
+        jLabel_IdMovimiento.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_IdMovimiento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel_MantenimientoBanco.add(jLabel_IdMovimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 460, 40, 20));
+
+        jComboBoxIDMovEn.setBackground(new java.awt.Color(40, 41, 46));
+        jComboBoxIDMovEn.setForeground(new java.awt.Color(153, 153, 153));
+        jComboBoxIDMovEn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jComboBoxIDMovEn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxIDMovEnActionPerformed(evt);
+            }
+        });
+        jPanel_MantenimientoBanco.add(jComboBoxIDMovEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, 120, -1));
+
+        jLabel84.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel84.setText("Numero Sucursal");
+        jPanel_MantenimientoBanco.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 110, -1));
+
+        jTextField_NumeroS.setBackground(new java.awt.Color(40, 41, 46));
+        jTextField_NumeroS.setForeground(new java.awt.Color(153, 153, 153));
+        jTextField_NumeroS.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel_MantenimientoBanco.add(jTextField_NumeroS, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 130, -1));
 
         jPanel_Forma_de_Pago.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_Forma_de_Pago.setPreferredSize(new java.awt.Dimension(1880, 900));
@@ -1313,6 +2237,11 @@ public class Bancos extends javax.swing.JFrame {
         jComboBoxIDClasificacion.setBackground(new java.awt.Color(40, 41, 46));
         jComboBoxIDClasificacion.setForeground(new java.awt.Color(153, 153, 153));
         jComboBoxIDClasificacion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jComboBoxIDClasificacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxIDClasificacionMouseClicked(evt);
+            }
+        });
         jComboBoxIDClasificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxIDClasificacionActionPerformed(evt);
@@ -2331,6 +3260,9 @@ public class Bancos extends javax.swing.JFrame {
             }
         });
         Panel_MB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_MBMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Panel_MBMouseExited(evt);
             }
@@ -2378,6 +3310,9 @@ public class Bancos extends javax.swing.JFrame {
             }
         });
         Panel_MCBEnc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_MCBEncMouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Panel_MCBEncMouseExited(evt);
             }
@@ -2425,6 +3360,9 @@ public class Bancos extends javax.swing.JFrame {
             }
         });
         Panel_MCBEnc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_MCBEnc1MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Panel_MCBEnc1MouseExited(evt);
             }
@@ -2476,12 +3414,12 @@ public class Bancos extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel_MantenimientoClasiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 12, Short.MAX_VALUE)))
+                    .addGap(0, 8, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 6, Short.MAX_VALUE)
+                    .addGap(0, 4, Short.MAX_VALUE)
                     .addComponent(Panel_CuentaContable, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 6, Short.MAX_VALUE)))
+                    .addGap(0, 4, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2490,11 +3428,11 @@ public class Bancos extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel_MantenimientoCB, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 6, Short.MAX_VALUE)))
+                    .addGap(0, 8, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(JPanel_MantenimientoMovimientoBanEn, javax.swing.GroupLayout.PREFERRED_SIZE, 1888, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 4, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2505,19 +3443,34 @@ public class Bancos extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanel_Forma_de_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_MantenimientoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_Manatenimiento_ConBanEn, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_Mantenimiento_CBD, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Panel_Bancos, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 46, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanel_MantenimientoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 45, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel_MantenimientoClasiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 91, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2531,11 +3484,11 @@ public class Bancos extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel_MantenimientoCB, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 6, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(JPanel_MantenimientoMovimientoBanEn, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 6, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2545,6 +3498,21 @@ public class Bancos extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanel_Forma_de_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_MantenimientoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_Manatenimiento_ConBanEn, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_Mantenimiento_CBD, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -3456,25 +4424,25 @@ public class Bancos extends javax.swing.JFrame {
         Panel_Bancos.setVisible(false);
         JPanel_MantenimientoMovimientoBanEn.setVisible(true);
         Movimiento_Bancario_Encabezado Mo = new Movimiento_Bancario_Encabezado(txt_CodigoMovimientoE, jLabel_ID_Documento, txt_Fecha, txt_Monto, txt_Descripcion, txt_BuscarMovBanEn, tbl_MovimientoBanEn);
-        
+
         Mo.Actualizar_Tabla();
-        
+
         Mo.Encontrar_ListaMovimientoBAEN("Documento_bancario", "nombre_Documento", jComboBox_Nombre_Movimiento);
         //Mo.EncontrarID_MovimientoBAEN("codigo_Documento", "Documento_bancario", "nombre_Documento", jComboBox_Nombre_Cuenta, jLabel_ID_Documento);        // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_Panel_MIMEMBEMouseClicked
 
     private void jTextField_BuscarMovKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_BuscarMovKeyReleased
         // TODO add your handling code here:
         Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
         MovDet.Buscar_MovD(jTextField_BuscarMov.getText());
-        
+
     }//GEN-LAST:event_jTextField_BuscarMovKeyReleased
 
     private void tbl_MovBancDetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_MovBancDetMouseClicked
         // TODO add your handling code here:
-        
+
         Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
         int Seleccion = tbl_MovimientoBanEn.rowAtPoint(evt.getPoint());
 
@@ -3484,7 +4452,7 @@ public class Bancos extends javax.swing.JFrame {
         jTextField_tipoSaldo.setText(String.valueOf(tbl_MovBancDet.getValueAt(Seleccion, 3)));
         MovDet.BuscarFila_Mov("id_movEnc", "mov_bancEnc", "id_movEnc", jComboBox_Encabezado, jLabel_IDEnc);
         MovDet.BuscarFila_Mov("nombre_concepto", "concepto_bancario", "codigo_concepto", jComboBox_codigoC, jLabel_codigoConcepto);
-        
+
         //Mo.BuscarFila_MovimientoBAEN("nombre_Documento", "Documento_bancario", "codigo_Documento", jComboBox_Nombre_Cuenta, jLabel_ID_Documento);
     }//GEN-LAST:event_tbl_MovBancDetMouseClicked
 
@@ -3495,19 +4463,19 @@ public class Bancos extends javax.swing.JFrame {
     private void jLabel60MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel60MouseClicked
         // TODO add your handling code here:
         Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
-        MovDet.Insertar_Mov();  
+        MovDet.Insertar_Mov();
     }//GEN-LAST:event_jLabel60MouseClicked
 
     private void Panel_MIMBDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMBDMouseClicked
         // TODO add your handling code here:
-       Panel_Bancos.setVisible(false);
-       jPanel_MantenimientoMovBanDet.setVisible(true);
-       
-       Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
-       MovDet.Encontrar_ListaMov("concepto_bancario", "nombre_concepto", jComboBox_codigoC);
-       MovDet.Encontrar_ListaMov("mov_bancEnc", "id_movEnc", jComboBox_Encabezado);
-       MovDet.Actualizar_Tabla();
-       
+        Panel_Bancos.setVisible(false);
+        jPanel_MantenimientoMovBanDet.setVisible(true);
+
+        Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
+        MovDet.Encontrar_ListaMov("concepto_bancario", "nombre_concepto", jComboBox_codigoC);
+        MovDet.Encontrar_ListaMov("mov_bancEnc", "id_movEnc", jComboBox_Encabezado);
+        MovDet.Actualizar_Tabla();
+
     }//GEN-LAST:event_Panel_MIMBDMouseClicked
 
     private void Panel_MIMBDMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMBDMouseEntered
@@ -3518,7 +4486,7 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
         Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
         MovDet.EncontrarIDMov("id_movEnc", "mov_bancEnc", "id_movEnc", jComboBox_Encabezado, jLabel_IDEnc);
-        
+
     }//GEN-LAST:event_jComboBox_EncabezadoActionPerformed
 
     private void jComboBox_codigoCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_codigoCActionPerformed
@@ -3547,7 +4515,7 @@ public class Bancos extends javax.swing.JFrame {
         jTextField_IDForma.setText(String.valueOf(tbl_FormaPago.getValueAt(Seleccion, 0)));
         jTextField_TipoPago.setText(String.valueOf(tbl_FormaPago.getValueAt(Seleccion, 1)));
 
-        
+
     }//GEN-LAST:event_tbl_FormaPagoMouseClicked
 
     private void tbl_FormaPagoCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tbl_FormaPagoCaretPositionChanged
@@ -3558,7 +4526,7 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
         Panel_Bancos.setVisible(false);
         jPanel_Forma_de_Pago.setVisible(true);
-        
+
         Forma_de_Pago forma = new Forma_de_Pago(jTextField_IDForma, jTextField_TipoPago, jTextField_BuscarFP, tbl_FormaPago);
         forma.Actualizar_Tabla();
     }//GEN-LAST:event_Panel_MIMFPMouseClicked
@@ -3571,7 +4539,7 @@ public class Bancos extends javax.swing.JFrame {
 
     private void jTextField_BuscarFPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_BuscarFPMouseReleased
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextField_BuscarFPMouseReleased
 
     private void jTextField_BuscarFPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_BuscarFPKeyReleased
@@ -3591,6 +4559,362 @@ public class Bancos extends javax.swing.JFrame {
         Forma_de_Pago forma = new Forma_de_Pago(jTextField_IDForma, jTextField_TipoPago, jTextField_BuscarFP, tbl_FormaPago);
         forma.Eliminar_formapago();
     }//GEN-LAST:event_jLabel68MouseClicked
+
+    private void tbl_BancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_BancosMouseClicked
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+
+        int Seleccion = tbl_Bancos.rowAtPoint(evt.getPoint());
+
+        jTextField_IDBanco.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 0)));
+        jTextField_NombreBanco.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 1)));
+        jTextField_NombreC.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 2)));
+        jTextField_ClaveBan.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 3)));
+        jTextField_Funcionario.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 5)));
+        jTextField_Telefono.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 6)));
+        jTextField_NumeroPlaza.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 7)));
+        jTextField_NumeroS.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 8)));
+        jTextField_SaldoI.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 9)));
+        jLabel_ID_Moneda.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 10)));
+        jTextField_IDBanco.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 11)));
+        jLabel_IdMovimiento.setText(String.valueOf(tbl_Bancos.getValueAt(Seleccion, 12)));
+
+        B.BuscarFila_Bancos("nombre_moneda", "moneda", "id_moneda", jComboBoxIDMoneda, jLabel_ID_Moneda);
+        B.BuscarFila_Bancos("codigo_Documento", "mov_bancEnc", "id_movEnc", jComboBoxIDMovEn, jLabel_IdMovimiento);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_BancosMouseClicked
+
+    private void txt_buscardBanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscardBanKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_buscardBanKeyPressed
+
+    private void txt_buscardBanKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscardBanKeyReleased
+
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        B.Buscar_BancosB(txt_buscardBan.getText());
+    }//GEN-LAST:event_txt_buscardBanKeyReleased
+
+    private void txt_buscardBanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscardBanKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_buscardBanKeyTyped
+
+    private void IngresaBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresaBMouseClicked
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        B.Insertar_Banco();
+// TODO add your handling code here:
+    }//GEN-LAST:event_IngresaBMouseClicked
+
+    private void EliminarBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarBMouseClicked
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        B.Eliminar_Banco();
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_EliminarBMouseClicked
+
+    private void ModificarBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarBMouseClicked
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        B.Modificar_Bancos();
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_ModificarBMouseClicked
+
+    private void Texto_Ingresar_BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Ingresar_BMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Texto_Ingresar_BMouseClicked
+
+    private void Panel_Ingresar_BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Ingresar_BMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Ingresar_BMouseClicked
+
+    private void Texto_Modificar_BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Modificar_BMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Texto_Modificar_BMouseClicked
+
+    private void Panel_Modificar_BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Modificar_BMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Modificar_BMouseClicked
+
+    private void Texto_Eliminar_BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Eliminar_BMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Texto_Eliminar_BMouseClicked
+
+    private void Panel_Eliminar_BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Eliminar_BMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Eliminar_BMouseClicked
+
+    private void Texto_Consultar_BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Consultar_BMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Texto_Consultar_BMouseClicked
+
+    private void Panel_Consultar_BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Consultar_BMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Consultar_BMouseClicked
+
+    private void jComboBoxIDMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDMonedaActionPerformed
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        B.EncontrarID_Bancos("id_moneda", "moneda", "nombre_moneda", jComboBoxIDMoneda, jLabel_ID_Moneda);// TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxIDMonedaActionPerformed
+
+    private void jTextField_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_FuncionarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_FuncionarioActionPerformed
+
+    private void jComboBoxIDMovEnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDMovEnActionPerformed
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        B.EncontrarID_Bancos("id_movEnc", "mov_bancEnc", "codigo_Documento", jComboBoxIDMovEn, jLabel_IdMovimiento);// TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxIDMovEnActionPerformed
+
+    private void Panel_MBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MBMouseClicked
+        Panel_Bancos.setVisible(false);
+        jPanel_MantenimientoBanco.setVisible(true);
+
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        B.Actualizar_Tabla();
+        B.Encontrar_ListaBancos("moneda", "nombre_moneda", jComboBoxIDMoneda);
+        B.Encontrar_ListaBancos("mov_bancEnc", "codigo_Documento", jComboBoxIDMovEn);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_MBMouseClicked
+
+    private void tbl_BancosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_BancosKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_BancosKeyReleased
+
+    private void tbl_ConcilacioEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ConcilacioEnMouseClicked
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        int Seleccion = tbl_ConcilacioEn.rowAtPoint(evt.getPoint());
+
+        txt_IdEnca.setText(String.valueOf(tbl_ConcilacioEn.getValueAt(Seleccion, 0)));
+        txt_CargoAConciliar.setText(String.valueOf(tbl_ConcilacioEn.getValueAt(Seleccion, 1)));
+        txt_AbonoA_Conciliar.setText(String.valueOf(tbl_ConcilacioEn.getValueAt(Seleccion, 2)));
+        txt_SaldoCorte.setText(String.valueOf(tbl_ConcilacioEn.getValueAt(Seleccion, 3)));
+        txt_Cargo_Conciliado.setText(String.valueOf(tbl_ConcilacioEn.getValueAt(Seleccion, 4)));
+        txt_Abono_Conciliado.setText(String.valueOf(tbl_ConcilacioEn.getValueAt(Seleccion, 5)));
+        txt_Saldo_Final.setText(String.valueOf(tbl_ConcilacioEn.getValueAt(Seleccion, 6)));
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_tbl_ConcilacioEnMouseClicked
+
+    private void txt_BuscarCoBaEnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarCoBaEnKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarCoBaEnKeyPressed
+
+    private void txt_BuscarCoBaEnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarCoBaEnKeyReleased
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Con.Buscar_ConciliacionEncabezado(txt_BuscarCoBaEn.getText());
+// TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarCoBaEnKeyReleased
+
+    private void txt_BuscarCoBaEnKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BuscarCoBaEnKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_BuscarCoBaEnKeyTyped
+
+    private void ingresarConcilacionEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarConcilacionEnMouseClicked
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Con.Insertar_ConciliacionEn();// TODO add your handling code here:
+    }//GEN-LAST:event_ingresarConcilacionEnMouseClicked
+
+    private void eliminarConcilacionEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarConcilacionEnMouseClicked
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Con.Eliminar_ConcilacionEn();// TODO add your handling code here:
+    }//GEN-LAST:event_eliminarConcilacionEnMouseClicked
+
+    private void modificarConcilacionEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarConcilacionEnMouseClicked
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Con.Modificar_ConciliacionEN(); // TODO add your handling code here:
+    }//GEN-LAST:event_modificarConcilacionEnMouseClicked
+
+    private void Texto_Ingresar_CoBaEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Ingresar_CoBaEnMouseClicked
+        ingresarConcilacionEn.setVisible(true);
+        eliminarConcilacionEn.setVisible(false);
+        modificarConcilacionEn.setVisible(false);
+// TODO add your handling code here:
+    }//GEN-LAST:event_Texto_Ingresar_CoBaEnMouseClicked
+
+    private void Panel_Ingresar_CoBaEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Ingresar_CoBaEnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Ingresar_CoBaEnMouseClicked
+
+    private void Texto_Modificar_CoBaEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Modificar_CoBaEnMouseClicked
+        ingresarConcilacionEn.setVisible(false);
+        eliminarConcilacionEn.setVisible(false);
+        modificarConcilacionEn.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_Texto_Modificar_CoBaEnMouseClicked
+
+    private void Panel_Modificar_CoBaEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Modificar_CoBaEnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Modificar_CoBaEnMouseClicked
+
+    private void Texto_Eliminar_CoBaEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Eliminar_CoBaEnMouseClicked
+        ingresarConcilacionEn.setVisible(false);
+        eliminarConcilacionEn.setVisible(true);
+        modificarConcilacionEn.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_Texto_Eliminar_CoBaEnMouseClicked
+
+    private void Panel_Eliminar_CoBaEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Eliminar_CoBaEnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Eliminar_CoBaEnMouseClicked
+
+    private void Texto_Consultar_CoBaEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Consultar_CoBaEnMouseClicked
+        ingresarConcilacionEn.setVisible(false);
+        eliminarConcilacionEn.setVisible(false);
+        modificarConcilacionEn.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_Texto_Consultar_CoBaEnMouseClicked
+
+    private void Panel_Consultar_CoBaEnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Consultar_CoBaEnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Consultar_CoBaEnMouseClicked
+
+    private void Panel_MCBEncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEncMouseClicked
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Con.Actualizar_Tabla();
+        Panel_Bancos.setVisible(false);
+        jPanel_Manatenimiento_ConBanEn.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_MCBEncMouseClicked
+
+    private void tbl_CBDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CBDMouseClicked
+        // TODO add your handling code here:
+        int Seleccion = tbl_CBD.rowAtPoint(evt.getPoint());
+
+        jLabel_ID_Encabezado.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 0)));
+        jLabel_Idcodigoconcepto.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 1)));
+        txt_fechaap.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 2)));
+        jTextArea_Descrip.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 3)));
+        jLabel_idformapago.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 4)));
+        txt_beneficiario.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 5)));
+        txt_estcon.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 6)));
+        txt_cargo.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 7)));
+        txt_abono.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 8)));
+
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);       
+        CBD.BuscarFila_CBD("id_encabezado", "conciliacion_bancenc", "id_encabezado", jComboBoxIDEncabezado, jLabel_ID_Encabezado);
+        CBD.BuscarFila_CBD("nombre_concepto", "concepto_bancario", "codigo_concepto", jComboBoxCODIGOCONCEPTO, jLabel_Idcodigoconcepto);
+        CBD.BuscarFila_CBD("tipo_pago", "forma_pago", "id_formapago", jComboBoxIDFormaPago, jLabel_idformapago);
+        
+        
+        
+    }//GEN-LAST:event_tbl_CBDMouseClicked
+
+    private void tbl_CBDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_CBDKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_CBDKeyReleased
+
+    private void txt_buscardCBDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscardCBDKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_buscardCBDKeyPressed
+
+    private void txt_buscardCBDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscardCBDKeyReleased
+        // TODO add your handling code here:
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        CBD.Buscar_CBD2(txt_buscardCBD.getText());
+        
+    }//GEN-LAST:event_txt_buscardCBDKeyReleased
+
+    private void txt_buscardCBDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscardCBDKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_buscardCBDKeyTyped
+
+    private void IngresaB1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresaB1MouseClicked
+        // TODO add your handling code here:
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        CBD.Insertar_CBD();
+        CBD.Actualizar_Tabla();
+    }//GEN-LAST:event_IngresaB1MouseClicked
+
+    private void EliminarB1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarB1MouseClicked
+        // TODO add your handling code here:
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        CBD.Eliminar_CBD();
+    }//GEN-LAST:event_EliminarB1MouseClicked
+
+    private void ModificarB1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarB1MouseClicked
+        // TODO add your handling code here:
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        CBD.Modificar_CBD();
+        /*CBD.Encontrar_ListaCBD("conciliacion_bancenc", "id_encabezado", jComboBoxIDEncabezado);
+        CBD.Encontrar_ListaCBD("concepto_bancario", "codigo_concepto", jComboBoxCODIGOCONCEPTO);
+        CBD.Encontrar_ListaCBD("forma_pago", "id_formapago", jComboBoxIDFormaPago);*/
+    }//GEN-LAST:event_ModificarB1MouseClicked
+
+    private void Texto_Ingresar_B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Ingresar_B1MouseClicked
+        // TODO add your handling code here:
+        IngresaB1.setVisible(true);
+        ModificarB1.setVisible(false);
+        EliminarB1.setVisible(false);
+        
+    }//GEN-LAST:event_Texto_Ingresar_B1MouseClicked
+
+    private void Panel_Ingresar_B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Ingresar_B1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Ingresar_B1MouseClicked
+
+    private void Texto_Modificar_B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Modificar_B1MouseClicked
+        // TODO add your handling code here:
+        IngresaB1.setVisible(false);
+        ModificarB1.setVisible(true);
+        EliminarB1.setVisible(false);
+    }//GEN-LAST:event_Texto_Modificar_B1MouseClicked
+
+    private void Panel_Modificar_B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Modificar_B1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Modificar_B1MouseClicked
+
+    private void Texto_Eliminar_B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Eliminar_B1MouseClicked
+        // TODO add your handling code here:
+        IngresaB1.setVisible(false);
+        ModificarB1.setVisible(false);
+        EliminarB1.setVisible(true);
+    }//GEN-LAST:event_Texto_Eliminar_B1MouseClicked
+
+    private void Panel_Eliminar_B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Eliminar_B1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Eliminar_B1MouseClicked
+
+    private void Texto_Consultar_B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_Consultar_B1MouseClicked
+        // TODO add your handling code here:
+        IngresaB1.setVisible(false);
+        ModificarB1.setVisible(false);
+        EliminarB1.setVisible(false);
+    }//GEN-LAST:event_Texto_Consultar_B1MouseClicked
+
+    private void Panel_Consultar_B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Consultar_B1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Consultar_B1MouseClicked
+
+    private void jComboBoxIDFormaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDFormaPagoActionPerformed
+        // TODO add your handling code here:
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        CBD.EncontrarID_CBD("id_formapago", "forma_pago", "tipo_pago", jComboBoxIDFormaPago, jLabel_idformapago);
+    }//GEN-LAST:event_jComboBoxIDFormaPagoActionPerformed
+
+    private void jComboBoxCODIGOCONCEPTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCODIGOCONCEPTOActionPerformed
+        // TODO add your handling code here:
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        CBD.EncontrarID_CBD("codigo_concepto", "concepto_bancario", "nombre_concepto", jComboBoxCODIGOCONCEPTO, jLabel_Idcodigoconcepto);
+    }//GEN-LAST:event_jComboBoxCODIGOCONCEPTOActionPerformed
+
+    private void jComboBoxIDEncabezadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDEncabezadoActionPerformed
+        // TODO add your handling code here:
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        CBD.EncontrarID_CBD("id_encabezado", "conciliacion_bancenc", "id_encabezado", jComboBoxIDEncabezado, jLabel_ID_Encabezado);
+    }//GEN-LAST:event_jComboBoxIDEncabezadoActionPerformed
+
+    private void jComboBoxIDClasificacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxIDClasificacionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxIDClasificacionMouseClicked
+
+    private void Panel_MCBEnc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEnc1MouseClicked
+        // TODO add your handling code here:
+        Panel_Bancos.setVisible(false);
+        jPanel_Mantenimiento_CBD.setVisible(true);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD); 
+        CBD.Encontrar_ListaCBD("forma_pago", "tipo_pago", jComboBoxIDFormaPago);
+        CBD.Encontrar_ListaCBD("concepto_bancario", "nombre_concepto", jComboBoxCODIGOCONCEPTO);
+        CBD.Encontrar_ListaCBD("conciliacion_bancenc", "id_encabezado", jComboBoxIDEncabezado);
+        CBD.Actualizar_Tabla();
+    }//GEN-LAST:event_Panel_MCBEnc1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -3633,6 +4957,22 @@ public class Bancos extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -3643,25 +4983,40 @@ public class Bancos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel EliminarB;
+    private javax.swing.JLabel EliminarB1;
+    private javax.swing.JLabel IngresaB;
+    private javax.swing.JLabel IngresaB1;
     private javax.swing.JPanel JPanel_MantenimientoMovimientoBanEn;
+    private javax.swing.JLabel ModificarB;
+    private javax.swing.JLabel ModificarB1;
     private javax.swing.JPanel Panel_Bancos;
     private javax.swing.JPanel Panel_ConsultarCB;
     private javax.swing.JPanel Panel_ConsultarMBEN;
     private javax.swing.JPanel Panel_ConsultarS;
+    private javax.swing.JPanel Panel_Consultar_B;
+    private javax.swing.JPanel Panel_Consultar_B1;
     private javax.swing.JPanel Panel_Consultar_CC;
+    private javax.swing.JPanel Panel_Consultar_CoBaEn;
     private javax.swing.JPanel Panel_Consultar_EC;
     private javax.swing.JPanel Panel_Consultar_EC1;
     private javax.swing.JPanel Panel_CuentaContable;
     private javax.swing.JPanel Panel_EliminarCB;
     private javax.swing.JPanel Panel_EliminarMBEN;
     private javax.swing.JPanel Panel_EliminarS;
+    private javax.swing.JPanel Panel_Eliminar_B;
+    private javax.swing.JPanel Panel_Eliminar_B1;
     private javax.swing.JPanel Panel_Eliminar_CC;
+    private javax.swing.JPanel Panel_Eliminar_CoBaEn;
     private javax.swing.JPanel Panel_Eliminar_EC;
     private javax.swing.JPanel Panel_Eliminar_EC1;
     private javax.swing.JPanel Panel_IngresarCB;
     private javax.swing.JPanel Panel_IngresarMBEN;
     private javax.swing.JPanel Panel_IngresarS;
+    private javax.swing.JPanel Panel_Ingresar_B;
+    private javax.swing.JPanel Panel_Ingresar_B1;
     private javax.swing.JPanel Panel_Ingresar_CC;
+    private javax.swing.JPanel Panel_Ingresar_CoBaEn;
     private javax.swing.JPanel Panel_Ingresar_EC;
     private javax.swing.JPanel Panel_Ingresar_EC1;
     private javax.swing.JPanel Panel_MB;
@@ -3678,38 +5033,60 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_ModificarCB;
     private javax.swing.JPanel Panel_ModificarMBEN;
     private javax.swing.JPanel Panel_ModificarS;
+    private javax.swing.JPanel Panel_Modificar_B;
+    private javax.swing.JPanel Panel_Modificar_B1;
     private javax.swing.JPanel Panel_Modificar_CC;
+    private javax.swing.JPanel Panel_Modificar_CoBaEn;
     private javax.swing.JPanel Panel_Modificar_EC;
     private javax.swing.JPanel Panel_Modificar_EC1;
     private javax.swing.JLabel Texto_ConsultarCB;
     private javax.swing.JLabel Texto_ConsultarMBEN;
     private javax.swing.JLabel Texto_ConsultarS;
+    private javax.swing.JLabel Texto_Consultar_B;
+    private javax.swing.JLabel Texto_Consultar_B1;
     private javax.swing.JLabel Texto_Consultar_CC;
+    private javax.swing.JLabel Texto_Consultar_CoBaEn;
     private javax.swing.JLabel Texto_Consultar_EC;
     private javax.swing.JLabel Texto_Consultar_EC1;
     private javax.swing.JLabel Texto_EliminarCB;
     private javax.swing.JLabel Texto_EliminarMBEN;
     private javax.swing.JLabel Texto_EliminarS;
+    private javax.swing.JLabel Texto_Eliminar_B;
+    private javax.swing.JLabel Texto_Eliminar_B1;
     private javax.swing.JLabel Texto_Eliminar_CC;
+    private javax.swing.JLabel Texto_Eliminar_CoBaEn;
     private javax.swing.JLabel Texto_Eliminar_EC;
     private javax.swing.JLabel Texto_Eliminar_EC1;
     private javax.swing.JLabel Texto_IngresarCB;
     private javax.swing.JLabel Texto_IngresarMBEN;
     private javax.swing.JLabel Texto_IngresarS;
+    private javax.swing.JLabel Texto_Ingresar_B;
+    private javax.swing.JLabel Texto_Ingresar_B1;
     private javax.swing.JLabel Texto_Ingresar_CC;
+    private javax.swing.JLabel Texto_Ingresar_CoBaEn;
     private javax.swing.JLabel Texto_Ingresar_EC;
     private javax.swing.JLabel Texto_Ingresar_EC1;
     private javax.swing.JLabel Texto_ModificarCB;
     private javax.swing.JLabel Texto_ModificarMBEN;
     private javax.swing.JLabel Texto_ModificarS;
+    private javax.swing.JLabel Texto_Modificar_B;
+    private javax.swing.JLabel Texto_Modificar_B1;
     private javax.swing.JLabel Texto_Modificar_CC;
+    private javax.swing.JLabel Texto_Modificar_CoBaEn;
     private javax.swing.JLabel Texto_Modificar_EC;
     private javax.swing.JLabel Texto_Modificar_EC1;
     private javax.swing.JLabel eliminar;
+    private javax.swing.JLabel eliminarConcilacionEn;
     private javax.swing.JLabel eliminard;
     private javax.swing.JLabel ingresad;
     private javax.swing.JLabel ingresar;
+    private javax.swing.JLabel ingresarConcilacionEn;
+    private javax.swing.JComboBox<String> jComboBoxCODIGOCONCEPTO;
     private javax.swing.JComboBox<String> jComboBoxIDClasificacion;
+    private javax.swing.JComboBox<String> jComboBoxIDEncabezado;
+    private javax.swing.JComboBox<String> jComboBoxIDFormaPago;
+    private javax.swing.JComboBox<String> jComboBoxIDMoneda;
+    private javax.swing.JComboBox<String> jComboBoxIDMovEn;
     private javax.swing.JComboBox<String> jComboBox_Encabezado;
     private javax.swing.JComboBox<String> jComboBox_Nombre_Cuenta;
     private javax.swing.JComboBox<String> jComboBox_Nombre_Movimiento;
@@ -3718,6 +5095,7 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_codigoC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -3783,8 +5161,37 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JLabel jLabel_BuscarAP;
     private javax.swing.JLabel jLabel_BuscarMBEN;
     private javax.swing.JLabel jLabel_Buscar_Tablas_CB;
@@ -3801,12 +5208,19 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_IDEnc;
     private javax.swing.JLabel jLabel_ID_Cuenta;
     private javax.swing.JLabel jLabel_ID_Documento;
+    private javax.swing.JLabel jLabel_ID_Encabezado;
+    private javax.swing.JLabel jLabel_ID_Moneda;
+    private javax.swing.JLabel jLabel_IdMovimiento;
+    private javax.swing.JLabel jLabel_Idcodigoconcepto;
     private javax.swing.JLabel jLabel_Ingresar;
     private javax.swing.JLabel jLabel_IngresarCB;
     private javax.swing.JLabel jLabel_IngresarCC;
     private javax.swing.JLabel jLabel_IngresarMBEN;
     private javax.swing.JLabel jLabel_MMon;
     private javax.swing.JLabel jLabel_MMon1;
+    private javax.swing.JLabel jLabel_MMon2;
+    private javax.swing.JLabel jLabel_MMon3;
+    private javax.swing.JLabel jLabel_MMon4;
     private javax.swing.JLabel jLabel_MantenimientoM;
     private javax.swing.JLabel jLabel_MantenimientoM1;
     private javax.swing.JLabel jLabel_MantenimientoM10;
@@ -3832,13 +5246,18 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_TituloCC;
     private javax.swing.JLabel jLabel_clasificacion;
     private javax.swing.JLabel jLabel_codigoConcepto;
+    private javax.swing.JLabel jLabel_idformapago;
     private javax.swing.JPanel jPanel_Forma_de_Pago;
+    private javax.swing.JPanel jPanel_Manatenimiento_ConBanEn;
+    private javax.swing.JPanel jPanel_MantenimientoBanco;
     private javax.swing.JPanel jPanel_MantenimientoCB;
     private javax.swing.JPanel jPanel_MantenimientoClasiCuenta;
     private javax.swing.JPanel jPanel_MantenimientoMoneda;
     private javax.swing.JPanel jPanel_MantenimientoMovBanDet;
+    private javax.swing.JPanel jPanel_Mantenimiento_CBD;
     private javax.swing.JPanel jPanel_Mantenimiento_DocB;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane31;
     private javax.swing.JScrollPane jScrollPane32;
     private javax.swing.JScrollPane jScrollPane38;
@@ -3847,6 +5266,10 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane41;
     private javax.swing.JScrollPane jScrollPane42;
     private javax.swing.JScrollPane jScrollPane43;
+    private javax.swing.JScrollPane jScrollPane44;
+    private javax.swing.JScrollPane jScrollPane45;
+    private javax.swing.JScrollPane jScrollPane46;
+    private javax.swing.JTextArea jTextArea_Descrip;
     private javax.swing.JTextArea jTextArea_Descripcion;
     private javax.swing.JTextField jTextField_AbonosA;
     private javax.swing.JTextField jTextField_AbonosM;
@@ -3855,45 +5278,73 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_BuscarMov;
     private javax.swing.JTextField jTextField_CargosAC;
     private javax.swing.JTextField jTextField_CargosM;
+    private javax.swing.JTextField jTextField_ClaveBan;
+    private javax.swing.JTextField jTextField_Funcionario;
+    private javax.swing.JTextField jTextField_IDBanco;
     private javax.swing.JTextField jTextField_IDClasif;
     private javax.swing.JTextField jTextField_IDCuenta;
     private javax.swing.JTextField jTextField_IDForma;
+    private javax.swing.JTextField jTextField_NombreBanco;
+    private javax.swing.JTextField jTextField_NombreC;
     private javax.swing.JTextField jTextField_NombreCuenta;
+    private javax.swing.JTextField jTextField_NumeroPlaza;
+    private javax.swing.JTextField jTextField_NumeroS;
     private javax.swing.JTextField jTextField_Saldo;
     private javax.swing.JTextField jTextField_SaldoA;
     private javax.swing.JTextField jTextField_SaldoActual;
+    private javax.swing.JTextField jTextField_SaldoI;
+    private javax.swing.JTextField jTextField_Telefono;
     private javax.swing.JTextField jTextField_TipoPago;
     private javax.swing.JTextField jTextField_tipoSaldo;
     private javax.swing.JLabel modificar;
+    private javax.swing.JLabel modificarConcilacionEn;
     private javax.swing.JLabel modificard;
+    private javax.swing.JTable tbl_Bancos;
     private javax.swing.JTable tbl_CB;
+    private javax.swing.JTable tbl_CBD;
     private javax.swing.JTable tbl_Clasi;
+    private javax.swing.JTable tbl_ConcilacioEn;
     private javax.swing.JTable tbl_CuentaContable;
     private javax.swing.JTable tbl_Doc;
     private javax.swing.JTable tbl_FormaPago;
     private javax.swing.JTable tbl_Moneda;
     private javax.swing.JTable tbl_MovBancDet;
     private javax.swing.JTable tbl_MovimientoBanEn;
+    private javax.swing.JTextField txt_AbonoA_Conciliar;
+    private javax.swing.JTextField txt_Abono_Conciliado;
     private javax.swing.JTextField txt_Afecta;
     private javax.swing.JTextField txt_BuscarCB;
+    private javax.swing.JTextField txt_BuscarCoBaEn;
     private javax.swing.JTextField txt_BuscarMovBanEn;
+    private javax.swing.JTextField txt_CargoAConciliar;
+    private javax.swing.JTextField txt_Cargo_Conciliado;
     private javax.swing.JTextField txt_CodigoConcepto;
     private javax.swing.JTextField txt_CodigoMovimientoE;
     private javax.swing.JTextField txt_Descripcion;
     private javax.swing.JTextField txt_Estatus;
     private javax.swing.JTextField txt_Fecha;
     private javax.swing.JTextField txt_IDM;
+    private javax.swing.JTextField txt_IdEnca;
     private javax.swing.JTextField txt_Monto;
     private javax.swing.JTextField txt_NombreM;
     private javax.swing.JTextField txt_Nombre_Concepto;
+    private javax.swing.JTextField txt_SaldoCorte;
+    private javax.swing.JTextField txt_Saldo_Final;
     private javax.swing.JTextField txt_TipoM;
+    private javax.swing.JTextField txt_abono;
     private javax.swing.JTextField txt_afec;
+    private javax.swing.JTextField txt_beneficiario;
     private javax.swing.JTextField txt_buscarMon;
     private javax.swing.JTextField txt_buscarclasi;
     private javax.swing.JTextField txt_buscard;
+    private javax.swing.JTextField txt_buscardBan;
+    private javax.swing.JTextField txt_buscardCBD;
+    private javax.swing.JTextField txt_cargo;
     private javax.swing.JTextField txt_cod;
     private javax.swing.JTextField txt_estM;
+    private javax.swing.JTextField txt_estcon;
     private javax.swing.JTextField txt_estd;
+    private javax.swing.JTextField txt_fechaap;
     private javax.swing.JTextField txt_idclasi;
     private javax.swing.JTextField txt_nombrecla;
     private javax.swing.JTextField txt_nombred;
