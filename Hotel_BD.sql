@@ -1,6 +1,16 @@
--- Drop database Hotel;
+ -- Drop database Hotel;
 create database Hotel;
 use Hotel;
+
+
+
+-- Tabla de usuarios
+ insert into USUARIOS VALUES ("geova","123");
+create table USUARIOS(
+
+NombreUsuario varchar (30) not null,
+Pass varchar(12) not null
+)Engine = InnoDB Default charset = Latin1;
 
 /*Área de RRHH*/
 create table nivel_academico( -- peticion de la empresa 
