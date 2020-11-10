@@ -5551,6 +5551,11 @@ public class Principal extends javax.swing.JFrame {
         Panel_Icono_Conta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Icono_Conta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Conta.png"))); // NOI18N
+        Icono_Conta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Icono_ContaMouseClicked(evt);
+            }
+        });
         Panel_Icono_Conta.add(Icono_Conta, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 10, -1, -1));
 
         Slide.add(Panel_Icono_Conta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 70, 40));
@@ -5565,6 +5570,11 @@ public class Principal extends javax.swing.JFrame {
         Panel_Icono_Bancos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Icono_Bancos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bancos2.png"))); // NOI18N
+        Icono_Bancos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Icono_BancosMouseClicked(evt);
+            }
+        });
         Panel_Icono_Bancos.add(Icono_Bancos, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 10, -1, -1));
 
         Slide.add(Panel_Icono_Bancos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 70, 40));
@@ -5579,6 +5589,11 @@ public class Principal extends javax.swing.JFrame {
         Panel_Icono_Nomina.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Icono_Nomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nomina3.png"))); // NOI18N
+        Icono_Nomina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Icono_NominaMouseClicked(evt);
+            }
+        });
         Panel_Icono_Nomina.add(Icono_Nomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 10, -1, -1));
 
         Slide.add(Panel_Icono_Nomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 70, 40));
@@ -8092,6 +8107,10 @@ public class Principal extends javax.swing.JFrame {
         resetColor_PanelI(Panel_Icono_RRHH);
         resetColor_PanelI(Panel_Icono_Nomina);
         resetColor_PanelI(Panel_Icono_Conta);
+        
+        this.dispose();
+        Bancos ban= new Bancos();
+        ban.setVisible(true);
     }//GEN-LAST:event_Panel_Icono_BancosMouseClicked
 
     private void Panel_Icono_NominaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Icono_NominaMouseClicked
@@ -8100,6 +8119,10 @@ public class Principal extends javax.swing.JFrame {
         resetColor_PanelI(Panel_Icono_RRHH);
         resetColor_PanelI(Panel_Icono_Conta);
         resetColor_PanelI(Panel_Icono_Bancos);
+        
+        this.dispose();
+        Nomina n= new Nomina();
+        n.setVisible(true);
     }//GEN-LAST:event_Panel_Icono_NominaMouseClicked
 
     private void Icono_RRHHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Icono_RRHHMouseClicked
@@ -8603,6 +8626,10 @@ public class Principal extends javax.swing.JFrame {
         resetColor_PanelI(Panel_Icono_RRHH);
         resetColor_PanelI(Panel_Icono_Conta);
         resetColor_PanelI(Panel_Icono_Bancos);
+        
+        this.dispose();
+        Nomina n= new Nomina();
+        n.setVisible(true);
     }//GEN-LAST:event_Texto_NominaMouseClicked
 
     private void Texto_BancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_BancosMouseClicked
@@ -8611,6 +8638,10 @@ public class Principal extends javax.swing.JFrame {
         resetColor_PanelI(Panel_Icono_RRHH);
         resetColor_PanelI(Panel_Icono_Nomina);
         resetColor_PanelI(Panel_Icono_Conta);
+        
+        this.dispose();
+        Bancos ban= new Bancos();
+        ban.setVisible(true);
     }//GEN-LAST:event_Texto_BancosMouseClicked
 
     private void Texto_ContaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_ContaMouseClicked
@@ -10484,6 +10515,25 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_BuscarSKeyTyped
 
+    private void Icono_BancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Icono_BancosMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Bancos ban= new Bancos();
+        ban.setVisible(true);
+    }//GEN-LAST:event_Icono_BancosMouseClicked
+
+    private void Icono_ContaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Icono_ContaMouseClicked
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_Icono_ContaMouseClicked
+
+    private void Icono_NominaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Icono_NominaMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Nomina n= new Nomina();
+        n.setVisible(true);
+    }//GEN-LAST:event_Icono_NominaMouseClicked
+
     int posYA1 = 0;
 
     public void setColor_PanelI(JPanel Panel_Icono) {
@@ -10519,6 +10569,38 @@ public class Principal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
