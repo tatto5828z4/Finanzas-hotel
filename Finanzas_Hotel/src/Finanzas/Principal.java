@@ -895,6 +895,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel_Titulo = new javax.swing.JLabel();
         jPanel_Bienvenido = new javax.swing.JPanel();
         Bienvenido = new javax.swing.JLabel();
+        esquis = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
         ExpLD = new javax.swing.JPanel();
         SeleccionadoA3 = new javax.swing.JLabel();
         Cant_R1 = new javax.swing.JLabel();
@@ -981,6 +983,8 @@ public class Principal extends javax.swing.JFrame {
         icon_CV = new javax.swing.JLabel();
         jLabel_Felcha2 = new javax.swing.JLabel();
         jLabel_Flecha_Iz1 = new javax.swing.JLabel();
+        esquis1 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 107, 176));
@@ -991,7 +995,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel_MantenimientoBE.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoBE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_TituloAE1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Actividad Empleado.png"))); // NOI18N
+        jLabel_TituloAE1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bitacora Empleado.png"))); // NOI18N
         jPanel_MantenimientoBE.add(jLabel_TituloAE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 400, 120));
 
         jLabel_Buscar_BE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
@@ -5721,6 +5725,26 @@ public class Principal extends javax.swing.JFrame {
         Bienvenido.setText("Welcome");
         jPanel_Bienvenido.add(Bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 380, 230, 40));
 
+        esquis.setBackground(new java.awt.Color(232, 16, 34));
+        esquis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        esquis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                esquisMouseClicked(evt);
+            }
+        });
+        esquis.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/equis.png"))); // NOI18N
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+        esquis.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, -1, -1));
+
+        jPanel_Bienvenido.add(esquis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 0, 40, 30));
+
         jPanel_BG.add(jPanel_Bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 790));
 
         ExpLD.setBackground(new java.awt.Color(28, 27, 33));
@@ -6407,6 +6431,26 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jPanel_BG.add(jLabel_Flecha_Iz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 390, 30, 30));
+
+        esquis1.setBackground(new java.awt.Color(232, 16, 34));
+        esquis1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        esquis1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                esquis1MouseClicked(evt);
+            }
+        });
+        esquis1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/equis.png"))); // NOI18N
+        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
+        esquis1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, -1, -1));
+
+        jPanel_BG.add(esquis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 0, 40, 30));
 
         getContentPane().add(jPanel_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 790));
 
@@ -10534,6 +10578,26 @@ public class Principal extends javax.swing.JFrame {
         n.setVisible(true);
     }//GEN-LAST:event_Icono_NominaMouseClicked
 
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void esquisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_esquisMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_esquisMouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void esquis1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_esquis1MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_esquis1MouseClicked
+
     int posYA1 = 0;
 
     public void setColor_PanelI(JPanel Panel_Icono) {
@@ -11624,6 +11688,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_Modificartp;
     private javax.swing.JLabel Texto_Nomina;
     private javax.swing.JLabel Texto_RRHH;
+    private javax.swing.JPanel esquis;
+    private javax.swing.JPanel esquis1;
     private javax.swing.JLabel icon_AE;
     private javax.swing.JLabel icon_APP;
     private javax.swing.JLabel icon_Actividad;
@@ -11693,6 +11759,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
