@@ -5,6 +5,8 @@
  */
 package Finanzas;
 
+import Animaciones.Animaciones;
+import AppPackage.AnimationClass;
 import Finanzas_Clases.Banco;
 import Finanzas_Clases.Clasificacion_Cuenta;
 import Finanzas_Clases.Concepto_Bancario;
@@ -12,6 +14,7 @@ import Finanzas_Clases.Concilacion_Bancaria_Encabezado;
 import Finanzas_Clases.Conciliacion_Bancaria_Detalle;
 import Finanzas_Clases.Consulta_Saldos;
 import Finanzas_Clases.Cuenta_Contable;
+import Finanzas_Clases.Departamento;
 import Finanzas_Clases.Documento_Bancario;
 import Finanzas_Clases.Forma_de_Pago;
 import Finanzas_Clases.Moneda;
@@ -19,6 +22,8 @@ import Finanzas_Clases.Movimiento_Bancario_Detalle;
 import Finanzas_Clases.Movimiento_Bancario_Encabezado;
 import Finanzas_Clases.Solicitud_Empresarial;
 import Finanzas_Clases.Forma_de_Pago;
+import Finanzas_Clases.Nivel_Academico;
+import Finanzas_Clases.Puesto;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Element;
@@ -27,17 +32,18 @@ import com.lowagie.text.FontFactory;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Brayan Cifuentes
  */
-
 public class Bancos extends javax.swing.JFrame {
 
     /**
@@ -64,7 +70,7 @@ public class Bancos extends javax.swing.JFrame {
         jLabel_Eliminar.setVisible(false);
         modificard.setVisible(false);
         eliminard.setVisible(false);
-        
+
         IngresaB1.setVisible(true);
         ModificarB1.setVisible(false);
         EliminarB1.setVisible(false);
@@ -100,7 +106,7 @@ public class Bancos extends javax.swing.JFrame {
         ingresarConcilacionEn.setVisible(true);
         eliminarConcilacionEn.setVisible(false);
         modificarConcilacionEn.setVisible(false);
-        
+
         // bones en cuenta
         jLabel_SaldoA.setVisible(false);
         jTextField_SaldoA.setVisible(false);
@@ -110,7 +116,7 @@ public class Bancos extends javax.swing.JFrame {
         jTextField_CargosA.setVisible(false);
         jTextField_AbonosA.setVisible(false);
         jTextField_SaldoActual.setVisible(false);
-        
+
         // Contadores de Registros 
         /*
         int cantidad_Mo = 0;
@@ -149,17 +155,17 @@ public class Bancos extends javax.swing.JFrame {
         cantidad_CBE += Con.Cantidad_Registros();
         cantidad_CBD += CBD.Cantidad_Registros();
 
-        Cant_Moneda.setText("" + cantidad_Mo);
-        Cant_CC.setText("" + cantidad_CC);
-        Cant_CuCon.setText("" + cantidad_CuCon);
-        Cant_DB.setText("" + cantidad_DB);
-        Cant_CB.setText("" + cantidad_CB);
-        Cant_BE.setText("" + cantidad_BE);
-        Cant_MBD.setText("" + cantidad_MBD);
-        Cant_FP.setText("" + cantidad_FP);
-        Cant_B.setText("" + cantidad_B);
-        Cant_CBE.setText("" + cantidad_CBE);
-        Cant_CBD.setText("" + cantidad_CBD);*/
+        Cant_R2.setText("" + cantidad_Mo);
+        Cant_R3.setText("" + cantidad_CC);
+        Cant_R4.setText("" + cantidad_CuCon);
+        Cant_R1.setText("" + cantidad_DB);
+        Cant_R10.setText("" + cantidad_CB);
+        Cant_R11.setText("" + cantidad_BE);
+        Cant_R12.setText("" + cantidad_MBD);
+        Cant_R9.setText("" + cantidad_FP);
+        Cant_R13.setText("" + cantidad_B);
+        Cant_R16.setText("" + cantidad_CBE);
+        Cant_R14.setText("" + cantidad_CBD);*/
     }
 
     /**
@@ -499,62 +505,122 @@ public class Bancos extends javax.swing.JFrame {
         Texto_Eliminar_EC = new javax.swing.JLabel();
         Panel_Consultar_EC = new javax.swing.JPanel();
         Texto_Consultar_EC = new javax.swing.JLabel();
-        Panel_Bancos = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Panel_MIMEC = new javax.swing.JPanel();
-        jLabel_MantenimientoM = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        Cant_Moneda = new javax.swing.JLabel();
-        Panel_MIMEC1 = new javax.swing.JPanel();
-        jLabel_MantenimientoM1 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        Cant_CC = new javax.swing.JLabel();
-        Panel_MIMECContable = new javax.swing.JPanel();
-        jLabel_MantenimientoM2 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        Cant_CuCon = new javax.swing.JLabel();
-        Panel_MIMEDocumento = new javax.swing.JPanel();
-        jLabel_MantenimientoM3 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        Cant_DB = new javax.swing.JLabel();
-        Panel_MIMEConcepto = new javax.swing.JPanel();
-        jLabel_MantenimientoM4 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        Cant_CB = new javax.swing.JLabel();
-        Panel_MIMEMBE = new javax.swing.JPanel();
-        jLabel_MantenimientoM5 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        Cant_BE = new javax.swing.JLabel();
-        Panel_MIMBD = new javax.swing.JPanel();
-        jLabel_MantenimientoM6 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        Cant_MBD = new javax.swing.JLabel();
-        Panel_MIMFP = new javax.swing.JPanel();
-        jLabel_MantenimientoM7 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        Cant_FP = new javax.swing.JLabel();
-        Panel_MB = new javax.swing.JPanel();
-        jLabel_MantenimientoM8 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        Cant_B = new javax.swing.JLabel();
-        Panel_MCBEnc = new javax.swing.JPanel();
-        jLabel_MantenimientoM9 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        Cant_CBE = new javax.swing.JLabel();
-        Panel_Consultas = new javax.swing.JPanel();
-        jLabel_MantenimientoM10 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        Panel_MCBEnc2 = new javax.swing.JPanel();
-        jLabel_MantenimientoM11 = new javax.swing.JLabel();
-        jLabel103 = new javax.swing.JLabel();
-        Cant_CBD = new javax.swing.JLabel();
+        jPanel_BG = new javax.swing.JPanel();
+        Panel_IzquierdoC = new javax.swing.JPanel();
+        Slide = new javax.swing.JPanel();
+        Panel_Icono_Conta = new javax.swing.JPanel();
+        Icono_Conta = new javax.swing.JLabel();
+        Panel_Icono_Bancos = new javax.swing.JPanel();
+        Icono_Bancos = new javax.swing.JLabel();
+        Panel_Icono_Nomina = new javax.swing.JPanel();
+        Icono_Nomina = new javax.swing.JLabel();
+        Panel_Icono_RRHH = new javax.swing.JPanel();
+        Icono_RRHH = new javax.swing.JLabel();
+        jLabel_Logo = new javax.swing.JLabel();
+        Slide_Derecho = new javax.swing.JPanel();
+        Panel_Text_RRHH = new javax.swing.JPanel();
+        Texto_RRHH = new javax.swing.JLabel();
+        Panel_Text_Nomina = new javax.swing.JPanel();
+        Texto_Nomina = new javax.swing.JLabel();
+        Panel_Text_Bancos = new javax.swing.JPanel();
+        Texto_Bancos = new javax.swing.JLabel();
+        Panel_Text_Conta = new javax.swing.JPanel();
+        Texto_Conta = new javax.swing.JLabel();
+        jLabel_Titulo = new javax.swing.JLabel();
+        ExpLDB = new javax.swing.JPanel();
+        SeleccionadoA3 = new javax.swing.JLabel();
+        Cant_R1 = new javax.swing.JLabel();
+        icon_DocBanc = new javax.swing.JLabel();
+        SeleccionadoA15 = new javax.swing.JLabel();
+        Cant_R20 = new javax.swing.JLabel();
+        icon_PP = new javax.swing.JLabel();
+        DepartamentoB = new javax.swing.JPanel();
+        SeleccionadoA1 = new javax.swing.JLabel();
+        Cant_Mo = new javax.swing.JLabel();
+        icon_Moneda = new javax.swing.JLabel();
+        SeleccionadoA12 = new javax.swing.JLabel();
+        Cant_R17 = new javax.swing.JLabel();
+        icon_APP = new javax.swing.JLabel();
+        PuestoB = new javax.swing.JPanel();
+        SeleccionadoA = new javax.swing.JLabel();
+        Cant_R3 = new javax.swing.JLabel();
+        icon_ClasifCuenta = new javax.swing.JLabel();
+        SeleccionadoA13 = new javax.swing.JLabel();
+        Cant_R18 = new javax.swing.JLabel();
+        icon_Seleccion = new javax.swing.JLabel();
+        Nivel_AcademicoB = new javax.swing.JPanel();
+        SeleccionadoA2 = new javax.swing.JLabel();
+        Cant_R4 = new javax.swing.JLabel();
+        icon_CuentaCont = new javax.swing.JLabel();
+        SeleccionadoA14 = new javax.swing.JLabel();
+        Cant_R19 = new javax.swing.JLabel();
+        icon_Actividad = new javax.swing.JLabel();
+        ExpLD1 = new javax.swing.JPanel();
+        Cant_R5 = new javax.swing.JLabel();
+        icon_NivelA2 = new javax.swing.JLabel();
+        Departamento1B = new javax.swing.JPanel();
+        Cant_R6 = new javax.swing.JLabel();
+        icon_Departamento1 = new javax.swing.JLabel();
+        Puesto1B = new javax.swing.JPanel();
+        Cant_R7 = new javax.swing.JLabel();
+        icon_Puesto2 = new javax.swing.JLabel();
+        Nivel_Academico2B = new javax.swing.JPanel();
+        Cant_R8 = new javax.swing.JLabel();
+        icon_NivelA3 = new javax.swing.JLabel();
+        SEB = new javax.swing.JPanel();
+        SeleccionadoA5 = new javax.swing.JLabel();
+        Cant_R11 = new javax.swing.JLabel();
+        icon_BancEnc = new javax.swing.JLabel();
+        SeleccionadoA17 = new javax.swing.JLabel();
+        Cant_R22 = new javax.swing.JLabel();
+        icon_EC = new javax.swing.JLabel();
+        RLB = new javax.swing.JPanel();
+        SeleccionadoA7 = new javax.swing.JLabel();
+        Cant_R9 = new javax.swing.JLabel();
+        icon_FormaPago = new javax.swing.JLabel();
+        SeleccionadoA19 = new javax.swing.JLabel();
+        Cant_R24 = new javax.swing.JLabel();
+        icon_BE = new javax.swing.JLabel();
+        ExpLB = new javax.swing.JPanel();
+        SeleccionadoA4 = new javax.swing.JLabel();
+        Cant_R10 = new javax.swing.JLabel();
+        icon_ConcBanc = new javax.swing.JLabel();
+        SeleccionadoA16 = new javax.swing.JLabel();
+        Cant_R21 = new javax.swing.JLabel();
+        icon_Contratacion = new javax.swing.JLabel();
+        MedioB = new javax.swing.JPanel();
+        SeleccionadoA6 = new javax.swing.JLabel();
+        Cant_R12 = new javax.swing.JLabel();
+        icon_BancDet = new javax.swing.JLabel();
+        SeleccionadoA18 = new javax.swing.JLabel();
+        Cant_R23 = new javax.swing.JLabel();
+        icon_AE = new javax.swing.JLabel();
+        AplicacionB = new javax.swing.JPanel();
+        SeleccionadoA10 = new javax.swing.JLabel();
+        Cant_R14 = new javax.swing.JLabel();
+        icon_CoincBancDet = new javax.swing.JLabel();
+        TPB = new javax.swing.JPanel();
+        SeleccionadoA11 = new javax.swing.JLabel();
+        Cant_R15 = new javax.swing.JLabel();
+        icon_consultas = new javax.swing.JLabel();
+        RPB = new javax.swing.JPanel();
+        SeleccionadoA8 = new javax.swing.JLabel();
+        Cant_R13 = new javax.swing.JLabel();
+        icon_Banco = new javax.swing.JLabel();
+        CVB = new javax.swing.JPanel();
+        SeleccionadoA9 = new javax.swing.JLabel();
+        Cant_R16 = new javax.swing.JLabel();
+        icon_CoincBancEnc = new javax.swing.JLabel();
+        jPanel_Bienvenido = new javax.swing.JPanel();
+        Bienvenido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel_ConsultaBancos_Saldos.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_ConsultaBancos_Saldos.setPreferredSize(new java.awt.Dimension(1880, 900));
+        jPanel_ConsultaBancos_Saldos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tbl_ConsultaDet.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -581,14 +647,19 @@ public class Bancos extends javax.swing.JFrame {
         });
         jScrollPane47.setViewportView(tbl_ConsultaDet);
 
+        jPanel_ConsultaBancos_Saldos.add(jScrollPane47, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+
         jLabel94.setForeground(new java.awt.Color(255, 255, 255));
         jLabel94.setText("Consulta de Saldos, Cuentas");
+        jPanel_ConsultaBancos_Saldos.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         jLabel100.setForeground(new java.awt.Color(255, 255, 255));
         jLabel100.setText("Consulta por cuentas (saldos) ");
+        jPanel_ConsultaBancos_Saldos.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         jLabel102.setForeground(new java.awt.Color(255, 255, 255));
         jLabel102.setText("Consulta por Clasificacion");
+        jPanel_ConsultaBancos_Saldos.add(jLabel102, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         tbl_ConsultaEnc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -615,6 +686,8 @@ public class Bancos extends javax.swing.JFrame {
         });
         jScrollPane48.setViewportView(tbl_ConsultaEnc);
 
+        jPanel_ConsultaBancos_Saldos.add(jScrollPane48, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+
         jLabel105.setForeground(new java.awt.Color(255, 255, 255));
         jLabel105.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel105.setText("X");
@@ -623,6 +696,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel105MouseClicked(evt);
             }
         });
+        jPanel_ConsultaBancos_Saldos.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         jButton_GenerarPDF.setText("PDF");
         jButton_GenerarPDF.addActionListener(new java.awt.event.ActionListener() {
@@ -630,48 +704,9 @@ public class Bancos extends javax.swing.JFrame {
                 jButton_GenerarPDFActionPerformed(evt);
             }
         });
+        jPanel_ConsultaBancos_Saldos.add(jButton_GenerarPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
-        javax.swing.GroupLayout jPanel_ConsultaBancos_SaldosLayout = new javax.swing.GroupLayout(jPanel_ConsultaBancos_Saldos);
-        jPanel_ConsultaBancos_Saldos.setLayout(jPanel_ConsultaBancos_SaldosLayout);
-        jPanel_ConsultaBancos_SaldosLayout.setHorizontalGroup(
-            jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_ConsultaBancos_SaldosLayout.createSequentialGroup()
-                .addGroup(jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_ConsultaBancos_SaldosLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_ConsultaBancos_SaldosLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addGroup(jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel100, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane47, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel105, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_GenerarPDF))
-                        .addGap(136, 136, 136)
-                        .addGroup(jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane48, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel102, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(522, Short.MAX_VALUE))
-        );
-        jPanel_ConsultaBancos_SaldosLayout.setVerticalGroup(
-            jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_ConsultaBancos_SaldosLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel94)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel105)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel100)
-                    .addComponent(jLabel102))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane47, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane48, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(jButton_GenerarPDF)
-                .addContainerGap(527, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel_ConsultaBancos_Saldos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
         jPanel_Mantenimiento_CBD.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_Mantenimiento_CBD.setPreferredSize(new java.awt.Dimension(1880, 900));
@@ -952,6 +987,8 @@ public class Bancos extends javax.swing.JFrame {
 
         jPanel_Mantenimiento_CBD.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 320, -1, -1));
 
+        getContentPane().add(jPanel_Mantenimiento_CBD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
+
         jPanel_Manatenimiento_ConBanEn.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_Manatenimiento_ConBanEn.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_Manatenimiento_ConBanEn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1171,6 +1208,8 @@ public class Bancos extends javax.swing.JFrame {
         txt_Saldo_Final.setForeground(new java.awt.Color(255, 255, 255));
         txt_Saldo_Final.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel_Manatenimiento_ConBanEn.add(txt_Saldo_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, 104, -1));
+
+        getContentPane().add(jPanel_Manatenimiento_ConBanEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
         jPanel_MantenimientoBanco.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoBanco.setPreferredSize(new java.awt.Dimension(1880, 900));
@@ -1467,6 +1506,8 @@ public class Bancos extends javax.swing.JFrame {
         jTextField_NumeroS.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel_MantenimientoBanco.add(jTextField_NumeroS, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 130, -1));
 
+        getContentPane().add(jPanel_MantenimientoBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
+
         jPanel_Forma_de_Pago.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_Forma_de_Pago.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_Forma_de_Pago.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1568,6 +1609,8 @@ public class Bancos extends javax.swing.JFrame {
 
         jPanel_Forma_de_Pago.add(jScrollPane43, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 620, 170));
 
+        getContentPane().add(jPanel_Forma_de_Pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
+
         jPanel_MantenimientoMovBanDet.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoMovBanDet.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_MantenimientoMovBanDet.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1578,40 +1621,40 @@ public class Bancos extends javax.swing.JFrame {
 
         jLabel55.setForeground(java.awt.Color.white);
         jLabel55.setText("ID Movimiento Encabezado ");
-        jPanel_MantenimientoMovBanDet.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
 
         jLabel56.setForeground(java.awt.Color.white);
         jLabel56.setText("Codigo Concepto ");
-        jPanel_MantenimientoMovBanDet.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, -1, -1));
 
         jLabel57.setForeground(java.awt.Color.white);
         jLabel57.setText("Saldo Deudor:");
-        jPanel_MantenimientoMovBanDet.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 120, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, -1, -1));
 
         jTextField_Saldo.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_Saldo.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_Saldo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_MantenimientoMovBanDet.add(jTextField_Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 150, 160, 20));
+        jPanel_MantenimientoMovBanDet.add(jTextField_Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 160, 20));
 
         jLabel58.setForeground(java.awt.Color.white);
         jLabel58.setText("Saldo Acreedor:");
-        jPanel_MantenimientoMovBanDet.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 120, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 120, -1, -1));
 
         jTextField_tipoSaldo.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_tipoSaldo.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_tipoSaldo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_MantenimientoMovBanDet.add(jTextField_tipoSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 150, 160, 20));
+        jPanel_MantenimientoMovBanDet.add(jTextField_tipoSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 150, 160, 20));
 
         jLabel_codigoConcepto.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel_MantenimientoMovBanDet.add(jLabel_codigoConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 150, 30, 20));
+        jPanel_MantenimientoMovBanDet.add(jLabel_codigoConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, 30, 20));
 
         jLabel_IDEnc.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel_MantenimientoMovBanDet.add(jLabel_IDEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 30, 20));
+        jPanel_MantenimientoMovBanDet.add(jLabel_IDEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 30, 20));
 
         jLabel59.setForeground(java.awt.Color.white);
         jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel59.setText("Buscar por Concepto");
-        jPanel_MantenimientoMovBanDet.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 120, 20));
+        jPanel_MantenimientoMovBanDet.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 120, 20));
 
         jTextField_BuscarMov.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_BuscarMov.setForeground(new java.awt.Color(153, 153, 153));
@@ -1621,7 +1664,7 @@ public class Bancos extends javax.swing.JFrame {
                 jTextField_BuscarMovKeyReleased(evt);
             }
         });
-        jPanel_MantenimientoMovBanDet.add(jTextField_BuscarMov, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, 250, -1));
+        jPanel_MantenimientoMovBanDet.add(jTextField_BuscarMov, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 250, -1));
 
         tbl_MovBancDet.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1650,7 +1693,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         jScrollPane42.setViewportView(tbl_MovBancDet);
 
-        jPanel_MantenimientoMovBanDet.add(jScrollPane42, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 820, 170));
+        jPanel_MantenimientoMovBanDet.add(jScrollPane42, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 820, 170));
 
         jLabel60.setForeground(java.awt.Color.white);
         jLabel60.setText("Insertar");
@@ -1659,7 +1702,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel60MouseClicked(evt);
             }
         });
-        jPanel_MantenimientoMovBanDet.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 250, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 250, -1, -1));
 
         jLabel61.setForeground(java.awt.Color.white);
         jLabel61.setText("Modificar");
@@ -1668,7 +1711,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel61MouseClicked(evt);
             }
         });
-        jPanel_MantenimientoMovBanDet.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 250, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 250, -1, -1));
 
         jLabel62.setForeground(java.awt.Color.white);
         jLabel62.setText("Eliminar");
@@ -1677,21 +1720,23 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel62MouseClicked(evt);
             }
         });
-        jPanel_MantenimientoMovBanDet.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 280, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 280, -1, -1));
 
         jComboBox_codigoC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_codigoCActionPerformed(evt);
             }
         });
-        jPanel_MantenimientoMovBanDet.add(jComboBox_codigoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 150, 170, -1));
+        jPanel_MantenimientoMovBanDet.add(jComboBox_codigoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 170, -1));
 
         jComboBox_Encabezado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_EncabezadoActionPerformed(evt);
             }
         });
-        jPanel_MantenimientoMovBanDet.add(jComboBox_Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 160, -1));
+        jPanel_MantenimientoMovBanDet.add(jComboBox_Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 160, -1));
+
+        getContentPane().add(jPanel_MantenimientoMovBanDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
         JPanel_MantenimientoMovimientoBanEn.setBackground(new java.awt.Color(28, 27, 33));
         JPanel_MantenimientoMovimientoBanEn.setPreferredSize(new java.awt.Dimension(1880, 900));
@@ -1946,6 +1991,8 @@ public class Bancos extends javax.swing.JFrame {
             }
         });
         JPanel_MantenimientoMovimientoBanEn.add(txt_Monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, 140, 20));
+
+        getContentPane().add(JPanel_MantenimientoMovimientoBanEn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1888, -1));
 
         jPanel_MantenimientoCB.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoCB.setPreferredSize(new java.awt.Dimension(1880, 900));
@@ -2210,6 +2257,8 @@ public class Bancos extends javax.swing.JFrame {
         });
         jPanel_MantenimientoCB.add(txt_Estatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 140, 20));
 
+        getContentPane().add(jPanel_MantenimientoCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
+
         jPanel_Mantenimiento_DocB.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_Mantenimiento_DocB.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_Mantenimiento_DocB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2398,6 +2447,8 @@ public class Bancos extends javax.swing.JFrame {
         Panel_Consultar_EC1.add(Texto_Consultar_EC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
 
         jPanel_Mantenimiento_DocB.add(Panel_Consultar_EC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 180, 130, 50));
+
+        getContentPane().add(jPanel_Mantenimiento_DocB, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
         Panel_CuentaContable.setBackground(new java.awt.Color(28, 27, 33));
         Panel_CuentaContable.setPreferredSize(new java.awt.Dimension(1880, 900));
@@ -2707,6 +2758,8 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_CuentaContable.add(jButton_PDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 310, 110, -1));
 
+        getContentPane().add(Panel_CuentaContable, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
+
         jPanel_MantenimientoClasiCuenta.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoClasiCuenta.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_MantenimientoClasiCuenta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2871,6 +2924,8 @@ public class Bancos extends javax.swing.JFrame {
         jScrollPane39.setViewportView(tbl_Clasi);
 
         jPanel_MantenimientoClasiCuenta.add(jScrollPane39, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 600, 190));
+
+        getContentPane().add(jPanel_MantenimientoClasiCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
         jPanel_MantenimientoMoneda.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoMoneda.setPreferredSize(new java.awt.Dimension(1880, 900));
@@ -3061,1009 +3116,866 @@ public class Bancos extends javax.swing.JFrame {
 
         jPanel_MantenimientoMoneda.add(Panel_Consultar_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 160, 130, 50));
 
-        Panel_Bancos.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_Bancos.setPreferredSize(new java.awt.Dimension(1880, 900));
-        Panel_Bancos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel_MantenimientoMoneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Bancos");
-        Panel_Bancos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 78, -1));
-
-        Panel_MIMEC.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MIMEC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MIMEC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MIMEC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MIMECMouseDragged(evt);
-            }
-        });
-        Panel_MIMEC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MIMECMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MIMECMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MIMECMouseReleased(evt);
-            }
-        });
-        Panel_MIMEC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel_MantenimientoM.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM.setText("MANTENIMIENTO MONEDA.");
-        jLabel_MantenimientoM.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jPanel_BG.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_BG.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoMMouseMoved(evt);
+                jPanel_BGMouseMoved(evt);
             }
         });
-        jLabel_MantenimientoM.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel_BG.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoMMouseClicked(evt);
+                jPanel_BGMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoMMouseExited(evt);
+                jPanel_BGMouseExited(evt);
             }
         });
-        Panel_MIMEC.add(jLabel_MantenimientoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+        jPanel_BG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Cantidad:");
-        Panel_MIMEC.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 71, -1, -1));
+        Panel_IzquierdoC.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Cant_Moneda.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MIMEC.add(Cant_Moneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 68, 20, 20));
-
-        Panel_Bancos.add(Panel_MIMEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 270, 100));
-
-        Panel_MIMEC1.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MIMEC1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
-        Panel_MIMEC1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MIMEC1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MIMEC1MouseDragged(evt);
-            }
-        });
-        Panel_MIMEC1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MIMEC1MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MIMEC1MouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MIMEC1MouseReleased(evt);
-            }
-        });
-        Panel_MIMEC1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel_MantenimientoM1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM1.setText("MANTENIMIENTO CLASIFICACION CUENTAS");
-        jLabel_MantenimientoM1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        Slide.setBackground(new java.awt.Color(40, 41, 46));
+        Slide.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM1MouseMoved(evt);
+                SlideMouseMoved(evt);
             }
         });
-        jLabel_MantenimientoM1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Slide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Panel_Icono_Conta.setBackground(new java.awt.Color(40, 41, 46));
+        Panel_Icono_Conta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_Icono_Conta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM1MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM1MouseExited(evt);
+                Panel_Icono_ContaMouseClicked(evt);
             }
         });
-        Panel_MIMEC1.add(jLabel_MantenimientoM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 230, -1));
+        Panel_Icono_Conta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Cantidad:");
-        Panel_MIMEC1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+        Icono_Conta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Conta.png"))); // NOI18N
+        Panel_Icono_Conta.add(Icono_Conta, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 10, -1, -1));
 
-        Cant_CC.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MIMEC1.add(Cant_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 67, 20, 20));
+        Slide.add(Panel_Icono_Conta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 70, 40));
 
-        Panel_Bancos.add(Panel_MIMEC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 270, 100));
-
-        Panel_MIMECContable.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MIMECContable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MIMECContable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MIMECContable.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MIMECContableMouseDragged(evt);
-            }
-        });
-        Panel_MIMECContable.addMouseListener(new java.awt.event.MouseAdapter() {
+        Panel_Icono_Bancos.setBackground(new java.awt.Color(40, 41, 46));
+        Panel_Icono_Bancos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_Icono_Bancos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MIMECContableMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MIMECContableMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MIMECContableMouseReleased(evt);
+                Panel_Icono_BancosMouseClicked(evt);
             }
         });
-        Panel_MIMECContable.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Panel_Icono_Bancos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_MantenimientoM2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM2.setText("MANTENIMIENTO CUENTA CONTABLE");
-        jLabel_MantenimientoM2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM2MouseMoved(evt);
-            }
-        });
-        jLabel_MantenimientoM2.addMouseListener(new java.awt.event.MouseAdapter() {
+        Icono_Bancos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bancos2.png"))); // NOI18N
+        Icono_Bancos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM2MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM2MouseExited(evt);
+                Icono_BancosMouseClicked(evt);
             }
         });
-        Panel_MIMECContable.add(jLabel_MantenimientoM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 200, -1));
+        Panel_Icono_Bancos.add(Icono_Bancos, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 10, -1, -1));
 
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Cantidad:");
-        Panel_MIMECContable.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        Slide.add(Panel_Icono_Bancos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 70, 40));
 
-        Cant_CuCon.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MIMECContable.add(Cant_CuCon, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
-
-        Panel_Bancos.add(Panel_MIMECContable, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 270, 100));
-
-        Panel_MIMEDocumento.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MIMEDocumento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MIMEDocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MIMEDocumento.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MIMEDocumentoMouseDragged(evt);
-            }
-        });
-        Panel_MIMEDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
+        Panel_Icono_Nomina.setBackground(new java.awt.Color(40, 41, 46));
+        Panel_Icono_Nomina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_Icono_Nomina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MIMEDocumentoMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MIMEDocumentoMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MIMEDocumentoMouseReleased(evt);
+                Panel_Icono_NominaMouseClicked(evt);
             }
         });
-        Panel_MIMEDocumento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Panel_Icono_Nomina.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_MantenimientoM3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM3.setText("MANTENIMIENTO DOCUMENTO BANCARIO");
-        jLabel_MantenimientoM3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM3MouseMoved(evt);
-            }
-        });
-        jLabel_MantenimientoM3.addMouseListener(new java.awt.event.MouseAdapter() {
+        Icono_Nomina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nomina3.png"))); // NOI18N
+        Icono_Nomina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM3MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM3MouseExited(evt);
+                Icono_NominaMouseClicked(evt);
             }
         });
-        Panel_MIMEDocumento.add(jLabel_MantenimientoM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 220, -1));
+        Panel_Icono_Nomina.add(Icono_Nomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 10, -1, -1));
 
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Cantidad:");
-        Panel_MIMEDocumento.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        Slide.add(Panel_Icono_Nomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 70, 40));
 
-        Cant_DB.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MIMEDocumento.add(Cant_DB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
-
-        Panel_Bancos.add(Panel_MIMEDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 60, 270, 100));
-
-        Panel_MIMEConcepto.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MIMEConcepto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MIMEConcepto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MIMEConcepto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MIMEConceptoMouseDragged(evt);
-            }
-        });
-        Panel_MIMEConcepto.addMouseListener(new java.awt.event.MouseAdapter() {
+        Panel_Icono_RRHH.setBackground(new java.awt.Color(40, 41, 46));
+        Panel_Icono_RRHH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Panel_Icono_RRHH.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MIMEConceptoMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MIMEConceptoMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MIMEConceptoMouseReleased(evt);
+                Panel_Icono_RRHHMouseClicked(evt);
             }
         });
-        Panel_MIMEConcepto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Panel_Icono_RRHH.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_MantenimientoM4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM4.setText("MANTENIMIENTO CONCEPTO BANCARIO");
-        jLabel_MantenimientoM4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM4MouseMoved(evt);
-            }
-        });
-        jLabel_MantenimientoM4.addMouseListener(new java.awt.event.MouseAdapter() {
+        Icono_RRHH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/rh2.png"))); // NOI18N
+        Icono_RRHH.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM4MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM4MouseExited(evt);
-            }
-        });
-        Panel_MIMEConcepto.add(jLabel_MantenimientoM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 210, -1));
-
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setText("Cantidad:");
-        Panel_MIMEConcepto.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
-
-        Cant_CB.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MIMEConcepto.add(Cant_CB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
-
-        Panel_Bancos.add(Panel_MIMEConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 270, 100));
-
-        Panel_MIMEMBE.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MIMEMBE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MIMEMBE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MIMEMBE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MIMEMBEMouseDragged(evt);
-            }
-        });
-        Panel_MIMEMBE.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MIMEMBEMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MIMEMBEMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MIMEMBEMouseReleased(evt);
-            }
-        });
-        Panel_MIMEMBE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel_MantenimientoM5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM5.setText("MANTENIMIENTO BANCO ENCABEZADO");
-        jLabel_MantenimientoM5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM5MouseMoved(evt);
-            }
-        });
-        jLabel_MantenimientoM5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM5MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM5MouseExited(evt);
-            }
-        });
-        Panel_MIMEMBE.add(jLabel_MantenimientoM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
-
-        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel34.setText("Cantidad:");
-        Panel_MIMEMBE.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
-
-        Cant_BE.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MIMEMBE.add(Cant_BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
-
-        Panel_Bancos.add(Panel_MIMEMBE, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 270, 100));
-
-        Panel_MIMBD.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MIMBD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MIMBD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MIMBD.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MIMBDMouseDragged(evt);
-            }
-        });
-        Panel_MIMBD.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MIMBDMouseClicked(evt);
+                Icono_RRHHMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Panel_MIMBDMouseEntered(evt);
+                Icono_RRHHMouseEntered(evt);
+            }
+        });
+        Panel_Icono_RRHH.add(Icono_RRHH, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 10, -1, -1));
+
+        Slide.add(Panel_Icono_RRHH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 70, 40));
+
+        jLabel_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
+        jLabel_Logo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Logo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_LogoMouseClicked(evt);
+            }
+        });
+        Slide.add(jLabel_Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 40, 40));
+
+        Slide_Derecho.setBackground(new java.awt.Color(28, 27, 33));
+        Slide_Derecho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Panel_Text_RRHH.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Text_RRHH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Panel_Text_RRHHMouseClicked(evt);
+            }
+        });
+        Panel_Text_RRHH.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_RRHH.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        Texto_RRHH.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_RRHH.setText("RRHH");
+        Texto_RRHH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_RRHH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_RRHHMouseClicked(evt);
+            }
+        });
+        Panel_Text_RRHH.add(Texto_RRHH, new org.netbeans.lib.awtextra.AbsoluteConstraints(-210, 10, -1, -1));
+
+        Slide_Derecho.add(Panel_Text_RRHH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 140, 40));
+
+        Panel_Text_Nomina.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Text_Nomina.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Nomina.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        Texto_Nomina.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Nomina.setText("Nomina");
+        Texto_Nomina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Nomina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_NominaMouseClicked(evt);
+            }
+        });
+        Panel_Text_Nomina.add(Texto_Nomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(-210, 10, -1, -1));
+
+        Slide_Derecho.add(Panel_Text_Nomina, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, 40));
+
+        Panel_Text_Bancos.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Text_Bancos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Bancos.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        Texto_Bancos.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Bancos.setText("Bancos");
+        Texto_Bancos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Bancos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_BancosMouseClicked(evt);
+            }
+        });
+        Panel_Text_Bancos.add(Texto_Bancos, new org.netbeans.lib.awtextra.AbsoluteConstraints(-210, 10, -1, -1));
+
+        Slide_Derecho.add(Panel_Text_Bancos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 140, 40));
+
+        Panel_Text_Conta.setBackground(new java.awt.Color(28, 27, 33));
+        Panel_Text_Conta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Texto_Conta.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        Texto_Conta.setForeground(new java.awt.Color(255, 255, 255));
+        Texto_Conta.setText("Contabilidad");
+        Texto_Conta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Texto_Conta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Texto_ContaMouseClicked(evt);
+            }
+        });
+        Panel_Text_Conta.add(Texto_Conta, new org.netbeans.lib.awtextra.AbsoluteConstraints(-210, 10, -1, -1));
+
+        Slide_Derecho.add(Panel_Text_Conta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, 40));
+
+        Slide.add(Slide_Derecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 790));
+
+        Panel_IzquierdoC.add(Slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 790));
+
+        jPanel_BG.add(Panel_IzquierdoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, -1));
+
+        jLabel_Titulo.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        jLabel_Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Titulo.setText("Mantenimientos Bancos");
+        jPanel_BG.add(jLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 340, 40));
+
+        ExpLDB.setBackground(new java.awt.Color(28, 27, 33));
+        ExpLDB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExpLDB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExpLDBMouseClicked(evt);
+            }
+        });
+        ExpLDB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        ExpLDB.add(SeleccionadoA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R1.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R1.setForeground(new java.awt.Color(255, 255, 255));
+        ExpLDB.add(Cant_R1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_DocBanc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Documento Bancario.png"))); // NOI18N
+        icon_DocBanc.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_DocBancMouseMoved(evt);
+            }
+        });
+        icon_DocBanc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_DocBancMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MIMBDMouseExited(evt);
+                icon_DocBancMouseExited(evt);
+            }
+        });
+        ExpLDB.add(icon_DocBanc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        SeleccionadoA15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        ExpLDB.add(SeleccionadoA15, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -50, 10, 40));
+
+        Cant_R20.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R20.setForeground(new java.awt.Color(255, 255, 255));
+        ExpLDB.add(Cant_R20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 20, 20));
+
+        icon_PP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_PP.png"))); // NOI18N
+        icon_PP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_PPMouseMoved(evt);
+            }
+        });
+        icon_PP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_PPMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_PPMouseExited(evt);
+            }
+        });
+        ExpLDB.add(icon_PP, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, -1));
+
+        jPanel_BG.add(ExpLDB, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 130, 220, 180));
+
+        DepartamentoB.setBackground(new java.awt.Color(28, 27, 33));
+        DepartamentoB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DepartamentoB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DepartamentoBMouseClicked(evt);
+            }
+        });
+        DepartamentoB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        DepartamentoB.add(SeleccionadoA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_Mo.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_Mo.setForeground(new java.awt.Color(255, 255, 255));
+        DepartamentoB.add(Cant_Mo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_Moneda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Monedas.png"))); // NOI18N
+        icon_Moneda.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_MonedaMouseMoved(evt);
+            }
+        });
+        icon_Moneda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_MonedaMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_MonedaMouseExited(evt);
+            }
+        });
+        DepartamentoB.add(icon_Moneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
+
+        SeleccionadoA12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        DepartamentoB.add(SeleccionadoA12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -50, 10, 40));
+
+        Cant_R17.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R17.setForeground(new java.awt.Color(255, 255, 255));
+        DepartamentoB.add(Cant_R17, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 158, 20, 20));
+
+        icon_APP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_APP.png"))); // NOI18N
+        icon_APP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_APPMouseMoved(evt);
+            }
+        });
+        icon_APP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_APPMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_APPMouseExited(evt);
+            }
+        });
+        DepartamentoB.add(icon_APP, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 220, 180));
+
+        jPanel_BG.add(DepartamentoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 220, 180));
+
+        PuestoB.setBackground(new java.awt.Color(28, 27, 33));
+        PuestoB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PuestoB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PuestoBMouseExited(evt);
+            }
+        });
+        PuestoB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        SeleccionadoA.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                SeleccionadoAMouseMoved(evt);
+            }
+        });
+        PuestoB.add(SeleccionadoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R3.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R3.setForeground(new java.awt.Color(255, 255, 255));
+        PuestoB.add(Cant_R3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_ClasifCuenta.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        icon_ClasifCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clasificacion Cuenta.png"))); // NOI18N
+        icon_ClasifCuenta.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_ClasifCuentaMouseMoved(evt);
+            }
+        });
+        icon_ClasifCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_ClasifCuentaMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_ClasifCuentaMouseExited(evt);
+            }
+        });
+        PuestoB.add(icon_ClasifCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
+
+        SeleccionadoA13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        SeleccionadoA13.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                SeleccionadoA13MouseMoved(evt);
+            }
+        });
+        PuestoB.add(SeleccionadoA13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -50, 10, 40));
+
+        Cant_R18.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R18.setForeground(new java.awt.Color(255, 255, 255));
+        Cant_R18.setText("1");
+        PuestoB.add(Cant_R18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 20, -1));
+
+        icon_Seleccion.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        icon_Seleccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_S.png"))); // NOI18N
+        icon_Seleccion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_SeleccionMouseMoved(evt);
+            }
+        });
+        icon_Seleccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_SeleccionMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_SeleccionMouseExited(evt);
+            }
+        });
+        PuestoB.add(icon_Seleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 220, 180));
+
+        jPanel_BG.add(PuestoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 220, 180));
+
+        Nivel_AcademicoB.setBackground(new java.awt.Color(28, 27, 33));
+        Nivel_AcademicoB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Nivel_AcademicoB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        Nivel_AcademicoB.add(SeleccionadoA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R4.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R4.setForeground(new java.awt.Color(255, 255, 255));
+        Nivel_AcademicoB.add(Cant_R4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_CuentaCont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cuenta Contable.png"))); // NOI18N
+        icon_CuentaCont.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_CuentaContMouseMoved(evt);
+            }
+        });
+        icon_CuentaCont.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_CuentaContMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_CuentaContMouseExited(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MIMBDMouseReleased(evt);
+                icon_CuentaContMouseReleased(evt);
             }
         });
-        Panel_MIMBD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Nivel_AcademicoB.add(icon_CuentaCont, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel_MantenimientoM6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM6.setText("MANTENIMIENTO MOVIMIENTO BANCARIO DETALLE");
-        jLabel_MantenimientoM6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        SeleccionadoA14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        Nivel_AcademicoB.add(SeleccionadoA14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -50, 10, 40));
+
+        Cant_R19.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R19.setForeground(new java.awt.Color(255, 255, 255));
+        Cant_R19.setText("1");
+        Nivel_AcademicoB.add(Cant_R19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 158, 20, 20));
+
+        icon_Actividad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_Actividad.png"))); // NOI18N
+        icon_Actividad.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM6MouseMoved(evt);
+                icon_ActividadMouseMoved(evt);
             }
         });
-        jLabel_MantenimientoM6.addMouseListener(new java.awt.event.MouseAdapter() {
+        icon_Actividad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM6MouseClicked(evt);
+                icon_ActividadMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM6MouseExited(evt);
-            }
-        });
-        Panel_MIMBD.add(jLabel_MantenimientoM6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
-
-        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel32.setText("Cantidad:");
-        Panel_MIMBD.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
-
-        Cant_MBD.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MIMBD.add(Cant_MBD, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
-
-        Panel_Bancos.add(Panel_MIMBD, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 270, 100));
-
-        Panel_MIMFP.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MIMFP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MIMFP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MIMFP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MIMFPMouseDragged(evt);
-            }
-        });
-        Panel_MIMFP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MIMFPMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MIMFPMouseExited(evt);
+                icon_ActividadMouseExited(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MIMFPMouseReleased(evt);
+                icon_ActividadMouseReleased(evt);
             }
         });
-        Panel_MIMFP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Nivel_AcademicoB.add(icon_Actividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, -1));
 
-        jLabel_MantenimientoM7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM7.setText("MANTENIMIENTO FORMA DE PAGO");
-        jLabel_MantenimientoM7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jPanel_BG.add(Nivel_AcademicoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, 220, 180));
+
+        ExpLD1.setBackground(new java.awt.Color(28, 27, 33));
+        ExpLD1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExpLD1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Cant_R5.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R5.setForeground(new java.awt.Color(255, 255, 255));
+        Cant_R5.setText("1");
+        ExpLD1.add(Cant_R5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 20, -1));
+        ExpLD1.add(icon_NivelA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel_BG.add(ExpLD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 130, 220, 180));
+
+        Departamento1B.setBackground(new java.awt.Color(28, 27, 33));
+        Departamento1B.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Departamento1B.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Departamento1BMouseClicked(evt);
+            }
+        });
+        Departamento1B.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Cant_R6.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R6.setForeground(new java.awt.Color(255, 255, 255));
+        Cant_R6.setText("1");
+        Departamento1B.add(Cant_R6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 20, -1));
+
+        icon_Departamento1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Departamento.png"))); // NOI18N
+        icon_Departamento1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_Departamento1MouseClicked(evt);
+            }
+        });
+        Departamento1B.add(icon_Departamento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
+
+        jPanel_BG.add(Departamento1B, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 220, 180));
+
+        Puesto1B.setBackground(new java.awt.Color(28, 27, 33));
+        Puesto1B.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Puesto1B.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Cant_R7.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R7.setForeground(new java.awt.Color(255, 255, 255));
+        Cant_R7.setText("1");
+        Puesto1B.add(Cant_R7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 20, -1));
+
+        icon_Puesto2.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        icon_Puesto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Puesto_1.png"))); // NOI18N
+        Puesto1B.add(icon_Puesto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
+
+        jPanel_BG.add(Puesto1B, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 220, 180));
+
+        Nivel_Academico2B.setBackground(new java.awt.Color(28, 27, 33));
+        Nivel_Academico2B.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Nivel_Academico2B.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Cant_R8.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R8.setForeground(new java.awt.Color(255, 255, 255));
+        Cant_R8.setText("1");
+        Nivel_Academico2B.add(Cant_R8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 20, -1));
+
+        icon_NivelA3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Nivel_Aca.png"))); // NOI18N
+        Nivel_Academico2B.add(icon_NivelA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel_BG.add(Nivel_Academico2B, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, 220, 180));
+
+        SEB.setBackground(new java.awt.Color(28, 27, 33));
+        SEB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SEB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SEBMouseClicked(evt);
+            }
+        });
+        SEB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        SEB.add(SeleccionadoA5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R11.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R11.setForeground(new java.awt.Color(255, 255, 255));
+        SEB.add(Cant_R11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_BancEnc.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        icon_BancEnc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Movimiento Bancario Encabezado.png"))); // NOI18N
+        icon_BancEnc.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM7MouseMoved(evt);
+                icon_BancEncMouseMoved(evt);
             }
         });
-        jLabel_MantenimientoM7.addMouseListener(new java.awt.event.MouseAdapter() {
+        icon_BancEnc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM7MouseClicked(evt);
+                icon_BancEncMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM7MouseExited(evt);
+                icon_BancEncMouseExited(evt);
             }
         });
-        Panel_MIMFP.add(jLabel_MantenimientoM7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 180, -1));
+        SEB.add(icon_BancEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
 
-        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("Cantidad:");
-        Panel_MIMFP.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+        SeleccionadoA17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        SEB.add(SeleccionadoA17, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -50, 10, 40));
 
-        Cant_FP.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MIMFP.add(Cant_FP, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 20, 20));
+        Cant_R22.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R22.setForeground(new java.awt.Color(255, 255, 255));
+        SEB.add(Cant_R22, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 158, 20, 20));
 
-        Panel_Bancos.add(Panel_MIMFP, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 190, 270, 100));
-
-        Panel_MB.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MB.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MBMouseDragged(evt);
-            }
-        });
-        Panel_MB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MBMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MBMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MBMouseReleased(evt);
-            }
-        });
-        Panel_MB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel_MantenimientoM8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM8.setText("MANTENIMIENTO BANCO");
-        jLabel_MantenimientoM8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        icon_EC.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        icon_EC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_EC.png"))); // NOI18N
+        icon_EC.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM8MouseMoved(evt);
+                icon_ECMouseMoved(evt);
             }
         });
-        jLabel_MantenimientoM8.addMouseListener(new java.awt.event.MouseAdapter() {
+        icon_EC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM8MouseClicked(evt);
+                icon_ECMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM8MouseExited(evt);
+                icon_ECMouseExited(evt);
             }
         });
-        Panel_MB.add(jLabel_MantenimientoM8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 130, -1));
+        SEB.add(icon_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 220, 180));
 
-        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel38.setText("Cantidad:");
-        Panel_MB.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        jPanel_BG.add(SEB, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 220, 180));
 
-        Cant_B.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MB.add(Cant_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
+        RLB.setBackground(new java.awt.Color(28, 27, 33));
+        RLB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RLB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Panel_Bancos.add(Panel_MB, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 270, 100));
+        SeleccionadoA7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        RLB.add(SeleccionadoA7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
 
-        Panel_MCBEnc.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MCBEnc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MCBEnc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MCBEnc.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MCBEncMouseDragged(evt);
-            }
-        });
-        Panel_MCBEnc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MCBEncMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MCBEncMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MCBEncMouseReleased(evt);
-            }
-        });
-        Panel_MCBEnc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Cant_R9.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R9.setForeground(new java.awt.Color(255, 255, 255));
+        RLB.add(Cant_R9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
 
-        jLabel_MantenimientoM9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM9.setText("MANTENIMIENTO CONC BANCARIO ENCABEZADO");
-        jLabel_MantenimientoM9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        icon_FormaPago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Forma Pago.png"))); // NOI18N
+        icon_FormaPago.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM9MouseMoved(evt);
+                icon_FormaPagoMouseMoved(evt);
             }
         });
-        jLabel_MantenimientoM9.addMouseListener(new java.awt.event.MouseAdapter() {
+        icon_FormaPago.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM9MouseClicked(evt);
+                icon_FormaPagoMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM9MouseExited(evt);
+                icon_FormaPagoMouseExited(evt);
             }
         });
-        Panel_MCBEnc.add(jLabel_MantenimientoM9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        RLB.add(icon_FormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel40.setText("Cantidad:");
-        Panel_MCBEnc.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+        SeleccionadoA19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        RLB.add(SeleccionadoA19, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -50, 10, 40));
 
-        Cant_CBE.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MCBEnc.add(Cant_CBE, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 20, 20));
+        Cant_R24.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R24.setForeground(new java.awt.Color(255, 255, 255));
+        RLB.add(Cant_R24, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 158, 20, 20));
 
-        Panel_Bancos.add(Panel_MCBEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 280, 100));
-
-        Panel_Consultas.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_Consultas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_Consultas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_Consultas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_ConsultasMouseDragged(evt);
-            }
-        });
-        Panel_Consultas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_ConsultasMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_ConsultasMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_ConsultasMouseReleased(evt);
-            }
-        });
-        Panel_Consultas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel_MantenimientoM10.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM10.setText("CONSULTAS");
-        jLabel_MantenimientoM10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        icon_BE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_Bitacora.png"))); // NOI18N
+        icon_BE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM10MouseMoved(evt);
+                icon_BEMouseMoved(evt);
             }
         });
-        jLabel_MantenimientoM10.addMouseListener(new java.awt.event.MouseAdapter() {
+        icon_BE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM10MouseClicked(evt);
+                icon_BEMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM10MouseExited(evt);
+                icon_BEMouseExited(evt);
             }
         });
-        Panel_Consultas.add(jLabel_MantenimientoM10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        RLB.add(icon_BE, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, -1));
 
-        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel42.setText("Cantidad:");
-        Panel_Consultas.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        jPanel_BG.add(RLB, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 330, 220, 180));
 
-        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel43.setText("1");
-        Panel_Consultas.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
-
-        Panel_Bancos.add(Panel_Consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 320, 270, 100));
-
-        Panel_MCBEnc2.setBackground(new java.awt.Color(28, 27, 33));
-        Panel_MCBEnc2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        Panel_MCBEnc2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Panel_MCBEnc2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                Panel_MCBEnc2MouseDragged(evt);
-            }
-        });
-        Panel_MCBEnc2.addMouseListener(new java.awt.event.MouseAdapter() {
+        ExpLB.setBackground(new java.awt.Color(28, 27, 33));
+        ExpLB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExpLB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Panel_MCBEnc2MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Panel_MCBEnc2MouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Panel_MCBEnc2MouseReleased(evt);
+                ExpLBMouseClicked(evt);
             }
         });
-        Panel_MCBEnc2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ExpLB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel_MantenimientoM11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 10)); // NOI18N
-        jLabel_MantenimientoM11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MantenimientoM11.setText("MANTENIMIENTO CONC BANCARIO DETALLE");
-        jLabel_MantenimientoM11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel_MantenimientoM11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        SeleccionadoA4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        ExpLB.add(SeleccionadoA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R10.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R10.setForeground(new java.awt.Color(255, 255, 255));
+        ExpLB.add(Cant_R10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_ConcBanc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Concepto Bancario.png"))); // NOI18N
+        icon_ConcBanc.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM11MouseMoved(evt);
+                icon_ConcBancMouseMoved(evt);
             }
         });
-        jLabel_MantenimientoM11.addMouseListener(new java.awt.event.MouseAdapter() {
+        icon_ConcBanc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM11MouseClicked(evt);
+                icon_ConcBancMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel_MantenimientoM11MouseExited(evt);
+                icon_ConcBancMouseExited(evt);
             }
         });
-        Panel_MCBEnc2.add(jLabel_MantenimientoM11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        ExpLB.add(icon_ConcBanc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
 
-        jLabel103.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel103.setText("Cantidad:");
-        Panel_MCBEnc2.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        SeleccionadoA16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        ExpLB.add(SeleccionadoA16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -50, 10, 40));
 
-        Cant_CBD.setForeground(new java.awt.Color(255, 255, 255));
-        Panel_MCBEnc2.add(Cant_CBD, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 20, 20));
+        Cant_R21.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R21.setForeground(new java.awt.Color(255, 255, 255));
+        Cant_R21.setText("1");
+        ExpLB.add(Cant_R21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 20, -1));
 
-        Panel_Bancos.add(Panel_MCBEnc2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, 270, 100));
+        icon_Contratacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_C.png"))); // NOI18N
+        icon_Contratacion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_ContratacionMouseMoved(evt);
+            }
+        });
+        icon_Contratacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_ContratacionMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_ContratacionMouseExited(evt);
+            }
+        });
+        ExpLB.add(icon_Contratacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 220, 180));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_Bancos, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_MantenimientoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel_MantenimientoClasiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 8, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 4, Short.MAX_VALUE)
-                    .addComponent(Panel_CuentaContable, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 4, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_Mantenimiento_DocB, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel_MantenimientoCB, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 8, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(JPanel_MantenimientoMovimientoBanEn, javax.swing.GroupLayout.PREFERRED_SIZE, 1888, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_MantenimientoMovBanDet, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_Forma_de_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_MantenimientoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_Manatenimiento_ConBanEn, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_Mantenimiento_CBD, javax.swing.GroupLayout.PREFERRED_SIZE, 1880, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_ConsultaBancos_Saldos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel_Bancos, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_MantenimientoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel_MantenimientoClasiCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Panel_CuentaContable, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_Mantenimiento_DocB, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel_MantenimientoCB, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(JPanel_MantenimientoMovimientoBanEn, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_MantenimientoMovBanDet, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_Forma_de_Pago, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_MantenimientoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_Manatenimiento_ConBanEn, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_Mantenimiento_CBD, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel_ConsultaBancos_Saldos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jPanel_BG.add(ExpLB, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 220, 180));
+
+        MedioB.setBackground(new java.awt.Color(28, 27, 33));
+        MedioB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MedioB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        MedioB.add(SeleccionadoA6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R12.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R12.setForeground(new java.awt.Color(255, 255, 255));
+        MedioB.add(Cant_R12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_BancDet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Movimiento Bancario Detalle.png"))); // NOI18N
+        icon_BancDet.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_BancDetMouseMoved(evt);
+            }
+        });
+        icon_BancDet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_BancDetMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_BancDetMouseExited(evt);
+            }
+        });
+        MedioB.add(icon_BancDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        SeleccionadoA18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        MedioB.add(SeleccionadoA18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -50, 10, 40));
+
+        Cant_R23.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R23.setForeground(new java.awt.Color(255, 255, 255));
+        MedioB.add(Cant_R23, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 158, 20, 20));
+
+        icon_AE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icono_AE.png"))); // NOI18N
+        icon_AE.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_AEMouseMoved(evt);
+            }
+        });
+        icon_AE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_AEMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_AEMouseExited(evt);
+            }
+        });
+        MedioB.add(icon_AE, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, -1));
+
+        jPanel_BG.add(MedioB, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, 220, 180));
+
+        AplicacionB.setBackground(new java.awt.Color(28, 27, 33));
+        AplicacionB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AplicacionB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        AplicacionB.add(SeleccionadoA10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R14.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R14.setForeground(new java.awt.Color(255, 255, 255));
+        AplicacionB.add(Cant_R14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_CoincBancDet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Conciliacion Bancaria Detalle.png"))); // NOI18N
+        icon_CoincBancDet.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_CoincBancDetMouseMoved(evt);
+            }
+        });
+        icon_CoincBancDet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_CoincBancDetMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_CoincBancDetMouseExited(evt);
+            }
+        });
+        AplicacionB.add(icon_CoincBancDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel_BG.add(AplicacionB, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 220, 180));
+
+        TPB.setBackground(new java.awt.Color(28, 27, 33));
+        TPB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TPB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        TPB.add(SeleccionadoA11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R15.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R15.setForeground(new java.awt.Color(255, 255, 255));
+        TPB.add(Cant_R15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_consultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_TP.png"))); // NOI18N
+        icon_consultas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_consultasMouseMoved(evt);
+            }
+        });
+        icon_consultas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_consultasMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_consultasMouseExited(evt);
+            }
+        });
+        TPB.add(icon_consultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel_BG.add(TPB, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 530, 220, 180));
+
+        RPB.setBackground(new java.awt.Color(28, 27, 33));
+        RPB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RPB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RPBMouseClicked(evt);
+            }
+        });
+        RPB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        RPB.add(SeleccionadoA8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R13.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R13.setForeground(new java.awt.Color(255, 255, 255));
+        RPB.add(Cant_R13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_Banco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Banco.png"))); // NOI18N
+        icon_Banco.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_BancoMouseMoved(evt);
+            }
+        });
+        icon_Banco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_BancoMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_BancoMouseExited(evt);
+            }
+        });
+        RPB.add(icon_Banco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
+
+        jPanel_BG.add(RPB, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, 220, 180));
+
+        CVB.setBackground(new java.awt.Color(28, 27, 33));
+        CVB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CVB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SeleccionadoA9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Seleccionado.png"))); // NOI18N
+        CVB.add(SeleccionadoA9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 10, 40));
+
+        Cant_R16.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        Cant_R16.setForeground(new java.awt.Color(255, 255, 255));
+        CVB.add(Cant_R16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
+
+        icon_CoincBancEnc.setFont(new java.awt.Font("Open Sans SemiBold", 1, 12)); // NOI18N
+        icon_CoincBancEnc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Conciliacion Bancaria Encabezado.png"))); // NOI18N
+        icon_CoincBancEnc.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                icon_CoincBancEncMouseMoved(evt);
+            }
+        });
+        icon_CoincBancEnc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_CoincBancEncMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                icon_CoincBancEncMouseExited(evt);
+            }
+        });
+        CVB.add(icon_CoincBancEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
+
+        jPanel_BG.add(CVB, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 220, 180));
+
+        getContentPane().add(jPanel_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 790));
+
+        jPanel_Bienvenido.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel_Bienvenido.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Bienvenido.setBackground(new java.awt.Color(51, 51, 51));
+        Bienvenido.setFont(new java.awt.Font("Open Sans", 1, 48)); // NOI18N
+        Bienvenido.setForeground(new java.awt.Color(51, 51, 51));
+        Bienvenido.setText("Welcome");
+        jPanel_Bienvenido.add(Bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 380, 230, 40));
+
+        getContentPane().add(jPanel_Bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 55, 1400, 790));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Panel_MIMEC1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEC1MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEC1MouseReleased
-
-    private void Panel_MIMEC1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEC1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEC1MouseExited
-
-    private void Panel_MIMEC1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEC1MouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEC1MouseDragged
-
-    private void jLabel_MantenimientoM1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM1MouseExited
-
-    private void jLabel_MantenimientoM1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM1MouseClicked
-
-    private void jLabel_MantenimientoM1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM1MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM1MouseMoved
-
-    private void Panel_MIMECMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMECMouseReleased
-
-    private void Panel_MIMECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseExited
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_Panel_MIMECMouseExited
-
-    private void Panel_MIMECMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMECMouseDragged
-
-    private void jLabel_MantenimientoMMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoMMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoMMouseExited
-
-    private void jLabel_MantenimientoMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoMMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jLabel_MantenimientoMMouseClicked
-
-    private void jLabel_MantenimientoMMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoMMouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoMMouseMoved
-
-    private void jLabel_MantenimientoM2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM2MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM2MouseMoved
-
-    private void jLabel_MantenimientoM2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM2MouseClicked
-
-    private void jLabel_MantenimientoM2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM2MouseExited
-
-    private void Panel_MIMECContableMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECContableMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMECContableMouseDragged
-
-    private void Panel_MIMECContableMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECContableMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMECContableMouseExited
-
-    private void Panel_MIMECContableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECContableMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMECContableMouseReleased
-
-    private void jLabel_MantenimientoM3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM3MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM3MouseMoved
-
-    private void jLabel_MantenimientoM3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM3MouseClicked
-
-    private void jLabel_MantenimientoM3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM3MouseExited
-
-    private void Panel_MIMEDocumentoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEDocumentoMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEDocumentoMouseDragged
-
-    private void Panel_MIMEDocumentoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEDocumentoMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEDocumentoMouseExited
-
-    private void Panel_MIMEDocumentoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEDocumentoMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEDocumentoMouseReleased
-
-    private void jLabel_MantenimientoM4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM4MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM4MouseMoved
-
-    private void jLabel_MantenimientoM4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM4MouseClicked
-
-    private void jLabel_MantenimientoM4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM4MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM4MouseExited
-
-    private void Panel_MIMEConceptoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEConceptoMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEConceptoMouseDragged
-
-    private void Panel_MIMEConceptoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEConceptoMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEConceptoMouseExited
-
-    private void Panel_MIMEConceptoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEConceptoMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEConceptoMouseReleased
-
-    private void jLabel_MantenimientoM5MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM5MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM5MouseMoved
-
-    private void jLabel_MantenimientoM5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM5MouseClicked
-
-    private void jLabel_MantenimientoM5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM5MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM5MouseExited
-
-    private void Panel_MIMEMBEMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEMBEMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEMBEMouseDragged
-
-    private void Panel_MIMEMBEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEMBEMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEMBEMouseExited
-
-    private void Panel_MIMEMBEMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEMBEMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEMBEMouseReleased
-
-    private void jLabel_MantenimientoM6MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM6MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM6MouseMoved
-
-    private void jLabel_MantenimientoM6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM6MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM6MouseClicked
-
-    private void jLabel_MantenimientoM6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM6MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM6MouseExited
-
-    private void Panel_MIMBDMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMBDMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMBDMouseDragged
-
-    private void Panel_MIMBDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMBDMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMBDMouseExited
-
-    private void Panel_MIMBDMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMBDMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMBDMouseReleased
-
-    private void jLabel_MantenimientoM7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM7MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM7MouseMoved
-
-    private void jLabel_MantenimientoM7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM7MouseClicked
-
-    private void jLabel_MantenimientoM7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM7MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM7MouseExited
-
-    private void Panel_MIMFPMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMFPMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMFPMouseDragged
-
-    private void Panel_MIMFPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMFPMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMFPMouseExited
-
-    private void Panel_MIMFPMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMFPMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMFPMouseReleased
-
-    private void jLabel_MantenimientoM8MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM8MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM8MouseMoved
-
-    private void jLabel_MantenimientoM8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM8MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM8MouseClicked
-
-    private void jLabel_MantenimientoM8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM8MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM8MouseExited
-
-    private void Panel_MBMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MBMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MBMouseDragged
-
-    private void Panel_MBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MBMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MBMouseExited
-
-    private void Panel_MBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MBMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MBMouseReleased
-
-    private void jLabel_MantenimientoM9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM9MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM9MouseMoved
-
-    private void jLabel_MantenimientoM9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM9MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM9MouseClicked
-
-    private void jLabel_MantenimientoM9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM9MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM9MouseExited
-
-    private void Panel_MCBEncMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEncMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MCBEncMouseDragged
-
-    private void Panel_MCBEncMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEncMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MCBEncMouseExited
-
-    private void Panel_MCBEncMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEncMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MCBEncMouseReleased
-
-    private void jLabel_MantenimientoM10MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM10MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM10MouseMoved
-
-    private void jLabel_MantenimientoM10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM10MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM10MouseClicked
-
-    private void jLabel_MantenimientoM10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM10MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM10MouseExited
-
-    private void Panel_ConsultasMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ConsultasMouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_ConsultasMouseDragged
-
-    private void Panel_ConsultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ConsultasMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_ConsultasMouseExited
-
-    private void Panel_ConsultasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ConsultasMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_ConsultasMouseReleased
-
-    private void Panel_MIMECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECMouseClicked
-        // TODO add your handling code here:
-        Panel_Bancos.setVisible(false);
-        jPanel_MantenimientoMoneda.setVisible(true);
-        Moneda mon = new Moneda(jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
-        mon.Actualizar_Tabla();
-
-    }//GEN-LAST:event_Panel_MIMECMouseClicked
 
     private void tbl_MonedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_MonedaMouseClicked
         // TODO add your handling code here:
@@ -4197,14 +4109,6 @@ public class Bancos extends javax.swing.JFrame {
         Clasificacion_Cuenta CC = new Clasificacion_Cuenta(jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
     }//GEN-LAST:event_tbl_ClasiMouseClicked
 
-    private void Panel_MIMEC1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEC1MouseClicked
-        // TODO add your handling code here:
-        Panel_Bancos.setVisible(false);
-        jPanel_MantenimientoClasiCuenta.setVisible(true);
-        Clasificacion_Cuenta CC = new Clasificacion_Cuenta(jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
-        CC.Actualizar_Tabla();
-    }//GEN-LAST:event_Panel_MIMEC1MouseClicked
-
     private void jLabel_IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_IngresarMouseClicked
         // TODO add your handling code here:
         Clasificacion_Cuenta CC = new Clasificacion_Cuenta(jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
@@ -4239,18 +4143,6 @@ public class Bancos extends javax.swing.JFrame {
         Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
         cuenta_c.Insertar_CC();
     }//GEN-LAST:event_jLabel_IngresarCCMouseClicked
-
-    private void Panel_MIMECContableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMECContableMouseClicked
-        // TODO add your handling code here:
-        Panel_Bancos.setVisible(false);
-        Panel_CuentaContable.setVisible(true);
-
-        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
-        cuenta_c.Encontrar_ListaCC("clasificacion_cuenta", "nombre_clasificacion", jComboBoxIDClasificacion);
-        cuenta_c.Actualizar_Tabla();
-        
-
-    }//GEN-LAST:event_Panel_MIMECContableMouseClicked
 
     private void tbl_CuentaContableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CuentaContableMouseClicked
         // TODO add your handling code here:
@@ -4308,7 +4200,7 @@ public class Bancos extends javax.swing.JFrame {
         jLabel_IngresarCC.setVisible(true);
         jLabel_ModificarCC.setVisible(false);
         jLabel_EliminarCC.setVisible(false);
-        
+
         // bones en cuenta
         jLabel_SaldoA.setVisible(false);
         jTextField_SaldoA.setVisible(false);
@@ -4329,7 +4221,7 @@ public class Bancos extends javax.swing.JFrame {
         jLabel_IngresarCC.setVisible(false);
         jLabel_ModificarCC.setVisible(true);
         jLabel_EliminarCC.setVisible(false);
-        
+
         // bones en cuenta
         jLabel_SaldoA.setVisible(true);
         jTextField_SaldoA.setVisible(true);
@@ -4452,14 +4344,6 @@ public class Bancos extends javax.swing.JFrame {
     private void Panel_Consultar_EC1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Consultar_EC1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_Consultar_EC1MouseClicked
-
-    private void Panel_MIMEDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEDocumentoMouseClicked
-        // TODO add your handling code here:
-        Panel_Bancos.setVisible(false);
-        jPanel_Mantenimiento_DocB.setVisible(true);
-        Documento_Bancario DB = new Documento_Bancario(jLabel_MMon1, txt_cod, txt_nombred, txt_afec, txt_estd, txt_buscard, tbl_Doc);
-        DB.Actualizar_Tabla();
-    }//GEN-LAST:event_Panel_MIMEDocumentoMouseClicked
 
     private void txt_CodigoConceptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CodigoConceptoActionPerformed
         // TODO add your handling code here:
@@ -4702,28 +4586,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_MontoActionPerformed
 
-    private void Panel_MIMEConceptoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEConceptoMouseClicked
-        Panel_Bancos.setVisible(false);
-        jPanel_MantenimientoCB.setVisible(true);
-        Concepto_Bancario CB = new Concepto_Bancario(txt_CodigoConcepto, txt_Nombre_Concepto, txt_Afecta, txt_Estatus, jLabel_ID_Cuenta, tbl_CB, txt_BuscarCB);
-        CB.Encontrar_ListaConceptoB("cuenta_contable", "nombre_cuenta", jComboBox_Nombre_Cuenta);
-        CB.EncontrarID_ConceptoB("id_cuenta", "cuenta_contable", "nombre_cuenta", jComboBox_Nombre_Cuenta, jLabel_ID_Cuenta);
-        CB.Actualizar_Tabla();      // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMEConceptoMouseClicked
-
-    private void Panel_MIMEMBEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMEMBEMouseClicked
-        Panel_Bancos.setVisible(false);
-        JPanel_MantenimientoMovimientoBanEn.setVisible(true);
-        Movimiento_Bancario_Encabezado Mo = new Movimiento_Bancario_Encabezado(txt_CodigoMovimientoE, jLabel_ID_Documento, txt_Fecha, txt_Monto, txt_Descripcion, txt_BuscarMovBanEn, tbl_MovimientoBanEn);
-
-        Mo.Actualizar_Tabla();
-
-        Mo.Encontrar_ListaMovimientoBAEN("Documento_bancario", "nombre_Documento", jComboBox_Nombre_Movimiento);
-        //Mo.EncontrarID_MovimientoBAEN("codigo_Documento", "Documento_bancario", "nombre_Documento", jComboBox_Nombre_Cuenta, jLabel_ID_Documento);        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_Panel_MIMEMBEMouseClicked
-
     private void jTextField_BuscarMovKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_BuscarMovKeyReleased
         // TODO add your handling code here:
         Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
@@ -4756,22 +4618,6 @@ public class Bancos extends javax.swing.JFrame {
         Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
         MovDet.Insertar_Mov();
     }//GEN-LAST:event_jLabel60MouseClicked
-
-    private void Panel_MIMBDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMBDMouseClicked
-        // TODO add your handling code here:
-        Panel_Bancos.setVisible(false);
-        jPanel_MantenimientoMovBanDet.setVisible(true);
-
-        Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
-        MovDet.Encontrar_ListaMov("concepto_bancario", "nombre_concepto", jComboBox_codigoC);
-        MovDet.Encontrar_ListaMov("mov_bancEnc", "id_movEnc", jComboBox_Encabezado);
-        MovDet.Actualizar_Tabla();
-
-    }//GEN-LAST:event_Panel_MIMBDMouseClicked
-
-    private void Panel_MIMBDMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMBDMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MIMBDMouseEntered
 
     private void jComboBox_EncabezadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_EncabezadoActionPerformed
         // TODO add your handling code here:
@@ -4812,15 +4658,6 @@ public class Bancos extends javax.swing.JFrame {
     private void tbl_FormaPagoCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tbl_FormaPagoCaretPositionChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_tbl_FormaPagoCaretPositionChanged
-
-    private void Panel_MIMFPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MIMFPMouseClicked
-        // TODO add your handling code here:
-        Panel_Bancos.setVisible(false);
-        jPanel_Forma_de_Pago.setVisible(true);
-
-        Forma_de_Pago forma = new Forma_de_Pago(jTextField_IDForma, jTextField_TipoPago, jTextField_BuscarFP, tbl_FormaPago);
-        forma.Actualizar_Tabla();
-    }//GEN-LAST:event_Panel_MIMFPMouseClicked
 
     private void jLabel66MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel66MouseClicked
         // TODO add your handling code here:
@@ -4955,18 +4792,6 @@ public class Bancos extends javax.swing.JFrame {
         B.EncontrarID_Bancos("id_movEnc", "mov_bancEnc", "codigo_Documento", jComboBoxIDMovEn, jLabel_IdMovimiento);// TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxIDMovEnActionPerformed
 
-    private void Panel_MBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MBMouseClicked
-        Panel_Bancos.setVisible(false);
-        jPanel_MantenimientoBanco.setVisible(true);
-
-        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
-        B.Actualizar_Tabla();
-        B.Encontrar_ListaBancos("moneda", "nombre_moneda", jComboBoxIDMoneda);
-        B.Encontrar_ListaBancos("mov_bancEnc", "codigo_Documento", jComboBoxIDMovEn);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MBMouseClicked
-
     private void tbl_BancosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_BancosKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_tbl_BancosKeyReleased
@@ -5056,15 +4881,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_Consultar_CoBaEnMouseClicked
 
-    private void Panel_MCBEncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEncMouseClicked
-        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
-        Con.Actualizar_Tabla();
-        Panel_Bancos.setVisible(false);
-        jPanel_Manatenimiento_ConBanEn.setVisible(true);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MCBEncMouseClicked
-
     private void tbl_CBDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_CBDMouseClicked
         // TODO add your handling code here:
         int Seleccion = tbl_CBD.rowAtPoint(evt.getPoint());
@@ -5079,13 +4895,12 @@ public class Bancos extends javax.swing.JFrame {
         txt_cargo.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 7)));
         txt_abono.setText(String.valueOf(tbl_CBD.getValueAt(Seleccion, 8)));
 
-        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);       
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
         CBD.BuscarFila_CBD("id_encabezado", "conciliacion_bancenc", "id_encabezado", jComboBoxIDEncabezado, jLabel_ID_Encabezado);
         CBD.BuscarFila_CBD("nombre_concepto", "concepto_bancario", "codigo_concepto", jComboBoxCODIGOCONCEPTO, jLabel_Idcodigoconcepto);
         CBD.BuscarFila_CBD("tipo_pago", "forma_pago", "id_formapago", jComboBoxIDFormaPago, jLabel_idformapago);
-        
-        
-        
+
+
     }//GEN-LAST:event_tbl_CBDMouseClicked
 
     private void tbl_CBDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_CBDKeyReleased
@@ -5098,9 +4913,9 @@ public class Bancos extends javax.swing.JFrame {
 
     private void txt_buscardCBDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscardCBDKeyReleased
         // TODO add your handling code here:
-        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
         CBD.Buscar_CBD2(txt_buscardCBD.getText());
-        
+
     }//GEN-LAST:event_txt_buscardCBDKeyReleased
 
     private void txt_buscardCBDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscardCBDKeyTyped
@@ -5109,20 +4924,20 @@ public class Bancos extends javax.swing.JFrame {
 
     private void IngresaB1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresaB1MouseClicked
         // TODO add your handling code here:
-        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
         CBD.Insertar_CBD();
         CBD.Actualizar_Tabla();
     }//GEN-LAST:event_IngresaB1MouseClicked
 
     private void EliminarB1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarB1MouseClicked
         // TODO add your handling code here:
-        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
         CBD.Eliminar_CBD();
     }//GEN-LAST:event_EliminarB1MouseClicked
 
     private void ModificarB1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarB1MouseClicked
         // TODO add your handling code here:
-        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
         CBD.Modificar_CBD();
         /*CBD.Encontrar_ListaCBD("conciliacion_bancenc", "id_encabezado", jComboBoxIDEncabezado);
         CBD.Encontrar_ListaCBD("concepto_bancario", "codigo_concepto", jComboBoxCODIGOCONCEPTO);
@@ -5134,7 +4949,7 @@ public class Bancos extends javax.swing.JFrame {
         IngresaB1.setVisible(true);
         ModificarB1.setVisible(false);
         EliminarB1.setVisible(false);
-        
+
     }//GEN-LAST:event_Texto_Ingresar_B1MouseClicked
 
     private void Panel_Ingresar_B1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Ingresar_B1MouseClicked
@@ -5176,39 +4991,25 @@ public class Bancos extends javax.swing.JFrame {
 
     private void jComboBoxIDFormaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDFormaPagoActionPerformed
         // TODO add your handling code here:
-        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
         CBD.EncontrarID_CBD("id_formapago", "forma_pago", "tipo_pago", jComboBoxIDFormaPago, jLabel_idformapago);
     }//GEN-LAST:event_jComboBoxIDFormaPagoActionPerformed
 
     private void jComboBoxCODIGOCONCEPTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCODIGOCONCEPTOActionPerformed
         // TODO add your handling code here:
-        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
         CBD.EncontrarID_CBD("codigo_concepto", "concepto_bancario", "nombre_concepto", jComboBoxCODIGOCONCEPTO, jLabel_Idcodigoconcepto);
     }//GEN-LAST:event_jComboBoxCODIGOCONCEPTOActionPerformed
 
     private void jComboBoxIDEncabezadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIDEncabezadoActionPerformed
         // TODO add your handling code here:
-        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado,jLabel_Idcodigoconcepto,txt_fechaap,jTextArea_Descrip,jLabel_idformapago, txt_beneficiario,txt_estcon,txt_cargo,txt_abono,txt_buscardCBD,tbl_CBD);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
         CBD.EncontrarID_CBD("id_encabezado", "conciliacion_bancenc", "id_encabezado", jComboBoxIDEncabezado, jLabel_ID_Encabezado);
     }//GEN-LAST:event_jComboBoxIDEncabezadoActionPerformed
 
     private void jComboBoxIDClasificacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxIDClasificacionMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxIDClasificacionMouseClicked
-
-    private void Panel_ConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_ConsultasMouseClicked
-        // TODO add your handling code here:
-        Panel_Bancos.setVisible(false);
-        jPanel_ConsultaBancos_Saldos.setVisible(true);
-        
-        Consulta_Saldos consulta = new Consulta_Saldos(tbl_ConsultaDet, tbl_ConsultaEnc, tbl_CuentaContable);
-        consulta.Actualizar_Tabla_DET();
-        consulta.Actualizar_Tabla_ENC();
-//        consulta.Buscar_Saldo_Actual();
-//        consulta.Buscar_Saldo_Deudor();
-//        consulta.Buscar_Saldo_Acreedor();
-        
-    }//GEN-LAST:event_Panel_ConsultasMouseClicked
 
     private void tbl_ConsultaDetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ConsultaDetMouseClicked
         // TODO add your handling code here:
@@ -5225,34 +5026,6 @@ public class Bancos extends javax.swing.JFrame {
     private void tbl_ConsultaEncKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_ConsultaEncKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_tbl_ConsultaEncKeyReleased
-
-    private void jLabel_MantenimientoM11MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM11MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM11MouseMoved
-
-    private void jLabel_MantenimientoM11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM11MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM11MouseClicked
-
-    private void jLabel_MantenimientoM11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_MantenimientoM11MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_MantenimientoM11MouseExited
-
-    private void Panel_MCBEnc2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEnc2MouseDragged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MCBEnc2MouseDragged
-
-    private void Panel_MCBEnc2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEnc2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MCBEnc2MouseClicked
-
-    private void Panel_MCBEnc2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEnc2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MCBEnc2MouseExited
-
-    private void Panel_MCBEnc2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_MCBEnc2MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Panel_MCBEnc2MouseReleased
 
     private void jLabel105MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel105MouseClicked
         // TODO add your handling code here:
@@ -5271,7 +5044,7 @@ public class Bancos extends javax.swing.JFrame {
         consulta.Buscar_Saldo_Actual();
         consulta.Buscar_Saldo_Deudor();
         consulta.Buscar_Saldo_Acreedor();
-        
+
         Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
         cuenta_c.Actualizar_Tabla();
     }//GEN-LAST:event_jLabel10MouseClicked
@@ -5280,15 +5053,14 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
         Consulta_Saldos consulta = new Consulta_Saldos(tbl_ConsultaDet, tbl_ConsultaEnc, tbl_CuentaContable);
         consulta.Saldo_Anterior();
-        
-        
+
         Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
         cuenta_c.Actualizar_Tabla();
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jButton_PDFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_PDFMouseClicked
         // TODO add your handling code here:
-        
+
         String path = "";
         JFileChooser j = new JFileChooser();
         j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -5300,51 +5072,47 @@ public class Bancos extends javax.swing.JFrame {
 
         Document doc = new Document();
 
-
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
-            
+
             doc.open();
-            
+
             /*Titulo*/
-            Paragraph p= new Paragraph("Bitácora de Saldo en Cuentas \n \n", FontFactory.getFont("Arial", 11 , Font.BOLD));
+            Paragraph p = new Paragraph("Bitácora de Saldo en Cuentas \n \n", FontFactory.getFont("Arial", 11, Font.BOLD));
             p.setAlignment(Element.ALIGN_CENTER);
             doc.add(p);
             doc.add(new Paragraph(""));
-            
-            float [] celdas= {7.00f, 7.00f, 7.00f, 7.00f,7.00f,7.00f,7.00f,7.00f,7.00f, };
-            
-            PdfPTable tb1= new PdfPTable(9); //cantidad de columnas
+
+            float[] celdas = {7.00f, 7.00f, 7.00f, 7.00f, 7.00f, 7.00f, 7.00f, 7.00f, 7.00f,};
+
+            PdfPTable tb1 = new PdfPTable(9); //cantidad de columnas
             tb1.setWidths(celdas);
-            
+
             //agregando encabezado
             tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
-            tb1.addCell(new Paragraph ("Nombre", FontFactory.getFont("Arial", 10)));
-            tb1.addCell(new Paragraph ("Tipo", FontFactory.getFont("Arial", 10)));
-            tb1.addCell(new Paragraph ("ID Clasificacion", FontFactory.getFont("Arial", 10)));
-            tb1.addCell(new Paragraph ("Saldo Anterior", FontFactory.getFont("Arial", 10)));
-            tb1.addCell(new Paragraph ("Cargos Acum.", FontFactory.getFont("Arial", 10)));
-            tb1.addCell(new Paragraph ("Abonos Acumu.", FontFactory.getFont("Arial", 10)));
-            tb1.addCell(new Paragraph ("Saldo Actual", FontFactory.getFont("Arial", 10)));
-            tb1.addCell(new Paragraph ("Descrip.", FontFactory.getFont("Arial", 10)));
-            
-            
-            
+            tb1.addCell(new Paragraph("Nombre", FontFactory.getFont("Arial", 10)));
+            tb1.addCell(new Paragraph("Tipo", FontFactory.getFont("Arial", 10)));
+            tb1.addCell(new Paragraph("ID Clasificacion", FontFactory.getFont("Arial", 10)));
+            tb1.addCell(new Paragraph("Saldo Anterior", FontFactory.getFont("Arial", 10)));
+            tb1.addCell(new Paragraph("Cargos Acum.", FontFactory.getFont("Arial", 10)));
+            tb1.addCell(new Paragraph("Abonos Acumu.", FontFactory.getFont("Arial", 10)));
+            tb1.addCell(new Paragraph("Saldo Actual", FontFactory.getFont("Arial", 10)));
+            tb1.addCell(new Paragraph("Descrip.", FontFactory.getFont("Arial", 10)));
+
             for (int i = 0; i < tbl_CuentaContable.getRowCount(); i++) {
-                
-                String Codigo_Cuenta =(String) tbl_CuentaContable.getValueAt(i, 0); // columna inicial
-                String Nombre = (String) tbl_CuentaContable.getValueAt(i, 1); 
-                String Tipo= (String) tbl_CuentaContable.getValueAt(i, 2);
-                String Clasificacion = (String) tbl_CuentaContable.getValueAt(i, 3); 
-                String SA= (String) tbl_CuentaContable.getValueAt(i, 4);
-                String CA = (String) tbl_CuentaContable.getValueAt(i, 5); 
-                String AC= (String) tbl_CuentaContable.getValueAt(i, 6);
-                String SAC = (String) tbl_CuentaContable.getValueAt(i, 7); 
-                String Des= (String) tbl_CuentaContable.getValueAt(i, 8);
-                
+
+                String Codigo_Cuenta = (String) tbl_CuentaContable.getValueAt(i, 0); // columna inicial
+                String Nombre = (String) tbl_CuentaContable.getValueAt(i, 1);
+                String Tipo = (String) tbl_CuentaContable.getValueAt(i, 2);
+                String Clasificacion = (String) tbl_CuentaContable.getValueAt(i, 3);
+                String SA = (String) tbl_CuentaContable.getValueAt(i, 4);
+                String CA = (String) tbl_CuentaContable.getValueAt(i, 5);
+                String AC = (String) tbl_CuentaContable.getValueAt(i, 6);
+                String SAC = (String) tbl_CuentaContable.getValueAt(i, 7);
+                String Des = (String) tbl_CuentaContable.getValueAt(i, 8);
+
                 //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
-                
-                int valor =8;
+                int valor = 8;
                 tb1.addCell(new Paragraph(Codigo_Cuenta, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
                 tb1.addCell(new Paragraph(Nombre, FontFactory.getFont("Arial", valor)));
                 tb1.addCell(new Paragraph(Tipo, FontFactory.getFont("Arial", valor)));
@@ -5355,9 +5123,9 @@ public class Bancos extends javax.swing.JFrame {
                 tb1.addCell(new Paragraph(SAC, FontFactory.getFont("Arial", valor)));
                 tb1.addCell(new Paragraph(Des, FontFactory.getFont("Arial", valor)));
             }
-            
+
             doc.add(tb1);
-            
+
         } catch (FileNotFoundException ex) {
             //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DocumentException ex) {
@@ -5369,7 +5137,7 @@ public class Bancos extends javax.swing.JFrame {
 
     private void jButton_GenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GenerarPDFActionPerformed
         // TODO add your handling code here:
-        
+
         String path = "";
         JFileChooser j = new JFileChooser();
         j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -5381,56 +5149,49 @@ public class Bancos extends javax.swing.JFrame {
 
         Document doc = new Document();
 
-
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
-            
+
             doc.open();
-            
-            Paragraph inicio= new Paragraph("RESUMEN", FontFactory.getFont("Arial", 14 , Font.BOLD));
+
+            Paragraph inicio = new Paragraph("RESUMEN", FontFactory.getFont("Arial", 14, Font.BOLD));
             inicio.setAlignment(Element.ALIGN_LEFT);
             doc.add(inicio);
             doc.add(new Paragraph(""));
-            
+
             /*Titulo*/
-            Paragraph p= new Paragraph(" \n\n Saldo por Cuenta \n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            Paragraph p = new Paragraph(" \n\n Saldo por Cuenta \n \n", FontFactory.getFont("Arial", 14, Font.BOLD));
             p.setAlignment(Element.ALIGN_CENTER);
             doc.add(p);
             doc.add(new Paragraph(""));
-            
-            float [] celdas= {7.00f, 7.00f, 7.00f, 10.00f,10.00f,10.00f,7.00f};
-            
-            PdfPTable tb1= new PdfPTable(7); //cantidad de columnas
+
+            float[] celdas = {7.00f, 7.00f, 7.00f, 10.00f, 10.00f, 10.00f, 7.00f};
+
+            PdfPTable tb1 = new PdfPTable(7); //cantidad de columnas
             tb1.setWidths(celdas);
-            
+
             //agregando encabezado
-            int val=7;
+            int val = 7;
             tb1.addCell(new Paragraph("ID", FontFactory.getFont("Arial", val)));
-            tb1.addCell(new Paragraph ("Cuenta", FontFactory.getFont("Arial", val)));
-            tb1.addCell(new Paragraph ("Tipo", FontFactory.getFont("Arial", val)));
-            tb1.addCell(new Paragraph ("Clasificacion", FontFactory.getFont("Arial", val)));
-            tb1.addCell(new Paragraph ("Saldo Deudor", FontFactory.getFont("Arial", val)));
-            tb1.addCell(new Paragraph ("Saldo Acreedor", FontFactory.getFont("Arial", val)));
-            tb1.addCell(new Paragraph ("Saldo Resultante", FontFactory.getFont("Arial", val)));
-            
-            
-            
-            
+            tb1.addCell(new Paragraph("Cuenta", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph("Tipo", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph("Clasificacion", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph("Saldo Deudor", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph("Saldo Acreedor", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph("Saldo Resultante", FontFactory.getFont("Arial", val)));
+
             for (int i = 0; i < tbl_ConsultaDet.getRowCount(); i++) {
-                
-                String ID_C =(String) tbl_ConsultaDet.getValueAt(i, 0); // columna inicial
-                String Nombre = (String) tbl_ConsultaDet.getValueAt(i, 1); 
-                String Tipo= (String) tbl_ConsultaDet.getValueAt(i, 2);
-                String Clasificacion = (String) tbl_ConsultaDet.getValueAt(i, 3); 
-                String Saldo_D= (String) tbl_ConsultaDet.getValueAt(i, 4);
-                String Saldo_A = (String) tbl_ConsultaDet.getValueAt(i, 5); 
-                String saldo_R= (String) tbl_ConsultaDet.getValueAt(i, 6);
-                
-                
-                
+
+                String ID_C = (String) tbl_ConsultaDet.getValueAt(i, 0); // columna inicial
+                String Nombre = (String) tbl_ConsultaDet.getValueAt(i, 1);
+                String Tipo = (String) tbl_ConsultaDet.getValueAt(i, 2);
+                String Clasificacion = (String) tbl_ConsultaDet.getValueAt(i, 3);
+                String Saldo_D = (String) tbl_ConsultaDet.getValueAt(i, 4);
+                String Saldo_A = (String) tbl_ConsultaDet.getValueAt(i, 5);
+                String saldo_R = (String) tbl_ConsultaDet.getValueAt(i, 6);
+
                 //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
-                
-                int valor =8;
+                int valor = 8;
                 tb1.addCell(new Paragraph(ID_C, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
                 tb1.addCell(new Paragraph(Nombre, FontFactory.getFont("Arial", valor)));
                 tb1.addCell(new Paragraph(Tipo, FontFactory.getFont("Arial", valor)));
@@ -5438,70 +5199,1931 @@ public class Bancos extends javax.swing.JFrame {
                 tb1.addCell(new Paragraph(Saldo_D, FontFactory.getFont("Arial", valor)));
                 tb1.addCell(new Paragraph(Saldo_A, FontFactory.getFont("Arial", valor)));
                 tb1.addCell(new Paragraph(saldo_R, FontFactory.getFont("Arial", valor)));
-                
+
             }
-            
+
             doc.add(tb1);
-            
+
         } catch (FileNotFoundException ex) {
             //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DocumentException ex) {
             //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
-        
         //otra tabla
-        
         try {
             //PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
-            
+
             //doc.open();
-            
             /*Titulo*/
-            Paragraph p1= new Paragraph(" \n \n Saldo General \n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            Paragraph p1 = new Paragraph(" \n \n Saldo General \n \n", FontFactory.getFont("Arial", 14, Font.BOLD));
             p1.setAlignment(Element.ALIGN_CENTER);
             doc.add(p1);
             doc.add(new Paragraph(""));
-            
-            float [] celdas_2= {5.00f, 5.00f};
-            
-            PdfPTable tb2= new PdfPTable(2); //cantidad de columnas
-            tb2.setWidths(celdas_2);
-            
-            //agregando encabezado
-            int val=8; //letra
-            tb2.addCell(new Paragraph("Tipo Cuenta", FontFactory.getFont("Arial", val)));
-            tb2.addCell(new Paragraph ("Total Cuenta", FontFactory.getFont("Arial", val)));
-            
 
-            
+            float[] celdas_2 = {5.00f, 5.00f};
+
+            PdfPTable tb2 = new PdfPTable(2); //cantidad de columnas
+            tb2.setWidths(celdas_2);
+
+            //agregando encabezado
+            int val = 8; //letra
+            tb2.addCell(new Paragraph("Tipo Cuenta", FontFactory.getFont("Arial", val)));
+            tb2.addCell(new Paragraph("Total Cuenta", FontFactory.getFont("Arial", val)));
+
             for (int i = 0; i < tbl_ConsultaEnc.getRowCount(); i++) {
-                
-                String Tipo_cuenta =(String) tbl_ConsultaEnc.getValueAt(i, 0); // columna inicial
-                String total = (String) tbl_ConsultaEnc.getValueAt(i, 1); 
-                
-                
+
+                String Tipo_cuenta = (String) tbl_ConsultaEnc.getValueAt(i, 0); // columna inicial
+                String total = (String) tbl_ConsultaEnc.getValueAt(i, 1);
+
                 //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
-                
-                int valor =7;
+                int valor = 7;
                 tb2.addCell(new Paragraph(Tipo_cuenta, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
                 tb2.addCell(new Paragraph(total, FontFactory.getFont("Arial", valor)));
-                
+
             }
-            
+
             doc.add(tb2);
-            
+
         } //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
         catch (DocumentException ex) {
             //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        
+
         doc.close();
     }//GEN-LAST:event_jButton_GenerarPDFActionPerformed
+
+    private void Panel_Icono_ContaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Icono_ContaMouseClicked
+        // TODO add your handling code here:
+        setColor_PanelI(Panel_Icono_Conta);
+        resetColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_Bancos);
+    }//GEN-LAST:event_Panel_Icono_ContaMouseClicked
+
+    private void Icono_BancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Icono_BancosMouseClicked
+        // TODO add your handling code here:
+        /**/
+ /*int cantidad_D = 0;
+        int cantidad_P = 0;
+        int cantidad_NA = 0;
+        int cantidad_ExpLD = 0;
+        int cantidad_ExpL = 0;
+        int cantidad_SE = 0;
+        int cantidad_M = 0;
+        int cantidad_RP = 0;
+        int cantidad_RL = 0;
+        int cantidad_C = 0;
+        int cantidad_AP = 0;
+        int cantidad_TP = 0;
+        int cantidad_APP = 0;
+        int cantidad_S = 0;
+        int cantidad_Actividad = 0;
+        int cantidad_periodo_p = 0;
+        int cantidad_contratacion = 0;
+        int cantidad_empleado = 0;
+        int cantidad_AE = 0;
+        int cantidad_BE = 0;*/
+
+        jPanel_Bienvenido.setVisible(false);
+        ExpLDB.setVisible(true);
+        DepartamentoB.setVisible(true);
+        PuestoB.setVisible(true);
+        Nivel_AcademicoB.setVisible(true);
+        ExpLD1.setVisible(true);
+        Departamento1B.setVisible(true);
+        Puesto1B.setVisible(true);
+        Nivel_Academico2B.setVisible(true);
+        SEB.setVisible(true);
+        RLB.setVisible(true);
+        ExpLB.setVisible(true);
+        MedioB.setVisible(true);
+        AplicacionB.setVisible(true);
+        TPB.setVisible(true);
+        RPB.setVisible(true);
+        CVB.setVisible(true);
+        jPanel_Mantenimiento_CBD.setVisible(false);
+        jPanel_Manatenimiento_ConBanEn.setVisible(false);
+        jPanel_MantenimientoBanco.setVisible(false);
+        jPanel_Forma_de_Pago.setVisible(false);
+        jPanel_MantenimientoMovBanDet.setVisible(false);
+        JPanel_MantenimientoMovimientoBanEn.setVisible(false);
+        jPanel_MantenimientoCB.setVisible(false);
+        jPanel_Mantenimiento_DocB.setVisible(false);
+        Panel_CuentaContable.setVisible(false);
+        jPanel_MantenimientoClasiCuenta.setVisible(false);
+        jPanel_MantenimientoMoneda.setVisible(false);
+
+        //Puesto.setVisible(true);
+        /*Mantenimiento_D.setVisible(false);
+        jPanel_MantenimientosP.setVisible(false);
+        jPanel_MantenimientoNA.setVisible(false);
+        jPanel_MantenimientoExpLD.setVisible(false);
+        jPanel_MantenimientoSE.setVisible(false);
+        jPanel_Mantenimiento_Medio.setVisible(false);
+        jPanel_MantenimientoRL.setVisible(false);
+        jPanel_MantenimientosRP.setVisible(false);
+        jPanel_MantenimientoCV.setVisible(false);
+        jPanel_MantenimientoAP.setVisible(false);
+        jPanel_Tipo_Prueba.setVisible(false);
+        jPanel_MantenimientoAPP.setVisible(false);
+        jPanel_MantenimientoS.setVisible(false);
+        jPanel_MantenimientoA.setVisible(false);
+        jPanel_MantenimientoPP.setVisible(false);
+        jPanel_MantenimientoC.setVisible(false);
+        jPanel_MantenimientoEC.setVisible(false);
+        jPanel_MantenimientoExpL.setVisible(false);
+        jPanel_MantenimientoAE.setVisible(false);
+        jPanel_MantenimientoBE.setVisible(false);
+
+        jLabel_Felcha2.setVisible(true);
+        jLabel_Flecha_Iz1.setVisible(true);
+
+        setColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_Conta);
+        resetColor_PanelI(Panel_Icono_Bancos);
+
+        Departamento De = new Departamento(txt_id_Departamento.toString(), txt_Nombre_Departamento.toString(), txt_Estatus_Departamento.toString());
+        cantidad_D += De.Cantidad_Registros();
+
+        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
+        cantidad_P += puesto.Cantidad_Registros();
+
+        Nivel_Academico NA = new Nivel_Academico(txt_id_NivelA, txt_Nombre_NivelA, txt_Descripcion_NivelA, txt_Buscar_NivelA, tbl_NivelA);
+        cantidad_NA += NA.Cantidad_Registros();
+
+        Experiencia_Laboral_Detallada ExpLD = new Experiencia_Laboral_Detallada(txt_id_ExpLD, txt_NombreExpLD, txt_Nombre_EmpresaExpLD, txt_Tiempo_InicioExpLD, txt_Tiempo_FinalizacionExpLD, txt_Buscar_ExpLD, tbl_ExpLD);
+        cantidad_ExpLD += ExpLD.Cantidad_Registros();
+
+        Experiencia_Laboral ExpL = new Experiencia_Laboral(txt_id_ExpL, jLabel_id_Nombre_EpLLD, txt_Buscar_ExpL, tbl_ExpL);
+        cantidad_ExpL += ExpL.Cantidad_Registros();
+
+        Solicitud_Empresarial SE = new Solicitud_Empresarial(txt_id_SolicitudE, txt_RangoEdadM, txt_RangoEdadMa, txt_Genero, jLabel_Puesto_SE, jLabel_Departamento_SE, jLabel_NivelA_SE, jLabel_ExperienciaL_SE, jTextArea_DescripcionSE, txt_Buscar_SE, tbl_SE);
+        cantidad_SE += SE.Cantidad_Registros();
+
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);
+        cantidad_M += M.Cantidad_Registros();
+
+        Referencias_Laborales referencias_laborales = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        cantidad_RL += referencias_laborales.Cantidad_Registros();
+
+        Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
+        cantidad_RP += RP.Cantidad_Registros();
+
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV, jLabel_EL_CV, jLabel_Medio_CV, txt_Buscar_CV, tbl_CV);
+        cantidad_C += CV.Cantidad_Registros();
+
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        cantidad_AP += ap.Cantidad_Registros();
+
+        Tipo_Prueba TP = new Tipo_Prueba(txt_id_TP, txt_TP, tbl_TP, txt_BuscarTP);
+        cantidad_TP += TP.Cantidad_Registros();
+
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
+        cantidad_APP += APP.Cantidad_Registros();
+
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        cantidad_S += S.Cantidad_Registros();
+
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
+        cantidad_Actividad += AC.Cantidad_Registros();
+
+        Periodo_Prueba p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        cantidad_periodo_p += p.Cantidad_Registros();
+
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        cantidad_contratacion += C.Cantidad_Registros();
+
+        Empleado_Contratado empleado = new Empleado_Contratado(txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        cantidad_empleado += empleado.Cantidad_Registros();
+
+        Actividad_Empleado AE = new Actividad_Empleado(jLabel_AE_ECC, jLabel_Actividad_AEE, txt_BuscarAE, tbl_AE);
+        cantidad_AE += AE.Cantidad_Registros();
+
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE);
+        cantidad_BE += BE.Cantidad_Registros();
+
+        Cant_R2.setText("" + cantidad_D);
+        Cant_R3.setText("" + cantidad_P);
+        Cant_R4.setText("" + cantidad_NA);
+        Cant_R1.setText("" + cantidad_ExpLD);
+        Cant_R10.setText("" + cantidad_ExpL);
+        Cant_R11.setText("" + cantidad_SE);
+        Cant_R12.setText("" + cantidad_M);
+        Cant_R9.setText("" + cantidad_RL);
+        Cant_R13.setText("" + cantidad_RP);
+        Cant_R16.setText("" + cantidad_C);
+        Cant_R14.setText("" + cantidad_AP);
+        Cant_R15.setText("" + cantidad_TP);
+        Cant_R17.setText("" + cantidad_APP);
+        Cant_R18.setText("" + cantidad_S);
+        Cant_R19.setText("" + cantidad_Actividad);
+        Cant_R20.setText("" + cantidad_periodo_p);
+        Cant_R21.setText("" + cantidad_contratacion);
+        Cant_R22.setText("" + cantidad_empleado);
+        Cant_R23.setText("" + cantidad_AE);
+        Cant_R24.setText("" + cantidad_BE);*/
+        int cantidad_Mo = 0;
+        int cantidad_CC = 0;
+        int cantidad_CuCon = 0;
+        int cantidad_DB = 0;
+        int cantidad_CB = 0;
+        int cantidad_BE = 0;
+        int cantidad_MBD = 0;
+        int cantidad_FP = 0;
+        int cantidad_B = 0;
+        int cantidad_CBE = 0;
+        int cantidad_CBD = 0;
+
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta(jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        Documento_Bancario DB = new Documento_Bancario(jLabel_MMon1, txt_cod, txt_nombred, txt_afec, txt_estd, txt_buscard, tbl_Doc);
+        Moneda mon = new Moneda(jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        Concepto_Bancario CB = new Concepto_Bancario(txt_CodigoConcepto, txt_Nombre_Concepto, txt_Afecta, txt_Estatus, jLabel_ID_Cuenta, tbl_CB, txt_BuscarCB);
+        Movimiento_Bancario_Encabezado Mo = new Movimiento_Bancario_Encabezado(txt_CodigoMovimientoE, jLabel_ID_Documento, txt_Fecha, txt_Monto, txt_Descripcion, txt_BuscarMovBanEn, tbl_MovimientoBanEn);
+        Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
+        Forma_de_Pago forma = new Forma_de_Pago(jTextField_IDForma, jTextField_TipoPago, jTextField_BuscarFP, tbl_FormaPago);
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
+
+        cantidad_Mo += mon.Cantidad_Registros();
+        cantidad_CC += CC.Cantidad_Registros();
+        cantidad_CuCon += cuenta_c.Cantidad_Registros();
+        cantidad_DB += DB.Cantidad_Registros();
+        cantidad_CB += CB.Cantidad_Registros();
+        cantidad_BE += Mo.Cantidad_Registros();
+        cantidad_MBD += MovDet.Cantidad_Registros();
+        cantidad_FP += forma.Cantidad_Registros();
+        cantidad_B += B.Cantidad_Registros();
+        cantidad_CBE += Con.Cantidad_Registros();
+        cantidad_CBD += CBD.Cantidad_Registros();
+
+        Cant_Mo.setText("" + cantidad_Mo);
+        Cant_R3.setText("" + cantidad_CC);
+        Cant_R4.setText("" + cantidad_CuCon);
+        Cant_R1.setText("" + cantidad_DB);
+        Cant_R10.setText("" + cantidad_CB);
+        Cant_R11.setText("" + cantidad_BE);
+        Cant_R12.setText("" + cantidad_MBD);
+        Cant_R9.setText("" + cantidad_FP);
+        Cant_R13.setText("" + cantidad_B);
+        Cant_R16.setText("" + cantidad_CBE);
+        Cant_R14.setText("" + cantidad_CBD);
+    }//GEN-LAST:event_Icono_BancosMouseClicked
+
+    private void Panel_Icono_BancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Icono_BancosMouseClicked
+        // TODO add your handling code here:
+        setColor_PanelI(Panel_Icono_Bancos);
+        resetColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_Conta);
+
+        Principal p = new Principal();
+        p.setVisible(false);
+
+        jPanel_BG.setVisible(true);
+
+        int cantidad_Mo = 0;
+        int cantidad_CC = 0;
+        int cantidad_CuCon = 0;
+        int cantidad_DB = 0;
+        int cantidad_CB = 0;
+        int cantidad_BE = 0;
+        int cantidad_MBD = 0;
+        int cantidad_FP = 0;
+        int cantidad_B = 0;
+        int cantidad_CBE = 0;
+        int cantidad_CBD = 0;
+
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta(jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        Documento_Bancario DB = new Documento_Bancario(jLabel_MMon1, txt_cod, txt_nombred, txt_afec, txt_estd, txt_buscard, tbl_Doc);
+        Moneda mon = new Moneda(jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        Concepto_Bancario CB = new Concepto_Bancario(txt_CodigoConcepto, txt_Nombre_Concepto, txt_Afecta, txt_Estatus, jLabel_ID_Cuenta, tbl_CB, txt_BuscarCB);
+        Movimiento_Bancario_Encabezado Mo = new Movimiento_Bancario_Encabezado(txt_CodigoMovimientoE, jLabel_ID_Documento, txt_Fecha, txt_Monto, txt_Descripcion, txt_BuscarMovBanEn, tbl_MovimientoBanEn);
+        Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
+        Forma_de_Pago forma = new Forma_de_Pago(jTextField_IDForma, jTextField_TipoPago, jTextField_BuscarFP, tbl_FormaPago);
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
+
+        cantidad_Mo += mon.Cantidad_Registros();
+        cantidad_CC += CC.Cantidad_Registros();
+        cantidad_CuCon += cuenta_c.Cantidad_Registros();
+        cantidad_DB += DB.Cantidad_Registros();
+        cantidad_CB += CB.Cantidad_Registros();
+        cantidad_BE += Mo.Cantidad_Registros();
+        cantidad_MBD += MovDet.Cantidad_Registros();
+        cantidad_FP += forma.Cantidad_Registros();
+        cantidad_B += B.Cantidad_Registros();
+        cantidad_CBE += Con.Cantidad_Registros();
+        cantidad_CBD += CBD.Cantidad_Registros();
+
+        Cant_Mo.setText("" + cantidad_Mo);
+        Cant_R3.setText("" + cantidad_CC);
+        Cant_R4.setText("" + cantidad_CuCon);
+        Cant_R1.setText("" + cantidad_DB);
+        Cant_R10.setText("" + cantidad_CB);
+        Cant_R11.setText("" + cantidad_BE);
+        Cant_R12.setText("" + cantidad_MBD);
+        Cant_R9.setText("" + cantidad_FP);
+        Cant_R13.setText("" + cantidad_B);
+        Cant_R16.setText("" + cantidad_CBE);
+        Cant_R14.setText("" + cantidad_CBD);
+
+    }//GEN-LAST:event_Panel_Icono_BancosMouseClicked
+
+    private void Panel_Icono_NominaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Icono_NominaMouseClicked
+        // TODO add your handling code here:
+        setColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Conta);
+        resetColor_PanelI(Panel_Icono_Bancos);
+
+        this.dispose();
+        Nomina n = new Nomina();
+        n.setVisible(true);
+    }//GEN-LAST:event_Panel_Icono_NominaMouseClicked
+
+    private void Icono_RRHHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Icono_RRHHMouseClicked
+
+        /*int cantidad_D = 0;
+        int cantidad_P = 0;
+        int cantidad_NA = 0;
+        int cantidad_ExpLD = 0;
+        int cantidad_ExpL = 0;
+        int cantidad_SE = 0;
+        int cantidad_M = 0;
+        int cantidad_RP = 0;
+        int cantidad_RL = 0;
+        int cantidad_C = 0;
+        int cantidad_AP = 0;
+        int cantidad_TP = 0;
+        int cantidad_APP = 0;
+        int cantidad_S = 0;
+        int cantidad_Actividad = 0;
+        int cantidad_periodo_p = 0;
+        int cantidad_contratacion = 0;
+        int cantidad_empleado = 0;
+        int cantidad_AE = 0;
+        int cantidad_BE = 0;
+
+        //jPanel_Bienvenido.setVisible(false);
+        icon_Moneda.setVisible(true);
+        icon_ClasifCuenta.setVisible(true);
+        icon_CuentaCont.setVisible(true);
+        icon_DocBanc.setVisible(true);
+        icon_ConcBanc.setVisible(true);
+        icon_BancEnc.setVisible(true);
+        icon_BancDet.setVisible(true);
+        icon_FormaPago.setVisible(true);
+        icon_Banco.setVisible(true);
+        icon_CoincBancEnc.setVisible(true);
+        icon_CoincBancDet.setVisible(true);
+        icon_TP.setVisible(true);
+        //Aplicacion.setVisible(true);
+        //TP.setVisible(true);
+        //RP.setVisible(true);
+        //CV.setVisible(true);
+        //Puesto.setVisible(true);
+        /*Mantenimiento_D.setVisible(false);
+        jPanel_MantenimientosP.setVisible(false);
+        jPanel_MantenimientoNA.setVisible(false);
+        jPanel_MantenimientoExpLD.setVisible(false);
+        jPanel_MantenimientoSE.setVisible(false);
+        jPanel_Mantenimiento_Medio.setVisible(false);
+        jPanel_MantenimientoRL.setVisible(false);
+        jPanel_MantenimientosRP.setVisible(false);
+        jPanel_MantenimientoCV.setVisible(false);
+        jPanel_MantenimientoAP.setVisible(false);
+        jPanel_Tipo_Prueba.setVisible(false);
+        jPanel_MantenimientoAPP.setVisible(false);
+        jPanel_MantenimientoS.setVisible(false);
+        jPanel_MantenimientoA.setVisible(false);
+        jPanel_MantenimientoPP.setVisible(false);
+        jPanel_MantenimientoC.setVisible(false);
+        jPanel_MantenimientoEC.setVisible(false);
+        jPanel_MantenimientoExpL.setVisible(false);
+        jPanel_MantenimientoAE.setVisible(false);
+        jPanel_MantenimientoBE.setVisible(false);
+
+        jLabel_Felcha2.setVisible(true);
+        jLabel_Flecha_Iz1.setVisible(true);
+
+        setColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_Conta);
+        resetColor_PanelI(Panel_Icono_Bancos);
+
+        Departamento De = new Departamento(txt_id_Departamento.toString(), txt_Nombre_Departamento.toString(), txt_Estatus_Departamento.toString());
+        cantidad_D += De.Cantidad_Registros();
+
+        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
+        cantidad_P += puesto.Cantidad_Registros();
+
+        Nivel_Academico NA = new Nivel_Academico(txt_id_NivelA, txt_Nombre_NivelA, txt_Descripcion_NivelA, txt_Buscar_NivelA, tbl_NivelA);
+        cantidad_NA += NA.Cantidad_Registros();
+
+        Experiencia_Laboral_Detallada ExpLD = new Experiencia_Laboral_Detallada(txt_id_ExpLD, txt_NombreExpLD, txt_Nombre_EmpresaExpLD, txt_Tiempo_InicioExpLD, txt_Tiempo_FinalizacionExpLD, txt_Buscar_ExpLD, tbl_ExpLD);
+        cantidad_ExpLD += ExpLD.Cantidad_Registros();
+
+        Experiencia_Laboral ExpL = new Experiencia_Laboral(txt_id_ExpL, jLabel_id_Nombre_EpLLD, txt_Buscar_ExpL, tbl_ExpL);
+        cantidad_ExpL += ExpL.Cantidad_Registros();
+
+        Solicitud_Empresarial SE = new Solicitud_Empresarial(txt_id_SolicitudE, txt_RangoEdadM, txt_RangoEdadMa, txt_Genero, jLabel_Puesto_SE, jLabel_Departamento_SE, jLabel_NivelA_SE, jLabel_ExperienciaL_SE, jTextArea_DescripcionSE, txt_Buscar_SE, tbl_SE);
+        cantidad_SE += SE.Cantidad_Registros();
+
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);
+        cantidad_M += M.Cantidad_Registros();
+
+        Referencias_Laborales referencias_laborales = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        cantidad_RL += referencias_laborales.Cantidad_Registros();
+
+        Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
+        cantidad_RP += RP.Cantidad_Registros();
+
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV, jLabel_EL_CV, jLabel_Medio_CV, txt_Buscar_CV, tbl_CV);
+        cantidad_C += CV.Cantidad_Registros();
+
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        cantidad_AP += ap.Cantidad_Registros();
+
+        Tipo_Prueba TP = new Tipo_Prueba(txt_id_TP, txt_TP, tbl_TP, txt_BuscarTP);
+        cantidad_TP += TP.Cantidad_Registros();
+
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
+        cantidad_APP += APP.Cantidad_Registros();
+
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        cantidad_S += S.Cantidad_Registros();
+
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
+        cantidad_Actividad += AC.Cantidad_Registros();
+
+        Periodo_Prueba p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        cantidad_periodo_p += p.Cantidad_Registros();
+
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        cantidad_contratacion += C.Cantidad_Registros();
+
+        Empleado_Contratado empleado = new Empleado_Contratado(txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        cantidad_empleado += empleado.Cantidad_Registros();
+
+        Actividad_Empleado AE = new Actividad_Empleado(jLabel_AE_ECC, jLabel_Actividad_AEE, txt_BuscarAE, tbl_AE);
+        cantidad_AE += AE.Cantidad_Registros();
+
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE);
+        cantidad_BE += BE.Cantidad_Registros();
+
+        Cant_R2.setText("" + cantidad_D);
+        Cant_R3.setText("" + cantidad_P);
+        Cant_R4.setText("" + cantidad_NA);
+        Cant_R1.setText("" + cantidad_ExpLD);
+        Cant_R10.setText("" + cantidad_ExpL);
+        Cant_R11.setText("" + cantidad_SE);
+        Cant_R12.setText("" + cantidad_M);
+        Cant_R9.setText("" + cantidad_RL);
+        Cant_R13.setText("" + cantidad_RP);
+        Cant_R16.setText("" + cantidad_C);
+        Cant_R14.setText("" + cantidad_AP);
+        Cant_R15.setText("" + cantidad_TP);
+        Cant_R17.setText("" + cantidad_APP);
+        Cant_R18.setText("" + cantidad_S);
+        Cant_R19.setText("" + cantidad_Actividad);
+        Cant_R20.setText("" + cantidad_periodo_p);
+        Cant_R21.setText("" + cantidad_contratacion);
+        Cant_R22.setText("" + cantidad_empleado);
+        Cant_R23.setText("" + cantidad_AE);
+        Cant_R24.setText("" + cantidad_BE);*/
+        this.dispose();
+        Principal p = new Principal();
+        p.setVisible(true);
+    }//GEN-LAST:event_Icono_RRHHMouseClicked
+
+    private void Icono_RRHHMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Icono_RRHHMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Icono_RRHHMouseEntered
+
+    private void Panel_Icono_RRHHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Icono_RRHHMouseClicked
+
+        int cantidad_D = 0;
+        int cantidad_P = 0;
+        int cantidad_NA = 0;
+        int cantidad_ExpLD = 0;
+        int cantidad_ExpL = 0;
+        int cantidad_SE = 0;
+        int cantidad_M = 0;
+        int cantidad_RP = 0;
+        int cantidad_RL = 0;
+        int cantidad_C = 0;
+        int cantidad_AP = 0;
+        int cantidad_TP = 0;
+        int cantidad_APP = 0;
+        int cantidad_S = 0;
+        int cantidad_Actividad = 0;
+        int cantidad_periodo_p = 0;
+        int cantidad_contratacion = 0;
+        int cantidad_empleado = 0;
+        int cantidad_AE = 0;
+
+        //jPanel_Bienvenido.setVisible(false);
+        ExpLDB.setVisible(true);
+        DepartamentoB.setVisible(true);
+        PuestoB.setVisible(true);
+        Nivel_AcademicoB.setVisible(true);
+        ExpLD1.setVisible(true);
+        Departamento1B.setVisible(true);
+        Puesto1B.setVisible(true);
+        Nivel_Academico2B.setVisible(true);
+        SEB.setVisible(true);
+        RLB.setVisible(true);
+        ExpLB.setVisible(true);
+        MedioB.setVisible(true);
+        AplicacionB.setVisible(true);
+        TPB.setVisible(true);
+        RPB.setVisible(true);
+        CVB.setVisible(true);
+        PuestoB.setVisible(true);
+        /*Mantenimiento_D.setVisible(false);
+        jPanel_MantenimientosP.setVisible(false);
+        jPanel_MantenimientoNA.setVisible(false);
+        jPanel_MantenimientoExpLD.setVisible(false);
+        jPanel_MantenimientoSE.setVisible(false);
+        jPanel_Mantenimiento_Medio.setVisible(false);
+        jPanel_MantenimientoRL.setVisible(false);
+        jPanel_MantenimientosRP.setVisible(false);
+        jPanel_MantenimientoCV.setVisible(false);
+        jPanel_MantenimientoAP.setVisible(false);
+        jPanel_Tipo_Prueba.setVisible(false);
+        jPanel_MantenimientoAPP.setVisible(false);
+        jPanel_MantenimientoS.setVisible(false);
+        jPanel_MantenimientoA.setVisible(false);
+        jPanel_MantenimientoPP.setVisible(false);
+        jPanel_MantenimientoC.setVisible(false);
+        jPanel_MantenimientoEC.setVisible(false);
+        jPanel_MantenimientoExpL.setVisible(false);
+        jPanel_MantenimientoAE.setVisible(false);
+        jPanel_MantenimientoBE.setVisible(false);
+
+        jLabel_Felcha2.setVisible(true);
+        jLabel_Flecha_Iz1.setVisible(true);
+
+        setColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_Conta);
+        resetColor_PanelI(Panel_Icono_Bancos);
+
+        Departamento De = new Departamento(txt_id_Departamento.toString(), txt_Nombre_Departamento.toString(), txt_Estatus_Departamento.toString());
+        cantidad_D += De.Cantidad_Registros();
+
+        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
+        cantidad_P += puesto.Cantidad_Registros();
+
+        Nivel_Academico NA = new Nivel_Academico(txt_id_NivelA, txt_Nombre_NivelA, txt_Descripcion_NivelA, txt_Buscar_NivelA, tbl_NivelA);
+        cantidad_NA += NA.Cantidad_Registros();
+
+        Experiencia_Laboral_Detallada ExpLD = new Experiencia_Laboral_Detallada(txt_id_ExpLD, txt_NombreExpLD, txt_Nombre_EmpresaExpLD, txt_Tiempo_InicioExpLD, txt_Tiempo_FinalizacionExpLD, txt_Buscar_ExpLD, tbl_ExpLD);
+        cantidad_ExpLD += ExpLD.Cantidad_Registros();
+
+        Experiencia_Laboral ExpL = new Experiencia_Laboral(txt_id_ExpL, jLabel_id_Nombre_EpLLD, txt_Buscar_ExpL, tbl_ExpL);
+        cantidad_ExpL += ExpL.Cantidad_Registros();
+
+        Solicitud_Empresarial SE = new Solicitud_Empresarial(txt_id_SolicitudE, txt_RangoEdadM, txt_RangoEdadMa, txt_Genero, jLabel_Puesto_SE, jLabel_Departamento_SE, jLabel_NivelA_SE, jLabel_ExperienciaL_SE, jTextArea_DescripcionSE, txt_Buscar_SE, tbl_SE);
+        cantidad_SE += SE.Cantidad_Registros();
+
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);
+        cantidad_M += M.Cantidad_Registros();
+
+        Referencias_Laborales referencias_laborales = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        cantidad_RL += referencias_laborales.Cantidad_Registros();
+
+        Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
+        cantidad_RP += RP.Cantidad_Registros();
+
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV, jLabel_EL_CV, jLabel_Medio_CV, txt_Buscar_CV, tbl_CV);
+        cantidad_C += CV.Cantidad_Registros();
+
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        cantidad_AP += ap.Cantidad_Registros();
+
+        Tipo_Prueba TP = new Tipo_Prueba(txt_id_TP, txt_TP, tbl_TP, txt_BuscarTP);
+        cantidad_TP += TP.Cantidad_Registros();
+
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
+        cantidad_APP += APP.Cantidad_Registros();
+
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        cantidad_S += S.Cantidad_Registros();
+
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
+        cantidad_Actividad += AC.Cantidad_Registros();
+
+        Periodo_Prueba p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        cantidad_periodo_p += p.Cantidad_Registros();
+
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        cantidad_contratacion += C.Cantidad_Registros();
+
+        Empleado_Contratado empleado = new Empleado_Contratado(txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        cantidad_empleado += empleado.Cantidad_Registros();
+
+        Actividad_Empleado AE = new Actividad_Empleado(jLabel_AE_ECC, jLabel_Actividad_AEE, txt_BuscarAE, tbl_AE);
+        cantidad_AE += AE.Cantidad_Registros();
+
+        Cant_R2.setText("" + cantidad_D);
+        Cant_R3.setText("" + cantidad_P);
+        Cant_R4.setText("" + cantidad_NA);
+        Cant_R1.setText("" + cantidad_ExpLD);
+        Cant_R10.setText("" + cantidad_ExpL);
+        Cant_R11.setText("" + cantidad_SE);
+        Cant_R12.setText("" + cantidad_M);
+        Cant_R9.setText("" + cantidad_RL);
+        Cant_R13.setText("" + cantidad_RP);
+        Cant_R16.setText("" + cantidad_C);
+        Cant_R14.setText("" + cantidad_AP);
+        Cant_R15.setText("" + cantidad_TP);
+        Cant_R17.setText("" + cantidad_APP);
+        Cant_R18.setText("" + cantidad_S);
+        Cant_R19.setText("" + cantidad_Actividad);
+        Cant_R20.setText("" + cantidad_periodo_p);
+        Cant_R21.setText("" + cantidad_contratacion);
+        Cant_R22.setText("" + cantidad_empleado);
+        Cant_R23.setText("" + cantidad_AE);*/
+        this.dispose();
+        Principal p = new Principal();
+        p.setVisible(true);
+    }//GEN-LAST:event_Panel_Icono_RRHHMouseClicked
+
+    private void jLabel_LogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_LogoMouseClicked
+        // TODO add your handling code here:
+        int posX = 0;
+        AnimationClass ani = new AnimationClass();
+
+        posX += Texto_RRHH.getX();
+
+        if (posX == -210) {
+            ani.jLabelXRight(Texto_RRHH.getX(), 50, 2, 1, Texto_RRHH);
+            ani.jLabelXRight(Texto_Nomina.getX(), 45, 2, 1, Texto_Nomina);
+            ani.jLabelXRight(Texto_Conta.getX(), 31, 2, 1, Texto_Conta);
+            ani.jLabelXRight(Texto_Bancos.getX(), 50, 2, 1, Texto_Bancos);
+            /*resetColor_PanelI(Slide_Derecho1);
+            resetColor_PanelI(Panel_Text_RRHH);
+            resetColor_PanelI(Panel_Text_Nomina);*/
+        }
+
+        posX = 0;
+
+        int posX2 = 0;
+        AnimationClass ani_I = new AnimationClass();
+
+        posX2 += Texto_RRHH.getX();
+
+        if (posX2 == 50) {
+            ani_I.jLabelXLeft(Texto_RRHH.getX(), -210, 2, 1, Texto_RRHH);
+            ani_I.jLabelXLeft(Texto_Nomina.getX(), -210, 2, 1, Texto_Nomina);
+            ani_I.jLabelXLeft(Texto_Conta.getX(), -210, 2, 1, Texto_Conta);
+            ani_I.jLabelXLeft(Texto_Bancos.getX(), -210, 2, 1, Texto_Bancos);
+            /*resetColor_PanelD(Slide_Derecho1);
+            resetColor_PanelD(Panel_Text_RRHH);
+            resetColor_PanelD(Panel_Text_Nomina);*/
+        }
+    }//GEN-LAST:event_jLabel_LogoMouseClicked
+
+    private void Texto_RRHHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_RRHHMouseClicked
+
+        int cantidad_D = 0;
+        int cantidad_P = 0;
+        int cantidad_NA = 0;
+        int cantidad_ExpLD = 0;
+        int cantidad_ExpL = 0;
+        int cantidad_SE = 0;
+        int cantidad_M = 0;
+        int cantidad_RP = 0;
+        int cantidad_RL = 0;
+        int cantidad_C = 0;
+        int cantidad_AP = 0;
+        int cantidad_TP = 0;
+        int cantidad_APP = 0;
+        int cantidad_S = 0;
+        int cantidad_Actividad = 0;
+        int cantidad_periodo_p = 0;
+        int cantidad_contratacion = 0;
+        int cantidad_empleado = 0;
+        int cantidad_AE = 0;
+        int cantidad_BE = 0;
+
+        //jPanel_Bienvenido.setVisible(false);
+        ExpLDB.setVisible(true);
+        DepartamentoB.setVisible(true);
+        PuestoB.setVisible(true);
+        Nivel_AcademicoB.setVisible(true);
+        ExpLD1.setVisible(true);
+        Departamento1B.setVisible(true);
+        Puesto1B.setVisible(true);
+        Nivel_Academico2B.setVisible(true);
+        SEB.setVisible(true);
+        RLB.setVisible(true);
+        ExpLB.setVisible(true);
+        MedioB.setVisible(true);
+        AplicacionB.setVisible(true);
+        TPB.setVisible(true);
+        RPB.setVisible(true);
+        CVB.setVisible(true);
+        PuestoB.setVisible(true);
+        //Mantenimiento_D.setVisible(false);
+        //jPanel_MantenimientosP.setVisible(false);
+        //jPanel_MantenimientoNA.setVisible(false);
+        /*jPanel_MantenimientoExpLD.setVisible(false);
+        jPanel_MantenimientoSE.setVisible(false);
+        jPanel_Mantenimiento_Medio.setVisible(false);
+        jPanel_MantenimientoRL.setVisible(false);
+        jPanel_MantenimientosRP.setVisible(false);
+        jPanel_MantenimientoCV.setVisible(false);
+        jPanel_MantenimientoAP.setVisible(false);
+        jPanel_Tipo_Prueba.setVisible(false);
+        jPanel_MantenimientoAPP.setVisible(false);
+        jPanel_MantenimientoS.setVisible(false);
+        jPanel_MantenimientoA.setVisible(false);
+        jPanel_MantenimientoPP.setVisible(false);
+        jPanel_MantenimientoC.setVisible(false);
+        jPanel_MantenimientoEC.setVisible(false);
+        jPanel_MantenimientoExpL.setVisible(false);
+        jPanel_MantenimientoAE.setVisible(false);
+        jPanel_MantenimientoBE.setVisible(false);
+
+        jLabel_Felcha2.setVisible(true);
+        jLabel_Flecha_Iz1.setVisible(true);
+
+        setColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_Conta);
+        resetColor_PanelI(Panel_Icono_Bancos);
+
+        Departamento De = new Departamento(txt_id_Departamento.toString(), txt_Nombre_Departamento.toString(), txt_Estatus_Departamento.toString());
+        cantidad_D += De.Cantidad_Registros();
+
+        Puesto puesto = new Puesto(txt_id_Puesto, txt_Nombre_Puesto, txt_Descripcion_Puesto, txt_Estatus_Puesto, txt_Buscar_Puesto, tbl_Puesto);
+        cantidad_P += puesto.Cantidad_Registros();
+
+        Nivel_Academico NA = new Nivel_Academico(txt_id_NivelA, txt_Nombre_NivelA, txt_Descripcion_NivelA, txt_Buscar_NivelA, tbl_NivelA);
+        cantidad_NA += NA.Cantidad_Registros();
+
+        Experiencia_Laboral_Detallada ExpLD = new Experiencia_Laboral_Detallada(txt_id_ExpLD, txt_NombreExpLD, txt_Nombre_EmpresaExpLD, txt_Tiempo_InicioExpLD, txt_Tiempo_FinalizacionExpLD, txt_Buscar_ExpLD, tbl_ExpLD);
+        cantidad_ExpLD += ExpLD.Cantidad_Registros();
+
+        Experiencia_Laboral ExpL = new Experiencia_Laboral(txt_id_ExpL, jLabel_id_Nombre_EpLLD, txt_Buscar_ExpL, tbl_ExpL);
+        cantidad_ExpL += ExpL.Cantidad_Registros();
+
+        Solicitud_Empresarial SE = new Solicitud_Empresarial(txt_id_SolicitudE, txt_RangoEdadM, txt_RangoEdadMa, txt_Genero, jLabel_Puesto_SE, jLabel_Departamento_SE, jLabel_NivelA_SE, jLabel_ExperienciaL_SE, jTextArea_DescripcionSE, txt_Buscar_SE, tbl_SE);
+        cantidad_SE += SE.Cantidad_Registros();
+
+        Medio M = new Medio(txt_id_Medio, jLabel_ID_SEM, txt_NombreM, jTextArea_DescripcionM, txt_BuscarM, tbl_Medio);
+        cantidad_M += M.Cantidad_Registros();
+
+        Referencias_Laborales referencias_laborales = new Referencias_Laborales(txt_id_ReferenciaL, txt_NombreRL, txt_TelefonoRL, txt_BuscarRL, tbl_RL);
+        cantidad_RL += referencias_laborales.Cantidad_Registros();
+
+        Referencias_Personales RP = new Referencias_Personales(txt_id_RP, txt_Nombre_RP, txt_Telefono_RP, txt_Buscar_RP, tbl_RP);
+        cantidad_RP += RP.Cantidad_Registros();
+
+        Curriculum CV = new Curriculum(txt_DPICV, txt_NombreCV, txt_ApellidoCV, txt_TelefonoCV, txt_CorreoCV, txt_DireccionCV, txt_GeneroCV, txt_EdadCV, jLabel_NivelA_CV, jLabel_RP_CV, jLabel_RL_CV, jLabel_EL_CV, jLabel_Medio_CV, txt_Buscar_CV, tbl_CV);
+        cantidad_C += CV.Cantidad_Registros();
+
+        Aplicacion ap = new Aplicacion(txt_id_AP, jLabel_DPI_AP, txt_RequisitosAP, txt_BuscarAP, tbl_AP);
+        cantidad_AP += ap.Cantidad_Registros();
+
+        Tipo_Prueba TP = new Tipo_Prueba(txt_id_TP, txt_TP, tbl_TP, txt_BuscarTP);
+        cantidad_TP += TP.Cantidad_Registros();
+
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
+        cantidad_APP += APP.Cantidad_Registros();
+
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        cantidad_S += S.Cantidad_Registros();
+
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
+        cantidad_Actividad += AC.Cantidad_Registros();
+
+        Periodo_Prueba p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        cantidad_periodo_p += p.Cantidad_Registros();
+
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        cantidad_contratacion += C.Cantidad_Registros();
+
+        Empleado_Contratado empleado = new Empleado_Contratado(txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        cantidad_empleado += empleado.Cantidad_Registros();
+
+        Actividad_Empleado AE = new Actividad_Empleado(jLabel_AE_ECC, jLabel_Actividad_AEE, txt_BuscarAE, tbl_AE);
+        cantidad_AE += AE.Cantidad_Registros();
+
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE);
+        cantidad_BE += BE.Cantidad_Registros();
+
+        Cant_R2.setText("" + cantidad_D);
+        Cant_R3.setText("" + cantidad_P);
+        Cant_R4.setText("" + cantidad_NA);
+        Cant_R1.setText("" + cantidad_ExpLD);
+        Cant_R10.setText("" + cantidad_ExpL);
+        Cant_R11.setText("" + cantidad_SE);
+        Cant_R12.setText("" + cantidad_M);
+        Cant_R9.setText("" + cantidad_RL);
+        Cant_R13.setText("" + cantidad_RP);
+        Cant_R16.setText("" + cantidad_C);
+        Cant_R14.setText("" + cantidad_AP);
+        Cant_R15.setText("" + cantidad_TP);
+        Cant_R17.setText("" + cantidad_APP);
+        Cant_R18.setText("" + cantidad_S);
+        Cant_R19.setText("" + cantidad_Actividad);
+        Cant_R20.setText("" + cantidad_periodo_p);
+        Cant_R21.setText("" + cantidad_contratacion);
+        Cant_R22.setText("" + cantidad_empleado);
+        Cant_R23.setText("" + cantidad_AE);
+        Cant_R24.setText("" + cantidad_BE);*/
+
+        setColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_Conta);
+        resetColor_PanelI(Panel_Icono_Bancos);
+
+        this.dispose();
+        Principal p = new Principal();
+        p.setVisible(true);
+    }//GEN-LAST:event_Texto_RRHHMouseClicked
+
+    private void Panel_Text_RRHHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Text_RRHHMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Text_RRHHMouseClicked
+
+    private void Texto_NominaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_NominaMouseClicked
+        // TODO add your handling code here:
+        setColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Conta);
+        resetColor_PanelI(Panel_Icono_Bancos);
+
+        this.dispose();
+        Nomina n = new Nomina();
+        n.setVisible(true);
+    }//GEN-LAST:event_Texto_NominaMouseClicked
+
+    private void Texto_BancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_BancosMouseClicked
+        // TODO add your handling code here:
+        jPanel_MantenimientoMoneda.setVisible(false);
+        jPanel_MantenimientoClasiCuenta.setVisible(false);
+        Panel_CuentaContable.setVisible(false);
+        jPanel_Mantenimiento_DocB.setVisible(false);
+        jPanel_MantenimientoCB.setVisible(false);
+        JPanel_MantenimientoMovimientoBanEn.setVisible(false);
+        jPanel_MantenimientoMovBanDet.setVisible(false);
+        jPanel_Forma_de_Pago.setVisible(false);
+        jPanel_MantenimientoBanco.setVisible(false);
+        jPanel_Manatenimiento_ConBanEn.setVisible(false);
+        jPanel_Mantenimiento_CBD.setVisible(false);
+        jPanel_ConsultaBancos_Saldos.setVisible(false);
+        
+        ExpLB.setVisible(true);
+        PuestoB.setVisible(true);
+        Nivel_AcademicoB.setVisible(true);
+        ExpLDB.setVisible(true);
+        ExpLB.setVisible(true);
+        SEB.setVisible(true);
+        MedioB.setVisible(true);
+        RLB.setVisible(true);
+        RPB.setVisible(true);
+        CVB.setVisible(true);
+        AplicacionB.setVisible(true);
+        TPB.setVisible(true);
+        int cantidad_Mo = 0;
+        int cantidad_CC = 0;
+        int cantidad_CuCon = 0;
+        int cantidad_DB = 0;
+        int cantidad_CB = 0;
+        int cantidad_BE = 0;
+        int cantidad_MBD = 0;
+        int cantidad_FP = 0;
+        int cantidad_B = 0;
+        int cantidad_CBE = 0;
+        int cantidad_CBD = 0;
+
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta(jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        Documento_Bancario DB = new Documento_Bancario(jLabel_MMon1, txt_cod, txt_nombred, txt_afec, txt_estd, txt_buscard, tbl_Doc);
+        Moneda mon = new Moneda(jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        Concepto_Bancario CB = new Concepto_Bancario(txt_CodigoConcepto, txt_Nombre_Concepto, txt_Afecta, txt_Estatus, jLabel_ID_Cuenta, tbl_CB, txt_BuscarCB);
+        Movimiento_Bancario_Encabezado Mo = new Movimiento_Bancario_Encabezado(txt_CodigoMovimientoE, jLabel_ID_Documento, txt_Fecha, txt_Monto, txt_Descripcion, txt_BuscarMovBanEn, tbl_MovimientoBanEn);
+        Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
+        Forma_de_Pago forma = new Forma_de_Pago(jTextField_IDForma, jTextField_TipoPago, jTextField_BuscarFP, tbl_FormaPago);
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
+
+        cantidad_Mo += mon.Cantidad_Registros();
+        cantidad_CC += CC.Cantidad_Registros();
+        cantidad_CuCon += cuenta_c.Cantidad_Registros();
+        cantidad_DB += DB.Cantidad_Registros();
+        cantidad_CB += CB.Cantidad_Registros();
+        cantidad_BE += Mo.Cantidad_Registros();
+        cantidad_MBD += MovDet.Cantidad_Registros();
+        cantidad_FP += forma.Cantidad_Registros();
+        cantidad_B += B.Cantidad_Registros();
+        cantidad_CBE += Con.Cantidad_Registros();
+        cantidad_CBD += CBD.Cantidad_Registros();
+
+        Cant_Mo.setText("" + cantidad_Mo);
+        Cant_R3.setText("" + cantidad_CC);
+        Cant_R4.setText("" + cantidad_CuCon);
+        Cant_R1.setText("" + cantidad_DB);
+        Cant_R10.setText("" + cantidad_CB);
+        Cant_R11.setText("" + cantidad_BE);
+        Cant_R12.setText("" + cantidad_MBD);
+        Cant_R9.setText("" + cantidad_FP);
+        Cant_R13.setText("" + cantidad_B);
+        Cant_R16.setText("" + cantidad_CBE);
+        Cant_R14.setText("" + cantidad_CBD);
+
+        setColor_PanelI(Panel_Icono_Bancos);
+        resetColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_Conta);
+    }//GEN-LAST:event_Texto_BancosMouseClicked
+
+    private void Texto_ContaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_ContaMouseClicked
+        // TODO add your handling code here:
+        setColor_PanelI(Panel_Icono_Conta);
+        resetColor_PanelI(Panel_Icono_RRHH);
+        resetColor_PanelI(Panel_Icono_Nomina);
+        resetColor_PanelI(Panel_Icono_Bancos);
+    }//GEN-LAST:event_Texto_ContaMouseClicked
+
+    private void SlideMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SlideMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SlideMouseMoved
+
+    private void icon_DocBancMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_DocBancMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA3);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_DocBancMouseMoved
+
+    private void icon_DocBancMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_DocBancMouseClicked
+
+        // TODO add your handling code here:
+        ExpLB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+        //Panel_Bancos.setVisible(false);
+        jPanel_Mantenimiento_DocB.setVisible(true);
+        Documento_Bancario DB = new Documento_Bancario(jLabel_MMon1, txt_cod, txt_nombred, txt_afec, txt_estd, txt_buscard, tbl_Doc);
+        DB.Actualizar_Tabla();
+    }//GEN-LAST:event_icon_DocBancMouseClicked
+
+    private void icon_DocBancMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_DocBancMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA3);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_DocBancMouseExited
+
+    private void icon_PPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_PPMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA15);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_PPMouseMoved
+
+    private void icon_PPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_PPMouseClicked
+        /*// TODO add your handling code here:
+        Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+
+        jPanel_MantenimientoPP.setVisible(true);
+
+        //  combobox
+        if (jComboBox_TablasPP.getItemCount() == 0)
+        {
+            jComboBox_TablasPP.addItem(S_PeriodoP);
+            jComboBox_TablasPP.addItem(S_Actividad);
+        }
+
+        Periodo_Prueba periodo_p = new Periodo_Prueba(txt_id_PP, jLabel_PPSE, txt_id_FI, txt_id_FF, txt_id_Pago, jLabel_PPAA, txt_BuscarPP, tbl_PP);
+        periodo_p.Encontrar_ListaPP("seleccion", "id_seleccion", jComboBox_PPS);
+        periodo_p.Encontrar_ListaPP("actividad", "tipo_actividad", jComboBox_PPA);
+        periodo_p.Actualizar_Tabla();*/
+    }//GEN-LAST:event_icon_PPMouseClicked
+
+    private void icon_PPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_PPMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA15);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_PPMouseExited
+
+    private void ExpLDBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExpLDBMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExpLDBMouseClicked
+
+    private void icon_MonedaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_MonedaMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA1);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_MonedaMouseMoved
+
+    private void icon_MonedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_MonedaMouseClicked
+        // TODO add your handling code here:
+        //jPanel_BG.setVisible(false);
+        //Slide.setVisible(false);
+        ExpLB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+        SeleccionadoA1.setVisible(false);
+        //
+
+        //Panel_Bancos.setVisible(false);
+        jPanel_MantenimientoMoneda.setVisible(true);
+        Moneda mon = new Moneda(jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        mon.Actualizar_Tabla();
+    }//GEN-LAST:event_icon_MonedaMouseClicked
+
+    private void icon_MonedaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_MonedaMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA1);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_MonedaMouseExited
+
+    private void icon_APPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_APPMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA12);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_APPMouseMoved
+
+    private void icon_APPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_APPMouseClicked
+        /*Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+
+        jPanel_MantenimientoAPP.setVisible(true);
+
+        //Asignado String a Combobox para buscar tabla
+        if (jComboBox_TablasB_APP.getItemCount() == 0)
+        {
+            jComboBox_TablasB_APP.addItem(S_Prueba);
+            jComboBox_TablasB_APP.addItem(S_Aplicacion);
+        }
+
+        Aplicacion_Prueba APP = new Aplicacion_Prueba(txt_id_APP, jLabel_Prueba_APP, jLabel_Aplicacion_APP, txt_AplicacionAPP, txt_Buscar_APP, tbl_APP);
+        APP.Encontrar_ListaAPP("tipo_pruebas", "tipo_prueba", jComboBox_PruebaAPP);
+        APP.Encontrar_ListaAPP("aplicacion", "dpi_persona", jComboBox_AplicacionAPP);
+        APP.Actualizar_Tabla();*/
+    }//GEN-LAST:event_icon_APPMouseClicked
+
+    private void icon_APPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_APPMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA12);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_APPMouseExited
+
+    private void DepartamentoBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DepartamentoBMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DepartamentoBMouseClicked
+
+    private void SeleccionadoAMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionadoAMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SeleccionadoAMouseMoved
+
+    private void icon_ClasifCuentaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ClasifCuentaMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_ClasifCuentaMouseMoved
+
+    private void icon_ClasifCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ClasifCuentaMouseClicked
+        // TODO add your handling code here:
+        ExpLB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+
+        //Panel_Bancos.setVisible(false);
+        jPanel_MantenimientoClasiCuenta.setVisible(true);
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta(jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        CC.Actualizar_Tabla();
+    }//GEN-LAST:event_icon_ClasifCuentaMouseClicked
+
+    private void icon_ClasifCuentaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ClasifCuentaMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_ClasifCuentaMouseExited
+
+    private void SeleccionadoA13MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionadoA13MouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SeleccionadoA13MouseMoved
+
+    private void icon_SeleccionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_SeleccionMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA13);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_SeleccionMouseMoved
+
+    private void icon_SeleccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_SeleccionMouseClicked
+        /*Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+
+        jPanel_MantenimientoS.setVisible(true);
+
+        if (jComboBox_TablasB_S.getItemCount() ==0)
+        {
+            jComboBox_TablasB_S.addItem(S_Seleccion);
+        }
+
+        Seleccion S = new Seleccion(txt_idS, jLabel_RL_APPS, txt_EstatusS, txt_BuscarS, tbl_S);
+        S.Encontrar_ListaSeleccion("aplicacion_prueba", "id_ap", jComboBox_APPS);
+        S.Actualizar_Tabla();
+         */
+        // TODO add your handling code here:
+    }//GEN-LAST:event_icon_SeleccionMouseClicked
+
+    private void icon_SeleccionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_SeleccionMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA13);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_SeleccionMouseExited
+
+    private void PuestoBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PuestoBMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PuestoBMouseExited
+
+    private void icon_CuentaContMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CuentaContMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA2);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_CuentaContMouseMoved
+
+    private void icon_CuentaContMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CuentaContMouseClicked
+        // TODO add your handling code here:
+        ExpLB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+
+        //Panel_Bancos.setVisible(false);
+        Panel_CuentaContable.setVisible(true);
+
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        cuenta_c.Encontrar_ListaCC("clasificacion_cuenta", "nombre_clasificacion", jComboBoxIDClasificacion);
+        cuenta_c.Actualizar_Tabla();
+
+    }//GEN-LAST:event_icon_CuentaContMouseClicked
+
+    private void icon_CuentaContMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CuentaContMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA2);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_CuentaContMouseExited
+
+    private void icon_CuentaContMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CuentaContMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_icon_CuentaContMouseReleased
+
+    private void icon_ActividadMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ActividadMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA14);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_ActividadMouseMoved
+
+    private void icon_ActividadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ActividadMouseClicked
+        /*        // TODO add your handling code here:
+        Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+
+        jPanel_MantenimientoA.setVisible(true);
+
+        Actividad AC = new Actividad(txt_id_A, txt_TA, jTextArea_DescripcionA, txt_BuscarA, tbl_A);
+        AC.Actualizar_Tabla();*/
+    }//GEN-LAST:event_icon_ActividadMouseClicked
+
+    private void icon_ActividadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ActividadMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA14);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_ActividadMouseExited
+
+    private void icon_ActividadMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ActividadMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_icon_ActividadMouseReleased
+
+    private void icon_Departamento1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_Departamento1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_icon_Departamento1MouseClicked
+
+    private void Departamento1BMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Departamento1BMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Departamento1BMouseClicked
+
+    private void icon_BancEncMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BancEncMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA5);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_BancEncMouseMoved
+
+    private void icon_BancEncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BancEncMouseClicked
+
+        DepartamentoB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+        //
+        ExpLB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+
+        //Panel_Bancos.setVisible(false);
+        JPanel_MantenimientoMovimientoBanEn.setVisible(true);
+        Movimiento_Bancario_Encabezado Mo = new Movimiento_Bancario_Encabezado(txt_CodigoMovimientoE, jLabel_ID_Documento, txt_Fecha, txt_Monto, txt_Descripcion, txt_BuscarMovBanEn, tbl_MovimientoBanEn);
+
+        Mo.Actualizar_Tabla();
+
+        Mo.Encontrar_ListaMovimientoBAEN("Documento_bancario", "nombre_Documento", jComboBox_Nombre_Movimiento);
+    }//GEN-LAST:event_icon_BancEncMouseClicked
+
+    private void icon_BancEncMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BancEncMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA5);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_BancEncMouseExited
+
+    private void icon_ECMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ECMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA17);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_ECMouseMoved
+
+    private void icon_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ECMouseClicked
+        /*        // TODO add your handling code here:
+
+        Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+
+        jPanel_MantenimientoEC.setVisible(true);
+
+        //Combobox
+
+        if (jComboBox_TablasEC.getItemCount() == 0)
+        {
+            jComboBox_TablasEC.addItem(S_Contratacion);
+            jComboBox_TablasEC.addItem(S_Puesto);
+            jComboBox_TablasEC.addItem(S_Departamento);
+        }
+
+        Empleado_Contratado empleado = new Empleado_Contratado(txt_id_EC, jLabel_CECC, jLabel_ECPP, jLabel_ECDD, txt_SEC, txt_BuscarEC, tbl_EC);
+        empleado.Encontrar_ListaEC("contratacion", "id_contratacion", jComboBox_CEC);
+        empleado.Encontrar_ListaEC("puesto", "nombre_puesto", jComboBox_ECP);
+        empleado.Encontrar_ListaEC("departamento", "nombre_departamento", jComboBox_ECD);
+        empleado.Actualizar_Tabla();*/
+    }//GEN-LAST:event_icon_ECMouseClicked
+
+    private void icon_ECMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ECMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA17);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_ECMouseExited
+
+    private void SEBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SEBMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SEBMouseClicked
+
+    private void icon_FormaPagoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_FormaPagoMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA7);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_FormaPagoMouseMoved
+
+    private void icon_FormaPagoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_FormaPagoMouseClicked
+        // TODO add your handling code here:
+        DepartamentoB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+
+        //Panel_Bancos.setVisible(false);
+        jPanel_Forma_de_Pago.setVisible(true);
+
+        Forma_de_Pago forma = new Forma_de_Pago(jTextField_IDForma, jTextField_TipoPago, jTextField_BuscarFP, tbl_FormaPago);
+        forma.Actualizar_Tabla();
+    }//GEN-LAST:event_icon_FormaPagoMouseClicked
+
+    private void icon_FormaPagoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_FormaPagoMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA7);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_FormaPagoMouseExited
+
+    private void icon_BEMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BEMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA19);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_BEMouseMoved
+
+    private void icon_BEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BEMouseClicked
+        /*        // TODO add your handling code here:
+        Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+
+        jPanel_MantenimientoBE.setVisible(true);
+
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE);
+        BE.actualizarBit();*/
+    }//GEN-LAST:event_icon_BEMouseClicked
+
+    private void icon_BEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BEMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA19);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_BEMouseExited
+
+    private void icon_ConcBancMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ConcBancMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA4);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_ConcBancMouseMoved
+
+    private void icon_ConcBancMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ConcBancMouseClicked
+        // TODO add your handling code here:
+        ExpLB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+        //Panel_Bancos.setVisible(false);
+        jPanel_MantenimientoCB.setVisible(true);
+        Concepto_Bancario CB = new Concepto_Bancario(txt_CodigoConcepto, txt_Nombre_Concepto, txt_Afecta, txt_Estatus, jLabel_ID_Cuenta, tbl_CB, txt_BuscarCB);
+        CB.Encontrar_ListaConceptoB("cuenta_contable", "nombre_cuenta", jComboBox_Nombre_Cuenta);
+        CB.EncontrarID_ConceptoB("id_cuenta", "cuenta_contable", "nombre_cuenta", jComboBox_Nombre_Cuenta, jLabel_ID_Cuenta);
+        CB.Actualizar_Tabla();
+    }//GEN-LAST:event_icon_ConcBancMouseClicked
+
+    private void icon_ConcBancMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ConcBancMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA4);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_ConcBancMouseExited
+
+    private void icon_ContratacionMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ContratacionMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA16);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_ContratacionMouseMoved
+
+    private void icon_ContratacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ContratacionMouseClicked
+        /*
+        Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+
+        // Combobox
+
+        if (jComboBox_TablasC.getItemCount() == 0)
+        {
+            jComboBox_TablasC.addItem(S_PeriodoP);
+        }
+
+        jPanel_MantenimientoC.setVisible(true);
+        Contratacion C = new Contratacion(txt_id_C, jLabel_PPCC, txt_FC, txt_DC, txt_EC, txt_Buscar_C, tbl_C);
+        C.Encontrar_ListaCon("periodo_prueba", "id_periodop", jComboBox_PPC);
+        C.Actualizar_Tabla();
+         */
+        // TODO add your handling code here:
+    }//GEN-LAST:event_icon_ContratacionMouseClicked
+
+    private void icon_ContratacionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ContratacionMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA16);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_ContratacionMouseExited
+
+    private void ExpLBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExpLBMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExpLBMouseClicked
+
+    private void icon_BancDetMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BancDetMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA6);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_BancDetMouseMoved
+
+    private void icon_BancDetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BancDetMouseClicked
+        // TODO add your handling code here: medio
+        DepartamentoB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+
+        //Panel_Bancos.setVisible(false);
+        jPanel_MantenimientoMovBanDet.setVisible(true);
+
+        Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
+        MovDet.Encontrar_ListaMov("concepto_bancario", "nombre_concepto", jComboBox_codigoC);
+        MovDet.Encontrar_ListaMov("mov_bancEnc", "id_movEnc", jComboBox_Encabezado);
+        MovDet.Actualizar_Tabla();
+    }//GEN-LAST:event_icon_BancDetMouseClicked
+
+    private void icon_BancDetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BancDetMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA6);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_BancDetMouseExited
+
+    private void icon_AEMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_AEMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA18);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_AEMouseMoved
+
+    private void icon_AEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_AEMouseClicked
+        /*        // TODO add your handling code here:
+        Departamento.setVisible(false);
+        Puesto.setVisible(false);
+        Nivel_Academico.setVisible(false);
+        ExpLD.setVisible(false);
+        ExpL.setVisible(false);
+        SE.setVisible(false);
+        Medio.setVisible(false);
+        RL.setVisible(false);
+        RP.setVisible(false);
+        CV.setVisible(false);
+        Aplicacion.setVisible(false);
+        TP.setVisible(false);
+        jLabel_Felcha2.setVisible(false);
+        jLabel_Flecha_Iz1.setVisible(false);
+
+        jPanel_MantenimientoAE.setVisible(true);
+
+        //Combobox
+
+        if (jComboBox_TablasAE.getItemCount() == 0)
+        {
+            jComboBox_TablasAE.addItem(S_Actividad);
+            jComboBox_TablasAE.addItem(S_EC);
+        }
+
+        Actividad_Empleado AE = new Actividad_Empleado(jLabel_AE_ECC, jLabel_Actividad_AEE, txt_BuscarAE, tbl_AE);
+        AE.Actualizar_Tabla();
+        AE.Encontrar_ListaAE("empleado_contratado", "id_empleado", jComboBox_AE_EC);
+        AE.Encontrar_ListaAE("actividad", "tipo_actividad", jComboBox_Actividad_AE);*/
+    }//GEN-LAST:event_icon_AEMouseClicked
+
+    private void icon_AEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_AEMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA18);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_AEMouseExited
+
+    private void icon_CoincBancDetMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CoincBancDetMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA10);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_CoincBancDetMouseMoved
+
+    private void icon_CoincBancDetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CoincBancDetMouseClicked
+
+        // TODO add your handling code here:
+        DepartamentoB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+
+        //Panel_Bancos.setVisible(false);
+        jPanel_Mantenimiento_CBD.setVisible(true);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
+        CBD.Encontrar_ListaCBD("forma_pago", "tipo_pago", jComboBoxIDFormaPago);
+        CBD.Encontrar_ListaCBD("concepto_bancario", "nombre_concepto", jComboBoxCODIGOCONCEPTO);
+        CBD.Encontrar_ListaCBD("conciliacion_bancenc", "id_encabezado", jComboBoxIDEncabezado);
+        CBD.Actualizar_Tabla();
+    }//GEN-LAST:event_icon_CoincBancDetMouseClicked
+
+    private void icon_CoincBancDetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CoincBancDetMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA10);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_CoincBancDetMouseExited
+
+    private void icon_consultasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_consultasMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA11);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_consultasMouseMoved
+
+    private void icon_consultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_consultasMouseClicked
+        DepartamentoB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+
+        //Panel_Bancos.setVisible(false);
+        jPanel_ConsultaBancos_Saldos.setVisible(true);
+
+        Consulta_Saldos consulta = new Consulta_Saldos(tbl_ConsultaDet, tbl_ConsultaEnc, tbl_CuentaContable);
+        consulta.Actualizar_Tabla_DET();
+        consulta.Actualizar_Tabla_ENC();
+    }//GEN-LAST:event_icon_consultasMouseClicked
+
+    private void icon_consultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_consultasMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA11);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_consultasMouseExited
+
+    private void icon_BancoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BancoMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA8);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_BancoMouseMoved
+
+    private void icon_BancoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BancoMouseClicked
+        // TODO add your handling code here:
+        DepartamentoB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+
+        //Panel_Bancos.setVisible(false);
+        jPanel_MantenimientoBanco.setVisible(true);
+
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        B.Actualizar_Tabla();
+        B.Encontrar_ListaBancos("moneda", "nombre_moneda", jComboBoxIDMoneda);
+        B.Encontrar_ListaBancos("mov_bancEnc", "codigo_Documento", jComboBoxIDMovEn);
+    }//GEN-LAST:event_icon_BancoMouseClicked
+
+    private void icon_BancoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_BancoMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA8);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_BancoMouseExited
+
+    private void RPBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RPBMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RPBMouseClicked
+
+    private void icon_CoincBancEncMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CoincBancEncMouseMoved
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA9);
+
+        animacion.Bajar();
+    }//GEN-LAST:event_icon_CoincBancEncMouseMoved
+
+    private void icon_CoincBancEncMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CoincBancEncMouseClicked
+        // TODO add your handling code here:
+        DepartamentoB.setVisible(false);
+        PuestoB.setVisible(false);
+        Nivel_AcademicoB.setVisible(false);
+        ExpLDB.setVisible(false);
+        ExpLB.setVisible(false);
+        SEB.setVisible(false);
+        MedioB.setVisible(false);
+        RLB.setVisible(false);
+        RPB.setVisible(false);
+        CVB.setVisible(false);
+        AplicacionB.setVisible(false);
+        TPB.setVisible(false);
+
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Con.Actualizar_Tabla();
+        //Panel_Bancos.setVisible(false);
+        jPanel_Manatenimiento_ConBanEn.setVisible(true);
+    }//GEN-LAST:event_icon_CoincBancEncMouseClicked
+
+    private void icon_CoincBancEncMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_CoincBancEncMouseExited
+        // TODO add your handling code here:
+        int posY_Subir = 0, posY_Bajar = 0;
+        AnimationClass ani = new AnimationClass();
+        Animaciones animacion = new Animaciones(ani, posY_Bajar, posY_Subir, SeleccionadoA9);
+
+        animacion.Subir();
+    }//GEN-LAST:event_icon_CoincBancEncMouseExited
+
+    private void jPanel_BGMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_BGMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel_BGMouseMoved
+
+    private void jPanel_BGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_BGMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel_BGMouseClicked
+
+    private void jPanel_BGMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel_BGMouseExited
+        // TODO add your handling code here:
+        //t.stop();
+    }//GEN-LAST:event_jPanel_BGMouseExited
+
+    private void Icono_NominaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Icono_NominaMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        Nomina n = new Nomina();
+        n.setVisible(true);
+    }//GEN-LAST:event_Icono_NominaMouseClicked
+
+    public void setColor_PanelI(JPanel Panel_Icono) {
+        Panel_Icono.setBackground(new Color(59, 62, 65));
+    }
+
+    public void resetColor_PanelI(JPanel Panel_Icono) {
+        Panel_Icono.setBackground(new Color(40, 41, 46));
+    }
 
     /**
      * @param args the command line arguments
@@ -5656,6 +7278,390 @@ public class Bancos extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -5666,25 +7672,52 @@ public class Bancos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Cant_B;
-    private javax.swing.JLabel Cant_BE;
-    private javax.swing.JLabel Cant_CB;
-    private javax.swing.JLabel Cant_CBD;
-    private javax.swing.JLabel Cant_CBE;
-    private javax.swing.JLabel Cant_CC;
-    private javax.swing.JLabel Cant_CuCon;
-    private javax.swing.JLabel Cant_DB;
-    private javax.swing.JLabel Cant_FP;
-    private javax.swing.JLabel Cant_MBD;
-    private javax.swing.JLabel Cant_Moneda;
+    private javax.swing.JPanel AplicacionB;
+    private javax.swing.JLabel Bienvenido;
+    private javax.swing.JPanel CVB;
+    private javax.swing.JLabel Cant_Mo;
+    private javax.swing.JLabel Cant_R1;
+    private javax.swing.JLabel Cant_R10;
+    private javax.swing.JLabel Cant_R11;
+    private javax.swing.JLabel Cant_R12;
+    private javax.swing.JLabel Cant_R13;
+    private javax.swing.JLabel Cant_R14;
+    private javax.swing.JLabel Cant_R15;
+    private javax.swing.JLabel Cant_R16;
+    private javax.swing.JLabel Cant_R17;
+    private javax.swing.JLabel Cant_R18;
+    private javax.swing.JLabel Cant_R19;
+    private javax.swing.JLabel Cant_R20;
+    private javax.swing.JLabel Cant_R21;
+    private javax.swing.JLabel Cant_R22;
+    private javax.swing.JLabel Cant_R23;
+    private javax.swing.JLabel Cant_R24;
+    private javax.swing.JLabel Cant_R3;
+    private javax.swing.JLabel Cant_R4;
+    private javax.swing.JLabel Cant_R5;
+    private javax.swing.JLabel Cant_R6;
+    private javax.swing.JLabel Cant_R7;
+    private javax.swing.JLabel Cant_R8;
+    private javax.swing.JLabel Cant_R9;
+    private javax.swing.JPanel Departamento1B;
+    private javax.swing.JPanel DepartamentoB;
     private javax.swing.JLabel EliminarB;
     private javax.swing.JLabel EliminarB1;
+    private static javax.swing.JPanel ExpLB;
+    private javax.swing.JPanel ExpLD1;
+    private javax.swing.JPanel ExpLDB;
+    public javax.swing.JLabel Icono_Bancos;
+    private javax.swing.JLabel Icono_Conta;
+    private javax.swing.JLabel Icono_Nomina;
+    private javax.swing.JLabel Icono_RRHH;
     private javax.swing.JLabel IngresaB;
     private javax.swing.JLabel IngresaB1;
     private javax.swing.JPanel JPanel_MantenimientoMovimientoBanEn;
+    private javax.swing.JPanel MedioB;
     private javax.swing.JLabel ModificarB;
     private javax.swing.JLabel ModificarB1;
-    private javax.swing.JPanel Panel_Bancos;
+    private javax.swing.JPanel Nivel_Academico2B;
+    private javax.swing.JPanel Nivel_AcademicoB;
     private javax.swing.JPanel Panel_ConsultarCB;
     private javax.swing.JPanel Panel_ConsultarMBEN;
     private javax.swing.JPanel Panel_ConsultarS;
@@ -5694,7 +7727,6 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_Consultar_CoBaEn;
     private javax.swing.JPanel Panel_Consultar_EC;
     private javax.swing.JPanel Panel_Consultar_EC1;
-    private javax.swing.JPanel Panel_Consultas;
     private javax.swing.JPanel Panel_CuentaContable;
     private javax.swing.JPanel Panel_EliminarCB;
     private javax.swing.JPanel Panel_EliminarMBEN;
@@ -5705,6 +7737,10 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_Eliminar_CoBaEn;
     private javax.swing.JPanel Panel_Eliminar_EC;
     private javax.swing.JPanel Panel_Eliminar_EC1;
+    private javax.swing.JPanel Panel_Icono_Bancos;
+    private javax.swing.JPanel Panel_Icono_Conta;
+    private javax.swing.JPanel Panel_Icono_Nomina;
+    private javax.swing.JPanel Panel_Icono_RRHH;
     private javax.swing.JPanel Panel_IngresarCB;
     private javax.swing.JPanel Panel_IngresarMBEN;
     private javax.swing.JPanel Panel_IngresarS;
@@ -5714,17 +7750,7 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_Ingresar_CoBaEn;
     private javax.swing.JPanel Panel_Ingresar_EC;
     private javax.swing.JPanel Panel_Ingresar_EC1;
-    private javax.swing.JPanel Panel_MB;
-    private javax.swing.JPanel Panel_MCBEnc;
-    private javax.swing.JPanel Panel_MCBEnc2;
-    private javax.swing.JPanel Panel_MIMBD;
-    private javax.swing.JPanel Panel_MIMEC;
-    private javax.swing.JPanel Panel_MIMEC1;
-    private javax.swing.JPanel Panel_MIMECContable;
-    private javax.swing.JPanel Panel_MIMEConcepto;
-    private javax.swing.JPanel Panel_MIMEDocumento;
-    private javax.swing.JPanel Panel_MIMEMBE;
-    private javax.swing.JPanel Panel_MIMFP;
+    private javax.swing.JPanel Panel_IzquierdoC;
     private javax.swing.JPanel Panel_ModificarCB;
     private javax.swing.JPanel Panel_ModificarMBEN;
     private javax.swing.JPanel Panel_ModificarS;
@@ -5734,6 +7760,39 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_Modificar_CoBaEn;
     private javax.swing.JPanel Panel_Modificar_EC;
     private javax.swing.JPanel Panel_Modificar_EC1;
+    private javax.swing.JPanel Panel_Text_Bancos;
+    private javax.swing.JPanel Panel_Text_Conta;
+    private javax.swing.JPanel Panel_Text_Nomina;
+    private javax.swing.JPanel Panel_Text_RRHH;
+    private javax.swing.JPanel Puesto1B;
+    private javax.swing.JPanel PuestoB;
+    private javax.swing.JPanel RLB;
+    private javax.swing.JPanel RPB;
+    private javax.swing.JPanel SEB;
+    private javax.swing.JLabel SeleccionadoA;
+    private javax.swing.JLabel SeleccionadoA1;
+    private javax.swing.JLabel SeleccionadoA10;
+    private javax.swing.JLabel SeleccionadoA11;
+    private javax.swing.JLabel SeleccionadoA12;
+    private javax.swing.JLabel SeleccionadoA13;
+    private javax.swing.JLabel SeleccionadoA14;
+    private javax.swing.JLabel SeleccionadoA15;
+    private javax.swing.JLabel SeleccionadoA16;
+    private javax.swing.JLabel SeleccionadoA17;
+    private javax.swing.JLabel SeleccionadoA18;
+    private javax.swing.JLabel SeleccionadoA19;
+    private javax.swing.JLabel SeleccionadoA2;
+    private javax.swing.JLabel SeleccionadoA3;
+    private javax.swing.JLabel SeleccionadoA4;
+    private javax.swing.JLabel SeleccionadoA5;
+    private javax.swing.JLabel SeleccionadoA6;
+    private javax.swing.JLabel SeleccionadoA7;
+    private javax.swing.JLabel SeleccionadoA8;
+    private javax.swing.JLabel SeleccionadoA9;
+    private javax.swing.JPanel Slide;
+    private javax.swing.JPanel Slide_Derecho;
+    private javax.swing.JPanel TPB;
+    private javax.swing.JLabel Texto_Bancos;
     private javax.swing.JLabel Texto_ConsultarCB;
     private javax.swing.JLabel Texto_ConsultarMBEN;
     private javax.swing.JLabel Texto_ConsultarS;
@@ -5743,6 +7802,7 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_Consultar_CoBaEn;
     private javax.swing.JLabel Texto_Consultar_EC;
     private javax.swing.JLabel Texto_Consultar_EC1;
+    private javax.swing.JLabel Texto_Conta;
     private javax.swing.JLabel Texto_EliminarCB;
     private javax.swing.JLabel Texto_EliminarMBEN;
     private javax.swing.JLabel Texto_EliminarS;
@@ -5770,9 +7830,35 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_Modificar_CoBaEn;
     private javax.swing.JLabel Texto_Modificar_EC;
     private javax.swing.JLabel Texto_Modificar_EC1;
+    private javax.swing.JLabel Texto_Nomina;
+    private javax.swing.JLabel Texto_RRHH;
     private javax.swing.JLabel eliminar;
     private javax.swing.JLabel eliminarConcilacionEn;
     private javax.swing.JLabel eliminard;
+    private javax.swing.JLabel icon_AE;
+    private javax.swing.JLabel icon_APP;
+    private javax.swing.JLabel icon_Actividad;
+    private javax.swing.JLabel icon_BE;
+    private javax.swing.JLabel icon_BancDet;
+    private javax.swing.JLabel icon_BancEnc;
+    private javax.swing.JLabel icon_Banco;
+    private javax.swing.JLabel icon_ClasifCuenta;
+    private javax.swing.JLabel icon_CoincBancDet;
+    private javax.swing.JLabel icon_CoincBancEnc;
+    private javax.swing.JLabel icon_ConcBanc;
+    private javax.swing.JLabel icon_Contratacion;
+    private javax.swing.JLabel icon_CuentaCont;
+    private javax.swing.JLabel icon_Departamento1;
+    private javax.swing.JLabel icon_DocBanc;
+    private javax.swing.JLabel icon_EC;
+    private javax.swing.JLabel icon_FormaPago;
+    private javax.swing.JLabel icon_Moneda;
+    private javax.swing.JLabel icon_NivelA2;
+    private javax.swing.JLabel icon_NivelA3;
+    private javax.swing.JLabel icon_PP;
+    private javax.swing.JLabel icon_Puesto2;
+    private javax.swing.JLabel icon_Seleccion;
+    private javax.swing.JLabel icon_consultas;
     private javax.swing.JLabel ingresad;
     private javax.swing.JLabel ingresar;
     private javax.swing.JLabel ingresarConcilacionEn;
@@ -5790,15 +7876,12 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_TablasCB;
     private javax.swing.JComboBox<String> jComboBox_TablasCB1;
     private javax.swing.JComboBox<String> jComboBox_codigoC;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
-    private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel105;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -5807,20 +7890,9 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -5906,23 +7978,12 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_IngresarCB;
     private javax.swing.JLabel jLabel_IngresarCC;
     private javax.swing.JLabel jLabel_IngresarMBEN;
+    private javax.swing.JLabel jLabel_Logo;
     private javax.swing.JLabel jLabel_MMon;
     private javax.swing.JLabel jLabel_MMon1;
     private javax.swing.JLabel jLabel_MMon2;
     private javax.swing.JLabel jLabel_MMon3;
     private javax.swing.JLabel jLabel_MMon4;
-    private javax.swing.JLabel jLabel_MantenimientoM;
-    private javax.swing.JLabel jLabel_MantenimientoM1;
-    private javax.swing.JLabel jLabel_MantenimientoM10;
-    private javax.swing.JLabel jLabel_MantenimientoM11;
-    private javax.swing.JLabel jLabel_MantenimientoM2;
-    private javax.swing.JLabel jLabel_MantenimientoM3;
-    private javax.swing.JLabel jLabel_MantenimientoM4;
-    private javax.swing.JLabel jLabel_MantenimientoM5;
-    private javax.swing.JLabel jLabel_MantenimientoM6;
-    private javax.swing.JLabel jLabel_MantenimientoM7;
-    private javax.swing.JLabel jLabel_MantenimientoM8;
-    private javax.swing.JLabel jLabel_MantenimientoM9;
     private javax.swing.JLabel jLabel_Modificar;
     private javax.swing.JLabel jLabel_ModificarCC;
     private javax.swing.JLabel jLabel_Modificar_CB;
@@ -5936,10 +7997,13 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_RequisitosAP3;
     private javax.swing.JLabel jLabel_SA;
     private javax.swing.JLabel jLabel_SaldoA;
+    private javax.swing.JLabel jLabel_Titulo;
     private javax.swing.JLabel jLabel_TituloCC;
     private javax.swing.JLabel jLabel_clasificacion;
     private javax.swing.JLabel jLabel_codigoConcepto;
     private javax.swing.JLabel jLabel_idformapago;
+    private javax.swing.JPanel jPanel_BG;
+    private javax.swing.JPanel jPanel_Bienvenido;
     private javax.swing.JPanel jPanel_ConsultaBancos_Saldos;
     private javax.swing.JPanel jPanel_Forma_de_Pago;
     private javax.swing.JPanel jPanel_Manatenimiento_ConBanEn;
