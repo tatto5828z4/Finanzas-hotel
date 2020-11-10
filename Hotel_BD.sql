@@ -1,7 +1,17 @@
--- Drop database Hotel;
+Drop database Hotel;
 create database Hotel;
 use Hotel;
 
+-- Tabla de usuarios
+
+create table USUARIOS(
+
+NombreUsuario varchar (30) not null,
+Pass varchar(12) not null
+)Engine = InnoDB Default charset = Latin1;
+
+insert into USUARIOS VALUES ("geova","123");
+ 
 /*Área de RRHH*/
 create table nivel_academico( -- peticion de la empresa 
 	id_nivel_academico varchar(10) primary key,
@@ -224,8 +234,8 @@ create table concepto_planilla(
 	nombre_concepto varchar(20),
 	tipo_concepto varchar (10),
 	clase_concepto varchar(25),
-	Valor_concepto float,
-	aplicacion_concepto varchar(20)
+	Valor_concepto float
+	-- aplicacion_concepto varchar(20)
 ) engine = InnoDB default char set=latin1;
 
 create table planilla_enc(
@@ -239,12 +249,13 @@ create table planilla_enc(
 ) engine = InnoDB default char set=latin1;
 
 create table planilla_det(
+	id_planillaDe varchar(10),
 	id_planillaenc varchar(10),
 	id_empleado varchar(10),
     id_conceptoPlanilla varchar(10),
 	valor_conceptoDet float,
     
-    primary key (id_planillaenc, id_empleado, id_conceptoPlanilla),
+    primary key (id_planillaDe,id_planillaenc, id_empleado, id_conceptoPlanilla),
     
     foreign key (id_planillaenc) references planilla_enc(id_planillaenc),
 	foreign key(id_conceptoPlanilla) references Concepto_Planilla(id_conceptoPlanilla),
@@ -446,3 +457,8 @@ create table usuario( -- login de usuario
     
     -- foreign key (ID_Empresa) references Empresa(ID_Empresa)
 )engine = InnoDB default charset=latin1;
+
+insert into Concepto_Planilla values ("1","IGSS","Porcentaje","Deducccion","0.0483");
+insert into Concepto_Planilla values ("2","ISR1","Porcentaje","Deducccion","0.05");
+insert into Concepto_Planilla values ("3","ISR2","Porcentaje","Deducccion","0.06");
+insert into Concepto_Planilla values ("4","ISR3","Porcentaje","Deducccion","0.08");
