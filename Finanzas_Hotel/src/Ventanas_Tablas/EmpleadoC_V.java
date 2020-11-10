@@ -90,7 +90,6 @@ public class EmpleadoC_V extends javax.swing.JFrame {
         txt_BuscarEC = new javax.swing.JTextField();
         jScrollPane38 = new javax.swing.JScrollPane();
         tbl_EC = new javax.swing.JTable();
-        jLabel_Titulo = new javax.swing.JLabel();
         Movimiento = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txt_id_EC = new javax.swing.JTextField();
@@ -103,6 +102,7 @@ public class EmpleadoC_V extends javax.swing.JFrame {
         jLabel_ECDD = new javax.swing.JLabel();
         jComboBox_TablasEC = new javax.swing.JComboBox<>();
         jLabel_Buscar_TablasEC = new javax.swing.JLabel();
+        jLabel_Titulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -118,10 +118,10 @@ public class EmpleadoC_V extends javax.swing.JFrame {
 
         jLabel_BuscarEC.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_BuscarEC.setText("Buscar");
-        Empleado_Contratado.add(jLabel_BuscarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 50, 20));
+        Empleado_Contratado.add(jLabel_BuscarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 50, 20));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
-        Empleado_Contratado.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
+        Empleado_Contratado.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
 
         txt_BuscarEC.setBackground(new java.awt.Color(40, 41, 46));
         txt_BuscarEC.setForeground(new java.awt.Color(153, 153, 153));
@@ -139,7 +139,7 @@ public class EmpleadoC_V extends javax.swing.JFrame {
                 txt_BuscarECKeyReleased(evt);
             }
         });
-        Empleado_Contratado.add(txt_BuscarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 240, 20));
+        Empleado_Contratado.add(txt_BuscarEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 240, 20));
 
         tbl_EC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,13 +161,7 @@ public class EmpleadoC_V extends javax.swing.JFrame {
         });
         jScrollPane38.setViewportView(tbl_EC);
 
-        Empleado_Contratado.add(jScrollPane38, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 600, 190));
-
-        jLabel_Titulo.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
-        jLabel_Titulo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_Titulo.setText("Empleado Contratado");
-        Empleado_Contratado.add(jLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 250, 40));
+        Empleado_Contratado.add(jScrollPane38, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 600, 190));
 
         Movimiento.setBackground(new java.awt.Color(28, 27, 33));
         Movimiento.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -190,9 +184,9 @@ public class EmpleadoC_V extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        Movimiento.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 0, 20, 30));
+        Movimiento.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, 20, 30));
 
-        Empleado_Contratado.add(Movimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 40));
+        Empleado_Contratado.add(Movimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 40));
 
         txt_id_EC.setBackground(new java.awt.Color(40, 41, 46));
         txt_id_EC.setForeground(new java.awt.Color(153, 153, 153));
@@ -202,7 +196,7 @@ public class EmpleadoC_V extends javax.swing.JFrame {
                 txt_id_ECActionPerformed(evt);
             }
         });
-        Empleado_Contratado.add(txt_id_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 140, 20));
+        Empleado_Contratado.add(txt_id_EC, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 140, 20));
 
         jComboBox_CEC.setBackground(new java.awt.Color(40, 41, 46));
         jComboBox_CEC.addActionListener(new java.awt.event.ActionListener() {
@@ -210,7 +204,7 @@ public class EmpleadoC_V extends javax.swing.JFrame {
                 jComboBox_CECActionPerformed(evt);
             }
         });
-        Empleado_Contratado.add(jComboBox_CEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 140, -1));
+        Empleado_Contratado.add(jComboBox_CEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 140, -1));
 
         jComboBox_ECP.setBackground(new java.awt.Color(40, 41, 46));
         jComboBox_ECP.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +212,7 @@ public class EmpleadoC_V extends javax.swing.JFrame {
                 jComboBox_ECPActionPerformed(evt);
             }
         });
-        Empleado_Contratado.add(jComboBox_ECP, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 140, -1));
+        Empleado_Contratado.add(jComboBox_ECP, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 140, -1));
 
         jComboBox_ECD.setBackground(new java.awt.Color(40, 41, 46));
         jComboBox_ECD.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +220,7 @@ public class EmpleadoC_V extends javax.swing.JFrame {
                 jComboBox_ECDActionPerformed(evt);
             }
         });
-        Empleado_Contratado.add(jComboBox_ECD, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 140, -1));
+        Empleado_Contratado.add(jComboBox_ECD, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 140, -1));
 
         txt_SEC.setBackground(new java.awt.Color(40, 41, 46));
         txt_SEC.setForeground(new java.awt.Color(153, 153, 153));
@@ -236,16 +230,16 @@ public class EmpleadoC_V extends javax.swing.JFrame {
                 txt_SECActionPerformed(evt);
             }
         });
-        Empleado_Contratado.add(txt_SEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 180, 20));
+        Empleado_Contratado.add(txt_SEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 180, 20));
 
         jLabel_CECC.setForeground(new java.awt.Color(255, 255, 255));
-        Empleado_Contratado.add(jLabel_CECC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 30, 20));
+        Empleado_Contratado.add(jLabel_CECC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 30, 20));
 
         jLabel_ECPP.setForeground(new java.awt.Color(255, 255, 255));
-        Empleado_Contratado.add(jLabel_ECPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 30, 20));
+        Empleado_Contratado.add(jLabel_ECPP, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 30, 20));
 
         jLabel_ECDD.setForeground(new java.awt.Color(255, 255, 255));
-        Empleado_Contratado.add(jLabel_ECDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 30, 20));
+        Empleado_Contratado.add(jLabel_ECDD, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 30, 20));
 
         jComboBox_TablasEC.setBackground(new java.awt.Color(40, 41, 46));
         jComboBox_TablasEC.addActionListener(new java.awt.event.ActionListener() {
@@ -253,7 +247,7 @@ public class EmpleadoC_V extends javax.swing.JFrame {
                 jComboBox_TablasECActionPerformed(evt);
             }
         });
-        Empleado_Contratado.add(jComboBox_TablasEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 320, 170, -1));
+        Empleado_Contratado.add(jComboBox_TablasEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 170, -1));
 
         jLabel_Buscar_TablasEC.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Buscar_TablasEC.setText("Buscar");
@@ -262,9 +256,15 @@ public class EmpleadoC_V extends javax.swing.JFrame {
                 jLabel_Buscar_TablasECMouseClicked(evt);
             }
         });
-        Empleado_Contratado.add(jLabel_Buscar_TablasEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 360, -1, -1));
+        Empleado_Contratado.add(jLabel_Buscar_TablasEC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, -1, -1));
 
-        getContentPane().add(Empleado_Contratado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1170, 540));
+        jLabel_Titulo.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        jLabel_Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Titulo.setText("Empleado Contratado");
+        Empleado_Contratado.add(jLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 250, 40));
+
+        getContentPane().add(Empleado_Contratado, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -400,6 +400,8 @@ public class EmpleadoC_V extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(EmpleadoC_V.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
