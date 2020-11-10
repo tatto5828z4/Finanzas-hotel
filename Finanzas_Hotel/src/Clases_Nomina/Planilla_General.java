@@ -5,6 +5,7 @@
  */
 package Clases_Nomina;
 
+import Finanzas.Nomina;
 import static Finanzas_Clases.Departamento.Base_de_Datos;
 import static Finanzas_Clases.Departamento.Clave;
 import static Finanzas_Clases.Departamento.Usuario;
@@ -12,6 +13,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -235,5 +238,45 @@ public class Planilla_General
         {
             System.out.println(e);
         }
+    }
+    
+    public DefaultTableModel Buscar_PG(String Buscar)
+    {
+        String[] nombre_ColumnasExpL = {"ID Planilla General", "Total Percepcion","total_deduccion","Total Liquido"};
+        String[] RegistrosExpL = new String[4];
+        
+        DefaultTableModel model = new DefaultTableModel(null,nombre_ColumnasExpL);
+        
+        try
+        {
+            Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
+            PreparedStatement pst = cn.prepareStatement("select * from planilla_enc WHERE id_planillaenc LIKE '%"+Buscar+"%'");
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next())
+            {
+                RegistrosExpL[0] = rs.getString("id_planillaenc");
+                RegistrosExpL[1] = rs.getString("total_percepcion");
+                RegistrosExpL[2] = rs.getString("total_deduccion");
+                RegistrosExpL[3] = rs.getString("total_liquido");
+                
+                model.addRow(RegistrosExpL);
+            }
+            
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        
+        return model;
+    }
+    
+    public void Buscar_PGF(String Buscar)
+    {
+        DefaultTableModel model = Buscar_PG(Buscar);
+        TablaPG.setModel(model);
+        
+        Nomina NO = new Nomina();
+        NO.Datos_PD();
     }
 }

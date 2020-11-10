@@ -166,6 +166,55 @@ public class Bancos extends javax.swing.JFrame {
         Cant_R13.setText("" + cantidad_B);
         Cant_R16.setText("" + cantidad_CBE);
         Cant_R14.setText("" + cantidad_CBD);*/
+        
+        int cantidad_Mo = 0;
+        int cantidad_CC = 0;
+        int cantidad_CuCon = 0;
+        int cantidad_DB = 0;
+        int cantidad_CB = 0;
+        int cantidad_BE = 0;
+        int cantidad_MBD = 0;
+        int cantidad_FP = 0;
+        int cantidad_B = 0;
+        int cantidad_CBE = 0;
+        int cantidad_CBD = 0;
+
+        Clasificacion_Cuenta CC = new Clasificacion_Cuenta(jLabel_CC, txt_idclasi, txt_nombrecla, txt_buscarclasi, tbl_Clasi);
+        Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
+        Documento_Bancario DB = new Documento_Bancario(jLabel_MMon1, txt_cod, txt_nombred, txt_afec, txt_estd, txt_buscard, tbl_Doc);
+        Moneda mon = new Moneda(jLabel_MMon, txt_IDM, txt_NombreM, txt_TipoM, txt_estM, txt_buscarMon, tbl_Moneda);
+        Concepto_Bancario CB = new Concepto_Bancario(txt_CodigoConcepto, txt_Nombre_Concepto, txt_Afecta, txt_Estatus, jLabel_ID_Cuenta, tbl_CB, txt_BuscarCB);
+        Movimiento_Bancario_Encabezado Mo = new Movimiento_Bancario_Encabezado(txt_CodigoMovimientoE, jLabel_ID_Documento, txt_Fecha, txt_Monto, txt_Descripcion, txt_BuscarMovBanEn, tbl_MovimientoBanEn);
+        Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
+        Forma_de_Pago forma = new Forma_de_Pago(jTextField_IDForma, jTextField_TipoPago, jTextField_BuscarFP, tbl_FormaPago);
+        Banco B = new Banco(jTextField_IDBanco, jTextField_NombreBanco, jTextField_NombreC, jTextField_ClaveBan, jTextField_Funcionario, jTextField_Telefono, jTextField_NumeroPlaza, jTextField_NumeroS, jTextField_SaldoI, jLabel_ID_Moneda, jLabel_IdMovimiento, txt_buscardBan, tbl_Bancos);
+        Concilacion_Bancaria_Encabezado Con = new Concilacion_Bancaria_Encabezado(txt_IdEnca, txt_CargoAConciliar, txt_AbonoA_Conciliar, txt_SaldoCorte, txt_Cargo_Conciliado, txt_Abono_Conciliado, txt_Saldo_Final, txt_BuscarCoBaEn, tbl_ConcilacioEn);
+        Conciliacion_Bancaria_Detalle CBD = new Conciliacion_Bancaria_Detalle(jLabel_ID_Encabezado, jLabel_Idcodigoconcepto, txt_fechaap, jTextArea_Descrip, jLabel_idformapago, txt_beneficiario, txt_estcon, txt_cargo, txt_abono, txt_buscardCBD, tbl_CBD);
+
+        cantidad_Mo += mon.Cantidad_Registros();
+        cantidad_CC += CC.Cantidad_Registros();
+        cantidad_CuCon += cuenta_c.Cantidad_Registros();
+        cantidad_DB += DB.Cantidad_Registros();
+        cantidad_CB += CB.Cantidad_Registros();
+        cantidad_BE += Mo.Cantidad_Registros();
+        cantidad_MBD += MovDet.Cantidad_Registros();
+        cantidad_FP += forma.Cantidad_Registros();
+        cantidad_B += B.Cantidad_Registros();
+        cantidad_CBE += Con.Cantidad_Registros();
+        cantidad_CBD += CBD.Cantidad_Registros();
+
+        Cant_Mo.setText("" + cantidad_Mo);
+        Cant_R3.setText("" + cantidad_CC);
+        Cant_R4.setText("" + cantidad_CuCon);
+        Cant_R1.setText("" + cantidad_DB);
+        Cant_R10.setText("" + cantidad_CB);
+        Cant_R11.setText("" + cantidad_BE);
+        Cant_R12.setText("" + cantidad_MBD);
+        Cant_R9.setText("" + cantidad_FP);
+        Cant_R13.setText("" + cantidad_B);
+        Cant_R16.setText("" + cantidad_CBE);
+        Cant_R14.setText("" + cantidad_CBD);
+        
     }
 
     /**
@@ -187,6 +236,15 @@ public class Bancos extends javax.swing.JFrame {
         tbl_ConsultaEnc = new javax.swing.JTable();
         jLabel105 = new javax.swing.JLabel();
         jButton_GenerarPDF = new javax.swing.JButton();
+        jLabel103 = new javax.swing.JLabel();
+        jLabel104 = new javax.swing.JLabel();
+        jScrollPane49 = new javax.swing.JScrollPane();
+        tbl_ConsultaDet1 = new javax.swing.JTable();
+        jButton_GenerarPDF1 = new javax.swing.JButton();
+        jScrollPane50 = new javax.swing.JScrollPane();
+        tbl_ConsultaEnc1 = new javax.swing.JTable();
+        jLabel106 = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
         jPanel_Mantenimiento_CBD = new javax.swing.JPanel();
         jLabel_MMon4 = new javax.swing.JLabel();
         jScrollPane46 = new javax.swing.JScrollPane();
@@ -527,6 +585,8 @@ public class Bancos extends javax.swing.JFrame {
         Panel_Text_Conta = new javax.swing.JPanel();
         Texto_Conta = new javax.swing.JLabel();
         jLabel_Titulo = new javax.swing.JLabel();
+        esquis = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
         ExpLDB = new javax.swing.JPanel();
         SeleccionadoA3 = new javax.swing.JLabel();
         Cant_R1 = new javax.swing.JLabel();
@@ -611,8 +671,6 @@ public class Bancos extends javax.swing.JFrame {
         SeleccionadoA9 = new javax.swing.JLabel();
         Cant_R16 = new javax.swing.JLabel();
         icon_CoincBancEnc = new javax.swing.JLabel();
-        jPanel_Bienvenido = new javax.swing.JPanel();
-        Bienvenido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -706,6 +764,97 @@ public class Bancos extends javax.swing.JFrame {
         });
         jPanel_ConsultaBancos_Saldos.add(jButton_GenerarPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
+        jLabel103.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel103.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Consultas.png"))); // NOI18N
+        jPanel_ConsultaBancos_Saldos.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 400, 120));
+
+        jLabel104.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel104.setText("Consulta por cuentas (saldos) ");
+        jPanel_ConsultaBancos_Saldos.add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 180, -1));
+
+        tbl_ConsultaDet1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_ConsultaDet1.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_ConsultaDet1.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_ConsultaDet1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_ConsultaDet1MouseClicked(evt);
+            }
+        });
+        tbl_ConsultaDet1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbl_ConsultaDet1KeyReleased(evt);
+            }
+        });
+        jScrollPane49.setViewportView(tbl_ConsultaDet1);
+
+        jPanel_ConsultaBancos_Saldos.add(jScrollPane49, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 490, 182));
+
+        jButton_GenerarPDF1.setBackground(new java.awt.Color(28, 27, 33));
+        jButton_GenerarPDF1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PDF.png"))); // NOI18N
+        jButton_GenerarPDF1.setBorder(null);
+        jButton_GenerarPDF1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_GenerarPDF1MouseClicked(evt);
+            }
+        });
+        jButton_GenerarPDF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GenerarPDF1ActionPerformed(evt);
+            }
+        });
+        jPanel_ConsultaBancos_Saldos.add(jButton_GenerarPDF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 530, -1, -1));
+
+        tbl_ConsultaEnc1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tbl_ConsultaEnc1.setGridColor(new java.awt.Color(255, 255, 255));
+        tbl_ConsultaEnc1.setSelectionBackground(new java.awt.Color(0, 204, 255));
+        tbl_ConsultaEnc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_ConsultaEnc1MouseClicked(evt);
+            }
+        });
+        tbl_ConsultaEnc1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbl_ConsultaEnc1KeyReleased(evt);
+            }
+        });
+        jScrollPane50.setViewportView(tbl_ConsultaEnc1);
+
+        jPanel_ConsultaBancos_Saldos.add(jScrollPane50, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 480, 182));
+
+        jLabel106.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel106.setText("Consulta por Clasificacion");
+        jPanel_ConsultaBancos_Saldos.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 150, -1));
+
+        jLabel107.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel107.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel107.setText("X");
+        jLabel107.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel107MouseClicked(evt);
+            }
+        });
+        jPanel_ConsultaBancos_Saldos.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(1820, 70, 49, -1));
+
         getContentPane().add(jPanel_ConsultaBancos_Saldos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
         jPanel_Mantenimiento_CBD.setBackground(new java.awt.Color(28, 27, 33));
@@ -714,8 +863,8 @@ public class Bancos extends javax.swing.JFrame {
 
         jLabel_MMon4.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel_MMon4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MMon4.setText("MANTENIMIENTO COINCILIACION BANCARIA DETALLE.");
-        jPanel_Mantenimiento_CBD.add(jLabel_MMon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
+        jLabel_MMon4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Conciliacion Bancaria Det.png"))); // NOI18N
+        jPanel_Mantenimiento_CBD.add(jLabel_MMon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, -1, -1));
 
         tbl_CBD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -805,7 +954,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_Ingresar_B1.add(Texto_Ingresar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
 
-        jPanel_Mantenimiento_CBD.add(Panel_Ingresar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 130, 50));
+        jPanel_Mantenimiento_CBD.add(Panel_Ingresar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 130, 50));
 
         Panel_Modificar_B1.setBackground(new java.awt.Color(28, 27, 33));
         Panel_Modificar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -826,7 +975,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_Modificar_B1.add(Texto_Modificar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
 
-        jPanel_Mantenimiento_CBD.add(Panel_Modificar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 130, 50));
+        jPanel_Mantenimiento_CBD.add(Panel_Modificar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 130, 50));
 
         Panel_Eliminar_B1.setBackground(new java.awt.Color(28, 27, 33));
         Panel_Eliminar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -847,7 +996,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_Eliminar_B1.add(Texto_Eliminar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
 
-        jPanel_Mantenimiento_CBD.add(Panel_Eliminar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 130, 50));
+        jPanel_Mantenimiento_CBD.add(Panel_Eliminar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 130, 50));
 
         Panel_Consultar_B1.setBackground(new java.awt.Color(28, 27, 33));
         Panel_Consultar_B1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -868,7 +1017,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_Consultar_B1.add(Texto_Consultar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
 
-        jPanel_Mantenimiento_CBD.add(Panel_Consultar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 180, 130, 50));
+        jPanel_Mantenimiento_CBD.add(Panel_Consultar_B1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, 130, 50));
 
         jLabel91.setForeground(new java.awt.Color(255, 255, 255));
         jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -995,8 +1144,8 @@ public class Bancos extends javax.swing.JFrame {
 
         jLabel_MMon3.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel_MMon3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MMon3.setText("Conciliacion Bancaria Encabezado");
-        jPanel_Manatenimiento_ConBanEn.add(jLabel_MMon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
+        jLabel_MMon3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Conciliacion Bancaria Enc.png"))); // NOI18N
+        jPanel_Manatenimiento_ConBanEn.add(jLabel_MMon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, -1, -1));
 
         txt_IdEnca.setBackground(new java.awt.Color(40, 41, 46));
         txt_IdEnca.setForeground(new java.awt.Color(255, 255, 255));
@@ -1217,8 +1366,8 @@ public class Bancos extends javax.swing.JFrame {
 
         jLabel_MMon2.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel_MMon2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MMon2.setText("MANTENIMIENTO BANCOS");
-        jPanel_MantenimientoBanco.add(jLabel_MMon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
+        jLabel_MMon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Banco.png"))); // NOI18N
+        jPanel_MantenimientoBanco.add(jLabel_MMon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
 
         tbl_Bancos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1513,21 +1662,21 @@ public class Bancos extends javax.swing.JFrame {
         jPanel_Forma_de_Pago.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel63.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel63.setText("Forma de Pago ");
-        jPanel_Forma_de_Pago.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 14, -1, -1));
+        jLabel63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Movimiento Forma Pago.png"))); // NOI18N
+        jPanel_Forma_de_Pago.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, -1, -1));
 
         jLabel64.setForeground(new java.awt.Color(255, 255, 255));
         jLabel64.setText("ID Forma Pago");
-        jPanel_Forma_de_Pago.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
 
         jTextField_IDForma.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_IDForma.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_IDForma.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_Forma_de_Pago.add(jTextField_IDForma, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 120, -1));
+        jPanel_Forma_de_Pago.add(jTextField_IDForma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 120, -1));
 
         jLabel65.setForeground(new java.awt.Color(255, 255, 255));
         jLabel65.setText("Tipo Pago");
-        jPanel_Forma_de_Pago.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
 
         jTextField_BuscarFP.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_BuscarFP.setForeground(new java.awt.Color(153, 153, 153));
@@ -1542,7 +1691,7 @@ public class Bancos extends javax.swing.JFrame {
                 jTextField_BuscarFPKeyReleased(evt);
             }
         });
-        jPanel_Forma_de_Pago.add(jTextField_BuscarFP, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, 270, -1));
+        jPanel_Forma_de_Pago.add(jTextField_BuscarFP, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 270, -1));
 
         jLabel66.setForeground(new java.awt.Color(255, 255, 255));
         jLabel66.setText("Insertar");
@@ -1551,7 +1700,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel66MouseClicked(evt);
             }
         });
-        jPanel_Forma_de_Pago.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 220, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 260, -1, -1));
 
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
         jLabel67.setText("Modificar");
@@ -1560,7 +1709,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel67MouseClicked(evt);
             }
         });
-        jPanel_Forma_de_Pago.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 220, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 260, -1, -1));
 
         jLabel68.setForeground(new java.awt.Color(255, 255, 255));
         jLabel68.setText("Eliminar");
@@ -1569,16 +1718,16 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel68MouseClicked(evt);
             }
         });
-        jPanel_Forma_de_Pago.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 250, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 290, -1, -1));
 
         jLabel69.setForeground(new java.awt.Color(255, 255, 255));
         jLabel69.setText("Buscar");
-        jPanel_Forma_de_Pago.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, -1, -1));
 
         jTextField_TipoPago.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_TipoPago.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_TipoPago.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_Forma_de_Pago.add(jTextField_TipoPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 120, -1));
+        jPanel_Forma_de_Pago.add(jTextField_TipoPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 120, -1));
 
         tbl_FormaPago.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1616,40 +1765,40 @@ public class Bancos extends javax.swing.JFrame {
         jPanel_MantenimientoMovBanDet.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel54.setForeground(java.awt.Color.white);
-        jLabel54.setText("Movimiento Bancario Detalle ");
-        jPanel_MantenimientoMovBanDet.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 15, -1, -1));
+        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Movimiento Bancario Detalle.png"))); // NOI18N
+        jPanel_MantenimientoMovBanDet.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
 
         jLabel55.setForeground(java.awt.Color.white);
         jLabel55.setText("ID Movimiento Encabezado ");
-        jPanel_MantenimientoMovBanDet.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
 
         jLabel56.setForeground(java.awt.Color.white);
         jLabel56.setText("Codigo Concepto ");
-        jPanel_MantenimientoMovBanDet.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, -1, -1));
 
         jLabel57.setForeground(java.awt.Color.white);
         jLabel57.setText("Saldo Deudor:");
-        jPanel_MantenimientoMovBanDet.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 120, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 160, -1, -1));
 
         jTextField_Saldo.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_Saldo.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_Saldo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_MantenimientoMovBanDet.add(jTextField_Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 160, 20));
+        jPanel_MantenimientoMovBanDet.add(jTextField_Saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 160, 20));
 
         jLabel58.setForeground(java.awt.Color.white);
         jLabel58.setText("Saldo Acreedor:");
-        jPanel_MantenimientoMovBanDet.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 120, -1, -1));
+        jPanel_MantenimientoMovBanDet.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 160, -1, -1));
 
         jTextField_tipoSaldo.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_tipoSaldo.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_tipoSaldo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_MantenimientoMovBanDet.add(jTextField_tipoSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 150, 160, 20));
+        jPanel_MantenimientoMovBanDet.add(jTextField_tipoSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 190, 160, 20));
 
         jLabel_codigoConcepto.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel_MantenimientoMovBanDet.add(jLabel_codigoConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, 30, 20));
+        jPanel_MantenimientoMovBanDet.add(jLabel_codigoConcepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, 30, 20));
 
         jLabel_IDEnc.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel_MantenimientoMovBanDet.add(jLabel_IDEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 30, 20));
+        jPanel_MantenimientoMovBanDet.add(jLabel_IDEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 30, 20));
 
         jLabel59.setForeground(java.awt.Color.white);
         jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1727,14 +1876,14 @@ public class Bancos extends javax.swing.JFrame {
                 jComboBox_codigoCActionPerformed(evt);
             }
         });
-        jPanel_MantenimientoMovBanDet.add(jComboBox_codigoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 170, -1));
+        jPanel_MantenimientoMovBanDet.add(jComboBox_codigoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 170, -1));
 
         jComboBox_Encabezado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_EncabezadoActionPerformed(evt);
             }
         });
-        jPanel_MantenimientoMovBanDet.add(jComboBox_Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 160, -1));
+        jPanel_MantenimientoMovBanDet.add(jComboBox_Encabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 160, -1));
 
         getContentPane().add(jPanel_MantenimientoMovBanDet, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
@@ -1961,8 +2110,8 @@ public class Bancos extends javax.swing.JFrame {
         jLabel53.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel53.setForeground(new java.awt.Color(255, 255, 255));
         jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel53.setText("Movimiento Bancario Encabezado");
-        JPanel_MantenimientoMovimientoBanEn.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 400, 90));
+        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Movimiento Bancario Enca.png"))); // NOI18N
+        JPanel_MantenimientoMovimientoBanEn.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 400, 120));
 
         jLabel_NombreConcepto1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_NombreConcepto1.setText("Descripcion");
@@ -2226,8 +2375,8 @@ public class Bancos extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Concepto Bancario");
-        jPanel_MantenimientoCB.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 400, 90));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Concepto Bancario.png"))); // NOI18N
+        jPanel_MantenimientoCB.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 420, 120));
 
         jLabel_NombreConcepto.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_NombreConcepto.setText("Nombre Concepto");
@@ -2265,8 +2414,8 @@ public class Bancos extends javax.swing.JFrame {
 
         jLabel_MMon1.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel_MMon1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MMon1.setText("MANTENIMIENTO DOCUMENTO BANCARIO.");
-        jPanel_Mantenimiento_DocB.add(jLabel_MMon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
+        jLabel_MMon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Documento Bancario.png"))); // NOI18N
+        jPanel_Mantenimiento_DocB.add(jLabel_MMon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
 
         txt_cod.setBackground(new java.awt.Color(40, 41, 46));
         txt_cod.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -2634,7 +2783,7 @@ public class Bancos extends javax.swing.JFrame {
 
         Panel_CuentaContable.add(jScrollPane40, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 1070, 170));
 
-        jLabel_TituloCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Empleado Contratado.png"))); // NOI18N
+        jLabel_TituloCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Cuenta Contable.png"))); // NOI18N
         Panel_CuentaContable.add(jLabel_TituloCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 400, 120));
 
         Panel_Ingresar_CC.setBackground(new java.awt.Color(28, 27, 33));
@@ -2766,8 +2915,8 @@ public class Bancos extends javax.swing.JFrame {
 
         jLabel_CC.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel_CC.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_CC.setText("MANTENIMIENTO  CLASIFICACION  CUENTAS");
-        jPanel_MantenimientoClasiCuenta.add(jLabel_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+        jLabel_CC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Clasificacion Cuenta.png"))); // NOI18N
+        jPanel_MantenimientoClasiCuenta.add(jLabel_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
         Panel_IngresarS.setBackground(new java.awt.Color(28, 27, 33));
         Panel_IngresarS.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2788,7 +2937,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_IngresarS.add(Texto_IngresarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
 
-        jPanel_MantenimientoClasiCuenta.add(Panel_IngresarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 130, 50));
+        jPanel_MantenimientoClasiCuenta.add(Panel_IngresarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 130, 50));
 
         Panel_ModificarS.setBackground(new java.awt.Color(28, 27, 33));
         Panel_ModificarS.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2809,7 +2958,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_ModificarS.add(Texto_ModificarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
 
-        jPanel_MantenimientoClasiCuenta.add(Panel_ModificarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 130, 50));
+        jPanel_MantenimientoClasiCuenta.add(Panel_ModificarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 130, 50));
 
         Panel_EliminarS.setBackground(new java.awt.Color(28, 27, 33));
         Panel_EliminarS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2825,7 +2974,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_EliminarS.add(Texto_EliminarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
 
-        jPanel_MantenimientoClasiCuenta.add(Panel_EliminarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, 130, 50));
+        jPanel_MantenimientoClasiCuenta.add(Panel_EliminarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 190, 130, 50));
 
         Panel_ConsultarS.setBackground(new java.awt.Color(28, 27, 33));
         Panel_ConsultarS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2841,27 +2990,27 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_ConsultarS.add(Texto_ConsultarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
 
-        jPanel_MantenimientoClasiCuenta.add(Panel_ConsultarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, 130, 50));
+        jPanel_MantenimientoClasiCuenta.add(Panel_ConsultarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 190, 130, 50));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ID CLASIFICACION");
-        jPanel_MantenimientoClasiCuenta.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, -1));
+        jPanel_MantenimientoClasiCuenta.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, -1));
 
         txt_idclasi.setBackground(new java.awt.Color(40, 41, 46));
         txt_idclasi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_MantenimientoClasiCuenta.add(txt_idclasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 129, -1));
+        jPanel_MantenimientoClasiCuenta.add(txt_idclasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 129, -1));
 
         jLabel20.setBackground(new java.awt.Color(40, 41, 46));
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("NOMBRE CLASIFICACION");
-        jPanel_MantenimientoClasiCuenta.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 210, -1, -1));
+        jPanel_MantenimientoClasiCuenta.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 260, -1, -1));
 
         txt_nombrecla.setBackground(new java.awt.Color(40, 41, 46));
         txt_nombrecla.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_MantenimientoClasiCuenta.add(txt_nombrecla, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, 177, -1));
+        jPanel_MantenimientoClasiCuenta.add(txt_nombrecla, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 177, -1));
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
-        jPanel_MantenimientoClasiCuenta.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
+        jPanel_MantenimientoClasiCuenta.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, -1, -1));
 
         txt_buscarclasi.setBackground(new java.awt.Color(40, 41, 46));
         txt_buscarclasi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -2870,7 +3019,7 @@ public class Bancos extends javax.swing.JFrame {
                 txt_buscarclasiKeyReleased(evt);
             }
         });
-        jPanel_MantenimientoClasiCuenta.add(txt_buscarclasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 221, -1));
+        jPanel_MantenimientoClasiCuenta.add(txt_buscarclasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, 221, -1));
 
         jLabel_Ingresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
         jLabel_Ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2878,7 +3027,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_IngresarMouseClicked(evt);
             }
         });
-        jPanel_MantenimientoClasiCuenta.add(jLabel_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, -1, -1));
+        jPanel_MantenimientoClasiCuenta.add(jLabel_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 330, -1, -1));
 
         jLabel_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
         jLabel_Eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2886,7 +3035,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_EliminarMouseClicked(evt);
             }
         });
-        jPanel_MantenimientoClasiCuenta.add(jLabel_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 280, -1, -1));
+        jPanel_MantenimientoClasiCuenta.add(jLabel_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 330, -1, -1));
 
         jLabel_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
         jLabel_Modificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2894,7 +3043,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_ModificarMouseClicked(evt);
             }
         });
-        jPanel_MantenimientoClasiCuenta.add(jLabel_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 280, -1, -1));
+        jPanel_MantenimientoClasiCuenta.add(jLabel_Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 330, -1, -1));
 
         tbl_Clasi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2923,7 +3072,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         jScrollPane39.setViewportView(tbl_Clasi);
 
-        jPanel_MantenimientoClasiCuenta.add(jScrollPane39, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 600, 190));
+        jPanel_MantenimientoClasiCuenta.add(jScrollPane39, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 600, 190));
 
         getContentPane().add(jPanel_MantenimientoClasiCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
@@ -2933,8 +3082,8 @@ public class Bancos extends javax.swing.JFrame {
 
         jLabel_MMon.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
         jLabel_MMon.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_MMon.setText("MANTENIMIENTO MONEDA");
-        jPanel_MantenimientoMoneda.add(jLabel_MMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+        jLabel_MMon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Moneda.png"))); // NOI18N
+        jPanel_MantenimientoMoneda.add(jLabel_MMon, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, -1, -1));
 
         txt_IDM.setBackground(new java.awt.Color(40, 41, 46));
         txt_IDM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -3309,6 +3458,26 @@ public class Bancos extends javax.swing.JFrame {
         jLabel_Titulo.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Titulo.setText("Mantenimientos Bancos");
         jPanel_BG.add(jLabel_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 340, 40));
+
+        esquis.setBackground(new java.awt.Color(232, 16, 34));
+        esquis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        esquis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                esquisMouseClicked(evt);
+            }
+        });
+        esquis.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/equis.png"))); // NOI18N
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+        esquis.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, -1, -1));
+
+        jPanel_BG.add(esquis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1460, 0, 40, 30));
 
         ExpLDB.setBackground(new java.awt.Color(28, 27, 33));
         ExpLDB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -3879,7 +4048,7 @@ public class Bancos extends javax.swing.JFrame {
         Cant_R15.setForeground(new java.awt.Color(255, 255, 255));
         TPB.add(Cant_R15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 158, 20, 20));
 
-        icon_consultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_TP.png"))); // NOI18N
+        icon_consultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Consultas_1.png"))); // NOI18N
         icon_consultas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 icon_consultasMouseMoved(evt);
@@ -3962,17 +4131,6 @@ public class Bancos extends javax.swing.JFrame {
         jPanel_BG.add(CVB, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 220, 180));
 
         getContentPane().add(jPanel_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 790));
-
-        jPanel_Bienvenido.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_Bienvenido.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Bienvenido.setBackground(new java.awt.Color(51, 51, 51));
-        Bienvenido.setFont(new java.awt.Font("Open Sans", 1, 48)); // NOI18N
-        Bienvenido.setForeground(new java.awt.Color(51, 51, 51));
-        Bienvenido.setText("Welcome");
-        jPanel_Bienvenido.add(Bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 380, 230, 40));
-
-        getContentPane().add(jPanel_Bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 55, 1400, 790));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -5263,6 +5421,10 @@ public class Bancos extends javax.swing.JFrame {
 
     private void Icono_BancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Icono_BancosMouseClicked
         // TODO add your handling code here:
+        
+        this.dispose();
+        Bancos B2 = new Bancos();
+        B2.setVisible(true);
         /**/
  /*int cantidad_D = 0;
         int cantidad_P = 0;
@@ -5285,7 +5447,6 @@ public class Bancos extends javax.swing.JFrame {
         int cantidad_AE = 0;
         int cantidad_BE = 0;*/
 
-        jPanel_Bienvenido.setVisible(false);
         ExpLDB.setVisible(true);
         DepartamentoB.setVisible(true);
         PuestoB.setVisible(true);
@@ -5475,6 +5636,11 @@ public class Bancos extends javax.swing.JFrame {
 
     private void Panel_Icono_BancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Icono_BancosMouseClicked
         // TODO add your handling code here:
+        
+        this.dispose();
+        Bancos B2 = new Bancos();
+        B2.setVisible(true);
+        
         setColor_PanelI(Panel_Icono_Bancos);
         resetColor_PanelI(Panel_Icono_RRHH);
         resetColor_PanelI(Panel_Icono_Nomina);
@@ -6070,6 +6236,10 @@ public class Bancos extends javax.swing.JFrame {
 
     private void Texto_BancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_BancosMouseClicked
         // TODO add your handling code here:
+        this.dispose();
+        Bancos B2 = new Bancos();
+        B2.setVisible(true);
+        
         jPanel_MantenimientoMoneda.setVisible(false);
         jPanel_MantenimientoClasiCuenta.setVisible(false);
         Panel_CuentaContable.setVisible(false);
@@ -7117,6 +7287,163 @@ public class Bancos extends javax.swing.JFrame {
         n.setVisible(true);
     }//GEN-LAST:event_Icono_NominaMouseClicked
 
+    private void tbl_ConsultaDet1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ConsultaDet1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_ConsultaDet1MouseClicked
+
+    private void tbl_ConsultaDet1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_ConsultaDet1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_ConsultaDet1KeyReleased
+
+    private void jButton_GenerarPDF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GenerarPDF1ActionPerformed
+        // TODO add your handling code here:
+
+        String path = "";
+        JFileChooser j = new JFileChooser();
+        j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int x = j.showSaveDialog(this);
+
+        if (x == JFileChooser.APPROVE_OPTION) {
+            path = j.getSelectedFile().getPath();
+        }
+
+        Document doc = new Document();
+
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
+
+            doc.open();
+
+            Paragraph inicio= new Paragraph("RESUMEN", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            inicio.setAlignment(Element.ALIGN_LEFT);
+            doc.add(inicio);
+            doc.add(new Paragraph(""));
+
+            /*Titulo*/
+            Paragraph p= new Paragraph(" \n\n Saldo por Cuenta \n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            p.setAlignment(Element.ALIGN_CENTER);
+            doc.add(p);
+            doc.add(new Paragraph(""));
+
+            float [] celdas= {7.00f, 7.00f, 7.00f, 10.00f,10.00f,10.00f,7.00f};
+
+            PdfPTable tb1= new PdfPTable(7); //cantidad de columnas
+            tb1.setWidths(celdas);
+
+            //agregando encabezado
+            int val=7;
+            tb1.addCell(new Paragraph("ID", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Cuenta", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Tipo", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Clasificacion", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Saldo Deudor", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Saldo Acreedor", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Saldo Resultante", FontFactory.getFont("Arial", val)));
+
+            for (int i = 0; i < tbl_ConsultaDet.getRowCount(); i++) {
+
+                String ID_C =(String) tbl_ConsultaDet.getValueAt(i, 0); // columna inicial
+                String Nombre = (String) tbl_ConsultaDet.getValueAt(i, 1);
+                String Tipo= (String) tbl_ConsultaDet.getValueAt(i, 2);
+                String Clasificacion = (String) tbl_ConsultaDet.getValueAt(i, 3);
+                String Saldo_D= (String) tbl_ConsultaDet.getValueAt(i, 4);
+                String Saldo_A = (String) tbl_ConsultaDet.getValueAt(i, 5);
+                String saldo_R= (String) tbl_ConsultaDet.getValueAt(i, 6);
+
+                //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
+
+                int valor =8;
+                tb1.addCell(new Paragraph(ID_C, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
+                tb1.addCell(new Paragraph(Nombre, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(Tipo, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(Clasificacion, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(Saldo_D, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(Saldo_A, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(saldo_R, FontFactory.getFont("Arial", valor)));
+
+            }
+
+            doc.add(tb1);
+
+        } catch (FileNotFoundException ex) {
+            //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //otra tabla
+
+        try {
+            //PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
+
+            //doc.open();
+
+            /*Titulo*/
+            Paragraph p1= new Paragraph(" \n \n Saldo General \n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            p1.setAlignment(Element.ALIGN_CENTER);
+            doc.add(p1);
+            doc.add(new Paragraph(""));
+
+            float [] celdas_2= {5.00f, 5.00f};
+
+            PdfPTable tb2= new PdfPTable(2); //cantidad de columnas
+            tb2.setWidths(celdas_2);
+
+            //agregando encabezado
+            int val=8; //letra
+            tb2.addCell(new Paragraph("Tipo Cuenta", FontFactory.getFont("Arial", val)));
+            tb2.addCell(new Paragraph ("Total Cuenta", FontFactory.getFont("Arial", val)));
+
+            for (int i = 0; i < tbl_ConsultaEnc.getRowCount(); i++) {
+
+                String Tipo_cuenta =(String) tbl_ConsultaEnc.getValueAt(i, 0); // columna inicial
+                String total = (String) tbl_ConsultaEnc.getValueAt(i, 1);
+
+                //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
+
+                int valor =7;
+                tb2.addCell(new Paragraph(Tipo_cuenta, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
+                tb2.addCell(new Paragraph(total, FontFactory.getFont("Arial", valor)));
+
+            }
+
+            doc.add(tb2);
+
+        } //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        catch (DocumentException ex) {
+            //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        doc.close();
+    }//GEN-LAST:event_jButton_GenerarPDF1ActionPerformed
+
+    private void tbl_ConsultaEnc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ConsultaEnc1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_ConsultaEnc1MouseClicked
+
+    private void tbl_ConsultaEnc1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbl_ConsultaEnc1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbl_ConsultaEnc1KeyReleased
+
+    private void jLabel107MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel107MouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jLabel107MouseClicked
+
+    private void jButton_GenerarPDF1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_GenerarPDF1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_GenerarPDF1MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void esquisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_esquisMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_esquisMouseClicked
+
     public void setColor_PanelI(JPanel Panel_Icono) {
         Panel_Icono.setBackground(new Color(59, 62, 65));
     }
@@ -7673,7 +8000,6 @@ public class Bancos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AplicacionB;
-    private javax.swing.JLabel Bienvenido;
     private javax.swing.JPanel CVB;
     private javax.swing.JLabel Cant_Mo;
     private javax.swing.JLabel Cant_R1;
@@ -7835,6 +8161,7 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel eliminar;
     private javax.swing.JLabel eliminarConcilacionEn;
     private javax.swing.JLabel eliminard;
+    private javax.swing.JPanel esquis;
     private javax.swing.JLabel icon_AE;
     private javax.swing.JLabel icon_APP;
     private javax.swing.JLabel icon_Actividad;
@@ -7863,6 +8190,7 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel ingresar;
     private javax.swing.JLabel ingresarConcilacionEn;
     private javax.swing.JButton jButton_GenerarPDF;
+    private javax.swing.JButton jButton_GenerarPDF1;
     private javax.swing.JButton jButton_PDF;
     private javax.swing.JComboBox<String> jComboBoxCODIGOCONCEPTO;
     private javax.swing.JComboBox<String> jComboBoxIDClasificacion;
@@ -7880,8 +8208,13 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -8003,7 +8336,6 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_codigoConcepto;
     private javax.swing.JLabel jLabel_idformapago;
     private javax.swing.JPanel jPanel_BG;
-    private javax.swing.JPanel jPanel_Bienvenido;
     private javax.swing.JPanel jPanel_ConsultaBancos_Saldos;
     private javax.swing.JPanel jPanel_Forma_de_Pago;
     private javax.swing.JPanel jPanel_Manatenimiento_ConBanEn;
@@ -8029,6 +8361,8 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane46;
     private javax.swing.JScrollPane jScrollPane47;
     private javax.swing.JScrollPane jScrollPane48;
+    private javax.swing.JScrollPane jScrollPane49;
+    private javax.swing.JScrollPane jScrollPane50;
     private javax.swing.JTextArea jTextArea_Descrip;
     private javax.swing.JTextArea jTextArea_Descripcion;
     private javax.swing.JTextField jTextField_AbonosA;
@@ -8063,7 +8397,9 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JTable tbl_Clasi;
     private javax.swing.JTable tbl_ConcilacioEn;
     private javax.swing.JTable tbl_ConsultaDet;
+    private javax.swing.JTable tbl_ConsultaDet1;
     private javax.swing.JTable tbl_ConsultaEnc;
+    private javax.swing.JTable tbl_ConsultaEnc1;
     private javax.swing.JTable tbl_CuentaContable;
     private javax.swing.JTable tbl_Doc;
     private javax.swing.JTable tbl_FormaPago;
