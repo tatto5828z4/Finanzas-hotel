@@ -29,30 +29,28 @@ public class Cuenta_Contable {
     JTextField Tipo_cuenta;
     JLabel ID_clasificacion;
     JTextField Saldo_anterior;
-    JTextField Cargos_mes;
-    JTextField Abonos_mes;
-    JTextField Saldo_actual;
     JTextField Cargos_acumulados;
     JTextField Abonos_acumulados;
+    JTextField Saldo_actual;
     JTextArea Descripcion;
     JTextField Buscar;
     JTable tbl_cc;
 
-    public Cuenta_Contable(JTextField ID_cuenta, JTextField Nombre_cuenta, JTextField Tipo_cuenta, JLabel ID_clasificacion, JTextField Saldo_anterior, JTextField Cargos_mes, JTextField Abonos_mes, JTextField Saldo_actual, JTextField Cargos_acumulados, JTextField Abonos_acumulados, JTextArea Descripcion, JTextField Buscar, JTable tbl_cc) {
+    public Cuenta_Contable(JTextField ID_cuenta, JTextField Nombre_cuenta, JTextField Tipo_cuenta, JLabel ID_clasificacion, JTextField Saldo_anterior, JTextField Cargos_acumulados, JTextField Abonos_acumulados, JTextField Saldo_actual, JTextArea Descripcion, JTextField Buscar, JTable tbl_cc) {
         this.ID_cuenta = ID_cuenta;
         this.Nombre_cuenta = Nombre_cuenta;
         this.Tipo_cuenta = Tipo_cuenta;
         this.ID_clasificacion = ID_clasificacion;
         this.Saldo_anterior = Saldo_anterior;
-        this.Cargos_mes = Cargos_mes;
-        this.Abonos_mes = Abonos_mes;
-        this.Saldo_actual = Saldo_actual;
         this.Cargos_acumulados = Cargos_acumulados;
         this.Abonos_acumulados = Abonos_acumulados;
+        this.Saldo_actual = Saldo_actual;
         this.Descripcion = Descripcion;
         this.Buscar = Buscar;
         this.tbl_cc = tbl_cc;
     }
+
+    
     
     
     
@@ -89,7 +87,7 @@ public class Cuenta_Contable {
         int cantidad = Cantidad_Registros();
         
         
-        String[] C_Datos = new String [11];
+        String[] C_Datos = new String [9];
         try
         {
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
@@ -101,11 +99,11 @@ public class Cuenta_Contable {
             model.addColumn("Tipo Cuenta");
             model.addColumn("ID Clasificacion");
             model.addColumn("Saldo Anterior");
-            model.addColumn("Cargos Mes");
-            model.addColumn("Abonos Mes");
-            model.addColumn("Saldo Actual");
             model.addColumn("Cargos Acumulados");
             model.addColumn("Abonos Acumulados");
+            model.addColumn("Saldo Actual");
+//            model.addColumn("Cargos Acumulados");
+//            model.addColumn("Abonos Acumulados");
             model.addColumn("Descripcion Cuenta");
             
             
@@ -118,12 +116,12 @@ public class Cuenta_Contable {
                 C_Datos[2] = rs.getString("tipo_cuenta");
                 C_Datos[3] = rs.getString("id_clasificacion");
                 C_Datos[4] = rs.getString("saldo_anterior");
-                C_Datos[5] = rs.getString("cargos_mes");
-                C_Datos[6] = rs.getString("abonos_mes");
+                C_Datos[5] = rs.getString("cargos_acumulados");
+                C_Datos[6] = rs.getString("abonos_acumulados");
                 C_Datos[7] = rs.getString("saldo_actual");
-                C_Datos[8] = rs.getString("cargos_acumulados");
-                C_Datos[9] = rs.getString("abonos_acumulados");
-                C_Datos[10] = rs.getString("descripcion_cuenta");
+//                C_Datos[8] = rs.getString("cargos_acumulados");
+//                C_Datos[9] = rs.getString("abonos_acumulados");
+                C_Datos[8] = rs.getString("descripcion_cuenta");
                 
                 model.addRow(C_Datos);
                 
@@ -145,19 +143,17 @@ public class Cuenta_Contable {
         try
         {
             Connection  cnIEL = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
-            PreparedStatement pstIP = cnIEL.prepareStatement("insert into cuenta_contable values(?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pstIP = cnIEL.prepareStatement("insert into cuenta_contable values(?,?,?,?,?,?,?,?,?)");
             
             pstIP.setString(1, ID_cuenta.getText().trim());
             pstIP.setString(2, Nombre_cuenta.getText().trim());
             pstIP.setString(3, Tipo_cuenta.getText().trim());
             pstIP.setString(4, ID_clasificacion.getText().trim());
-            pstIP.setString(5, Saldo_anterior.getText().trim());
-            pstIP.setString(6, Cargos_mes.getText().trim());
-            pstIP.setString(7, Abonos_mes.getText().trim());
-            pstIP.setString(8, Saldo_actual.getText().trim());
-            pstIP.setString(9, Cargos_acumulados.getText().trim());
-            pstIP.setString(10, Abonos_acumulados.getText().trim());
-            pstIP.setString(11, Descripcion.getText().trim());
+            pstIP.setString(5, "0");
+            pstIP.setString(6, "0");
+            pstIP.setString(7, "0");
+            pstIP.setString(8, "0");
+            pstIP.setString(9, Descripcion.getText().trim());
             
             
             pstIP.executeUpdate();
@@ -167,11 +163,9 @@ public class Cuenta_Contable {
             Tipo_cuenta.setText("");
             ID_clasificacion.setText("");
             Saldo_anterior.setText("");
-            Cargos_mes.setText("");
-            Abonos_mes.setText("");
-            Saldo_actual.setText("");
             Cargos_acumulados.setText("");
             Abonos_acumulados.setText("");
+            Saldo_actual.setText("");
             Descripcion.setText("");
 
             
@@ -192,19 +186,19 @@ public class Cuenta_Contable {
             String ID = Buscar.getText().trim();
 
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
-            PreparedStatement pstC = cn.prepareStatement("update cuenta_contable set id_cuenta = ?, nombre_cuenta = ?, tipo_cuenta = ?,id_clasificacion =?,saldo_anterior=?, cargos_mes=?, abonos_mes=?, saldo_actual=?, cargos_acumulados=?,abonos_acumulados =?, descripcion_cuenta =? where id_cuenta = " + ID);
+            PreparedStatement pstC = cn.prepareStatement("update cuenta_contable set id_cuenta = ?, nombre_cuenta = ?, tipo_cuenta = ?,id_clasificacion =?,saldo_anterior=?, cargos_acumulados=?, abonos_acumulados=?, saldo_actual=?, descripcion_cuenta =? where id_cuenta = " + ID);
             
             pstC.setString(1, ID_cuenta.getText().trim());
             pstC.setString(2, Nombre_cuenta.getText().trim());
             pstC.setString(3, Tipo_cuenta.getText().trim());
             pstC.setString(4, ID_clasificacion.getText().trim());
             pstC.setString(5, Saldo_anterior.getText().trim());
-            pstC.setString(6, Cargos_mes.getText().trim());
-            pstC.setString(7, Abonos_mes.getText().trim());
+            pstC.setString(6, Cargos_acumulados.getText().trim());
+            pstC.setString(7, Abonos_acumulados.getText().trim());
             pstC.setString(8, Saldo_actual.getText().trim());
-            pstC.setString(9, Cargos_acumulados.getText().trim());
-            pstC.setString(10, Abonos_acumulados.getText().trim());
-            pstC.setString(11, Descripcion.getText().trim());
+//            pstC.setString(9, Cargos_acumulados.getText().trim());
+//            pstC.setString(10, Abonos_acumulados.getText().trim());
+            pstC.setString(9, Descripcion.getText().trim());
            
             pstC.executeUpdate();
 
@@ -233,8 +227,8 @@ public class Cuenta_Contable {
             Tipo_cuenta.setText("");
             ID_clasificacion.setText("");
             Saldo_anterior.setText("");
-            Cargos_mes.setText("");
-            Abonos_mes.setText("");
+//            Cargos_mes.setText("");
+//            Abonos_mes.setText("");
             Saldo_actual.setText("");
             Cargos_acumulados.setText("");
             Abonos_acumulados.setText("");
@@ -253,8 +247,8 @@ public class Cuenta_Contable {
     
     public DefaultTableModel Buscar_CC(String Buscar)
     {
-        String[] nombre_ColumnasCV = {"ID Cuenta", "Nombre Cuenta","Tipo Cuenta","ID Clasificacion","Saldo Anterior","Cargos Mes","Abonos Mes","Saldo Actual","Cargos Acumulados","Abonos Acumulados","Descripcion Cuenta"};
-        String[] RegistrosCV = new String[11];
+        String[] nombre_ColumnasCV = {"ID Cuenta", "Nombre Cuenta","Tipo Cuenta","ID Clasificacion","Saldo Anterior","Cargos Acumulados","Abonos Acumulados","Saldo Actual","Descripcion Cuenta"};
+        String[] RegistrosCV = new String[9];
         
         DefaultTableModel model = new DefaultTableModel(null,nombre_ColumnasCV);
         
@@ -271,12 +265,12 @@ public class Cuenta_Contable {
                 RegistrosCV[2] = rs.getString("tipo_cuenta");
                 RegistrosCV[3] = rs.getString("id_clasificacion");
                 RegistrosCV[4] = rs.getString("saldo_anterior");
-                RegistrosCV[5] = rs.getString("cargos_mes");
-                RegistrosCV[6] = rs.getString("abonos_mes");
+                RegistrosCV[5] = rs.getString("cargos_acumulados");
+                RegistrosCV[6] = rs.getString("abonos_acumulados");
                 RegistrosCV[7] = rs.getString("saldo_actual");
-                RegistrosCV[8] = rs.getString("cargos_acumulados");
-                RegistrosCV[9] = rs.getString("abonos_acumulados");
-                RegistrosCV[10] = rs.getString("descripcion_cuenta");
+//                RegistrosCV[8] = rs.getString("cargos_acumulados");
+//                RegistrosCV[9] = rs.getString("abonos_acumulados");
+                RegistrosCV[8] = rs.getString("descripcion_cuenta");
                    
                 
                 model.addRow(RegistrosCV);

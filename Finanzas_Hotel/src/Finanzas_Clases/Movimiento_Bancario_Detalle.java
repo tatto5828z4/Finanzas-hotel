@@ -25,22 +25,20 @@ public class Movimiento_Bancario_Detalle {
     //atributos 
     JLabel ID_MovE;
     JLabel Codigo_concepto;
-    JTextField Saldo;
-    JTextField Tipo_saldo;
+    JTextField Saldo_deudor;
+    JTextField Saldo_acreedor;
     JTextField Buscar;
     JTable tbl_mov;
 
-    
-    public Movimiento_Bancario_Detalle(JLabel ID_MovE, JLabel Codigo_concepto, JTextField Saldo, JTextField Tipo_saldo, JTextField Buscar, JTable tbl_mov) {
+    public Movimiento_Bancario_Detalle(JLabel ID_MovE, JLabel Codigo_concepto, JTextField Saldo_deudor, JTextField Saldo_acreedor, JTextField Buscar, JTable tbl_mov) {
         this.ID_MovE = ID_MovE;
         this.Codigo_concepto = Codigo_concepto;
-        this.Saldo = Saldo;
-        this.Tipo_saldo = Tipo_saldo;
+        this.Saldo_deudor = Saldo_deudor;
+        this.Saldo_acreedor = Saldo_acreedor;
         this.Buscar = Buscar;
         this.tbl_mov = tbl_mov;
     }
 
-    
 
     
     public int Cantidad_Registros()
@@ -83,8 +81,8 @@ public class Movimiento_Bancario_Detalle {
             DefaultTableModel model = new DefaultTableModel();
             model.addColumn("ID Movimiento Encabezado");
             model.addColumn("Codigo Concepto");
-            model.addColumn("Saldo");
-            model.addColumn("Tipo Saldo");
+            model.addColumn("Saldo Deudor");
+            model.addColumn("Saldo Acreedor");
             
             ResultSet rs = pst.executeQuery();
 
@@ -92,8 +90,8 @@ public class Movimiento_Bancario_Detalle {
                 
                 Ac_Datos[0] = rs.getString("id_movEnc");
                 Ac_Datos[1] = rs.getString("codigo_concepto");
-                Ac_Datos[2] = rs.getString("saldo");
-                Ac_Datos[3] = rs.getString("tipo_saldo");
+                Ac_Datos[2] = rs.getString("saldo_deudor");
+                Ac_Datos[3] = rs.getString("saldo_acreedor");
                 
                 model.addRow(Ac_Datos);
                 
@@ -119,15 +117,15 @@ public class Movimiento_Bancario_Detalle {
             
             pstIP.setString(1, ID_MovE.getText().trim());
             pstIP.setString(2, Codigo_concepto.getText().trim());
-            pstIP.setString(3, Saldo.getText().trim());
-            pstIP.setString(4, Tipo_saldo.getText().trim());
+            pstIP.setString(3, Saldo_deudor.getText().trim());
+            pstIP.setString(4, Saldo_acreedor.getText().trim());
             
             pstIP.executeUpdate();
             
             ID_MovE.setText("");
             Codigo_concepto.setText("");
-            Saldo.setText("");
-            Tipo_saldo.setText("");
+            Saldo_deudor.setText("");
+            Saldo_acreedor.setText("");
             
             JOptionPane.showMessageDialog(null,"Registro Exitoso");
             
@@ -149,19 +147,19 @@ public class Movimiento_Bancario_Detalle {
             String ID = Buscar.getText().trim();
 
             Connection cn = DriverManager.getConnection(Base_de_Datos,Usuario,Clave);
-            PreparedStatement pst = cn.prepareStatement("update mov_bancDet set id_movEnc = ?, codigo_concepto=?,saldo = ?, tipo_saldo=? where codigo_concepto = " + ID);
+            PreparedStatement pst = cn.prepareStatement("update mov_bancDet set id_movEnc = ?, codigo_concepto=?,saldo_deudor = ?, saldo_acreedor=? where codigo_concepto = " + ID);
 
             pst.setString(1, ID_MovE.getText().trim());
             pst.setString(2, Codigo_concepto.getText().trim());
-            pst.setString(3, Saldo.getText().trim());
-            pst.setString(4, Tipo_saldo.getText().trim());
+            pst.setString(3, Saldo_deudor.getText().trim());
+            pst.setString(4, Saldo_acreedor.getText().trim());
 
             pst.executeUpdate();
 
             ID_MovE.setText("");
             Codigo_concepto.setText("");
-            Saldo.setText("");
-            Tipo_saldo.setText("");
+            Saldo_deudor.setText("");
+            Saldo_acreedor.setText("");
             
             JOptionPane.showMessageDialog(null,"Modificacion Exitosa");
             
@@ -185,8 +183,8 @@ public class Movimiento_Bancario_Detalle {
 
             ID_MovE.setText("");
             Codigo_concepto.setText("");
-            Saldo.setText("");
-            Tipo_saldo.setText("");
+            Saldo_deudor.setText("");
+            Saldo_acreedor.setText("");
 
             JOptionPane.showMessageDialog(null,"Eliminacion Exitosa");
             Actualizar_Tabla();
@@ -200,7 +198,7 @@ public class Movimiento_Bancario_Detalle {
     
     public DefaultTableModel Buscar_Mov(String Buscar)
     {
-        String[] nombre_ColumnasAC = {"ID Mov Bancario Detalle","Codigo Concepto","Saldo", "Tipo Saldo"};
+        String[] nombre_ColumnasAC = {"ID Mov Bancario Detalle","Codigo Concepto","Saldo Deudor", "Saldo Acreedor"};
         String[] RegistrosAC = new String[4];
         
         DefaultTableModel model = new DefaultTableModel(null,nombre_ColumnasAC);
@@ -215,8 +213,8 @@ public class Movimiento_Bancario_Detalle {
             {
                 RegistrosAC[0] = rs.getString("id_movEnc");
                 RegistrosAC[1] = rs.getString("codigo_concepto");
-                RegistrosAC[2] = rs.getString("saldo");
-                RegistrosAC[3] = rs.getString("tipo_saldo");
+                RegistrosAC[2] = rs.getString("saldo_deudor");
+                RegistrosAC[3] = rs.getString("saldo_acreedor");
                 
                 model.addRow(RegistrosAC);
             }
