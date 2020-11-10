@@ -221,6 +221,7 @@
                               <Component id="jLabel100" min="-2" pref="172" max="-2" attributes="0"/>
                               <Component id="jScrollPane47" min="-2" pref="621" max="-2" attributes="0"/>
                               <Component id="jLabel105" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="jButton_GenerarPDF" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -250,7 +251,9 @@
                       <Component id="jScrollPane47" min="-2" pref="182" max="-2" attributes="0"/>
                       <Component id="jScrollPane48" min="-2" pref="182" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="586" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="jButton_GenerarPDF" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="527" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -348,6 +351,14 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel105MouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton_GenerarPDF">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="PDF"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_GenerarPDFActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

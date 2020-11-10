@@ -180,6 +180,7 @@ public class Bancos extends javax.swing.JFrame {
         jScrollPane48 = new javax.swing.JScrollPane();
         tbl_ConsultaEnc = new javax.swing.JTable();
         jLabel105 = new javax.swing.JLabel();
+        jButton_GenerarPDF = new javax.swing.JButton();
         jPanel_Mantenimiento_CBD = new javax.swing.JPanel();
         jLabel_MMon4 = new javax.swing.JLabel();
         jScrollPane46 = new javax.swing.JScrollPane();
@@ -623,6 +624,13 @@ public class Bancos extends javax.swing.JFrame {
             }
         });
 
+        jButton_GenerarPDF.setText("PDF");
+        jButton_GenerarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GenerarPDFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_ConsultaBancos_SaldosLayout = new javax.swing.GroupLayout(jPanel_ConsultaBancos_Saldos);
         jPanel_ConsultaBancos_Saldos.setLayout(jPanel_ConsultaBancos_SaldosLayout);
         jPanel_ConsultaBancos_SaldosLayout.setHorizontalGroup(
@@ -637,7 +645,8 @@ public class Bancos extends javax.swing.JFrame {
                         .addGroup(jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel100, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane47, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel105, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel105, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_GenerarPDF))
                         .addGap(136, 136, 136)
                         .addGroup(jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane48, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -659,7 +668,9 @@ public class Bancos extends javax.swing.JFrame {
                 .addGroup(jPanel_ConsultaBancos_SaldosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane47, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane48, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(586, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jButton_GenerarPDF)
+                .addContainerGap(527, Short.MAX_VALUE))
         );
 
         jPanel_Mantenimiento_CBD.setBackground(new java.awt.Color(28, 27, 33));
@@ -5356,6 +5367,142 @@ public class Bancos extends javax.swing.JFrame {
         doc.close();
     }//GEN-LAST:event_jButton_PDFMouseClicked
 
+    private void jButton_GenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GenerarPDFActionPerformed
+        // TODO add your handling code here:
+        
+        String path = "";
+        JFileChooser j = new JFileChooser();
+        j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int x = j.showSaveDialog(this);
+
+        if (x == JFileChooser.APPROVE_OPTION) {
+            path = j.getSelectedFile().getPath();
+        }
+
+        Document doc = new Document();
+
+
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
+            
+            doc.open();
+            
+            Paragraph inicio= new Paragraph("RESUMEN", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            inicio.setAlignment(Element.ALIGN_LEFT);
+            doc.add(inicio);
+            doc.add(new Paragraph(""));
+            
+            /*Titulo*/
+            Paragraph p= new Paragraph(" \n\n Saldo por Cuenta \n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            p.setAlignment(Element.ALIGN_CENTER);
+            doc.add(p);
+            doc.add(new Paragraph(""));
+            
+            float [] celdas= {7.00f, 7.00f, 7.00f, 10.00f,10.00f,10.00f,7.00f};
+            
+            PdfPTable tb1= new PdfPTable(7); //cantidad de columnas
+            tb1.setWidths(celdas);
+            
+            //agregando encabezado
+            int val=7;
+            tb1.addCell(new Paragraph("ID", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Cuenta", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Tipo", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Clasificacion", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Saldo Deudor", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Saldo Acreedor", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Saldo Resultante", FontFactory.getFont("Arial", val)));
+            
+            
+            
+            
+            for (int i = 0; i < tbl_ConsultaDet.getRowCount(); i++) {
+                
+                String ID_C =(String) tbl_ConsultaDet.getValueAt(i, 0); // columna inicial
+                String Nombre = (String) tbl_ConsultaDet.getValueAt(i, 1); 
+                String Tipo= (String) tbl_ConsultaDet.getValueAt(i, 2);
+                String Clasificacion = (String) tbl_ConsultaDet.getValueAt(i, 3); 
+                String Saldo_D= (String) tbl_ConsultaDet.getValueAt(i, 4);
+                String Saldo_A = (String) tbl_ConsultaDet.getValueAt(i, 5); 
+                String saldo_R= (String) tbl_ConsultaDet.getValueAt(i, 6);
+                
+                
+                
+                //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
+                
+                int valor =8;
+                tb1.addCell(new Paragraph(ID_C, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
+                tb1.addCell(new Paragraph(Nombre, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(Tipo, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(Clasificacion, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(Saldo_D, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(Saldo_A, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(saldo_R, FontFactory.getFont("Arial", valor)));
+                
+            }
+            
+            doc.add(tb1);
+            
+        } catch (FileNotFoundException ex) {
+            //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        
+        //otra tabla
+        
+        try {
+            //PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
+            
+            //doc.open();
+            
+            /*Titulo*/
+            Paragraph p1= new Paragraph(" \n \n Saldo General \n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            p1.setAlignment(Element.ALIGN_CENTER);
+            doc.add(p1);
+            doc.add(new Paragraph(""));
+            
+            float [] celdas_2= {5.00f, 5.00f};
+            
+            PdfPTable tb2= new PdfPTable(2); //cantidad de columnas
+            tb2.setWidths(celdas_2);
+            
+            //agregando encabezado
+            int val=8; //letra
+            tb2.addCell(new Paragraph("Tipo Cuenta", FontFactory.getFont("Arial", val)));
+            tb2.addCell(new Paragraph ("Total Cuenta", FontFactory.getFont("Arial", val)));
+            
+
+            
+            for (int i = 0; i < tbl_ConsultaEnc.getRowCount(); i++) {
+                
+                String Tipo_cuenta =(String) tbl_ConsultaEnc.getValueAt(i, 0); // columna inicial
+                String total = (String) tbl_ConsultaEnc.getValueAt(i, 1); 
+                
+                
+                //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
+                
+                int valor =7;
+                tb2.addCell(new Paragraph(Tipo_cuenta, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
+                tb2.addCell(new Paragraph(total, FontFactory.getFont("Arial", valor)));
+                
+            }
+            
+            doc.add(tb2);
+            
+        } //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        catch (DocumentException ex) {
+            //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+        doc.close();
+    }//GEN-LAST:event_jButton_GenerarPDFActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -5381,6 +5528,70 @@ public class Bancos extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Bancos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -5565,6 +5776,7 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel ingresad;
     private javax.swing.JLabel ingresar;
     private javax.swing.JLabel ingresarConcilacionEn;
+    private javax.swing.JButton jButton_GenerarPDF;
     private javax.swing.JButton jButton_PDF;
     private javax.swing.JComboBox<String> jComboBoxCODIGOCONCEPTO;
     private javax.swing.JComboBox<String> jComboBoxIDClasificacion;

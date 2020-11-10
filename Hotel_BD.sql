@@ -262,9 +262,10 @@ create table moneda(
 
 -- parte de contabilidad 
 create table clasificacion_cuenta(
-	id_clasificacion varchar(10) primary key,
+	id_clasificacion varchar(10) primary key, -- coriiente/ no corriente
     nombre_clasificacion varchar(50)
 ) engine = InnoDB default char set=latin1;
+
 
 create table cuenta_contable(
 	id_cuenta varchar(10) primary key,
@@ -274,12 +275,11 @@ create table cuenta_contable(
     
     -- saldos
     saldo_anterior float,
-    cargos_mes float,
-    abonos_mes float,
-    saldo_actual float,
     cargos_acumulados float,
     abonos_acumulados float,
-    
+    saldo_actual float,
+    /*cargos_acumulados float,
+    abonos_acumulados float,*/
     descripcion_cuenta varchar(35),
     
     foreign key (id_clasificacion) references clasificacion_cuenta (id_clasificacion)
@@ -289,7 +289,7 @@ create table Documento_bancario(
 	codigo_Documento varchar(10) primary key,
     nombre_Documento varchar(50),
     afecta char(1),  -- + o - a la cuenta
-    estatus_concepto char(1)
+    estatus_documento char(1)
 
 ) engine = InnoDB default char set=latin1;
 
@@ -303,6 +303,7 @@ create table concepto_bancario(
     foreign key (id_cuenta) references cuenta_contable(id_cuenta)
 ) engine = InnoDB default char set=latin1;
 
+
 create table mov_bancEnc( -- solo que mov se realizo y cual es el monto 
 	id_movEnc varchar(10) primary key,
     codigo_Documento varchar(10),
@@ -314,11 +315,13 @@ create table mov_bancEnc( -- solo que mov se realizo y cual es el monto
 	
 ) engine = InnoDB default char set=latin1;
 
+-- drop table mov_bancDet;
+
 create table mov_bancDet( -- cuentas involucradas y partida contable 
 	id_movEnc varchar(10),
     codigo_concepto varchar(10),
-    saldo float,
-    tipo_saldo varchar(35), -- deudor o acreedor, Debe o haber
+    saldo_deudor float,
+	saldo_acreedor float, 
     
     primary key (id_movEnc, codigo_concepto), -- clave compuesta y agruparemos por tipo de saldo 
     
@@ -353,9 +356,10 @@ create table forma_pago(
     foreign key (id_concepto) references concepto_movimiento(id_concepto),
     foreign key (id_formapago) references forma_pago(id_formapago)
 ) engine = InnoDB default char set=latin1;*/
--- Drop table banco;
+
+-- drop table banco;
 create table banco(
-	id_banco varchar(10)primary key,
+	id_banco varchar(10) primary key,
 	nombre_banco varchar(50),
     nombre_cuenta varchar(50), /*Cuenta maestra*/
     clave_banco varchar(10),
@@ -381,8 +385,6 @@ create table conciliacion_bancenc(
     saldo_final float
 ) engine = InnoDB default char set=latin1;
 
-
--- jorge
 create table conciliacion_bancaria_det(
 	id_encabezado varchar(10), /*foranea*/
 	codigo_concepto varchar(10), /*foranea*/
