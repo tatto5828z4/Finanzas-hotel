@@ -13,12 +13,23 @@ import Clases_Nomina.Planilla_General;
 import static Finanzas_Clases.Departamento.Base_de_Datos;
 import static Finanzas_Clases.Departamento.Clave;
 import static Finanzas_Clases.Departamento.Usuario;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Element;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ItemEvent;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -198,6 +209,7 @@ public class Nomina extends javax.swing.JFrame {
         jButton_Igss = new javax.swing.JButton();
         txt_Buscar_PD = new javax.swing.JTextField();
         jLabel_Buscar_PD = new javax.swing.JLabel();
+        jButton_GenerarPDF1 = new javax.swing.JButton();
         jScrollPane26 = new javax.swing.JScrollPane();
         tbl_PD = new javax.swing.JTable();
         cbDeduccion = new javax.swing.JCheckBox();
@@ -416,6 +428,22 @@ public class Nomina extends javax.swing.JFrame {
         jLabel_Buscar_PD.setText("Buscar");
         MantenimientoPDG.add(jLabel_Buscar_PD, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, -1));
 
+        jButton_GenerarPDF1.setBackground(new java.awt.Color(28, 27, 33));
+        jButton_GenerarPDF1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PDF.png"))); // NOI18N
+        jButton_GenerarPDF1.setBorder(null);
+        jButton_GenerarPDF1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton_GenerarPDF1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_GenerarPDF1MouseClicked(evt);
+            }
+        });
+        jButton_GenerarPDF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GenerarPDF1ActionPerformed(evt);
+            }
+        });
+        MantenimientoPDG.add(jButton_GenerarPDF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 320, -1, -1));
+
         tbl_PD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -598,7 +626,7 @@ public class Nomina extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        Movimiento1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 0, 20, 30));
+        Movimiento1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 0, 20, 30));
 
         Modificar_IDU.add(Movimiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1090, 40));
 
@@ -708,6 +736,7 @@ public class Nomina extends javax.swing.JFrame {
         Modificar_Rangos.add(jLabel_MDR, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, -1, -1));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("X");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -715,7 +744,7 @@ public class Nomina extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        Modificar_Rangos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 20, 30));
+        Modificar_Rangos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 20, 30));
 
         getContentPane().add(Modificar_Rangos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1078, 720));
 
@@ -1048,6 +1077,7 @@ public class Nomina extends javax.swing.JFrame {
         getContentPane().add(MantenimientoCP, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1080, 720));
 
         jPanel_BG.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_BG.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_BG.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jPanel_BGMouseMoved(evt);
@@ -1233,11 +1263,11 @@ public class Nomina extends javax.swing.JFrame {
 
         Slide_Derecho.add(Panel_Text_Conta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, 40));
 
-        Slide.add(Slide_Derecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 790));
+        Slide.add(Slide_Derecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 900));
 
-        Panel_IzquierdoC.add(Slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 790));
+        Panel_IzquierdoC.add(Slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 900));
 
-        jPanel_BG.add(Panel_IzquierdoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, -1));
+        jPanel_BG.add(Panel_IzquierdoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 900));
 
         jLabel_Titulo2.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel_Titulo2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1344,9 +1374,9 @@ public class Nomina extends javax.swing.JFrame {
         });
         esquis.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, -1, -1));
 
-        jPanel_BG.add(esquis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 0, 40, 30));
+        jPanel_BG.add(esquis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 0, 40, 30));
 
-        getContentPane().add(jPanel_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 790));
+        getContentPane().add(jPanel_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1880, 900));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2163,6 +2193,7 @@ public class Nomina extends javax.swing.JFrame {
 
     private void Texto_RRHHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Texto_RRHHMouseClicked
 
+        dispose();
         Principal P = new Principal();
         P.setVisible(true);
         
@@ -2416,6 +2447,136 @@ public class Nomina extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_esquisMouseClicked
+
+    private void jButton_GenerarPDF1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_GenerarPDF1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_GenerarPDF1MouseClicked
+
+    private void jButton_GenerarPDF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GenerarPDF1ActionPerformed
+        // TODO add your handling code here:
+
+        String path = "";
+        JFileChooser j = new JFileChooser();
+        j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int x = j.showSaveDialog(this);
+
+        if (x == JFileChooser.APPROVE_OPTION) {
+            path = j.getSelectedFile().getPath();
+        }
+
+        Document doc = new Document();
+
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
+
+            doc.open();
+
+            Paragraph inicio= new Paragraph("RESUMEN", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            inicio.setAlignment(Element.ALIGN_LEFT);
+            doc.add(inicio);
+            doc.add(new Paragraph(""));
+
+            /*Titulo*/
+            Paragraph p= new Paragraph(" \n\n Planilla Encabezado\n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            p.setAlignment(Element.ALIGN_CENTER);
+            doc.add(p);
+            doc.add(new Paragraph(""));
+
+            float [] celdas= {7.00f, 7.00f, 7.00f, 10.00f};
+
+            PdfPTable tb1= new PdfPTable(4); //cantidad de columnas
+            tb1.setWidths(celdas);
+
+            //agregando encabezado
+            int val=7;
+            tb1.addCell(new Paragraph("ID Planilla Enc", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Total Percepcion", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Total Deduccion", FontFactory.getFont("Arial", val)));
+            tb1.addCell(new Paragraph ("Total Líquido", FontFactory.getFont("Arial", val)));
+            
+
+            for (int i = 0; i < tbl_PG.getRowCount(); i++) {
+
+                String Enc =(String) tbl_PG.getValueAt(i, 0); // columna inicial
+                String TP = (String) tbl_PG.getValueAt(i, 1);
+                String TD = (String) tbl_PG.getValueAt(i, 2);
+                String TL = (String) tbl_PG.getValueAt(i, 3);
+                
+
+                //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
+
+                int valor =8;
+                tb1.addCell(new Paragraph(Enc, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
+                tb1.addCell(new Paragraph(TP, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(TD, FontFactory.getFont("Arial", valor)));
+                tb1.addCell(new Paragraph(TL, FontFactory.getFont("Arial", valor)));
+                
+
+            }
+
+            doc.add(tb1);
+
+        } catch (FileNotFoundException ex) {
+            //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //otra tabla
+
+        try {
+            //PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
+
+            //doc.open();
+
+            /*Titulo*/
+            Paragraph p1= new Paragraph(" \n \n Planilla Detalle \n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
+            p1.setAlignment(Element.ALIGN_CENTER);
+            doc.add(p1);
+            doc.add(new Paragraph(""));
+
+            float [] celdas_2= {7.00f, 7.00f, 7.00f, 7.00f, 7.00f};
+
+            PdfPTable tb2= new PdfPTable(5); //cantidad de columnas
+            tb2.setWidths(celdas_2);
+
+            //agregando encabezado
+            int val=8; //letra
+            tb2.addCell(new Paragraph("No", FontFactory.getFont("Arial", val)));
+            tb2.addCell(new Paragraph ("ID Enc", FontFactory.getFont("Arial", val)));
+            tb2.addCell(new Paragraph ("ID Empleado", FontFactory.getFont("Arial", val)));
+            tb2.addCell(new Paragraph ("ID Concepto", FontFactory.getFont("Arial", val)));
+            tb2.addCell(new Paragraph ("Valor Conc", FontFactory.getFont("Arial", val)));
+
+            for (int i = 0; i < tbl_PD.getRowCount(); i++) {
+
+                String No =(String) tbl_PD.getValueAt(i, 0); // columna inicial
+                String Enc = (String) tbl_PD.getValueAt(i, 1);
+                String Empl = (String) tbl_PD.getValueAt(i, 2);
+                String Conce = (String) tbl_PD.getValueAt(i, 3);
+                String Valor = (String) tbl_PD.getValueAt(i, 4);
+
+                //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
+
+                int valor =7;
+                tb2.addCell(new Paragraph(No, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
+                tb2.addCell(new Paragraph(Enc, FontFactory.getFont("Arial", valor)));
+                tb2.addCell(new Paragraph(Empl, FontFactory.getFont("Arial", valor)));
+                tb2.addCell(new Paragraph(Conce, FontFactory.getFont("Arial", valor)));
+                tb2.addCell(new Paragraph(Valor, FontFactory.getFont("Arial", valor)));
+
+            }
+
+            doc.add(tb2);
+
+        } //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        catch (DocumentException ex) {
+            //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        doc.close();
+
+    }//GEN-LAST:event_jButton_GenerarPDF1ActionPerformed
 
     public void ConceptoP(String NombreC, float f_Concepto) {
         float SueldoE = 0;
@@ -2827,6 +2988,14 @@ public class Nomina extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2881,6 +3050,7 @@ public class Nomina extends javax.swing.JFrame {
     private javax.swing.JPanel esquis;
     private javax.swing.JLabel icon_ConceptoPlanilla;
     private javax.swing.JLabel icon_Planilla_DetalleG;
+    private javax.swing.JButton jButton_GenerarPDF1;
     private javax.swing.JButton jButton_Igss;
     private javax.swing.JButton jButton_MDR;
     private javax.swing.JButton jButton_MDU;

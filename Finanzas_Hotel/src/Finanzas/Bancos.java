@@ -227,6 +227,7 @@ public class Bancos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel_ConsultaBancos_Saldos = new javax.swing.JPanel();
+        jButton_GenerarPDF = new javax.swing.JButton();
         jScrollPane47 = new javax.swing.JScrollPane();
         tbl_ConsultaDet = new javax.swing.JTable();
         jLabel94 = new javax.swing.JLabel();
@@ -235,7 +236,6 @@ public class Bancos extends javax.swing.JFrame {
         jScrollPane48 = new javax.swing.JScrollPane();
         tbl_ConsultaEnc = new javax.swing.JTable();
         jLabel105 = new javax.swing.JLabel();
-        jButton_GenerarPDF = new javax.swing.JButton();
         jLabel103 = new javax.swing.JLabel();
         jLabel104 = new javax.swing.JLabel();
         jScrollPane49 = new javax.swing.JScrollPane();
@@ -413,7 +413,6 @@ public class Bancos extends javax.swing.JFrame {
         Panel_ConsultarMBEN = new javax.swing.JPanel();
         Texto_ConsultarMBEN = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
-        jComboBox_TablasCB1 = new javax.swing.JComboBox<>();
         jLabel53 = new javax.swing.JLabel();
         jLabel_NombreConcepto1 = new javax.swing.JLabel();
         txt_Descripcion = new javax.swing.JTextField();
@@ -444,8 +443,6 @@ public class Bancos extends javax.swing.JFrame {
         Panel_ConsultarCB = new javax.swing.JPanel();
         Texto_ConsultarCB = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox_TablasCB = new javax.swing.JComboBox<>();
-        jLabel_Buscar_Tablas_CB = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel_NombreConcepto = new javax.swing.JLabel();
         txt_Nombre_Concepto = new javax.swing.JTextField();
@@ -680,6 +677,14 @@ public class Bancos extends javax.swing.JFrame {
         jPanel_ConsultaBancos_Saldos.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_ConsultaBancos_Saldos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton_GenerarPDF.setText("PDF");
+        jButton_GenerarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GenerarPDFActionPerformed(evt);
+            }
+        });
+        jPanel_ConsultaBancos_Saldos.add(jButton_GenerarPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+
         tbl_ConsultaDet.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -756,14 +761,6 @@ public class Bancos extends javax.swing.JFrame {
         });
         jPanel_ConsultaBancos_Saldos.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
-        jButton_GenerarPDF.setText("PDF");
-        jButton_GenerarPDF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_GenerarPDFActionPerformed(evt);
-            }
-        });
-        jPanel_ConsultaBancos_Saldos.add(jButton_GenerarPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
-
         jLabel103.setForeground(new java.awt.Color(255, 255, 255));
         jLabel103.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Consultas.png"))); // NOI18N
         jPanel_ConsultaBancos_Saldos.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 400, 120));
@@ -772,6 +769,7 @@ public class Bancos extends javax.swing.JFrame {
         jLabel104.setText("Consulta por cuentas (saldos) ");
         jPanel_ConsultaBancos_Saldos.add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 180, -1));
 
+        tbl_ConsultaDet1.setAutoCreateRowSorter(true);
         tbl_ConsultaDet1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -797,11 +795,12 @@ public class Bancos extends javax.swing.JFrame {
         });
         jScrollPane49.setViewportView(tbl_ConsultaDet1);
 
-        jPanel_ConsultaBancos_Saldos.add(jScrollPane49, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 490, 182));
+        jPanel_ConsultaBancos_Saldos.add(jScrollPane49, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 520, 182));
 
         jButton_GenerarPDF1.setBackground(new java.awt.Color(28, 27, 33));
         jButton_GenerarPDF1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PDF.png"))); // NOI18N
         jButton_GenerarPDF1.setBorder(null);
+        jButton_GenerarPDF1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton_GenerarPDF1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton_GenerarPDF1MouseClicked(evt);
@@ -839,11 +838,11 @@ public class Bancos extends javax.swing.JFrame {
         });
         jScrollPane50.setViewportView(tbl_ConsultaEnc1);
 
-        jPanel_ConsultaBancos_Saldos.add(jScrollPane50, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 480, 182));
+        jPanel_ConsultaBancos_Saldos.add(jScrollPane50, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 480, 182));
 
         jLabel106.setForeground(new java.awt.Color(255, 255, 255));
         jLabel106.setText("Consulta por Clasificacion");
-        jPanel_ConsultaBancos_Saldos.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 150, -1));
+        jPanel_ConsultaBancos_Saldos.add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 150, -1));
 
         jLabel107.setForeground(new java.awt.Color(255, 255, 255));
         jLabel107.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1663,20 +1662,20 @@ public class Bancos extends javax.swing.JFrame {
 
         jLabel63.setForeground(new java.awt.Color(255, 255, 255));
         jLabel63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Movimiento Forma Pago.png"))); // NOI18N
-        jPanel_Forma_de_Pago.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         jLabel64.setForeground(new java.awt.Color(255, 255, 255));
         jLabel64.setText("ID Forma Pago");
-        jPanel_Forma_de_Pago.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, -1, -1));
 
         jTextField_IDForma.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_IDForma.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_IDForma.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_Forma_de_Pago.add(jTextField_IDForma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 120, -1));
+        jPanel_Forma_de_Pago.add(jTextField_IDForma, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, 120, -1));
 
         jLabel65.setForeground(new java.awt.Color(255, 255, 255));
         jLabel65.setText("Tipo Pago");
-        jPanel_Forma_de_Pago.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, -1, -1));
 
         jTextField_BuscarFP.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_BuscarFP.setForeground(new java.awt.Color(153, 153, 153));
@@ -1691,7 +1690,7 @@ public class Bancos extends javax.swing.JFrame {
                 jTextField_BuscarFPKeyReleased(evt);
             }
         });
-        jPanel_Forma_de_Pago.add(jTextField_BuscarFP, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 270, -1));
+        jPanel_Forma_de_Pago.add(jTextField_BuscarFP, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 270, -1));
 
         jLabel66.setForeground(new java.awt.Color(255, 255, 255));
         jLabel66.setText("Insertar");
@@ -1700,7 +1699,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel66MouseClicked(evt);
             }
         });
-        jPanel_Forma_de_Pago.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 260, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, -1, -1));
 
         jLabel67.setForeground(new java.awt.Color(255, 255, 255));
         jLabel67.setText("Modificar");
@@ -1709,7 +1708,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel67MouseClicked(evt);
             }
         });
-        jPanel_Forma_de_Pago.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 260, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, -1, -1));
 
         jLabel68.setForeground(new java.awt.Color(255, 255, 255));
         jLabel68.setText("Eliminar");
@@ -1718,16 +1717,16 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel68MouseClicked(evt);
             }
         });
-        jPanel_Forma_de_Pago.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 290, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, -1, -1));
 
         jLabel69.setForeground(new java.awt.Color(255, 255, 255));
         jLabel69.setText("Buscar");
-        jPanel_Forma_de_Pago.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, -1, -1));
+        jPanel_Forma_de_Pago.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, -1, -1));
 
         jTextField_TipoPago.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_TipoPago.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_TipoPago.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_Forma_de_Pago.add(jTextField_TipoPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 120, -1));
+        jPanel_Forma_de_Pago.add(jTextField_TipoPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 120, -1));
 
         tbl_FormaPago.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1756,7 +1755,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         jScrollPane43.setViewportView(tbl_FormaPago);
 
-        jPanel_Forma_de_Pago.add(jScrollPane43, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 620, 170));
+        jPanel_Forma_de_Pago.add(jScrollPane43, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 620, 170));
 
         getContentPane().add(jPanel_Forma_de_Pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
@@ -2099,14 +2098,6 @@ public class Bancos extends javax.swing.JFrame {
         jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
         JPanel_MantenimientoMovimientoBanEn.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, -1, -1));
 
-        jComboBox_TablasCB1.setBackground(new java.awt.Color(40, 41, 46));
-        jComboBox_TablasCB1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_TablasCB1ActionPerformed(evt);
-            }
-        });
-        JPanel_MantenimientoMovimientoBanEn.add(jComboBox_TablasCB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, 170, -1));
-
         jLabel53.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel53.setForeground(new java.awt.Color(255, 255, 255));
         jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2355,23 +2346,6 @@ public class Bancos extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
         jPanel_MantenimientoCB.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, -1, -1));
 
-        jComboBox_TablasCB.setBackground(new java.awt.Color(40, 41, 46));
-        jComboBox_TablasCB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_TablasCBActionPerformed(evt);
-            }
-        });
-        jPanel_MantenimientoCB.add(jComboBox_TablasCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 500, 170, -1));
-
-        jLabel_Buscar_Tablas_CB.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_Buscar_Tablas_CB.setText("Buscar");
-        jLabel_Buscar_Tablas_CB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel_Buscar_Tablas_CBMouseClicked(evt);
-            }
-        });
-        jPanel_MantenimientoCB.add(jLabel_Buscar_Tablas_CB, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 530, -1, -1));
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2442,12 +2416,12 @@ public class Bancos extends javax.swing.JFrame {
         jPanel_Mantenimiento_DocB.add(txt_afec, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 104, -1));
 
         jLabel50.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel50.setText("ESTADO CONCEPTO");
+        jLabel50.setText("ESTADO DOCUMENTO");
         jPanel_Mantenimiento_DocB.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 270, -1, -1));
 
         txt_estd.setBackground(new java.awt.Color(40, 41, 46));
         txt_estd.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel_Mantenimiento_DocB.add(txt_estd, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 290, 120, -1));
+        jPanel_Mantenimiento_DocB.add(txt_estd, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 290, 120, -1));
 
         tbl_Doc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2606,41 +2580,41 @@ public class Bancos extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("ID Cuenta");
-        Panel_CuentaContable.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 63, -1));
+        Panel_CuentaContable.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 63, -1));
 
         jTextField_IDCuenta.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_IDCuenta.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_IDCuenta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Panel_CuentaContable.add(jTextField_IDCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 110, -1));
+        Panel_CuentaContable.add(jTextField_IDCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 110, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Nombre Cuenta");
-        Panel_CuentaContable.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, -1, -1));
+        Panel_CuentaContable.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, -1, -1));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Tipo Cuenta");
-        Panel_CuentaContable.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, -1, -1));
+        Panel_CuentaContable.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, -1, -1));
 
         jTextField_NombreCuenta.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_NombreCuenta.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_NombreCuenta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Panel_CuentaContable.add(jTextField_NombreCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, 139, -1));
+        Panel_CuentaContable.add(jTextField_NombreCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 139, -1));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("ID Clasificacion");
-        Panel_CuentaContable.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 310, -1, -1));
+        Panel_CuentaContable.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, -1, -1));
 
         jTextField_IDClasif.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_IDClasif.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_IDClasif.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Panel_CuentaContable.add(jTextField_IDClasif, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, 139, -1));
+        Panel_CuentaContable.add(jTextField_IDClasif, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 139, -1));
 
         jLabel_clasificacion.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_clasificacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Panel_CuentaContable.add(jLabel_clasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 340, 40, 20));
+        Panel_CuentaContable.add(jLabel_clasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 340, 40, 20));
 
         jComboBoxIDClasificacion.setBackground(new java.awt.Color(40, 41, 46));
         jComboBoxIDClasificacion.setForeground(new java.awt.Color(153, 153, 153));
@@ -2655,47 +2629,47 @@ public class Bancos extends javax.swing.JFrame {
                 jComboBoxIDClasificacionActionPerformed(evt);
             }
         });
-        Panel_CuentaContable.add(jComboBoxIDClasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 340, 120, -1));
+        Panel_CuentaContable.add(jComboBoxIDClasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 340, 120, -1));
 
         jTextField_SaldoA.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_SaldoA.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_SaldoA.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Panel_CuentaContable.add(jTextField_SaldoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 110, -1));
+        Panel_CuentaContable.add(jTextField_SaldoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 110, -1));
 
         jLabel_SaldoA.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_SaldoA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_SaldoA.setText("Saldo Anterior");
-        Panel_CuentaContable.add(jLabel_SaldoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 80, -1));
+        Panel_CuentaContable.add(jLabel_SaldoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 80, -1));
 
         jLabel_Ca.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_Ca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_Ca.setText("Cargos Acumulados");
-        Panel_CuentaContable.add(jLabel_Ca, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, -1, -1));
+        Panel_CuentaContable.add(jLabel_Ca, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, -1, -1));
 
         jTextField_CargosA.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_CargosA.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_CargosA.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Panel_CuentaContable.add(jTextField_CargosA, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, 130, -1));
+        Panel_CuentaContable.add(jTextField_CargosA, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 130, -1));
 
         jLabel_AC.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_AC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_AC.setText("Abonos Acumulados");
-        Panel_CuentaContable.add(jLabel_AC, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 400, 110, -1));
+        Panel_CuentaContable.add(jLabel_AC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 110, -1));
 
         jTextField_AbonosA.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_AbonosA.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_AbonosA.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Panel_CuentaContable.add(jTextField_AbonosA, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 430, 130, -1));
+        Panel_CuentaContable.add(jTextField_AbonosA, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, 130, -1));
 
         jLabel_SA.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_SA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_SA.setText("Saldo Actual");
-        Panel_CuentaContable.add(jLabel_SA, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 400, 100, -1));
+        Panel_CuentaContable.add(jLabel_SA, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, 100, -1));
 
         jTextField_SaldoActual.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_SaldoActual.setForeground(new java.awt.Color(153, 153, 153));
         jTextField_SaldoActual.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Panel_CuentaContable.add(jTextField_SaldoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 430, 130, -1));
+        Panel_CuentaContable.add(jTextField_SaldoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 430, 130, -1));
 
         jTextField_Buscar.setBackground(new java.awt.Color(40, 41, 46));
         jTextField_Buscar.setForeground(new java.awt.Color(153, 153, 153));
@@ -2705,12 +2679,12 @@ public class Bancos extends javax.swing.JFrame {
                 jTextField_BuscarKeyReleased(evt);
             }
         });
-        Panel_CuentaContable.add(jTextField_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 300, -1));
+        Panel_CuentaContable.add(jTextField_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 520, 300, -1));
 
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("Descripcion Cuenta");
-        Panel_CuentaContable.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 400, 110, -1));
+        Panel_CuentaContable.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 400, 110, -1));
 
         jTextArea_Descripcion.setBackground(new java.awt.Color(40, 41, 46));
         jTextArea_Descripcion.setColumns(20);
@@ -2720,12 +2694,12 @@ public class Bancos extends javax.swing.JFrame {
         jTextArea_Descripcion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jScrollPane1.setViewportView(jTextArea_Descripcion);
 
-        Panel_CuentaContable.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 430, 220, 90));
+        Panel_CuentaContable.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 430, 220, 90));
 
         jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel45.setText("Buscar");
-        Panel_CuentaContable.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 520, 60, 20));
+        Panel_CuentaContable.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, 60, 20));
 
         jLabel_IngresarCC.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_IngresarCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Ingresar_D.png"))); // NOI18N
@@ -2734,7 +2708,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_IngresarCCMouseClicked(evt);
             }
         });
-        Panel_CuentaContable.add(jLabel_IngresarCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 510, 50, 50));
+        Panel_CuentaContable.add(jLabel_IngresarCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 510, 50, 50));
 
         jLabel_ModificarCC.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_ModificarCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Modificar_D.png"))); // NOI18N
@@ -2743,7 +2717,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_ModificarCCMouseClicked(evt);
             }
         });
-        Panel_CuentaContable.add(jLabel_ModificarCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 510, 50, 50));
+        Panel_CuentaContable.add(jLabel_ModificarCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 510, 50, 50));
 
         jLabel_EliminarCC.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_EliminarCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Eliminar_D.png"))); // NOI18N
@@ -2752,7 +2726,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel_EliminarCCMouseClicked(evt);
             }
         });
-        Panel_CuentaContable.add(jLabel_EliminarCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 510, 50, 50));
+        Panel_CuentaContable.add(jLabel_EliminarCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 510, 50, 50));
 
         tbl_CuentaContable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2781,10 +2755,10 @@ public class Bancos extends javax.swing.JFrame {
         });
         jScrollPane40.setViewportView(tbl_CuentaContable);
 
-        Panel_CuentaContable.add(jScrollPane40, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 1070, 170));
+        Panel_CuentaContable.add(jScrollPane40, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 1070, 170));
 
         jLabel_TituloCC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Cuenta Contable.png"))); // NOI18N
-        Panel_CuentaContable.add(jLabel_TituloCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 400, 120));
+        Panel_CuentaContable.add(jLabel_TituloCC, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 400, 120));
 
         Panel_Ingresar_CC.setBackground(new java.awt.Color(28, 27, 33));
         Panel_Ingresar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2805,7 +2779,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_Ingresar_CC.add(Texto_Ingresar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
 
-        Panel_CuentaContable.add(Panel_Ingresar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 130, 50));
+        Panel_CuentaContable.add(Panel_Ingresar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 130, 50));
 
         Panel_Modificar_CC.setBackground(new java.awt.Color(28, 27, 33));
         Panel_Modificar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2829,7 +2803,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_Modificar_CC.add(Texto_Modificar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 15, -1, -1));
 
-        Panel_CuentaContable.add(Panel_Modificar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 130, 50));
+        Panel_CuentaContable.add(Panel_Modificar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 130, 50));
 
         Panel_Eliminar_CC.setBackground(new java.awt.Color(28, 27, 33));
         Panel_Eliminar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2850,7 +2824,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_Eliminar_CC.add(Texto_Eliminar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 15, -1, -1));
 
-        Panel_CuentaContable.add(Panel_Eliminar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 200, 130, 50));
+        Panel_CuentaContable.add(Panel_Eliminar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 130, 50));
 
         Panel_Consultar_CC.setBackground(new java.awt.Color(28, 27, 33));
         Panel_Consultar_CC.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2871,10 +2845,10 @@ public class Bancos extends javax.swing.JFrame {
         });
         Panel_Consultar_CC.add(Texto_Consultar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 15, -1, -1));
 
-        Panel_CuentaContable.add(Panel_Consultar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 200, 130, 50));
+        Panel_CuentaContable.add(Panel_Consultar_CC, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 200, 130, 50));
 
         jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
-        Panel_CuentaContable.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, -1, -1));
+        Panel_CuentaContable.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -2885,7 +2859,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel10MouseClicked(evt);
             }
         });
-        Panel_CuentaContable.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 240, -1, -1));
+        Panel_CuentaContable.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 240, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -2896,7 +2870,7 @@ public class Bancos extends javax.swing.JFrame {
                 jLabel11MouseClicked(evt);
             }
         });
-        Panel_CuentaContable.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 270, -1, -1));
+        Panel_CuentaContable.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 270, -1, -1));
 
         jButton_PDF.setText("Generar PDF");
         jButton_PDF.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -2905,7 +2879,7 @@ public class Bancos extends javax.swing.JFrame {
                 jButton_PDFMouseClicked(evt);
             }
         });
-        Panel_CuentaContable.add(jButton_PDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 310, 110, -1));
+        Panel_CuentaContable.add(jButton_PDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 310, 110, -1));
 
         getContentPane().add(Panel_CuentaContable, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
@@ -3268,6 +3242,7 @@ public class Bancos extends javax.swing.JFrame {
         getContentPane().add(jPanel_MantenimientoMoneda, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, -1));
 
         jPanel_BG.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_BG.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_BG.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jPanel_BGMouseMoved(evt);
@@ -3448,11 +3423,11 @@ public class Bancos extends javax.swing.JFrame {
 
         Slide_Derecho.add(Panel_Text_Conta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, 40));
 
-        Slide.add(Slide_Derecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 790));
+        Slide.add(Slide_Derecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 900));
 
-        Panel_IzquierdoC.add(Slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 790));
+        Panel_IzquierdoC.add(Slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 900));
 
-        jPanel_BG.add(Panel_IzquierdoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, -1));
+        jPanel_BG.add(Panel_IzquierdoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 900));
 
         jLabel_Titulo.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel_Titulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -3477,7 +3452,7 @@ public class Bancos extends javax.swing.JFrame {
         });
         esquis.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, -1, -1));
 
-        jPanel_BG.add(esquis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1460, 0, 40, 30));
+        jPanel_BG.add(esquis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 0, 40, 30));
 
         ExpLDB.setBackground(new java.awt.Color(28, 27, 33));
         ExpLDB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -4130,7 +4105,7 @@ public class Bancos extends javax.swing.JFrame {
 
         jPanel_BG.add(CVB, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 220, 180));
 
-        getContentPane().add(jPanel_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 790));
+        getContentPane().add(jPanel_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1880, 900));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -4608,21 +4583,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_ConsultarCBMouseClicked
 
-    private void jComboBox_TablasCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_TablasCBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox_TablasCBActionPerformed
-
-    private void jLabel_Buscar_Tablas_CBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Buscar_Tablas_CBMouseClicked
-        // TODO add your handling code here:
-
-        /* Item_DPI = jComboBox_TablasCB.getSelectedItem().toString();
-
-        if (Item_DPI == S_DPI) {
-            Curriculum_V CV = new Curriculum_V();
-            CV.setVisible(true);
-        }*/
-    }//GEN-LAST:event_jLabel_Buscar_Tablas_CBMouseClicked
-
     private void txt_Nombre_ConceptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Nombre_ConceptoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_Nombre_ConceptoActionPerformed
@@ -4732,10 +4692,6 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Panel_ConsultarMBENMouseClicked
 
-    private void jComboBox_TablasCB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_TablasCB1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox_TablasCB1ActionPerformed
-
     private void txt_DescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_DescripcionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_DescripcionActionPerformed
@@ -4755,12 +4711,14 @@ public class Bancos extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         Movimiento_Bancario_Detalle MovDet = new Movimiento_Bancario_Detalle(jLabel_IDEnc, jLabel_codigoConcepto, jTextField_Saldo, jTextField_tipoSaldo, jTextField_BuscarMov, tbl_MovBancDet);
-        int Seleccion = tbl_MovimientoBanEn.rowAtPoint(evt.getPoint());
+        
+        int Seleccion = tbl_MovBancDet.rowAtPoint(evt.getPoint());
 
         jLabel_IDEnc.setText(String.valueOf(tbl_MovBancDet.getValueAt(Seleccion, 0)));
         jLabel_codigoConcepto.setText(String.valueOf(tbl_MovBancDet.getValueAt(Seleccion, 1)));
         jTextField_Saldo.setText(String.valueOf(tbl_MovBancDet.getValueAt(Seleccion, 2)));
-        jTextField_tipoSaldo.setText(String.valueOf(tbl_MovBancDet.getValueAt(Seleccion, 3)));
+        jTextField_tipoSaldo.setText(String.valueOf(tbl_MovBancDet.getValueAt(Seleccion, 2)));
+        
         MovDet.BuscarFila_Mov("id_movEnc", "mov_bancEnc", "id_movEnc", jComboBox_Encabezado, jLabel_IDEnc);
         MovDet.BuscarFila_Mov("nombre_concepto", "concepto_bancario", "codigo_concepto", jComboBox_codigoC, jLabel_codigoConcepto);
 
@@ -5196,7 +5154,7 @@ public class Bancos extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
-        Consulta_Saldos consulta = new Consulta_Saldos(tbl_ConsultaDet, tbl_ConsultaEnc, tbl_CuentaContable);
+        Consulta_Saldos consulta = new Consulta_Saldos(tbl_ConsultaDet, tbl_ConsultaEnc);
         consulta.Actualizar_Tabla_DET();
         consulta.Actualizar_Tabla_ENC();
         consulta.Buscar_Saldo_Actual();
@@ -5209,7 +5167,7 @@ public class Bancos extends javax.swing.JFrame {
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
-        Consulta_Saldos consulta = new Consulta_Saldos(tbl_ConsultaDet, tbl_ConsultaEnc, tbl_CuentaContable);
+        Consulta_Saldos consulta = new Consulta_Saldos(tbl_ConsultaDet, tbl_ConsultaEnc);
         consulta.Saldo_Anterior();
 
         Cuenta_Contable cuenta_c = new Cuenta_Contable(jTextField_IDCuenta, jTextField_NombreCuenta, jTextField_IDClasif, jLabel_clasificacion, jTextField_SaldoA, jTextField_CargosA, jTextField_AbonosA, jTextField_SaldoActual, jTextArea_Descripcion, jTextField_Buscar, tbl_CuentaContable);
@@ -6642,6 +6600,7 @@ public class Bancos extends javax.swing.JFrame {
         CVB.setVisible(false);
         AplicacionB.setVisible(false);
         TPB.setVisible(false);
+        icon_Moneda.setVisible(false);
 
         //Panel_Bancos.setVisible(false);
         Panel_CuentaContable.setVisible(true);
@@ -7167,10 +7126,12 @@ public class Bancos extends javax.swing.JFrame {
 
         //Panel_Bancos.setVisible(false);
         jPanel_ConsultaBancos_Saldos.setVisible(true);
-
-        Consulta_Saldos consulta = new Consulta_Saldos(tbl_ConsultaDet, tbl_ConsultaEnc, tbl_CuentaContable);
+        
+        
+        Consulta_Saldos consulta = new Consulta_Saldos(tbl_ConsultaDet1, tbl_ConsultaEnc1);
         consulta.Actualizar_Tabla_DET();
         consulta.Actualizar_Tabla_ENC();
+        
     }//GEN-LAST:event_icon_consultasMouseClicked
 
     private void icon_consultasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_consultasMouseExited
@@ -7297,7 +7258,7 @@ public class Bancos extends javax.swing.JFrame {
 
     private void jButton_GenerarPDF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GenerarPDF1ActionPerformed
         // TODO add your handling code here:
-
+        
         String path = "";
         JFileChooser j = new JFileChooser();
         j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -7309,27 +7270,28 @@ public class Bancos extends javax.swing.JFrame {
 
         Document doc = new Document();
 
+
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
-
+            
             doc.open();
-
+            
             Paragraph inicio= new Paragraph("RESUMEN", FontFactory.getFont("Arial", 14 , Font.BOLD));
             inicio.setAlignment(Element.ALIGN_LEFT);
             doc.add(inicio);
             doc.add(new Paragraph(""));
-
+            
             /*Titulo*/
             Paragraph p= new Paragraph(" \n\n Saldo por Cuenta \n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
             p.setAlignment(Element.ALIGN_CENTER);
             doc.add(p);
             doc.add(new Paragraph(""));
-
+            
             float [] celdas= {7.00f, 7.00f, 7.00f, 10.00f,10.00f,10.00f,7.00f};
-
+            
             PdfPTable tb1= new PdfPTable(7); //cantidad de columnas
             tb1.setWidths(celdas);
-
+            
             //agregando encabezado
             int val=7;
             tb1.addCell(new Paragraph("ID", FontFactory.getFont("Arial", val)));
@@ -7339,19 +7301,24 @@ public class Bancos extends javax.swing.JFrame {
             tb1.addCell(new Paragraph ("Saldo Deudor", FontFactory.getFont("Arial", val)));
             tb1.addCell(new Paragraph ("Saldo Acreedor", FontFactory.getFont("Arial", val)));
             tb1.addCell(new Paragraph ("Saldo Resultante", FontFactory.getFont("Arial", val)));
-
-            for (int i = 0; i < tbl_ConsultaDet.getRowCount(); i++) {
-
-                String ID_C =(String) tbl_ConsultaDet.getValueAt(i, 0); // columna inicial
-                String Nombre = (String) tbl_ConsultaDet.getValueAt(i, 1);
-                String Tipo= (String) tbl_ConsultaDet.getValueAt(i, 2);
-                String Clasificacion = (String) tbl_ConsultaDet.getValueAt(i, 3);
-                String Saldo_D= (String) tbl_ConsultaDet.getValueAt(i, 4);
-                String Saldo_A = (String) tbl_ConsultaDet.getValueAt(i, 5);
-                String saldo_R= (String) tbl_ConsultaDet.getValueAt(i, 6);
-
+            
+            
+            
+            
+            for (int i = 0; i < tbl_ConsultaDet1.getRowCount(); i++) {
+                
+                String ID_C =(String) tbl_ConsultaDet1.getValueAt(i, 0); // columna inicial
+                String Nombre = (String) tbl_ConsultaDet1.getValueAt(i, 1); 
+                String Tipo= (String) tbl_ConsultaDet1.getValueAt(i, 2);
+                String Clasificacion = (String) tbl_ConsultaDet1.getValueAt(i, 3); 
+                String Saldo_D= (String) tbl_ConsultaDet1.getValueAt(i, 4);
+                String Saldo_A = (String) tbl_ConsultaDet1.getValueAt(i, 5); 
+                String saldo_R= (String) tbl_ConsultaDet1.getValueAt(i, 6);
+                
+                
+                
                 //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
-
+                
                 int valor =8;
                 tb1.addCell(new Paragraph(ID_C, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
                 tb1.addCell(new Paragraph(Nombre, FontFactory.getFont("Arial", valor)));
@@ -7360,61 +7327,70 @@ public class Bancos extends javax.swing.JFrame {
                 tb1.addCell(new Paragraph(Saldo_D, FontFactory.getFont("Arial", valor)));
                 tb1.addCell(new Paragraph(Saldo_A, FontFactory.getFont("Arial", valor)));
                 tb1.addCell(new Paragraph(saldo_R, FontFactory.getFont("Arial", valor)));
-
+                
             }
-
+            
             doc.add(tb1);
-
+            
         } catch (FileNotFoundException ex) {
             //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DocumentException ex) {
             //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        
+        
         //otra tabla
-
+        
         try {
             //PdfWriter.getInstance(doc, new FileOutputStream(path + ".pdf"));
-
+            
             //doc.open();
-
+            
             /*Titulo*/
             Paragraph p1= new Paragraph(" \n \n Saldo General \n \n", FontFactory.getFont("Arial", 14 , Font.BOLD));
             p1.setAlignment(Element.ALIGN_CENTER);
             doc.add(p1);
             doc.add(new Paragraph(""));
-
+            
             float [] celdas_2= {5.00f, 5.00f};
-
+            
             PdfPTable tb2= new PdfPTable(2); //cantidad de columnas
             tb2.setWidths(celdas_2);
-
+            
             //agregando encabezado
             int val=8; //letra
             tb2.addCell(new Paragraph("Tipo Cuenta", FontFactory.getFont("Arial", val)));
             tb2.addCell(new Paragraph ("Total Cuenta", FontFactory.getFont("Arial", val)));
+            
 
-            for (int i = 0; i < tbl_ConsultaEnc.getRowCount(); i++) {
-
-                String Tipo_cuenta =(String) tbl_ConsultaEnc.getValueAt(i, 0); // columna inicial
-                String total = (String) tbl_ConsultaEnc.getValueAt(i, 1);
-
+            
+            for (int i = 0; i < tbl_ConsultaEnc1.getRowCount(); i++) {
+                
+                String Tipo_cuenta =(String) tbl_ConsultaEnc1.getValueAt(i, 0); // columna inicial
+                String total = (String) tbl_ConsultaEnc1.getValueAt(i, 1); 
+                
+                
                 //tb1.addCell(new Paragraph("Codigo", FontFactory.getFont("Arial", 10)));
-
+                
                 int valor =7;
                 tb2.addCell(new Paragraph(Tipo_cuenta, FontFactory.getFont("Arial", valor))); // agregando lo que tiene el string en la posicion de la tabla
                 tb2.addCell(new Paragraph(total, FontFactory.getFont("Arial", valor)));
-
+                
             }
-
+            
             doc.add(tb2);
-
+            
         } //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
         catch (DocumentException ex) {
             //Logger.getLogger(PDF.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
+        
+        
+        
         doc.close();
+       
     }//GEN-LAST:event_jButton_GenerarPDF1ActionPerformed
 
     private void tbl_ConsultaEnc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ConsultaEnc1MouseClicked
@@ -7477,6 +7453,518 @@ public class Bancos extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Bancos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -8201,8 +8689,6 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_Encabezado;
     private javax.swing.JComboBox<String> jComboBox_Nombre_Cuenta;
     private javax.swing.JComboBox<String> jComboBox_Nombre_Movimiento;
-    private javax.swing.JComboBox<String> jComboBox_TablasCB;
-    private javax.swing.JComboBox<String> jComboBox_TablasCB1;
     private javax.swing.JComboBox<String> jComboBox_codigoC;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -8288,7 +8774,6 @@ public class Bancos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_AC;
     private javax.swing.JLabel jLabel_BuscarAP;
     private javax.swing.JLabel jLabel_BuscarMBEN;
-    private javax.swing.JLabel jLabel_Buscar_Tablas_CB;
     private javax.swing.JLabel jLabel_CC;
     private javax.swing.JLabel jLabel_Ca;
     private javax.swing.JLabel jLabel_CodigoConcepto;

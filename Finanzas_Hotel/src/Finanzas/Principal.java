@@ -4692,6 +4692,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jPanel_MantenimientoExpL, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1080, 700));
 
         jPanel_MantenimientoExpLD.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_MantenimientoExpLD.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_MantenimientoExpLD.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_ID_ExpLD.setForeground(new java.awt.Color(255, 255, 255));
@@ -4909,7 +4910,7 @@ public class Principal extends javax.swing.JFrame {
         icono_Buscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Buscar_D.png"))); // NOI18N
         jPanel_MantenimientoExpLD.add(icono_Buscar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 20, 20));
 
-        getContentPane().add(jPanel_MantenimientoExpLD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 670, 780));
+        getContentPane().add(jPanel_MantenimientoExpLD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1880, 900));
 
         jPanel_MantenimientoNA.setBackground(new java.awt.Color(28, 27, 33));
         jPanel_MantenimientoNA.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -5520,6 +5521,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jPanel_MantenimientosP, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1140, 710));
 
         jPanel_BG.setBackground(new java.awt.Color(28, 27, 33));
+        jPanel_BG.setPreferredSize(new java.awt.Dimension(1880, 900));
         jPanel_BG.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jPanel_BGMouseMoved(evt);
@@ -5705,11 +5707,11 @@ public class Principal extends javax.swing.JFrame {
 
         Slide_Derecho.add(Panel_Text_Conta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 140, 40));
 
-        Slide.add(Slide_Derecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 790));
+        Slide.add(Slide_Derecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 140, 900));
 
-        Panel_IzquierdoC.add(Slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 790));
+        Panel_IzquierdoC.add(Slide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 900));
 
-        jPanel_BG.add(Panel_IzquierdoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, -1));
+        jPanel_BG.add(Panel_IzquierdoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 900));
 
         jLabel_Titulo.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel_Titulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -5743,9 +5745,9 @@ public class Principal extends javax.swing.JFrame {
         });
         esquis.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, -1, -1));
 
-        jPanel_Bienvenido.add(esquis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 0, 40, 30));
+        jPanel_Bienvenido.add(esquis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 0, 40, 30));
 
-        jPanel_BG.add(jPanel_Bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 790));
+        jPanel_BG.add(jPanel_Bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1880, 900));
 
         ExpLD.setBackground(new java.awt.Color(28, 27, 33));
         ExpLD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -6192,6 +6194,9 @@ public class Principal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 icon_ExpLMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                icon_ExpLMouseEntered(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 icon_ExpLMouseExited(evt);
             }
@@ -6430,7 +6435,7 @@ public class Principal extends javax.swing.JFrame {
                 jLabel_Flecha_Iz1MouseExited(evt);
             }
         });
-        jPanel_BG.add(jLabel_Flecha_Iz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 390, 30, 30));
+        jPanel_BG.add(jLabel_Flecha_Iz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2000, 390, 30, 30));
 
         esquis1.setBackground(new java.awt.Color(232, 16, 34));
         esquis1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -6450,11 +6455,11 @@ public class Principal extends javax.swing.JFrame {
         });
         esquis1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, -1, -1));
 
-        jPanel_BG.add(esquis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 0, 40, 30));
+        jPanel_BG.add(esquis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1500, 0, 40, 30));
 
-        getContentPane().add(jPanel_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 790));
+        getContentPane().add(jPanel_BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1880, 900));
 
-        setSize(new java.awt.Dimension(1410, 809));
+        setSize(new java.awt.Dimension(1880, 900));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -8296,7 +8301,7 @@ public class Principal extends javax.swing.JFrame {
         Actividad_Empleado AE = new Actividad_Empleado(jLabel_AE_ECC, jLabel_Actividad_AEE, txt_BuscarAE, tbl_AE);
         cantidad_AE += AE.Cantidad_Registros();
 
-        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE);
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE, txt_id_EC);
         cantidad_BE += BE.Cantidad_Registros();
 
         Cant_R2.setText("" + cantidad_D);
@@ -8630,7 +8635,7 @@ public class Principal extends javax.swing.JFrame {
         Actividad_Empleado AE = new Actividad_Empleado(jLabel_AE_ECC, jLabel_Actividad_AEE, txt_BuscarAE, tbl_AE);
         cantidad_AE += AE.Cantidad_Registros();
 
-        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE);
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE, txt_id_EC);
         cantidad_BE += BE.Cantidad_Registros();
 
         Cant_R2.setText("" + cantidad_D);
@@ -8723,8 +8728,15 @@ public class Principal extends javax.swing.JFrame {
         CV.setVisible(false);
         Aplicacion.setVisible(false);
         TP.setVisible(false);
+        ExpLD1.setVisible(false);
+        Departamento1.setVisible(false);
+        Puesto1.setVisible(false);
+        Nivel_Academico2.setVisible(false);
+        
+        
         jLabel_Felcha2.setVisible(false);
         jLabel_Flecha_Iz1.setVisible(false);
+        
 
         jPanel_MantenimientoExpLD.setVisible(true);
 
@@ -9222,6 +9234,7 @@ public class Principal extends javax.swing.JFrame {
         if (jComboBox_TablasB_ExpL.getItemCount() == 0) {
             jComboBox_TablasB_ExpL.addItem(S_PeriodoP);
         }
+        
 
         Experiencia_Laboral ExpL = new Experiencia_Laboral(txt_id_ExpL, jLabel_id_Nombre_EpLLD, txt_Buscar_ExpL, tbl_ExpL);
         ExpL.Encontrar_ListaExpLD("explab_detallado", "nombre_tipo", jComboBox_Nombre_EpLLD);
@@ -9525,7 +9538,7 @@ public class Principal extends javax.swing.JFrame {
         AnimationClass ani = new AnimationClass();
 
         //Flecha a la Derecha
-        ani.jLabelXRight(jLabel_Felcha2.getX(), 1500, 2, 1, jLabel_Felcha2);
+        ani.jLabelXRight(jLabel_Felcha2.getX(), 2000, 2, 1, jLabel_Felcha2);
         ani.jLabelXLeft(jLabel_Flecha_Iz1.getX(), 1270, 2, 1, jLabel_Flecha_Iz1);
 
         //Departamento
@@ -9645,7 +9658,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         AnimationClass ani = new AnimationClass();
-        ani.jLabelXRight(jLabel_Flecha_Iz1.getX(), 1500, 2, 1, jLabel_Flecha_Iz1);
+        ani.jLabelXRight(jLabel_Flecha_Iz1.getX(), 2000, 2, 1, jLabel_Flecha_Iz1);
         jLabel_Felcha2.setVisible(true);
         jLabel_Felcha2.setEnabled(true);
         ani.jLabelXLeft(jLabel_Felcha2.getX(), 1270, 2, 1, jLabel_Felcha2);
@@ -10134,8 +10147,8 @@ public class Principal extends javax.swing.JFrame {
         empleado.Insertar_PP();
 
         // BITACORA APARTADO
-//        Bitacora_Empleado BE= new Bitacora_Empleado(jTextField_Encontraid,txt_Buscar_BE,tbl_BE);
-//        BE.Insertar_BE();
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE, txt_id_EC);
+        BE.Insertar_BE();
     }//GEN-LAST:event_jLabel_IngresarECMouseClicked
 
     private void jLabel_Modificar_ECMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Modificar_ECMouseClicked
@@ -10457,7 +10470,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jLabel_Buscar_BEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Buscar_BEMouseClicked
         // TODO add your handling code here:
-        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE);
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE, txt_id_EC);
         BE.buscarBit();
     }//GEN-LAST:event_jLabel_Buscar_BEMouseClicked
 
@@ -10467,7 +10480,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void txt_Buscar_BEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_Buscar_BEKeyReleased
         // TODO add your handling code here:
-        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE);
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE, txt_id_EC);
         BE.actualizarBit();
 
 
@@ -10547,7 +10560,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel_MantenimientoBE.setVisible(true);
 
-        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE);
+        Bitacora_Empleado BE = new Bitacora_Empleado(tbl_BE, jTextField_Encontraid, txt_contra, txt_puesto, txt_depa, txt_peri, txt_selec, txt_ap, txt_idap, txt_dpi, txt_Buscar_BE, tbl_BE, txt_id_EC);
         BE.actualizarBit();
     }//GEN-LAST:event_icon_BEMouseClicked
 
@@ -10598,6 +10611,10 @@ public class Principal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_esquis1MouseClicked
 
+    private void icon_ExpLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_ExpLMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_icon_ExpLMouseEntered
+
     int posYA1 = 0;
 
     public void setColor_PanelI(JPanel Panel_Icono) {
@@ -10633,6 +10650,70 @@ public class Principal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

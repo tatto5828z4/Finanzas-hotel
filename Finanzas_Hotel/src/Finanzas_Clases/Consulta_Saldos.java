@@ -19,15 +19,14 @@ public class Consulta_Saldos {
     //Atributos
     JTable consulta_Det;
     JTable consulta_Enc;
-    JTable tabla_cuenta;
 
-    public Consulta_Saldos(JTable consulta_Det, JTable consulta_Enc, JTable tabla_cuenta) {
+
+    public Consulta_Saldos(JTable consulta_Det, JTable consulta_Enc) {
         this.consulta_Det = consulta_Det;
         this.consulta_Enc = consulta_Enc;
-        this.tabla_cuenta = tabla_cuenta;
     }
 
-    
+
 
     public void Actualizar_Tabla_DET() {
         // int cantidad = Cantidad_Registros();

@@ -311,11 +311,15 @@ public class Curriculum {
         
             //id_ExpLD.addItem("Seleccione Experiencia Laboral");
 
-            while(rs.next()) {
+            if (boxNombre.getItemCount() == 0){
+                
+                while(rs.next()) {
                 
                 boxNombre.addItem(rs.getString(nombre));
                 //idL_ExpLD.setText(rs.getString("id_tipoexp"));
-            } 
+            }
+            }
+             
 
         } catch (Exception e) {
             System.out.println(e);
