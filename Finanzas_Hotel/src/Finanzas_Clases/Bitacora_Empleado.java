@@ -36,8 +36,9 @@ public class Bitacora_Empleado
     JTextField txt_dpi;
     JTextField txt_Buscar_BE;
     JTable tbl_BE;
-    
-    public Bitacora_Empleado(JTable tabla_BE,JTextField jTextField_Encontraid,JTextField txt_contra,JTextField txt_puesto,JTextField txt_depa,JTextField txt_peri,JTextField txt_selec,JTextField txt_ap,JTextField txt_idap,JTextField txt_dpi,JTextField txt_Buscar_BE,JTable tbl_BE) {
+    JTextField empleadoB;
+
+    public Bitacora_Empleado(JTable tabla_BE, JTextField jTextField_Encontraid, JTextField txt_contra, JTextField txt_puesto, JTextField txt_depa, JTextField txt_peri, JTextField txt_selec, JTextField txt_ap, JTextField txt_idap, JTextField txt_dpi, JTextField txt_Buscar_BE, JTable tbl_BE, JTextField empleadoB) {
         this.tabla_BE = tabla_BE;
         this.jTextField_Encontraid = jTextField_Encontraid;
         this.txt_contra = txt_contra;
@@ -48,9 +49,13 @@ public class Bitacora_Empleado
         this.txt_ap = txt_ap;
         this.txt_idap = txt_idap;
         this.txt_dpi = txt_dpi;
-        this. txt_Buscar_BE = txt_Buscar_BE;
+        this.txt_Buscar_BE = txt_Buscar_BE;
         this.tbl_BE = tbl_BE;
+        this.empleadoB = empleadoB;
     }
+    
+    
+   
 
     
     
@@ -139,9 +144,9 @@ public class Bitacora_Empleado
                 
     }
     
-    /*public void Insertar_BE()
+    public void Insertar_BE()
     {
-        JTextField empleadoB = Busqueda_IDEC();
+        empleadoB = Busqueda_IDEC();
         
         try
         {
@@ -161,10 +166,10 @@ public class Bitacora_Empleado
             System.out.println(e);
         }
         
-        id_empleadoB.setText(" ");
-    }*/
+//        id_empleadoB.setText(" ");
+    }
     
-    /*public JTextField Busqueda_IDEC()
+    public JTextField Busqueda_IDEC()
     {
         try
         {
@@ -176,7 +181,7 @@ public class Bitacora_Empleado
             
             while(rs.next())
             {
-                id_empleadoB.setText(rs.getString("id_empleado"));
+                empleadoB.setText(rs.getString("id_empleado"));
             }
             
             
@@ -186,9 +191,11 @@ public class Bitacora_Empleado
             System.out.println(e);
         }
         
-        return id_empleadoB;
+        return empleadoB;
 
-    }*/
+    }
+    
+    
     public void buscarBit()
     {
         String[] B_datos = new String [12];
